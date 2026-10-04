@@ -25,7 +25,7 @@
 <div class="foot">New track every day · Come back tomorrow · HARDLE</div>
 </main></div>
 <script>
-let tracks=[];
+let tracks=[];let searchTimer=null;
 const API='https://nehgghljfeoerhyewssd.supabase.co/functions/v1/hardle-api';
 const today=new Date(); function stockholmDateKey(){return new Intl.DateTimeFormat('sv-SE',{timeZone:'Europe/Stockholm',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date())} const dayKey=stockholmDateKey(); const dayNumber=Math.floor(Date.parse(dayKey+'T00:00:00Z')/86400000);
 let tries=0,finished=false;
@@ -43,12 +43,12 @@ async function addRow(text){if(finished)return;const q=text.trim().toLowerCase()
  tries++; document.getElementById('guessBtn').disabled=true;
  try{const res=await fetch(API+'/guess',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({track_id:chosen.id})});const data=await res.json();if(!res.ok)throw new Error(data.error||'Guess failed');const r=document.createElement('div');r.className='guessrow';r.dataset.track=chosen.id;const cls=v=>v===true?'good':v==='good'?'good':v==='close'?'close':'wrong';r.innerHTML=`<div class="cell ${cls(data.feedback.artist)}">${esc(chosen.artist)} – ${esc(chosen.title)}</div><div class="cell ${cls(data.feedback.year)}">${chosen.year}</div><div class="cell ${cls(data.feedback.genre)}">${esc(chosen.genre)}</div><div class="cell ${cls(data.feedback.label)}">${esc(chosen.label)}</div>`;rows.appendChild(r);input.value='';suggestions.style.display='none';
  if(data.correct){finished=true;saved.played++;saved.totalGuesses+=tries;const previousDay=new Date(Date.parse(dayKey+'T00:00:00Z')-86400000).toISOString().slice(0,10);saved.streak=saved.lastDay===previousDay?saved.streak+1:1;saved.lastDay=dayKey;localStorage.setItem('hardleStats',JSON.stringify(saved));updateStats();document.getElementById('tries').textContent=tries;document.getElementById('share').previousElementSibling.textContent=Array.from({length:tries-1},()=> '🟥').join('')+'🟩';result.classList.add('show');document.getElementById('hintText').textContent='Correct! Come back tomorrow for the next track.';input.disabled=true;}
- else if(tries>=6){finished=true;saved.played++;saved.totalGuesses+=6;saved.streak=0;saved.lastDay=dayKey;localStorage.setItem('hardleStats',JSON.stringify(saved));updateStats();result.classList.add('show');result.innerHTML='<strong>😈 No guesses left</strong><div>Today's track was the mystery track.</div><div class="share"><span class="sharecode">🟥🟥🟥🟥🟥🟥</span><button id="share">COPY RESULT</button></div>';input.disabled=true;document.getElementById('share').onclick=shareResult;document.getElementById('hintText').textContent='No guesses left. New track tomorrow.';}
+ else if(tries>=6){finished=true;saved.played++;saved.totalGuesses+=6;saved.streak=0;saved.lastDay=dayKey;localStorage.setItem('hardleStats',JSON.stringify(saved));updateStats();result.classList.add('show');result.innerHTML='<strong>😈 No guesses left</strong><div>Today\'s track was the mystery track.</div><div class="share"><span class="sharecode">🟥🟥🟥🟥🟥🟥</span><button id="share">COPY RESULT</button></div>';input.disabled=true;document.getElementById('share').onclick=shareResult;document.getElementById('hintText').textContent='No guesses left. New track tomorrow.';}
  }catch(e){tries--;alert('Kunde inte skicka gissningen. Försök igen')}document.getElementById('guessBtn').disabled=finished;
 }
 document.getElementById('guessBtn').onclick=()=>{if(input.value.trim())addRow(input.value.trim());};
 input.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();document.getElementById('guessBtn').click();} if(e.key==='Escape')suggestions.style.display='none'};
 async function shareResult(){const text=`HARDLE #${dayNumber+1} ${tries}/6`;try{await navigator.clipboard.writeText(text);document.getElementById('share').textContent='KOPIERAT!'}catch(e){document.getElementById('share').textContent=text}}
 document.getElementById('share').onclick=shareResult;
-fetch(API+'/daily',{cache:'no-store'}).then(r=>r.json()).then(data=>{tracks=data.tracks||[];if(!tracks.length)throw new Error('No tracks');}).catch(()=>{input.placeholder='Could not load tracks';document.getElementById('hintText').textContent='Game data could not load.'});
+fetch(API+'/daily',{cache:'no-store'}).then(r=>r.json()).then(data=>{tracks=data.tracks||[];if(!tracks.length)throw new Error('No tracks');if(input.value.trim())renderSuggestions();}).catch(()=>{input.placeholder='Could not load tracks';document.getElementById('hintText').textContent='Game data could not load.'});
 </script></body></html>
