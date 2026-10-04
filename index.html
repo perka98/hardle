@@ -27,7 +27,7 @@
 <script>
 let tracks=[];
 const API='https://nehgghljfeoerhyewssd.supabase.co/functions/v1/hardle-api';
-function stockholmDateKey(){return new Intl.DateTimeFormat('sv-SE',{timeZone:'Europe/Stockholm',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date())} const dayKey=stockholmDateKey(); const dayNumber=Math.floor(Date.parse(dayKey+'T00:00:00Z')/86400000);
+const today=new Date(); function stockholmDateKey(){return new Intl.DateTimeFormat('sv-SE',{timeZone:'Europe/Stockholm',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date())} const dayKey=stockholmDateKey(); const dayNumber=Math.floor(Date.parse(dayKey+'T00:00:00Z')/86400000);
 let tries=0,playing=false,finished=false,audioCtx=null,master=null,startedAt=0,raf=null,previewSeconds=1;
 const rows=document.getElementById('rows'),result=document.getElementById('result'),input=document.getElementById('guess'),suggestions=document.getElementById('suggestions');
 const saved=JSON.parse(localStorage.getItem('hardleStats')||'{}');
