@@ -25,7 +25,7 @@
 <div class="foot">New track every day · Come back tomorrow · HARDLE</div>
 </main></div>
 <script>
-let tracks=[];
+let tracks=[];let searchTimer=null;
 const API='https://nehgghljfeoerhyewssd.supabase.co/functions/v1/hardle-api';
 const today=new Date(); function stockholmDateKey(){return new Intl.DateTimeFormat('sv-SE',{timeZone:'Europe/Stockholm',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date())} const dayKey=stockholmDateKey(); const dayNumber=Math.floor(Date.parse(dayKey+'T00:00:00Z')/86400000);
 let tries=0,finished=false;
@@ -36,7 +36,7 @@ function updateStats(){document.getElementById('streak').textContent=saved.strea
 document.getElementById('day').textContent='DAILY #'+(dayNumber+1)+' · '+today.toLocaleDateString('en-US',{day:'numeric',month:'long',year:'numeric'});
 updateStats();
 function esc(s){return s.replace(/[&<>\"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-function renderSuggestions(){const q=input.value.trim().toLowerCase(); if(!q){suggestions.style.display='none';return} const hits=tracks.filter(t=>(t.artist+' '+t.title).toLowerCase().includes(q)).slice(0,5); suggestions.innerHTML=hits.map(t=>`<button type="button" data-value="${esc(t.artist+' – '+t.title)}" style="display:block;width:100%;text-align:left;border:0;border-bottom:1px solid var(--line);background:var(--panel);color:var(--text);padding:12px 14px;cursor:pointer"><b>${esc(t.title)}</b><br><small style="color:var(--muted)">${esc(t.artist)}</small></button>`).join(''); suggestions.style.display=hits.length?'block':'none'; suggestions.querySelectorAll('button').forEach(b=>b.onclick=()=>{input.value=b.dataset.value;suggestions.style.display='none';input.focus();});}
+async function renderSuggestions(){const q=input.value.trim();if(!q){suggestions.style.display='none';return}clearTimeout(searchTimer);searchTimer=setTimeout(async()=>{try{const res=await fetch(API+'/search?q='+encodeURIComponent(q),{cache:'no-store'});const data=await res.json();const hits=data.tracks||[];hits.forEach(t=>{if(!tracks.some(x=>x.id===t.id))tracks.push(t)});suggestions.innerHTML=hits.map(t=>`<button type="button" data-value="${esc(t.artist+' – '+t.title)}" style="display:block;width:100%;text-align:left;border:0;border-bottom:1px solid var(--line);background:var(--panel);color:var(--text);padding:12px 14px;cursor:pointer"><b>${esc(t.title)}</b><br><small style="color:var(--muted)">${esc(t.artist)}</small></button>`).join('');suggestions.style.display=hits.length?'block':'none';suggestions.querySelectorAll('button').forEach(b=>b.onclick=()=>{input.value=b.dataset.value;suggestions.style.display='none';input.focus();});}catch(e){suggestions.style.display='none'}},120);}
 input.oninput=renderSuggestions;
 document.addEventListener('click',e=>{if(!e.target.closest('.input'))suggestions.style.display='none'});
 async function addRow(text){if(finished)return;const q=text.trim().toLowerCase();const exact=tracks.find(t=>(t.artist+' – '+t.title).toLowerCase()===q);const titleHits=tracks.filter(t=>t.title.toLowerCase()===q);const chosen=exact|| (titleHits.length===1?titleHits[0]:null);if(!chosen){document.getElementById('hintText').textContent='Select a track from the suggestions.';return} if([...rows.children].some(r=>r.dataset.track===String(chosen.id)))return;
