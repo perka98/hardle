@@ -36,7 +36,7 @@ async function initSoundCloud(url){
     soundcloudWidget.bind(SC.Widget.Events.ERROR,()=>{if(!done){done=true;reject(new Error("SoundCloud player error"))}});
     setTimeout(()=>{if(!done){done=true;reject(new Error("SoundCloud player timeout"))}},10000);
   });
-  soundcloudWidget.bind(SC.Widget.Events.PLAY,()=>{soundcloudPlaying=true;playBtn.textContent="❚❚ Pause"});
+  soundcloudWidget.bind(SC.Widget.Events.PLAY,()=>{soundcloudPlaying=true;if(pendingClipStart!==null){const start=pendingClipStart;pendingClipStart=null;setTimeout(()=>{if(soundcloudWidget&&soundcloudPlaying)soundcloudWidget.seekTo(start);},50)}playBtn.textContent="❚❚ Pause"});
   soundcloudWidget.bind(SC.Widget.Events.PAUSE,()=>{soundcloudPlaying=false;playBtn.textContent="▶ Play"});
   soundcloudWidget.bind(SC.Widget.Events.FINISH,()=>{soundcloudPlaying=false;playBtn.textContent="▶ Play"});
   soundcloudWidget.setVolume(Number(volumeControl.value));
