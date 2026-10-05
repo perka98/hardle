@@ -48,9 +48,7 @@ function getClipStart(){
   const key=(target?.[0]||"")+(puzzleDate||"");
   let hash=0;
   for(let i=0;i<key.length;i++) hash=((hash<<5)-hash+key.charCodeAt(i))|0;
-  const maxStart=Math.max(20,Math.min(80,Math.floor((soundcloudDuration||120)-30)));
-  const range=Math.max(1,maxStart-20+1);
-  return 20+(Math.abs(hash)%range);
+  return 20+(Math.abs(hash)%61);
 }
 function currentClipLength(){return CLIP_LENGTHS[Math.min(guesses,CLIP_LENGTHS.length-1)]}
 function updateClipUI(){
