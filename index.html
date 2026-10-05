@@ -49,7 +49,6 @@ async function initSoundCloud(url){
     }
     playBtn.textContent="❚❚ Pause";
   });
-}});
   soundcloudWidget.bind(SC.Widget.Events.PAUSE,()=>{soundcloudPlaying=false;playBtn.textContent="▶ Play"});
   soundcloudWidget.bind(SC.Widget.Events.FINISH,()=>{soundcloudPlaying=false;playBtn.textContent="▶ Play"});
   soundcloudWidget.setVolume(Number(volumeControl.value));
