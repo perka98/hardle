@@ -3,33 +3,7 @@ export default async function handler(req, res) {
     const q = String(req.query?.q || '').trim();
     if (!q) return res.status(400).json({ error: 'Missing q' });
 
-    let clientId = process.env.SOUNDCLOUD_CLIENT_ID || '';
-    if (!clientId) {
-      const home = await fetch('https://soundcloud.com/', {
-        headers: { 'User-Agent': 'Mozilla/5.0' }
-      });
-      const html = await home.text();
-      const match = html.match(/client_id[:=]\s*["']([A-Za-z0-9_-]{20,})["']/i);
-      clientId = match?.[1] || '9jZvetLfDs6An08euQgJ0lYlHkKdGFzV';
-    }
-
-    const searchUrl =
-      'https://api-v2.soundcloud.com/search/tracks?q=' +
-      encodeURIComponent(q) +
-      '&client_id=' + encodeURIComponent(clientId) +
-      '&limit=10&offset=0&linked_partitioning=1';
-
-    const searchResponse = await fetch(searchUrl, {
-      headers: { 'User-Agent': 'Mozilla/5.0', Accept: 'application/json' }
-    });
-    if (!searchResponse.ok) {
-      return res.status(502).json({ error: 'SoundCloud search failed' });
-    }
-
-    const searchData = await searchResponse.json();
-    const collection = Array.isArray(searchData.collection) ? searchData.collection : [];
-    const candidates = collection.map(item => item.track || item).filter(Boolean);
-
+    const countries = ['se', 'us', 'gb', 'de', 'nl'];
     const normalize = value =>
       String(value || '')
         .toLowerCase()
@@ -38,65 +12,50 @@ export default async function handler(req, res) {
         .replace(/[^a-z0-9]+/g, ' ')
         .trim();
 
-    const parts = q.split(/\s+/).map(normalize).filter(Boolean);
-    const exact = candidates.find(t => {
-      const title = normalize(t.title);
-      const user = normalize(t.user?.username);
-      const artist = normalize(t.metadata_artist || '');
-      const haystack = title + ' ' + user + ' ' + artist;
-      return parts.every(p => haystack.includes(p));
-    }) || candidates.find(t => {
-      const title = normalize(t.title);
-      return parts.some(p => title.includes(p));
-    });
+    const wanted = q.split(/\s+/).map(normalize).filter(Boolean);
+    let best = null;
 
-    if (!exact) return res.status(404).json({ error: 'Track not found' });
+    for (const country of countries) {
+      const url =
+        'https://itunes.apple.com/search?term=' + encodeURIComponent(q) +
+        '&entity=song&limit=25&country=' + country;
+      const response = await fetch(url, {
+        headers: { 'User-Agent': 'Mozilla/5.0' }
+      });
+      if (!response.ok) continue;
 
-    let track = exact;
-    if (!track.media?.transcodings && track.id) {
-      const detail = await fetch(
-        'https://api-v2.soundcloud.com/tracks/' + encodeURIComponent(track.id) +
-        '?client_id=' + encodeURIComponent(clientId),
-        { headers: { 'User-Agent': 'Mozilla/5.0', Accept: 'application/json' } }
+      const data = await response.json();
+      const results = Array.isArray(data.results) ? data.results : [];
+
+      const exact = results.find(track => {
+        const title = normalize(track.trackName);
+        const artist = normalize(track.artistName);
+        const combined = title + ' ' + artist;
+        return wanted.every(word => combined.includes(word)) && !!track.previewUrl;
+      });
+
+      const titleMatch = results.find(track =>
+        normalize(track.trackName) === normalize(q) && !!track.previewUrl
       );
-      if (detail.ok) track = await detail.json();
-    }
 
-    const preview =
-      track.preview_mp3_128_url ||
-      track.media?.transcodings?.find(t =>
-        t.format?.mime_type === 'audio/mpeg' &&
-        String(t.quality || '').toLowerCase().includes('preview')
-      )?.url ||
-      '';
-
-    let previewUrl = preview;
-    if (!previewUrl && track.media?.transcodings) {
-      const preferred = track.media.transcodings.find(t =>
-        String(t.format?.protocol || '').toLowerCase() === 'progressive'
-      ) || track.media.transcodings[0];
-
-      if (preferred?.url) {
-        const streamResponse = await fetch(
-          preferred.url +
-          (preferred.url.includes('?') ? '&' : '?') +
-          'client_id=' + encodeURIComponent(clientId)
-        );
-        if (streamResponse.ok) {
-          const streamData = await streamResponse.json();
-          previewUrl = streamData.preview_mp3_128_url || streamData.url || '';
-        }
+      const candidate = exact || titleMatch;
+      if (candidate) {
+        best = candidate;
+        break;
       }
     }
 
-    res.setHeader('Cache-Control', 'no-store');
+    if (!best) return res.status(404).json({ error: 'No Apple preview found' });
+
+    res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=600');
     return res.status(200).json({
-      title: track.title || '',
-      artist: track.metadata_artist || track.user?.username || '',
-      preview: previewUrl,
-      soundcloudUrl: track.permalink_url || ''
+      title: best.trackName || '',
+      artist: best.artistName || '',
+      preview: best.previewUrl || '',
+      link: best.trackViewUrl || '',
+      artwork: best.artworkUrl100 || ''
     });
   } catch (error) {
-    return res.status(500).json({ error: 'SoundCloud preview error' });
+    return res.status(500).json({ error: 'Preview lookup failed' });
   }
 }
