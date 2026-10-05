@@ -41,6 +41,12 @@ async function initSoundCloud(url){
   soundcloudReady=true;
 }
 const CLIP_LENGTHS=[3,6,10,15,20,30];
+function getClipStart(){
+  const key=(target?.[0]||"")+(puzzleDate||"");
+  let hash=0;
+  for(let i=0;i<key.length;i++) hash=((hash<<5)-hash+key.charCodeAt(i))|0;
+  return 20+(Math.abs(hash)%61);
+}
 function currentClipLength(){return CLIP_LENGTHS[Math.min(guesses,CLIP_LENGTHS.length-1)]}
 function updateClipUI(){
   const seconds=currentClipLength();
@@ -74,7 +80,7 @@ playBtn.onclick=async()=>{
     }
     if(clipTimer) clearTimeout(clipTimer);
     const seconds=currentClipLength();
-    soundcloudWidget.seekTo(0);
+    soundcloudWidget.seekTo(getClipStart()*1000);
     soundcloudWidget.play();
     clipTimer=setTimeout(()=>{
       if(soundcloudWidget&&soundcloudPlaying) soundcloudWidget.pause();
