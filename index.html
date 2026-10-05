@@ -169,7 +169,7 @@ async function initYouTube(id){
   await youtubeLoading;
   if(!youtubePlayer||youtubeIdActive!==id){
     youtubePlayer=new YT.Player("youtubePlayer",{height:"1",width:"1",videoId:id,playerVars:{autoplay:0,controls:0,playsinline:1,rel:0},events:{
-      onReady:()=>{youtubeReady=true;youtubePlayer.setVolume(Number(volumeControl.value)*2},
+      onReady:()=>{youtubeReady=true;youtubePlayer.setVolume(Number(volumeControl.value))},
       onStateChange:e=>{
         if(e.data===YT.PlayerState.PLAYING){youtubePlaying=true;playBtn.textContent="❚❚ Pause"}
         if(e.data===YT.PlayerState.PAUSED||e.data===YT.PlayerState.ENDED){youtubePlaying=false;playBtn.textContent="▶ Play"}
