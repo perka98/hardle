@@ -46,7 +46,7 @@ function initSpotifyPlayer(){
 }
 async function togglePlay(){
   try{
-    if(audioPlayer && activePreviewUrl===activePreviewUrl && !audioPlayer.paused){
+    if(audioPlayer && !audioPlayer.paused){
       audioPlayer.pause();
       start.textContent='▶ Play';
       return;
