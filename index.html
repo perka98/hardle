@@ -4,11 +4,11 @@ const soundcloudPlayer=document.getElementById("soundcloudPlayer");
 let soundcloudWidget=null,soundcloudReady=false,soundcloudLoading=null,soundcloudPlaying=false,soundcloudUrlActive="";
 
 const soundcloudUrls={
-  "dragonborn|headhunterz":"https://soundcloud.com/hardstyle/hard-with-style-origins-dragonborn"
+  "dragonborn":"https://soundcloud.com/hardstyle/hard-with-style-origins-dragonborn"
 };
 
 function soundcloudKey(song){
-  return norm(song[0])+"|"+norm(String(song[1]).split(",")[0].trim().replace(/^DJ\s+/i,""));
+  return norm(song[0]);
 }
 function loadSoundCloudApi(){
   if(window.SC?.Widget) return Promise.resolve();
