@@ -41,7 +41,7 @@ const volumeControl=document.getElementById("volumeControl");
 const soundcloudPlayer=document.getElementById("soundcloudPlayer");
 let soundcloudWidget=null,soundcloudReady=false,soundcloudLoading=null,soundcloudPlaying=false,soundcloudUrlActive="",youtubePlayer=null,youtubeReady=false,youtubeLoading=null,youtubePlaying=false,youtubeIdActive="",clipTimer=null;
 
-const soundcloudUrls={
+const soundcloudUrls = {
   "Lost Without You": "https://soundcloud.com/q-dancemusic/headhunterz-vertile-ft-sian-evans-lost-without-you-defqon1-2023-closing-theme",
   "Dragonborn": "https://soundcloud.com/officialozgurmete/headhunterz-dragonborn",
   "Transcendence": "https://soundcloud.com/q-dancemusic/headhunterz-jdx-transcendence",
@@ -98,8 +98,11 @@ const soundcloudUrls={
   "Activation": "https://soundcloud.com/aversionnl/activation",
   "Raise Your Fist": "https://soundcloud.com/angerfistmusic/raise-your-fist",
   "Pennywise": "https://soundcloud.com/angerfistmusic/pennywise"
+"Take It All":"https://soundcloud.com/artofcreationofficial/sound-rush-take-it-all-preview",
+"Followed":"https://soundcloud.com/rejectaofficial/rejecta-followed-official-preview",
+"Magic":"https://soundcloud.com/djbfront/magic-frontliner",
 };
-const youtubeIds={
+const youtubeIds = {
   "Darkest Hour (The Clock)": "bs5aLFn7GTo",
   "The Contagion": "raSLCyWPpds",
   "Primal Energy": "bfp0z4ndkIQ",
@@ -121,6 +124,9 @@ const youtubeIds={
   "Oxygen": "uvcqfXfRqvQ",
   "The Flame Inside": "a3JulJ72z_A",
   "Before I Wake": "qQDJvyMn4KQ"
+"Brothers":"xT4ycAZecpA",
+"Fire":"DzpzHmh9egk",
+"Infinity":"YRZtZu5VfBI",
 };
 
 function soundcloudKey(song){
