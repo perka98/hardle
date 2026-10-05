@@ -5,7 +5,7 @@ let soundcloudWidget=null,soundcloudReady=false,soundcloudLoading=null,soundclou
 
 const soundcloudUrls={
   "dragonborn":"https://soundcloud.com/officialozgurmete/headhunterz-dragonborn",
-  "lost without you":"https://soundcloud.com/q-dancemusic/headhunterz-vertile-ft-sian-evans-lost-without-you-defqon1-2023-closing-theme"
+  "Lost Without You":"https://soundcloud.com/q-dancemusic/headhunterz-vertile-ft-sian-evans-lost-without-you-defqon1-2023-closing-theme"
 };
 
 function soundcloudKey(song){
@@ -63,7 +63,7 @@ function stopClip(){
   if(soundcloudWidget&&soundcloudReady&&soundcloudPlaying) soundcloudWidget.pause();
 }
 playBtn.onclick=async()=>{
-  const url=soundcloudUrls[soundcloudKey(target)]||"";
+  const url=soundcloudUrls[soundcloudKey(target)]||soundcloudUrls[target[0]]||"";
   if(!url){
     playBtn.textContent="SoundCloud saknas";
     setTimeout(updateClipUI,1800);
