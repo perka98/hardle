@@ -181,8 +181,13 @@ async function initSoundCloud(url){
   soundcloudReady=true;
 }
 const CLIP_LENGTHS=[3,6,10,15,20,30];
+const CLIP_START_OVERRIDES={
+  "Pennywise":60
+};
 function getClipStart(){
-  const key=(target?.[0]||"")+(puzzleDate||"");
+  const title=target?.[0]||"";
+  if(CLIP_START_OVERRIDES[title]!=null) return CLIP_START_OVERRIDES[title];
+  const key=title+(puzzleDate||"");
   let hash=0;
   for(let i=0;i<key.length;i++) hash=((hash<<5)-hash+key.charCodeAt(i))|0;
   return 20+(Math.abs(hash)%61);
