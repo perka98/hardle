@@ -8,11 +8,13 @@ module.exports = async function handler(req, res) {
   try {
     for (const type of ['track', 'album']) {
       for (const searchTitle of titleVariants) {
-        const query = searchTitle + ' ' + artist;
+      for (const query of [...new Set([searchTitle + ' ' + artist, searchTitle + ' ' + artist.split(/,|&|\bfeat\b/i)[0].trim(), searchTitle])]) {
         const response = await fetch('https://spotify.xwolf.space/api/search?q=' + encodeURIComponent(query) + '&type=' + type + '&limit=20', { signal: AbortSignal.timeout(6000) });
         if (!response.ok) { console.warn('Spotify search upstream', JSON.stringify({type, title:searchTitle, status:response.status})); continue; }
         const data = await response.json();
-        const items = data[type === 'track' ? 'tracks' : 'albums']?.items || data.items || [];
+        const group=type === 'track' ? 'tracks' : 'albums';
+        const items = data[group]?.items || data.data?.[group]?.items || data.items || (Array.isArray(data[group])?data[group]:null) || (Array.isArray(data.results)?data.results:null) || (Array.isArray(data)?data:[]);
+        console.info('Spotify response shape',JSON.stringify({type,query,keys:Object.keys(data),dataKeys:data.data?Object.keys(data.data):[],count:items.length}));
         console.info('Spotify search candidates', JSON.stringify({type,title:searchTitle,count:items.length,candidates:items.slice(0,5).map(raw=>{const item=raw.track||raw;return {title:item.name||item.title,artists:(item.artists||[]).map(a=>a.name||a),artwork:!!(item.album?.images?.length||item.images?.length)}})}));
         const match = items.find(raw => {
           const item = raw.track || raw;
@@ -30,6 +32,7 @@ module.exports = async function handler(req, res) {
         }
         if (image && /^https:\/\//.test(image)) return res.status(200).json({ thumbnail_url: image, spotify_url: spotifyUrl });
       }
+    }
     }
     return res.status(404).json({ error: 'No matching Spotify artwork' });
   } catch (error) {
