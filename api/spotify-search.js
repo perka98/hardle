@@ -10,9 +10,10 @@ module.exports = async function handler(req, res) {
       for (const searchTitle of titleVariants) {
         const query = searchTitle + ' ' + artist;
         const response = await fetch('https://spotify.xwolf.space/api/search?q=' + encodeURIComponent(query) + '&type=' + type + '&limit=20', { signal: AbortSignal.timeout(6000) });
-        if (!response.ok) continue;
+        if (!response.ok) { console.warn('Spotify search upstream', JSON.stringify({type, title:searchTitle, status:response.status})); continue; }
         const data = await response.json();
         const items = data[type === 'track' ? 'tracks' : 'albums']?.items || data.items || [];
+        console.info('Spotify search candidates', JSON.stringify({type,title:searchTitle,count:items.length,candidates:items.slice(0,5).map(raw=>{const item=raw.track||raw;return {title:item.name||item.title,artists:(item.artists||[]).map(a=>a.name||a),artwork:!!(item.album?.images?.length||item.images?.length)}})}));
         const match = items.find(raw => {
           const item = raw.track || raw;
           const actualArtists = (item.artists || []).flatMap(a => artists(a.name || a));
