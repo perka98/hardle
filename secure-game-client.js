@@ -1,8 +1,0 @@
-'use strict';
-// Not loaded by the existing games until migration and backend verification are complete.
-window.HardleSecureGame=class {
- constructor(game){if(!['daily','artist','djdle','orderdle'].includes(game))throw Error('Invalid game');this.game=game;this.pending=null;this.state=null}
- async request(path,data){let session=null;try{session=JSON.parse(sessionStorage.getItem('hardle-auth-v1')||'null')}catch{}const headers={'Content-Type':'application/json'};if(session?.access_token)headers.Authorization='Bearer '+session.access_token;const response=await fetch(path,{method:'POST',credentials:'same-origin',headers,body:JSON.stringify(data),signal:AbortSignal.timeout(12000)});let body;try{body=await response.json()}catch{throw Error('Game server returned an invalid response')}if(!response.ok){const error=Error(body.error||'Game server unavailable');error.status=response.status;throw error}return body}
- async start(){this.state=await this.request('/api/game-session',{game:this.game});return this.state}
- async guess(value){if(this.state?.completed)throw Error('Game completed');if(this.pending&&JSON.stringify(this.pending.guess)!==JSON.stringify(value))throw Error('Retry the pending guess before entering another');if(!this.pending)this.pending={game:this.game,guess:value,requestId:crypto.randomUUID()};try{const result=await this.request('/api/game-guess',this.pending);this.pending=null;this.state={...this.state,...result};return result}catch(error){if([400,401,403,409].includes(error.status))this.pending=null;throw error}}
-};

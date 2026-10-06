@@ -1,4 +1,0 @@
-'use strict';
-const fs=require('node:fs'),path=require('node:path');const {build}=require('./puzzles'),{date}=require('./security'),{database}=require('./database');
-async function ensure(game){const seed=process.env.HARDLE_SESSION_SECRET;if(!seed)throw Error('Private seed unavailable');let pool,words=[];if(game==='artist')pool=require('./private/artists.json');else if(game==='djdle'){pool=require('./private/djs.json');words=JSON.parse(fs.readFileSync(path.join(__dirname,'../data/english-words.json'),'utf8')).map(x=>x.toUpperCase().replace(/[^A-Z]/g,''))}else if(game==='orderdle')pool=require('./private/order-people.json');else throw Error('Song catalogue migration not ready');const puzzle=build({game,date:date(),pool,secret:seed,words});await database().query('select hardle_private.ensure_puzzle($1,$2,$3)',[game,puzzle.solution,puzzle.publicPayload])}
-module.exports={ensure};
