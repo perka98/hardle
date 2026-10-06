@@ -14,7 +14,7 @@
 <a class="game" href="/daily"><span class="badge">New song every day</span><h2>Daily</h2><p>Listen to the clip and find today’s song. You have six guesses.</p><span class="play">Play Daily →</span></a>
 <a class="game djdle" href="/djdle"><span class="badge">Daily DJ word puzzle</span><h2>DJdle</h2><p>Guess the DJ name in six attempts. A new puzzle every day.</p><span class="play">Play DJdle →</span></a>
 <a class="game" href="/artist"><span class="badge">Hardstyle knowledge</span><h2>Guess the Artist</h2><p>Use hardstyle clues to identify the artist.</p><span class="play">Play Artist →</span></a>
-</nav><footer>HARDLE</footer></main><script>
+</nav></main><script>
 function updateCompleted(){const parts=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Stockholm',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());const get=t=>parts.find(p=>p.type===t).value;const date=get('year')+'-'+get('month')+'-'+get('day');for(const game of ['daily','artist','djdle']){const card=document.querySelector('.game[href="/'+game+'"]');if(!card)continue;let won=false;try{won=localStorage.getItem('hardle-completed-'+game+'-'+date)==='1'}catch{}card.classList.toggle('completed',won);let badge=card.querySelector('.completedBadge');if(won&&!badge){badge=document.createElement('span');badge.className='completedBadge';badge.textContent='✓ Completed today';card.querySelector('.play').before(badge)}else if(!won&&badge)badge.remove()}}
 updateCompleted();window.addEventListener('focus',updateCompleted);window.addEventListener('storage',updateCompleted);setInterval(updateCompleted,60000);
 </script></body>
