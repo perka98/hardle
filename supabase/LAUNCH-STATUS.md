@@ -22,3 +22,5 @@ HARDLE_SECURE_GAMEPLAY_ENABLED is intentionally unset; API fails closed. Changin
 
 ## Rollback
 Production remains the prior stable deployment. Existing localStorage data must be preserved. The original checkpoint is 5df873373323b899c2ee1a579ca6ed65e9a22bf0. Do not publish partial security code as completed protection.
+
+Preview rebuild requested after project resume on 2026-10-06. Security remains disabled pending integration.
