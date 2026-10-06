@@ -255,7 +255,7 @@ async function initYouTube(id){
       onReady:e=>{youtubeReady=true;e.target.setVolume(Number(volumeControl.value));clearTimeout(timeout);resolve()},
       onError:e=>{clearTimeout(timeout);reject(new Error("YouTube player error: "+e.data))},
       onStateChange:e=>{
-        if(e.data===YT.PlayerState.PLAYING){e.target.setVolume(Number(volumeControl.value));youtubePlaying=true;beginClipTimer();playBtn.textContent="❚❚ Pause"}
+        if(e.data===YT.PlayerState.PLAYING){e.target.setVolume(Number(volumeControl.value));e.target.unMute();youtubePlaying=true;beginClipTimer();playBtn.textContent="❚❚ Pause"}
         if(e.data===YT.PlayerState.PAUSED||e.data===YT.PlayerState.ENDED){youtubePlaying=false;playBtn.textContent="▶ Play"}
       }
     }});
@@ -360,8 +360,8 @@ playBtn.onclick=()=>{
     soundcloudWidget.setVolume(Number(volumeControl.value));
     soundcloudWidget.play();
   }else if(source.youtube){
+    youtubePlayer.mute();
     youtubePlayer.setVolume(Number(volumeControl.value));
-    youtubePlayer.unMute();
     youtubePlayer.seekTo(getClipStart(),true);
     youtubePlayer.playVideo();
   }
