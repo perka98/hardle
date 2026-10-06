@@ -373,12 +373,18 @@ function swedishDate(now=new Date()){
 }
 function dayNumber(date){return Math.floor(Date.parse(date+"T00:00:00Z")/86400000)}
 function dailySongIndex(date){
-  const order=songs.map((song,index)=>index).filter(index=>audioAvailable(songs[index]));
+  const order=songs.map((song,index)=>index).filter(index=>audioAvailable(songs[index])&&!(norm(songs[index][0])==='anger'&&norm(songs[index][1])==='partyraiser'));
   if(!order.length)throw new Error("No playable daily songs");
-  let seed=0x48415244;
+  let seed=date>='2026-10-07'?0x53485546:0x48415244;
   for(let i=order.length-1;i>0;i--){seed=(Math.imul(seed,1664525)+1013904223)>>>0;const j=seed%(i+1);[order[i],order[j]]=[order[j],order[i]]}
+  if(date>='2026-10-07'){
+    const recent=new Set(['incoming','kicking ass']);
+    if(recent.has(norm(songs[order[0]][0]))){const next=order.findIndex(id=>!recent.has(norm(songs[id][0])));if(next>0)[order[0],order[next]]=[order[next],order[0]]}
+    return order[((dayNumber(date)-dayNumber('2026-10-07'))%order.length+order.length)%order.length];
+  }
   return order[((dayNumber(date)-dayNumber("2026-10-05")+(date==="2026-10-06"?17:0))%order.length+order.length)%order.length];
 }
+
 let DAILY_INDEX;const MAX_GUESSES=6;let target,guesses=0,gameOver=false,won=false;const yesterdayEl=document.getElementById('yesterday'),todayResultsEl=document.getElementById('todayResults');const puzzleDate=swedishDate();const gameStartDate=new Date('2026-10-05T00:00:00Z');const dailyNumber=Math.max(1,Math.floor((new Date(puzzleDate+'T00:00:00Z')-gameStartDate)/86400000)+1);document.getElementById('dailyLabel').textContent='Daily Hardle #'+String(dailyNumber).padStart(3,'0');const yesterdayDate=new Date((dayNumber(puzzleDate)-1)*86400000).toISOString().slice(0,10);const statsKey='hardle-stats-v1',stats=JSON.parse(localStorage.getItem(statsKey)||'{"played":0,"wins":0,"streak":0,"best":0,"totalScore":0,"bestScore":0,"lastGuesses":0}');stats.totalScore=Number(stats.totalScore||0);stats.bestScore=Number(stats.bestScore||0);function renderStats(){document.querySelector('.stats').innerHTML='<div class="stat"><b>'+stats.played+'</b><span>Played</span></div><div class="stat"><b>'+stats.streak+'</b><span>Current Streak</span></div><div class="stat"><b>'+stats.best+'</b><span>Best Streak</span></div><div class="stat"><b>'+HardleScore.total('daily')+'</b><span>Total Score</span></div>'}function saveStats(){localStorage.setItem(statsKey,JSON.stringify(stats));renderStats();renderStreak()}function esc(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}function norm(s){return String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9åäö]+/g,' ').trim()}function cellClass(value,targetValue,index,isCorrectSong=false){if(index===4){const d=Math.abs(Number(value)-Number(targetValue));return d===0?'match':d<=2?'close':'noMatch'}if(index===2)return norm(value)===norm(targetValue)?'match':isCountryClose(value,targetValue)?'close':'noMatch';if(index===1){const artists=text=>String(text).split(/\s*(?:&|,|\bfeat\.?|\bft\.?|\bfeaturing\b|\band\b)\s*/i).map(norm).filter(Boolean);const v=artists(value),t=artists(targetValue);if(isCorrectSong)return 'match';if(!v.some(artist=>t.includes(artist)))return 'noMatch';return v.length===1&&t.length===1?'match':'close'}return norm(value)===norm(targetValue)?'match':'noMatch'}const countryCoords={NL:[52.13,5.29],BE:[50.85,4.35],IT:[41.87,12.57],NO:[64.0,10.0],GB:[55.38,-3.44],SC:[56.49,-4.2],UA:[48.38,31.17],DK:[56.26,9.50],DE:[51.17,10.45],FR:[46.23,2.21],AU:[-25.27,133.78],SE:[62.0,15.0],US:[39.83,-98.58],PL:[51.92,19.15],FI:[61.92,25.75]};function distance(a,b){const A=countryCoords[a],B=countryCoords[b];if(!A||!B)return Infinity;const r=6371,dLat=(B[0]-A[0])*Math.PI/180,dLon=(B[1]-A[1])*Math.PI/180;const x=Math.sin(dLat/2)**2+Math.cos(A[0]*Math.PI/180)*Math.cos(B[0]*Math.PI/180)*Math.sin(dLon/2)**2;return 2*r*Math.asin(Math.sqrt(x))}function isCountryClose(a,b){return a!==b&&distance(a,b)<=900}function flag(v){return v==='NL'?'<span class="flag flag-nl"></span>':v==='BE'?'<span class="flag flag-be"></span>':v==='IT'?'<span class="flag flag-it"></span>':v==='NO'?'<span class="flag flag-no"></span>':v==='SC'?'<span class="flag flag-scotland"></span>':v==='UA'?'<span class="flag flag-ua"></span>':v==='SE'?'<span class="flag flag-se"></span>':v==='US'?'<span class="flag flag-us"></span>':v==='FR'?'<span class="flag flag-fr"></span>':v==='AU'?'<span class="flag flag-au"></span>':v==='DE'?'<span class="flag flag-de"></span>':v==='DK'?'<span class="flag flag-dk"></span>':v==='GB'?'<span class="flag flag-gb"></span>':v==='PL'?'<span class="flag flag-pl"></span>':v==='FI'?'<span class="flag flag-fi"></span>':'—'}async function revealCoverArt(){
   const setCover=url=>{
     if(!correctCover||!url)return;
@@ -425,7 +431,7 @@ renderStreak();updateCountdown();setInterval(updateCountdown,1000);function fini
 const audioAvailable = song => {const source=audioSource(song);return !!(source.soundcloud||source.youtube)};
 const playableSongs = songs.filter(audioAvailable);
 DAILY_INDEX=dailySongIndex(puzzleDate);
-if(puzzleDate==="2026-10-07")DAILY_INDEX=songs.findIndex(song=>song[0]==="Incoming"&&song[1]==="Angerfist");
+
 if(puzzleDate==="2026-10-06"){const pinned=songs.findIndex(song=>song[0]==="Incoming"&&song[1]==="Angerfist");if(pinned>=0)DAILY_INDEX=pinned;}
 // Explicit preview test mode only; production daily rotation stays unchanged.
 const previewHost=location.hostname.endsWith('-perkas.vercel.app')&&location.hostname.startsWith('hardle-')&&!['hardle-perkas.vercel.app'].includes(location.hostname);
