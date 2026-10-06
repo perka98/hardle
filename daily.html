@@ -380,7 +380,7 @@ function dailySongIndex(date){
   if(date>='2026-10-07'){
     const recent=new Set(['incoming','kicking ass']);
     if(recent.has(norm(songs[order[0]][0]))){const next=order.findIndex(id=>!recent.has(norm(songs[id][0])));if(next>0)[order[0],order[next]]=[order[next],order[0]]}
-    return order[((dayNumber(date)-dayNumber('2026-10-07'))%order.length+order.length)%order.length];
+    return order[((dayNumber(date)-dayNumber('2026-10-07')+1)%order.length+order.length)%order.length];
   }
   return order[((dayNumber(date)-dayNumber("2026-10-05")+(date==="2026-10-06"?17:0))%order.length+order.length)%order.length];
 }
