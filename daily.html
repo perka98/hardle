@@ -313,7 +313,7 @@ let DAILY_INDEX;const MAX_GUESSES=6;let target,guesses=0,gameOver=false,won=fals
     if(albumId){
       const albumUrl='https://open.spotify.com/album/'+albumId;
       currentSpotifyUrl=albumUrl;spotifyBtn.href=albumUrl;
-      const response=await fetch('https://open.spotify.com/oembed?url='+encodeURIComponent(albumUrl));
+      const response=await fetch('/api/spotify-artwork?album='+albumId);
       if(!response.ok)throw new Error('Spotify album artwork failed');
       const album=await response.json();
       if(!album.thumbnail_url)throw new Error('Spotify album artwork missing');
