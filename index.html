@@ -18,7 +18,7 @@ body{background:#000}body:before{display:none}
 <a class="game" href="/daily"><span class="badge">New song every day</span><h2>Daily</h2><p>Listen to the clip and find today’s song. You have six guesses.</p><span class="play">Play Daily →</span></a>
 <a class="game djdle" href="/djdle"><span class="badge">Daily DJ word puzzle</span><h2>DJdle</h2><p>Guess the DJ name in six attempts. A new puzzle every day.</p><span class="play">Play DJdle →</span></a>
 <a class="game" href="/artist"><span class="badge">Hardstyle knowledge</span><h2>Guess the Artist</h2><p>Use hardstyle clues to identify the artist.</p><span class="play">Play Artist →</span></a>
-<a class="game" href="/orderdle"><span class="badge">Daily release order</span><h2>OrderDle</h2><p>Put five hardstyle songs in release order, from oldest to newest.</p><span class="play">Play OrderDle →</span></a>
+<a class="game" href="/orderdle"><span class="badge">Daily age order</span><h2>OrderDle</h2><p>Put five DJs in age order, from youngest to oldest.</p><span class="play">Play OrderDle →</span></a>
 </nav><section class="playerStats" aria-labelledby="stats-title"><h2 id="stats-title">Your Stats</h2><div class="totalScore"><span>Total Score</span><strong id="combined-score">0</strong></div><div id="combined-stats" class="combinedStats"></div><div id="game-breakdown" class="gameBreakdown"></div><p class="statsNote">Saved in this browser · Streak: consecutive days with a recorded win</p></section><p id="next-round" style="text-align:center;color:#a1a1aa;margin-top:28px;font-size:14px"></p></main><script>
 function updatePlayerStats(){
 const read=key=>{try{const data=JSON.parse(localStorage.getItem(key)||'{}');return data&&typeof data==='object'?data:{}}catch{return {}}};
