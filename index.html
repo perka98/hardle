@@ -181,7 +181,7 @@ async function initYouTube(id){
       onReady:e=>{youtubeReady=true;e.target.setVolume(Number(volumeControl.value));clearTimeout(timeout);resolve()},
       onError:e=>{clearTimeout(timeout);reject(new Error("YouTube player error: "+e.data))},
       onStateChange:e=>{
-        if(e.data===YT.PlayerState.PLAYING){e.target.setVolume(Number(volumeControl.value));youtubePlaying=true;playBtn.textContent="❚❚ Pause"}
+        if(e.data===YT.PlayerState.PLAYING){e.target.setVolume(Number(volumeControl.value));youtubePlaying=true;beginClipTimer();playBtn.textContent="❚❚ Pause"}
         if(e.data===YT.PlayerState.PAUSED||e.data===YT.PlayerState.ENDED){youtubePlaying=false;playBtn.textContent="▶ Play"}
       }
     }});
@@ -201,7 +201,7 @@ async function initSoundCloud(url){
     soundcloudWidget.bind(SC.Widget.Events.ERROR,()=>{if(!done){done=true;reject(new Error("SoundCloud player error"))}});
     setTimeout(()=>{if(!done){done=true;reject(new Error("SoundCloud player timeout"))}},10000);
   });
-  soundcloudWidget.bind(SC.Widget.Events.PLAY,()=>{soundcloudWidget.setVolume(Number(volumeControl.value));soundcloudPlaying=true;playBtn.textContent="❚❚ Pause"});
+  soundcloudWidget.bind(SC.Widget.Events.PLAY,()=>{soundcloudWidget.setVolume(Number(volumeControl.value));soundcloudPlaying=true;beginClipTimer();playBtn.textContent="❚❚ Pause"});
   soundcloudWidget.bind(SC.Widget.Events.PAUSE,()=>{soundcloudPlaying=false;playBtn.textContent="▶ Play"});
   soundcloudWidget.bind(SC.Widget.Events.FINISH,()=>{soundcloudPlaying=false;playBtn.textContent="▶ Play"});
   soundcloudWidget.setVolume(Number(volumeControl.value));
@@ -233,8 +233,53 @@ function updateClipUI(){
 function stopClip(){
   if(clipTimer){clearTimeout(clipTimer);clipTimer=null;}
   if(soundcloudWidget&&soundcloudReady&&soundcloudPlaying) soundcloudWidget.pause();
+  if(youtubePlayer&&youtubeReady&&youtubePlaying) youtubePlayer.pauseVideo();
 }
-playBtn.onclick=async()=>{const source=audioSource(target),scUrl=source.soundcloud,ytId=source.youtube;try{if(scUrl){if(!soundcloudReady||soundcloudUrlActive!==scUrl){playBtn.textContent="Loading…";await initSoundCloud(scUrl);}if(soundcloudPlaying){stopClip();updateClipUI();return}if(clipTimer)clearTimeout(clipTimer);const seconds=currentClipLength();const start=getClipStart();soundcloudWidget.seekTo(start*1000);soundcloudWidget.play();clipTimer=setTimeout(()=>{if(soundcloudWidget)soundcloudWidget.pause();clipTimer=null;updateClipUI()},seconds*1000);return}if(ytId){if(youtubePlaying){stopClip();updateClipUI();return}playBtn.textContent="Loading…";await initYouTube(ytId);if(clipTimer)clearTimeout(clipTimer);const seconds=currentClipLength();const start=getClipStart();youtubePlayer.cueVideoById(ytId);youtubePlayer.setVolume(Number(volumeControl.value));await new Promise(resolve=>{let n=0;const t=setInterval(()=>{n++;if(youtubePlayer&&youtubePlayer.getDuration&&youtubePlayer.getDuration()>0){clearInterval(t);youtubePlayer.seekTo(start,true);youtubePlayer.playVideo();resolve()}else if(n>=50){clearInterval(t);resolve()}},100)});youtubePlayer.seekTo(start,true);youtubePlayer.playVideo();clipTimer=setTimeout(()=>{if(youtubePlayer)youtubePlayer.pauseVideo();clipTimer=null;updateClipUI()},seconds*1000);return}playBtn.textContent="Låt saknas";setTimeout(updateClipUI,1800)}catch(e){console.error(e);playBtn.textContent="Audio error";setTimeout(updateClipUI,1800)}};
+// Prepare the player before the tap so playback is requested directly by a gesture.
+let audioPreparing=false,audioPrepared=false,clipPending=false;
+function beginClipTimer(){
+  if(!clipPending)return;
+  clipPending=false;
+  if(clipTimer)clearTimeout(clipTimer);
+  clipTimer=setTimeout(()=>{stopClip();updateClipUI()},currentClipLength()*1000);
+}
+async function prepareAudio(){
+  if(audioPreparing)return;
+  audioPreparing=true;
+  audioPrepared=false;
+  playBtn.disabled=true;
+  playBtn.textContent="Loading audio…";
+  try{
+    const source=audioSource(target);
+    if(source.soundcloud)await initSoundCloud(source.soundcloud);
+    else if(source.youtube){
+      await initYouTube(source.youtube);
+      youtubePlayer.cueVideoById({videoId:source.youtube,startSeconds:getClipStart()});
+    }else throw new Error("No audio source");
+    audioPrepared=true;
+    updateClipUI();
+  }catch(e){
+    console.error(e);
+    playBtn.textContent="Retry audio";
+  }finally{audioPreparing=false;playBtn.disabled=false}
+}
+playBtn.onclick=()=>{
+  if(!audioPrepared){prepareAudio();return}
+  if(soundcloudPlaying||youtubePlaying){clipPending=false;stopClip();updateClipUI();return}
+  const source=audioSource(target);
+  clipPending=true;
+  if(source.soundcloud){
+    soundcloudWidget.setVolume(Number(volumeControl.value));
+    soundcloudWidget.seekTo(getClipStart()*1000);
+    soundcloudWidget.play();
+  }else if(source.youtube){
+    youtubePlayer.setVolume(Number(volumeControl.value));
+    youtubePlayer.unMute();
+    youtubePlayer.seekTo(getClipStart(),true);
+    youtubePlayer.playVideo();
+  }
+};
+
 document.getElementById("skipBtn").style.display="none";
 volumeControl.oninput=()=>{
   if(soundcloudWidget&&soundcloudReady)soundcloudWidget.setVolume(Number(volumeControl.value));
@@ -269,7 +314,7 @@ renderStreak();updateCountdown();setInterval(updateCountdown,1000);function fini
 // Only tracks with a verified audio source can become the daily song.
 const audioAvailable = song => {const source=audioSource(song);return !!(source.soundcloud||source.youtube)};
 const playableSongs = songs.filter(audioAvailable);
-DAILY_INDEX=dailySongIndex(puzzleDate);target=songs[DAILY_INDEX];updateClipUI();
+DAILY_INDEX=dailySongIndex(puzzleDate);target=songs[DAILY_INDEX];updateClipUI();prepareAudio();
 const yesterdayTarget=songs[dailySongIndex(yesterdayDate)];yesterdayEl.innerHTML='<b>Yesterday’s Song</b><span>'+esc(yesterdayTarget[0])+' — '+esc(yesterdayTarget[1])+'</span>';function api(path,options={}){return fetch(SUPABASE_URL+'/rest/v1/'+path,{...options,headers:{apikey:SUPABASE_KEY,Authorization:'Bearer '+SUPABASE_KEY,'Content-Type':'application/json',...(options.headers||{})}})}async function loadTodayResults(){try{const r=await api('daily_stats?select=played,correct,guess_1,guess_2,guess_3,guess_4,guess_5,guess_6&puzzle_date=eq.'+puzzleDate);if(!r.ok)return;const rows=await r.json();if(!rows.length){todayResultsEl.innerHTML='<b>Today’s Results</b><span>No results yet.</span>';return}const x=rows[0],pct=x.played?Math.round(x.correct/x.played*100):0;const counts=[x.guess_1||0,x.guess_2||0,x.guess_3||0,x.guess_4||0,x.guess_5||0,x.guess_6||0],totalGuesses=counts.reduce((a,b)=>a+b,0),avg=totalGuesses?counts.reduce((sum,n,i)=>sum+n*(i+1),0)/totalGuesses:6;const difficulty=pct>=80&&avg<=1.8?1:pct>=65&&avg<=2.5?2:pct>=50&&avg<=3.2?3:pct>=30&&avg<=4?4:5;todayResultsEl.innerHTML='<b>Today’s Results</b><span>'+pct+'% guessed correctly</span>'}catch(e){}}async function recordResult(success){try{const key='hardle-result-'+puzzleDate;if(localStorage.getItem(key))return;const r=await api('daily_results',{method:'POST',headers:{Prefer:'return=minimal'},body:JSON.stringify({puzzle_date:puzzleDate,guesses:Math.min(Math.max(guesses,1),6),won:success})});if(r.ok)localStorage.setItem(key,'1');}catch(e){}}function renderResults(){const q=norm(guessInput.value);if(!q){results.innerHTML='';return}const words=q.split(/\\s+/);const found=songs.filter(s=>{const title=norm(s[0]),artist=norm(s[1]);const titleMatch=words.every(w=>title.includes(w));const artistMatch=q.length>=3&&artist.includes(q);return titleMatch||artistMatch}).slice(0,12);results.innerHTML=found.map(s=>'<div class="result" data-id="'+songs.indexOf(s)+'"><b>'+esc(s[0])+'</b><span class="resultArtist">'+esc(s[1])+'</span></div>').join('');results.querySelectorAll('.result').forEach(el=>el.onclick=()=>{guessInput.value=songs[Number(el.dataset.id)][0]+' — '+songs[Number(el.dataset.id)][1];results.innerHTML='';guessInput.dataset.song=el.dataset.id})}guessInput.addEventListener('input',()=>{delete guessInput.dataset.song;renderResults()});guessInput.addEventListener('keydown',e=>{if(e.key==='Enter')submitGuess()});guessSubmit.onclick=submitGuess;function submitGuess(){if(gameOver)return;stopClip();const id=Number(guessInput.dataset.song);if(!Number.isInteger(id)||!songs[id])return;const s=songs[id];guesses++;const row=document.createElement('div');row.className='guessRow'+(id===DAILY_INDEX?' correct':'');row.innerHTML='<div class="guessCell '+cellClass(s[0],target[0],0)+' title">'+esc(s[0])+'</div><div class="guessCell '+cellClass(s[1],target[1],1)+'">'+esc(s[1])+'</div><div class="guessCell '+cellClass(s[2],target[2],2)+'">'+flag(s[2])+'</div><div class="guessCell '+cellClass(s[3],target[3],3)+'">'+esc(s[3])+'</div><div class="guessCell '+cellClass(s[4],target[4],4)+'">'+s[4]+'</div>';guessList.prepend(row);guessInput.value='';delete guessInput.dataset.song;results.innerHTML='';guessCount.textContent=guesses+'/6 guesses';if(id===DAILY_INDEX)finishGame(true);else if(guesses>=MAX_GUESSES)finishGame(false);else updateClipUI()}loadTodayResults();
 
 </script><!-- deployment sync --></body></html>
