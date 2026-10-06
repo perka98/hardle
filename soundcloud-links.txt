@@ -150,7 +150,6 @@
 150. "Trip To Valhalla":"https://soundcloud.com/drpeacock/trip-to-valhalla"
 151. "Frenchcore Family":"https://soundcloud.com/drpeacock/frenchcore-family"
 152. "Ode To Hardcore":"https://soundcloud.com/partyraiser/ode-to-hardcore"
-153. "Anger":"https://soundcloud.com/partyraiser/anger"
 154. "Cocaine":"https://soundcloud.com/nvitral/n-vitral-cocaine"
 155. "The Ultimate":"https://soundcloud.com/nvitral/n-vitral-the-ultimate"
 156. "Never Alone":"https://soundcloud.com/missk8/never-alone"
