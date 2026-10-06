@@ -1,4 +1,5 @@
 const norm = value => String(value || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
+const titleKey = value => norm(String(value || '').replace(/\s*\((?:feat\.?|ft\.?|featuring)\s+[^)]*\)/gi, ''));
 const artists = value => String(value || '').split(/\s*(?:,|&|\bfeat\.?|\bft\.?|\bfeaturing\b)\s*/i).map(norm).filter(Boolean);
 module.exports = async function handler(req, res) {
   const { title, artist } = req.query;
@@ -19,8 +20,8 @@ module.exports = async function handler(req, res) {
         const match = items.find(raw => {
           const item = raw.track || raw;
           const actualArtists = (item.artists || []).flatMap(a => artists(a.name || a));
-          const actualTitle = norm(item.name || item.title);
-          return titleVariants.some(t => norm(t) === actualTitle) && wantedArtists.every(a => actualArtists.includes(a));
+          const actualTitle = titleKey(item.name || item.title);
+          return titleVariants.some(t => titleKey(t) === actualTitle) && wantedArtists.every(a => actualArtists.includes(a));
         });
         if (!match) continue;
         const item = match.track || match;
