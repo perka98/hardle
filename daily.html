@@ -307,9 +307,7 @@ function stopClip(){
   if(youtubePlayer&&youtubeReady&&youtubePlaying) youtubePlayer.pauseVideo();
 }
 // Prepare the player before the tap so playback is requested directly by a gesture.
-let audioPreparing=false,audioPrepared=false,clipPending=false,activeAudioSource=null;
-function audioTimeout(promise){return Promise.race([promise,new Promise((_,reject)=>setTimeout(()=>reject(new Error("Audio loading timeout")),18000))])}
-const audioStatus=document.createElement("p");audioStatus.setAttribute("role","status");audioStatus.style.cssText="font-size:12px;color:#c4c4ca;margin:8px 0";playBtn.insertAdjacentElement("afterend",audioStatus);
+let audioPreparing=false,audioPrepared=false,clipPending=false;
 function beginClipTimer(){
   if(!clipPending)return;
   clipPending=false;
@@ -324,24 +322,22 @@ async function prepareAudio(){
   playBtn.textContent="Loading audio…";
   try{
     const source=audioSource(target);
-    activeAudioSource=null;
-    if(source.soundcloud){
-      try{await audioTimeout(initSoundCloud(source.soundcloud));activeAudioSource={soundcloud:source.soundcloud};}
-      catch(error){if(!source.youtube)throw error;audioStatus.textContent="Trying backup audio…";soundcloudPlayer.src="about:blank";soundcloudReady=false;await audioTimeout(initYouTube(source.youtube));youtubePlayer.cueVideoById({videoId:source.youtube,startSeconds:getClipStart()});activeAudioSource={youtube:source.youtube};}
-    }else if(source.youtube){await audioTimeout(initYouTube(source.youtube));youtubePlayer.cueVideoById({videoId:source.youtube,startSeconds:getClipStart()});activeAudioSource={youtube:source.youtube};}
-    else throw new Error("No audio source");
-    audioStatus.textContent="";
+    if(source.soundcloud)await initSoundCloud(source.soundcloud);
+    else if(source.youtube){
+      await initYouTube(source.youtube);
+      youtubePlayer.cueVideoById({videoId:source.youtube,startSeconds:getClipStart()});
+    }else throw new Error("No audio source");
     audioPrepared=true;
     updateClipUI();
   }catch(e){
     console.error(e);
-    playBtn.textContent="Retry audio";audioStatus.textContent="Audio could not load. The track may be unavailable or blocked. Tap Retry audio to try again.";soundcloudLoading=null;youtubeLoading=null;
+    playBtn.textContent="Retry audio";
   }finally{audioPreparing=false;playBtn.disabled=false}
 }
 playBtn.onclick=()=>{
   if(!audioPrepared){prepareAudio();return}
   if(soundcloudPlaying||youtubePlaying){clipPending=false;stopClip();updateClipUI();return}
-  const source=activeAudioSource||audioSource(target);
+  const source=audioSource(target);
   clipPending=true;
   if(source.soundcloud){
     soundcloudWidget.setVolume(Number(volumeControl.value));
