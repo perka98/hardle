@@ -26,6 +26,10 @@
     {
       "source": "/orderdle",
       "destination": "/orderdle.html"
+    },
+    {
+      "source": "/account",
+      "destination": "/account.html"
     }
   ]
 }
