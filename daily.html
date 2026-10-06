@@ -419,6 +419,7 @@ renderStreak();updateCountdown();setInterval(updateCountdown,1000);function fini
 const audioAvailable = song => {const source=audioSource(song);return !!(source.soundcloud||source.youtube)};
 const playableSongs = songs.filter(audioAvailable);
 DAILY_INDEX=dailySongIndex(puzzleDate);
+if(puzzleDate==="2026-10-06"){const pinned=songs.findIndex(song=>song[0]==="Incoming"&&song[1]==="Angerfist");if(pinned>=0)DAILY_INDEX=pinned;}
 // Explicit preview test mode only; production daily rotation stays unchanged.
 const previewHost=location.hostname.endsWith('-perkas.vercel.app')&&location.hostname.startsWith('hardle-')&&!['hardle-perkas.vercel.app'].includes(location.hostname);
 const testSong=new URLSearchParams(location.search).get('testSong');
