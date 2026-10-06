@@ -128,6 +128,7 @@
 128. "Tweeka":"https://soundcloud.com/datweekaz/tweeka"
 129. "The Project": "https://soundcloud.com/subzeroproject/the-project"
 130. "Sloop John B":"https://soundcloud.com/soundrush/sloop-john-b"
+131. "Kicking Ass":"https://soundcloud.com/warfaceofficial/warface-kicking-ass"
 132. "Live For This":"https://soundcloud.com/warfaceofficial/warface-live-for-this"
 133. "Crispy":"https://soundcloud.com/nvitral/n-vitral-crispy-bassdrum"
 134. "Onslaught":"https://soundcloud.com/gearboxdigital/mutilator-onslaught-gbd292"
