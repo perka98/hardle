@@ -220,12 +220,14 @@ function audioSource(song){
   const youtube=norm(song[0])===norm("Oxygen")&&norm(song[1])===norm("Bass Modulators")?"":youtubeIds[song[0]]||"";
   return {soundcloud:/^https:\/\/soundcloud\.com\//.test(soundcloud)?soundcloud:"",youtube:/^[A-Za-z0-9_-]{11}$/.test(youtube)?youtube:""};
 }
-let soundcloudSeekTarget=null;
+let soundcloudSeekTarget=null,soundcloudPositionCheck=false;
 function confirmSoundCloudStart(){
-  if(soundcloudSeekTarget===null)return;
+  if(soundcloudSeekTarget===null||soundcloudPositionCheck)return;
+  soundcloudPositionCheck=true;
   soundcloudWidget.getPosition(position=>{
+    soundcloudPositionCheck=false;
     if(soundcloudSeekTarget===null)return;
-    if(Math.abs(position-soundcloudSeekTarget)>1200){soundcloudWidget.seekTo(soundcloudSeekTarget);return}
+    if(position<soundcloudSeekTarget-1200)return;
     soundcloudSeekTarget=null;
     soundcloudWidget.setVolume(Number(volumeControl.value));
     soundcloudPlaying=true;
@@ -321,7 +323,7 @@ function updateClipUI(){
   if(skip) skip.textContent=guesses>=5?"Skip":"Skip +"+(CLIP_LENGTHS[Math.min(guesses+1,5)]-seconds)+" sec";
 }
 function stopClip(){
-  soundcloudSeekTarget=null;
+  soundcloudSeekTarget=null;soundcloudPositionCheck=false;
   if(clipTimer){clearTimeout(clipTimer);clipTimer=null;}
   if(soundcloudWidget&&soundcloudReady&&soundcloudPlaying) soundcloudWidget.pause();
   if(youtubePlayer&&youtubeReady&&youtubePlaying) youtubePlayer.pauseVideo();
