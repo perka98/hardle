@@ -315,8 +315,11 @@ function updateClipUI(){
 function stopClip(){
   soundcloudStartPending=false;
   if(clipTimer){clearTimeout(clipTimer);clipTimer=null;}
-  if(soundcloudWidget&&soundcloudReady&&soundcloudPlaying) soundcloudWidget.pause();
-  if(youtubePlayer&&youtubeReady&&youtubePlaying) youtubePlayer.pauseVideo();
+  if(soundcloudWidget&&soundcloudReady) soundcloudWidget.pause();
+  if(youtubePlayer&&youtubeReady) youtubePlayer.pauseVideo();
+  soundcloudPlaying=false;
+  youtubePlaying=false;
+  clipPending=false;
 }
 // Prepare the player before the tap so playback is requested directly by a gesture.
 let audioPreparing=false,audioPrepared=false,clipPending=false;
