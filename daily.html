@@ -313,7 +313,7 @@ let DAILY_INDEX;const MAX_GUESSES=6;let target,guesses=0,gameOver=false,won=fals
   };
   if(correctCover){correctCover.removeAttribute('src');correctCover.parentElement.hidden=true}
   try{
-    const exactAlbums={[norm('Trip To Mars (Astronauts)')]:'29wNHESljXnFzohiGMCRMs'};
+    const exactAlbums={[norm('Trip To Mars (Astronauts)')]:'29wNHESljXnFzohiGMCRMs',[norm('Darkest Hour (The Clock)')]:'4eI1N5KbjJ5j4Mfa8yZPhM'};
     const albumId=exactAlbums[norm(target[0])];
     if(albumId){
       const albumUrl='https://open.spotify.com/album/'+albumId;
