@@ -12,8 +12,16 @@
   ],
   "rewrites": [
     {
+      "source": "/artist",
+      "destination": "/artist.html"
+    },
+    {
       "source": "/daily",
       "destination": "/daily.html"
+    },
+    {
+      "source": "/djdle",
+      "destination": "/djdle.html"
     }
   ]
 }
