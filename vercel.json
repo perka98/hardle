@@ -12,6 +12,18 @@
   ],
   "rewrites": [
     {
+      "source": "/server/:path*",
+      "destination": "/api/private-resource"
+    },
+    {
+      "source": "/supabase/:path*",
+      "destination": "/api/private-resource"
+    },
+    {
+      "source": "/tests/:path*",
+      "destination": "/api/private-resource"
+    },
+    {
       "source": "/artist",
       "destination": "/artist.html"
     },
@@ -31,5 +43,10 @@
       "source": "/account",
       "destination": "/account.html"
     }
-  ]
+  ],
+  "functions": {
+    "api/game-session.js": {
+      "includeFiles": "server/private/**"
+    }
+  }
 }

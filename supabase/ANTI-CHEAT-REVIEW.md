@@ -33,3 +33,6 @@ Use Supabase Dashboard SQL Editor to install transactional server schema and RLS
 
 ## Verification gates before live
 Concurrent requests cannot exceed attempts or award twice; replay preserves original results; forged scores and invalid bodies fail; expired/forged auth fails; cross-user access fails; future-date reads fail; localStorage edits do not affect authoritative state; rate-limit storage shared across instances; static artifact scan finds no solution schedules; UI/animation regression checks; real browser audio verification; database grants and leaderboard read policy verified.
+
+## Accepted media limitation (user decision, 2026-10-06)
+Existing SoundCloud/YouTube media is retained. Media URLs/metadata can reveal the Daily Song. This is an accepted limitation, not a guarantee of hidden answers. Server scoring, immutable submissions and rate limits are still required. No licensed anonymous clips are required for this implementation scope.
