@@ -220,6 +220,7 @@ function audioSource(song){
   const youtube=norm(song[0])===norm("Oxygen")&&norm(song[1])===norm("Bass Modulators")?"":youtubeIds[song[0]]||"";
   return {soundcloud:/^https:\/\/soundcloud\.com\//.test(soundcloud)?soundcloud:"",youtube:/^[A-Za-z0-9_-]{11}$/.test(youtube)?youtube:""};
 }
+let soundcloudStartPending=false;
 function loadSoundCloudApi(){
   if(window.SC?.Widget) return Promise.resolve();
   if(soundcloudLoading) return soundcloudLoading;
@@ -273,7 +274,16 @@ async function initSoundCloud(url){
     soundcloudWidget.bind(SC.Widget.Events.ERROR,()=>{if(!done){done=true;reject(new Error("SoundCloud player error"))}});
     setTimeout(()=>{if(!done){done=true;reject(new Error("SoundCloud player timeout"))}},10000);
   });
-  soundcloudWidget.bind(SC.Widget.Events.PLAY,()=>{soundcloudWidget.setVolume(Number(volumeControl.value));soundcloudPlaying=true;beginClipTimer();playBtn.textContent="❚❚ Pause"});
+  soundcloudWidget.bind(SC.Widget.Events.PLAY,()=>{
+    soundcloudWidget.setVolume(Number(volumeControl.value));
+    soundcloudPlaying=true;
+    if(soundcloudStartPending){
+      soundcloudStartPending=false;
+      soundcloudWidget.seekTo(getClipStart()*1000);
+    }
+    beginClipTimer();
+    playBtn.textContent="❚❚ Pause";
+  });
   soundcloudWidget.bind(SC.Widget.Events.PAUSE,()=>{soundcloudPlaying=false;playBtn.textContent="▶ Play"});
   soundcloudWidget.bind(SC.Widget.Events.FINISH,()=>{soundcloudPlaying=false;playBtn.textContent="▶ Play"});
   soundcloudWidget.setVolume(Number(volumeControl.value));
@@ -303,6 +313,7 @@ function updateClipUI(){
   if(skip) skip.textContent=guesses>=5?"Skip":"Skip +"+(CLIP_LENGTHS[Math.min(guesses+1,5)]-seconds)+" sec";
 }
 function stopClip(){
+  soundcloudStartPending=false;
   if(clipTimer){clearTimeout(clipTimer);clipTimer=null;}
   if(soundcloudWidget&&soundcloudReady&&soundcloudPlaying) soundcloudWidget.pause();
   if(youtubePlayer&&youtubeReady&&youtubePlaying) youtubePlayer.pauseVideo();
@@ -341,8 +352,8 @@ playBtn.onclick=()=>{
   const source=audioSource(target);
   clipPending=true;
   if(source.soundcloud){
+    soundcloudStartPending=true;
     soundcloudWidget.setVolume(Number(volumeControl.value));
-    soundcloudWidget.seekTo(getClipStart()*1000);
     soundcloudWidget.play();
   }else if(source.youtube){
     youtubePlayer.setVolume(Number(volumeControl.value));
