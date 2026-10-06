@@ -142,12 +142,15 @@ const youtubeIds = {
 "Domination":"KB2Mn0n699g",
 };
 
+// Reported incorrect sources: quarantine by title AND artist pending verified replacements.
+const blockedAudioSongs=new Set([["Till U Believe It", "Brennan Heart"], ["Rumble In The Jungle", "Sickmode"], ["Black", "Showtek"], ["Overdrive", "The Dope Doctor"], ["Magic", "Wasted Penguinz"], ["Bad Habit", "Da Tweekaz"], ["The Death Of Us", "Act of Rage"], ["Cocaine", "Partyraiser"], ["Anger", "N-Vitral"], ["Bass Ex Machina", "Technoboy"], ["Sinners", "Rebelion"], ["Primal Energy", "Ghost Stories"], ["Infinity", "Sefa"], ["Legacy", "Act of rage, LePrince, KELTEK"], ["Psycho", "Zatox, Zyon"], ["Magic", "Rebelion, The Straikerz"], ["Domination", "Mutilator"], ["Club Banger", "Angerfist"], ["Legacy", "The Saints, Mc Livid, Noxiouz, Satirized"], ["City Lights", "Wasted Penguinz, D-Charged"], ["Home", "Adaro, Ran-D"], ["Open Your Mind", "D-Block & S-te-Fan, Ghost Stories"]].map(song=>norm(song[0])+"|"+norm(song[1])));
 function soundcloudKey(song){return norm(song[0])}
 function audioSource(song){
+  if(blockedAudioSongs.has(norm(song[0])+"|"+norm(song[1])))return {soundcloud:"",youtube:""};
   // Home's sources belong to Headhunterz, not other artists' namesakes.
   if(norm(song[0])===norm('Home')&&norm(song[1])!==norm('Headhunterz'))return {soundcloud:'',youtube:''};
   const soundcloud=soundcloudUrls[soundcloudKey(song)]||soundcloudUrls[song[0]]||"";
-  const youtube=youtubeIds[song[0]]||"";
+  const youtube=norm(song[0])===norm("Oxygen")&&norm(song[1])===norm("Bass Modulators")?"":youtubeIds[song[0]]||"";
   return {soundcloud:/^https:\/\/soundcloud\.com\//.test(soundcloud)?soundcloud:"",youtube:/^[A-Za-z0-9_-]{11}$/.test(youtube)?youtube:""};
 }
 function loadSoundCloudApi(){
