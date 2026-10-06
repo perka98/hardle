@@ -282,7 +282,7 @@ async function initSoundCloud(url){
     soundcloudWidget.bind(SC.Widget.Events.ERROR,()=>{if(!done){done=true;reject(new Error("SoundCloud player error"))}});
     setTimeout(()=>{if(!done){done=true;reject(new Error("SoundCloud player timeout"))}},10000);
   });
-  soundcloudWidget.bind(SC.Widget.Events.PLAY,()=>{soundcloudPlaying=true;beginClipTimer();playBtn.textContent="❚❚ Pause"});
+  soundcloudWidget.bind(SC.Widget.Events.PLAY,()=>{soundcloudPlaying=true;playBtn.textContent="❚❚ Pause";setTimeout(()=>{if(soundcloudPlaying){soundcloudWidget.setVolume(Number(volumeControl.value));beginClipTimer();}},250);});
   soundcloudWidget.bind(SC.Widget.Events.PAUSE,()=>{soundcloudPlaying=false;playBtn.textContent="▶ Play"});
   soundcloudWidget.bind(SC.Widget.Events.FINISH,()=>{soundcloudPlaying=false;playBtn.textContent="▶ Play"});
   soundcloudWidget.setVolume(Number(volumeControl.value));
@@ -348,7 +348,7 @@ let volumeSyncPending=false;
 function playSoundCloudAtVolume(){
   if(volumeSyncPending)return;
   volumeSyncPending=true;playBtn.disabled=true;
-  const desired=Number(volumeControl.value);let checks=0,finished=false;
+  const desired=0;let checks=0,finished=false;
   const finish=()=>{if(finished)return;finished=true;volumeSyncPending=false;playBtn.disabled=false;};
   const timeout=setTimeout(()=>{finish();clipPending=false;playBtn.textContent="Retry audio";},2500);
   const check=()=>{if(finished)return;soundcloudWidget.setVolume(desired);soundcloudWidget.getVolume(actual=>{if(finished)return;if(Math.abs(Number(actual)-desired)<.5){clearTimeout(timeout);finish();clipPending=true;soundcloudWidget.seekTo(getClipStart()*1000);soundcloudWidget.play();}else if(++checks<15)setTimeout(check,80);});};
