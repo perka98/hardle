@@ -259,10 +259,10 @@ async function initYouTube(id){
     await new Promise((resolve,reject)=>{
     const timeout=setTimeout(()=>reject(new Error("YouTube player timeout")),15000);
     youtubePlayer=new YT.Player("youtubePlayer",{height:"1",width:"1",videoId:id,playerVars:{autoplay:0,controls:0,playsinline:1,rel:0},events:{
-      onReady:e=>{youtubeReady=true;e.target.setVolume(Number(volumeControl.value));clearTimeout(timeout);resolve()},
+      onReady:e=>{youtubeReady=true;e.target.mute();e.target.setVolume(Number(volumeControl.value));clearTimeout(timeout);resolve()},
       onError:e=>{clearTimeout(timeout);reject(new Error("YouTube player error: "+e.data))},
       onStateChange:e=>{
-        if(e.data===YT.PlayerState.PLAYING){e.target.setVolume(Number(volumeControl.value));youtubePlaying=true;beginClipTimer();playBtn.textContent="❚❚ Pause"}
+        if(e.data===YT.PlayerState.PLAYING){youtubePlaying=true;playBtn.textContent="❚❚ Pause";setTimeout(()=>{if(youtubePlaying){e.target.setVolume(Number(volumeControl.value));e.target.unMute();beginClipTimer();}},250)}
         if(e.data===YT.PlayerState.PAUSED||e.data===YT.PlayerState.ENDED){youtubePlaying=false;playBtn.textContent="▶ Play"}
       }
     }});
@@ -364,7 +364,7 @@ playBtn.onclick=()=>{
     playSoundCloudAtVolume();
   }else if(source.youtube){
     youtubePlayer.setVolume(Number(volumeControl.value));
-    youtubePlayer.unMute();
+    youtubePlayer.mute();
     youtubePlayer.seekTo(getClipStart(),true);
     youtubePlayer.playVideo();
   }
