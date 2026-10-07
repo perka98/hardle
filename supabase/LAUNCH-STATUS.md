@@ -24,3 +24,9 @@ HARDLE_SECURE_GAMEPLAY_ENABLED is intentionally unset; API fails closed. Changin
 Production remains the prior stable deployment. Existing localStorage data must be preserved. The original checkpoint is 5df873373323b899c2ee1a579ca6ed65e9a22bf0. Do not publish partial security code as completed protection.
 
 Preview rebuild requested after project resume on 2026-10-06. Security remains disabled pending integration.
+
+## October 7 continuation (preview-only development)
+- Private puzzle builder now accepts `previousAnswers` and excludes all previous-day Orderdle IDs or the previous single-game answer. Exhausted pools fail closed.
+- Added all-four-game exclusion tests and 100 consecutive Orderdle rounds; full unit suite passes.
+- This is a builder safeguard, NOT a completed production feature: provisioning must read the previous persisted private puzzle through a restricted function and pass its answer IDs. Do not grant broad table SELECT to the validator role merely to implement this.
+- Client migration and database verification remain required. Current production UI updates must be preserved when integrating; this security branch is based on the earlier paused implementation.
