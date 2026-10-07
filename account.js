@@ -19,23 +19,8 @@ async function getAvatarModerationModel(){
   avatarModerationPromise=(async()=>{
     if(!window.tf||!window.nsfwjs)throw Error('Image moderation is unavailable. Please try again.');
     try{window.tf.enableProdMode()}catch{}
-    if(!window.__hardleNsfwModelScripts){
-      window.__hardleNsfwModelScripts=new Promise((resolve,reject)=>{
-        const base='https://unpkg.com/nsfwjs@4.4.0/dist/models/mobilenet_v2/';
-        const files=['model.min.js','group1-shard1of2.min.js','group1-shard2of2.min.js'];
-        const loadNext=(index)=>{
-          if(index>=files.length){resolve();return}
-          const script=document.createElement('script');
-          script.src=base+files[index];
-          script.onload=()=>loadNext(index+1);
-          script.onerror=()=>reject(Error('Could not load the image moderation model.'));
-          document.head.appendChild(script);
-        };
-        loadNext(0);
-      });
-    }
-    await window.__hardleNsfwModelScripts;
-    const model=await window.nsfwjs.load('MobileNetV2');
+    const modelUrl='https://cdn.jsdelivr.net/npm/nsfwjs@4.4.0/dist/models/mobilenet_v2/';
+    const model=await window.nsfwjs.load(modelUrl);
     avatarModerationModel=model;
     return model;
   })().catch(error=>{avatarModerationPromise=null;throw error});
