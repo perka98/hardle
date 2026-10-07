@@ -30,3 +30,5 @@ for(let day=0;day<50;day++){
  assert.deepEqual(Object.keys(puzzle.publicPayload).sort(),['audio','clipStart','maxAttempts']);
 }
 console.log('Daily catalog IDs, existing audio format, and 50 playable server puzzles checked');
+
+for(const title of ['Voices','No Sleep'])assert(!catalog.find(song=>song.artist==='LunaKorpz'&&song.title===title).audio,'Namesake audio must not be assigned by title alone');
