@@ -11,18 +11,6 @@ $('auth-form').onsubmit=e=>{e.preventDefault();authenticate(false)};$('register'
 $('sign-out').onclick=async()=>{try{if(session?.access_token)await request('/auth/v1/logout',{},session.access_token)}catch{}session=null;sessionStorage.removeItem('hardle-auth-v1');localStorage.removeItem('hardle-auth-v1');render();$('message').textContent='Signed out.'};
 (async()=>{if(session?.access_token){try{session.user=await request('/auth/v1/user',null,session.access_token)}catch{session=null;sessionStorage.removeItem('hardle-auth-v1');localStorage.removeItem('hardle-auth-v1')}}render()})();
 
-if(location.hostname.endsWith('-perkas.vercel.app')&&location.hostname!=='hardle-perkas.vercel.app'){$('backend-test').hidden=false;$('check-backend').onclick=async()=>{$('check-backend').disabled=true;$('backend-status').textContent='Checking…';try{const response=await fetch('/api/backend-check',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}',signal:AbortSignal.timeout(12000)});const data=await response.json();const messages={isolation_verified:'Two-player isolation verified. Test data rolled back. Secure gameplay is not enabled.',database_connected:'Database connected. Secure gameplay is not enabled.',configuration_missing:'Preview configuration is missing.',wrong_database_role:'The database connection uses the wrong user.',database_functions_missing:'The database functions have not all been installed.',please_wait:'Please wait a minute and try again.',database_check_failed:'Database check failed. Server logs must be inspected.'};$('backend-status').textContent=messages[data.status]||'Backend test unavailable.'}catch{$('backend-status').textContent='Backend test unavailable. Please try again.'}finally{$('check-backend').disabled=false}}}
-
-if(location.hostname.endsWith('-perkas.vercel.app')&&location.hostname!=='hardle-perkas.vercel.app'){
- $('check-concurrency').onclick=async()=>{
- $('check-concurrency').disabled=true;$('concurrency-status').textContent='Testing…';
- try{const response=await fetch('/api/concurrency-check',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}',signal:AbortSignal.timeout(30000)});const data=await response.json();$('concurrency-status').textContent=data.status==='concurrency_verified'?data.message:data.status==='please_wait'?'Please wait a minute.':'Concurrency test failed. Inspect server logs.'}
- catch{$('concurrency-status').textContent='Test response unavailable. Inspect server logs before retrying.'}
- finally{$('check-concurrency').disabled=false}
- };
-}
-
-
 async function loadVerifiedStats(){
  const revision=++statsRevision;
  const panel=$('verified-stats-panel'),output=$('verified-stats');
