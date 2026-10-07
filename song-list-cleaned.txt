@@ -21,7 +21,6 @@
 21. Sloop John B — Sound Rush
 22. Brothers — Sound Rush
 23. Take It All — Sound Rush
-24. Kicking Ass — Warface
 25. Overdrive — Warface
 26. Live For This — Warface
 27. The End — Act of Rage
@@ -587,7 +586,6 @@
 587. Dancing In The Moonlight — Vertile
 588. Unforgettable — Miss K8
 589. Blackout — Miss K8
-590. Self Aware — Gezellige Uptempo
 591. Take Control — Lekkerfaces
 592. Misery — Lekkerfaces
 593. Game Over — Satirized
@@ -1039,3 +1037,11 @@
 1039. Renegade Master — Radical Redemption
 1040. Kick Op Je Bek, Part. 2 — Digital Punk, Radical Redemption
 1041. Unleash The Radical — Radical Redemption
+# User-supplied additions, 6 October 2026
+Dragonborn Part 2 — Headhunterz
+Weapons of Love — Da Tweekaz & Atmozfears ft. POPR3B3L
+Home — Ran-D & Adaro
+Self Aware — Gezellige Uptempo & Lil Texas
+Boten Anna — Da Tweekaz x Basshunter
+We Like To Party — Vengaboys (Da Tweekaz)
+Heart Of A Dragon — Ran-D & Brennan Heart ft. Floor Jansen
