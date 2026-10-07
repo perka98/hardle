@@ -510,7 +510,7 @@ async function submitOriginalServerGuess(){
  }catch(error){guessCount.textContent=error.message}
  finally{authoritativeBusy=false;guessSubmit.disabled=gameOver}
 }
-function getServerResult(data){verifiedRoundScore=data.score;showCorrectPopup();correctScore.textContent=data.score;loadDailyAccountStats()}
+function getServerResult(data){verifiedRoundScore=data.score;try{localStorage.setItem('hardle-menu-result-'+new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Stockholm'}).format(new Date()),JSON.stringify({daily:{won:!!data.won,score:Number(data.score)||0}}))}catch{}showCorrectPopup();correctScore.textContent=data.score;loadDailyAccountStats()}
 calculateScore=function(){return verifiedRoundScore??0};
 recordResult=async function(){};
 async function loadDailyAccountStats(){
