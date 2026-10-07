@@ -2,7 +2,7 @@
 const game=new window.HardleSecureGame('daily'),get=id=>document.getElementById(id);
 const playBtn=get('playBtn'),volumeControl=get('volumeControl'),soundcloudPlayer=get('soundcloudPlayer');
 let soundcloudWidget=null,soundcloudReady=false,soundcloudLoading=null,soundcloudPlaying=false,soundcloudUrlActive='',youtubePlayer=null,youtubeReady=false,youtubeLoading=null,youtubePlaying=false,youtubeIdActive='',clipTimer=null;
-let target=null,guesses=0,completed=false,busy=true,selected=null,searchRevision=0;
+let target=null,guesses=0,completed=false,busy=true,selected=null,searchRevision=0,clipStart=20;
 const usesDeviceVolume=/iPhone|iPad|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
 volumeControl.value='1';
 function applyPlayerVolume(player){if(!usesDeviceVolume)player.setVolume(Number(volumeControl.value))}
@@ -69,7 +69,7 @@ async function initSoundCloud(url){
   soundcloudReady=true;
 }
 const CLIP_LENGTHS=[3,6,10,15,20,30];
-function getClipStart(){return 20}
+function getClipStart(){return clipStart}
 function currentClipLength(){return CLIP_LENGTHS[Math.min(guesses,CLIP_LENGTHS.length-1)]}
 function updateClipUI(){
   const seconds=currentClipLength();
@@ -120,6 +120,7 @@ function playSoundCloudAtVolume(){
   soundcloudWidget.play();
 }
 playBtn.onclick=()=>{
+  if(completed||busy)return;
   if(!audioPrepared){prepareAudio();return}
   if(soundcloudPlaying||youtubePlaying){clipPending=false;stopClip();updateClipUI();return}
   const source=audioSource(target);
@@ -144,7 +145,7 @@ function controls(){get('guessInput').disabled=busy||completed||!!game.pending;g
 function addFeedback(name,feedback,metadata={}){const row=document.createElement('div');row.className='guessRow';for(const key of ['title','artist','country','genre','year']){const cell=document.createElement('div');cell.className='guessCell '+(feedback[key]||'noMatch');cell.textContent=metadata[key]??(key==='title'?name:'—');row.append(cell)}get('guessList').append(row)}
 function finish(data){completed=!!data.completed;if(!completed)return;stopClip();const answer=data.answer;get('correctTitle').textContent=data.won?'CORRECT!':'ROUND COMPLETE';get('correctTrack').textContent=answer?.title||'';get('correctArtist').textContent=answer?.artist||'';get('correctGuesses').textContent=guesses+' / 6';get('correctScore').textContent=data.score;get('correctModal').classList.add('show');get('correctModal').setAttribute('aria-hidden','false')}
 get('correctClose').onclick=()=>{get('correctModal').classList.remove('show');get('correctModal').setAttribute('aria-hidden','true')};
-get('guessInput').oninput=async()=>{selected=null;const revision=++searchRevision,q=get('guessInput').value.trim();get('results').replaceChildren();if(!q||busy||completed)return;try{const data=await game.request('/api/secure-search',{game:'daily',query:q});if(revision!==searchRevision)return;for(const item of data.items){const button=document.createElement('button');button.className='result';button.textContent=item.title+' — '+item.artist;button.onclick=()=>{selected=item;get('guessInput').value=item.title+' — '+item.artist;get('results').replaceChildren()};get('results').append(button)}}catch(error){get('guessCount').textContent=error.message}};
+get('guessInput').oninput=async()=>{selected=null;const revision=++searchRevision,q=get('guessInput').value.trim();get('results').replaceChildren();get('results').hidden=true;if(!q||busy||completed)return;try{const data=await game.request('/api/secure-search',{game:'daily',query:q});if(revision!==searchRevision)return;for(const item of data.items){const button=document.createElement('button');button.className='result';button.textContent=item.title+' — '+item.artist;button.onclick=()=>{selected=item;get('guessInput').value=item.title+' — '+item.artist;get('results').replaceChildren()};get('results').append(button)}get('results').hidden=!data.items.length}catch(error){get('guessCount').textContent=error.message}};
 async function submitGuess(){if(busy||completed)return;if(!selected&&!game.pending){get('guessCount').textContent='Choose a track from the suggestions.';return}const choice=selected;busy=true;controls();try{const data=await game.guess(game.pending?.guess||choice.id);guesses=data.attempts;addFeedback(choice?.title||'Retried guess',data.feedback,data.guessed);get('guessInput').value='';selected=null;finish(data)}catch(error){get('guessCount').textContent=error.message}finally{busy=false;controls();if(game.pending)get('guessCount').textContent='Connection interrupted — retry this guess.'}}
 get('guessSubmit').onclick=submitGuess;get('guessInput').onkeydown=e=>{if(e.key==='Enter')submitGuess()};
-(async()=>{controls();playBtn.disabled=true;try{const state=await game.start();target=state.public_payload?.audio;if(!target||!Array.isArray(state.guesses))throw Error('Invalid server puzzle');guesses=state.guesses.length;for(const previous of state.guesses)addFeedback(previous.guess.canonical,previous.feedback.feedback,previous.feedback.guessed);if(state.completed)finish({...state.result,completed:true});busy=false;controls();if(!completed)await prepareAudio();else playBtn.disabled=true}catch(error){get('guessCount').textContent=error.message;get('guessInput').disabled=true;get('guessSubmit').disabled=true;playBtn.disabled=true}})();
+(async()=>{controls();playBtn.disabled=true;try{const state=await game.start();target=state.public_payload?.audio;clipStart=state.public_payload?.clipStart??20;if(!Number.isInteger(clipStart)||clipStart<0||clipStart>600)throw Error('Invalid server clip start');if(!target||!Array.isArray(state.guesses))throw Error('Invalid server puzzle');guesses=state.guesses.length;for(const previous of state.guesses)addFeedback(previous.guess.canonical,previous.feedback.feedback,previous.feedback.guessed);if(state.completed)finish({...state.result,completed:true});busy=false;controls();if(!completed)await prepareAudio();else playBtn.disabled=true}catch(error){get('guessCount').textContent=error.message;get('guessInput').disabled=true;get('guessSubmit').disabled=true;playBtn.disabled=true}})();

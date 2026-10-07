@@ -27,6 +27,6 @@ for(let day=0;day<50;day++){
  const date=new Date(Date.UTC(2026,9,7+day)).toISOString().slice(0,10);
  const puzzle=build({...common,date,game:'daily',pool:catalog});
  assert(catalog.find(s=>s.id===puzzle.solution.answer).audio);
- assert.deepEqual(Object.keys(puzzle.publicPayload).sort(),['audio','maxAttempts']);
+ assert.deepEqual(Object.keys(puzzle.publicPayload).sort(),['audio','clipStart','maxAttempts']);
 }
 console.log('Daily catalog IDs, existing audio format, and 50 playable server puzzles checked');
