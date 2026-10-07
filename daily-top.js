@@ -28,6 +28,7 @@
     pmStatus.textContent='Sending…';
     try{const r=await fetch(config.url+'/rest/v1/rpc/hardle_send_message',{method:'POST',headers:{apikey:config.key,Authorization:'Bearer '+session.access_token,'Content-Type':'application/json'},body:JSON.stringify({p_recipient:selectedUserId,p_body:body})});if(!r.ok)throw Error();pmStatus.textContent='Message sent ✓';pmBody.value='';setTimeout(()=>{modal.hidden=true;modal.style.display='none'},900)}catch{pmStatus.textContent='Could not send message.'}
   });
+  try{const hs=JSON.parse(localStorage.getItem('hardle-auth-v1')||sessionStorage.getItem('hardle-auth-v1')||'null');if(hs?.access_token){const ur=await fetch(config.url+'/rest/v1/rpc/hardle_unread_count',{method:'POST',headers:{apikey:config.key,Authorization:'Bearer '+hs.access_token,'Content-Type':'application/json'},body:'{}'});if(ur.ok){const n=Number(await ur.json()),link=document.getElementById('home-messages'),badge=document.getElementById('home-unread');if(link)link.hidden=false;if(badge){badge.textContent=n;badge.hidden=n<1}}}}catch{}
   try{
     const response=await fetch(config.url+'/rest/v1/rpc/hardle_leaderboard',{method:'POST',headers:{apikey:config.key,'Content-Type':'application/json'},body:JSON.stringify({period:'daily'}),signal:AbortSignal.timeout(10000)});
     if(!response.ok)throw Error();const rows=await response.json();if(!Array.isArray(rows))throw Error();
