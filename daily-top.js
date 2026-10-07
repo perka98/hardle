@@ -4,10 +4,10 @@
   let selectedUserId=null;
   const modal=document.getElementById('profile-message-modal'),profileBox=document.getElementById('pm-profile');
   const pmAvatar=document.getElementById('pm-avatar'),pmName=document.getElementById('pm-name'),pmBody=document.getElementById('pm-body'),pmStatus=document.getElementById('pm-status'),pmSend=document.getElementById('pm-send');
-  const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const avatarSrc=value=>{if(typeof value!=='string')return '/data/avatars/avatar-01.svg';if(/^avatar-0[1-8]\.svg$/.test(value))return '/data/avatars/'+value;if(/^custom\/[0-9a-f-]+\/avatar\.(jpg|jpeg|png|webp|gif)$/i.test(value))return config.url+'/storage/v1/object/public/hardle-avatars/'+value;return '/data/avatars/avatar-01.svg'}; const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   function showField(label,value){if(!value)return;const row=document.createElement('div');row.style.cssText='padding:9px 10px;background:#09090d;border:1px solid #ffffff12;border-radius:9px';row.innerHTML='<div style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:#777;margin-bottom:3px">'+esc(label)+'</div><div style="font-size:14px;color:#ddd;white-space:pre-wrap;overflow-wrap:anywhere">'+esc(value)+'</div>';profileBox.append(row)}
   async function openProfile(row){
-    selectedUserId=row.user_id;pmName.textContent=row.username;pmAvatar.src='/data/avatars/'+(typeof row.avatar==='string'&&/^avatar-0[1-8]\.svg$/.test(row.avatar)?row.avatar:'avatar-01.svg');
+    selectedUserId=row.user_id;pmName.textContent=row.username;pmAvatar.src=avatarSrc(row.avatar);
     profileBox.replaceChildren();showField('Username',row.username);pmStatus.textContent='Loading profile…';pmBody.value='';
     modal.hidden=false;modal.style.display='flex';
     try{
@@ -37,7 +37,7 @@
       const item=document.createElement('li'),line=document.createElement('span'),name=document.createElement('span'),avatar=document.createElement('img'),nameText=document.createElement('span'),score=document.createElement('b');
       name.className='leaderName';name.style.cursor='pointer';name.title='View profile';name.setAttribute('role','button');name.tabIndex=0;
       name.addEventListener('click',()=>openProfile(row));name.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')openProfile(row)});
-      avatar.className='leaderAvatar';avatar.src='/data/avatars/'+(typeof row.avatar==='string'&&/^avatar-0[1-8]\.svg$/.test(row.avatar)?row.avatar:'avatar-01.svg');avatar.alt='';avatar.loading='lazy';
+      avatar.className='leaderAvatar';avatar.src=avatarSrc(row.avatar);avatar.alt='';avatar.loading='lazy';
       nameText.className='leaderNameText';nameText.textContent=row.username;name.append(avatar,nameText);score.textContent=Number(row.score).toLocaleString('en-US');line.append(name,score);item.append(line);list.append(item)
     }
     status.textContent=top.length?'':'No scores yet today.';status.hidden=top.length>0;
