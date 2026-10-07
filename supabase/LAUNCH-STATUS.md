@@ -40,3 +40,10 @@ Preview rebuild requested after project resume on 2026-10-06. Security remains d
 - Session resume SQL now includes reveal data only through an existing saved result row, allowing completed clients to redisplay the answer after reload. Orderdle result UI displays server-revealed order/birth dates after completion. SQL execution and end-to-end resume tests still required.
 - Original Daily HTML/CSS is now wired to an initial server-client integration with existing iOS volume workaround and progressive clip lengths. Not feature-parity complete: clip start currently fixed at 20s; cover art, yesterday/global stats, countdown/share and complete modal metadata need integration. Browser/iPhone verification required. Never deploy this partial migration to production. Other original-layout integrations also require regression verification and server aggregate stats.
 - Original-design Orderdle candidate now isolated at `/orderdle-candidate.html`. Removed misleading browser-total stats from candidate modal; uses server round score. Added DOM integration check (`npm install --no-save --package-lock=false jsdom`, then `node checks/orderdle-dom.cjs`): initial render, submission, score, reveal, resume and completion lock pass with mocked API. Real pointer/mobile behavior and live API regression are still unverified. Regular pages unchanged.
+
+## Five-part Daily integration batch
+- Original player event tests include Play/Pause/replay before and after completion (simulated SoundCloud; no real external playback claim).
+- Result modal includes server metadata, artwork lookup and share handlers.
+- Resume enriches prior guess metadata without exposing current answer before completion.
+- Integrated authenticated verified-stat read and Stockholm midnight countdown; modal keyboard close/focus preserved.
+- All shared unit tests and four DOM checks pass; countdown/modal focus checks added. Development-only page is `/daily-integration.html`; working `/daily` and `/daily-candidate.html` remain stable original code. Full global/yesterday statistics, browser/media verification and exact feature parity remain incomplete.
