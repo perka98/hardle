@@ -15,11 +15,12 @@ function loadSoundCloudApi(){
   soundcloudLoading=new Promise((resolve,reject)=>{
     const script=document.createElement("script");
     script.src="https://w.soundcloud.com/player/api.js";
-    script.onload=()=>resolve();
-    script.onerror=()=>reject(new Error("SoundCloud Widget API failed"));
+    const timeout=setTimeout(()=>reject(new Error("SoundCloud API timeout")),10000);
+    script.onload=()=>{clearTimeout(timeout);if(window.SC?.Widget)resolve();else reject(new Error("SoundCloud API unavailable"))};
+    script.onerror=()=>{clearTimeout(timeout);script.remove();reject(new Error("SoundCloud Widget API failed"))};
     document.head.appendChild(script);
   });
-  return soundcloudLoading;
+  return soundcloudLoading.catch(error=>{soundcloudLoading=null;throw error});
 }
 async function initYouTube(id){
   if(!youtubeLoading){
@@ -28,13 +29,16 @@ async function initYouTube(id){
       const s=document.createElement("script");
       s.src="https://www.youtube.com/iframe_api";
       window.onYouTubeIframeAPIReady=()=>{youtubeReady=true;resolve()};
-      s.onerror=()=>reject(new Error("YouTube API failed"));
+      const timeout=setTimeout(()=>reject(new Error("YouTube API timeout")),10000);
+      const ready=window.onYouTubeIframeAPIReady;
+      window.onYouTubeIframeAPIReady=()=>{clearTimeout(timeout);ready()};
+      s.onerror=()=>{clearTimeout(timeout);s.remove();reject(new Error("YouTube API failed"))};
       document.head.appendChild(s);
     });
   }
-  await youtubeLoading;
+  try{await youtubeLoading}catch(error){youtubeLoading=null;throw error}
   if(!youtubePlayer||youtubeIdActive!==id){
-    youtubeReady=false;
+    youtubeReady=false;youtubePlaying=false;
     if(youtubePlayer?.destroy)youtubePlayer.destroy();
     await new Promise((resolve,reject)=>{
     const timeout=setTimeout(()=>reject(new Error("YouTube player timeout")),15000);
@@ -54,6 +58,7 @@ async function initYouTube(id){
 async function initSoundCloud(url){
   await loadSoundCloudApi();
   soundcloudPlayer.src="https://w.soundcloud.com/player/?url="+encodeURIComponent(url)+"&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false";
+  soundcloudReady=false;soundcloudPlaying=false;
   soundcloudWidget=SC.Widget(soundcloudPlayer);
   await new Promise((resolve,reject)=>{
     let done=false;
