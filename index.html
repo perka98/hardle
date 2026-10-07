@@ -27,10 +27,11 @@ body{background:#000}body:before{display:none}
 .games .game .completedBadge,.games .game .failedBadge,.games .game:not(.completed):not(.failed)::after{margin-top:auto}
 .games .game .completedBadge,.games .game .failedBadge{padding-top:8px;min-height:22px}
 .games .game .completedBadge,.games .game .failedBadge{order:1;line-height:14px;min-height:14px}
-body>main{width:min(1120px,100%)}
-.menuLayout{display:grid;grid-template-columns:minmax(0,760px) minmax(240px,1fr);gap:24px;align-items:start}
+body>main{width:min(760px,100%)}
+.menuLayout{position:relative}
+.dailyTop{position:absolute;left:calc(100% + 64px);top:0;width:260px}
 .dailyTop{background:#111117;border:1px solid #ffffff25;border-radius:18px;padding:18px}.dailyTop h2{font-size:20px;margin:0 0 8px}.dailyTop p{font-size:12px;color:#aaa}.dailyTop ol{padding-left:24px}.dailyTop li{padding:10px 0;border-bottom:1px solid #ffffff15;font-size:13px}.dailyTop li span{display:inline-flex;justify-content:space-between;gap:12px;width:100%}.dailyTop a{color:#bbb;font-size:12px}
-@media(max-width:900px){body>main{width:min(760px,100%)}.menuLayout{grid-template-columns:1fr}}
+@media(max-width:1440px){.dailyTop{position:static;width:auto;margin-top:24px}}
 </style>
 </head>
 <body><main><header><p class="logo">HARD<span>LE</span></p><p class="tag">Built for the harder styles</p></header><div style="text-align:right;margin-bottom:12px"><p id="home-account-status" role="status" aria-live="polite" hidden style="color:#53e48a;font-size:13px;margin:0 0 8px"></p><a href="/account?mode=signin" style="display:inline-block;padding:10px 14px;border:1px solid #ffffff25;border-radius:9px;color:#ddd;font-size:13px;text-decoration:none">Sign in</a><a href="/account?mode=register" style="display:inline-block;margin-left:8px;padding:10px 14px;background:#86212a;border-radius:9px;color:#fff;font-size:13px;text-decoration:none">Register</a><a href="/leaderboard" style="display:inline-block;margin-left:18px;color:#bbb;font-size:13px;text-decoration:none">Leaderboard →</a></div><h1>Choose a game</h1><div class="menuLayout"><nav class="games" aria-label="Games">
