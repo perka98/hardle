@@ -17,7 +17,22 @@
  get('daily-score-card').dataset.tier=tier[0];get('daily-score-tier').textContent=tier[1];
  const grid=get('combined-stats');grid.replaceChildren();for(const [label,value] of [['Games Played',stats.played],['Wins',stats.wins],['Win Rate',(stats.played?Math.round(stats.wins/stats.played*100):0)+'%']]){const cell=document.createElement('div'),b=document.createElement('b'),span=document.createElement('span');b.textContent=value;span.textContent=label;cell.append(b,span);grid.append(cell)}
  const parts=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Stockholm',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());const today=['year','month','day'].map(type=>parts.find(p=>p.type===type).value).join('-');
- for(const item of historyRows.filter(row=>row.puzzle_date===today)){const card=document.querySelector('a[href="/'+item.game+'"]')||document.querySelector('a[href="/'+({daily:'daily-fresh',artist:'artist',djdle:'djdle',orderdle:'orderdle'}[item.game])+'-candidate.html"]');if(card){card.classList.add(item.won?'completed':'failed');card.dataset.result=Number(item.score)>0?(Number(item.score)>=700?'good':Number(item.score)>=400?'medium':'weak'):'failed';const badge=document.createElement('span');badge.className=item.won?'completedBadge':'failedBadge';badge.textContent=item.won?'✓ Completed today':'✕ Failed today';card.querySelector('.play').before(badge)}}
+ const gameHrefs={daily:'/daily',djdle:'/djdle',artist:'/artist',orderdle:'/orderdle'};
+ for(const item of historyRows.filter(row=>String(row.puzzle_date||'')===today)){
+   const card=document.querySelector('a[href="'+gameHrefs[item.game]+'"]');
+   if(!card)continue;
+   const won=Boolean(item.won),score=Number(item.score)||0;
+   card.classList.remove('completed','failed');
+   card.removeAttribute('data-result');
+   card.querySelectorAll('.completedBadge,.failedBadge').forEach(el=>el.remove());
+   card.classList.add(won?'completed':'failed');
+   card.dataset.result=!won?'failed':score>=700?'good':'medium';
+   const badge=document.createElement('span');
+   badge.className=won?'completedBadge':'failedBadge';
+   badge.textContent=won?'✓ Completed today':'✕ Failed today';
+   const play=card.querySelector('.play');
+   if(play)play.before(badge);
+ }
  rows.replaceChildren();for(const item of historyRows){const row=document.createElement('p');row.textContent=item.puzzle_date+' · '+item.game+' · '+item.score+' points';rows.append(row)}if(!historyRows.length)rows.textContent='No verified results yet.';
  }catch{get('daily-score').textContent='—';get('combined-score').textContent='—';rows.textContent='Verified results unavailable.'}
 })();
