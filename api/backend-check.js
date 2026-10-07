@@ -16,6 +16,24 @@ module.exports=async(req,res)=>{
  // Persistent global limit: no secret values or internal SQL errors are returned.
  const limited=await db.query('select hardle_private.take_rate_limit($1,$2) as allowed',['preview-backend-check',10]);
  if(!limited.rows[0]?.allowed){res.setHeader('Retry-After','60');return res.status(429).json({status:'please_wait'})}
+ const helper=await db.query("select to_regprocedure('hardle_private.isolation_test_fixture()') is not null as installed");
+ if(helper.rows[0]?.installed){
+ const client=await db.connect();
+ let passed=false;
+ try{
+ await client.query('begin');
+ await client.query("set local statement_timeout='8000ms'");
+ const fixture=await client.query('select * from hardle_private.isolation_test_fixture()');
+ const {player_a,player_b}=fixture.rows[0];
+ for(const [own,other] of [[player_a,player_b],[player_b,player_a]]){
+ await client.query("select set_config('hardle.player_id',$1,true)",[own]);
+ const visible=await client.query('select player_id from hardle_private.sessions where player_id=any($1::text[])',[[own,other]]);
+ if(visible.rows.length!==1||visible.rows[0].player_id!==own)throw Error('Isolation verification failed');
+ }
+ passed=true;
+ }finally{try{await client.query('rollback')}finally{client.release()}}
+ if(passed)return res.json({status:'isolation_verified',secureGameplayEnabled:false});
+ }
  const isolation=await transaction(async client=>{
  await client.query("select set_config('hardle.player_id',$1,true)",['guest:preview-isolation-check']);
  const rows=await client.query("select count(*)::integer as visible from hardle_private.sessions where player_id<>$1",['guest:preview-isolation-check']);
