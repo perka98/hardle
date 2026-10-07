@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "node tests/security.test.js && node tests/rules.test.js && node tests/submissions.test.js && node tests/puzzles.test.js && node tests/client.test.js && node tests/api.test.js && node tests/song-feedback.test.js"
+    "test": "node tests/security.test.js && node tests/rules.test.js && node tests/submissions.test.js && node tests/puzzles.test.js && node tests/client.test.js && node tests/api.test.js && node tests/song-feedback.test.js && node tests/provision.test.js"
   },
   "repository": {
     "type": "git",
