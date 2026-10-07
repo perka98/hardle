@@ -10,10 +10,14 @@
  try{
  const [stats,historyRows]=await Promise.all([request('hardle_my_stats'),request('hardle_my_history')]);
  if(!Array.isArray(historyRows))throw Error();
- get('daily-score').textContent=stats.dailyScore;get('combined-score').textContent=stats.totalScore;
+ get('daily-score').textContent=Number(stats.dailyScore).toLocaleString('en-US');get('combined-score').textContent=Number(stats.totalScore).toLocaleString('en-US');
+ const score=Number(stats.dailyScore),todayParts=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Stockholm',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date()),todayKey=['year','month','day'].map(t=>todayParts.find(p=>p.type===t).value).join('-');
+ const playedToday=historyRows.some(row=>row.puzzle_date===todayKey);
+ const tier=!playedToday?['neutral','Not played yet']:score>=3500?['green','🟢 Hardcore']:score>=3000?['yellow','🟡 Great']:score>=2000?['orange','🟠 Solid']:['red','🔴 Keep playing'];
+ get('daily-score-card').dataset.tier=tier[0];get('daily-score-tier').textContent=tier[1];
  const grid=get('combined-stats');grid.replaceChildren();for(const [label,value] of [['Games Played',stats.played],['Wins',stats.wins],['Win Rate',(stats.played?Math.round(stats.wins/stats.played*100):0)+'%']]){const cell=document.createElement('div'),b=document.createElement('b'),span=document.createElement('span');b.textContent=value;span.textContent=label;cell.append(b,span);grid.append(cell)}
  const parts=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Stockholm',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());const today=['year','month','day'].map(type=>parts.find(p=>p.type===type).value).join('-');
- for(const item of historyRows.filter(row=>row.puzzle_date===today)){const card=document.querySelector('a[href="/'+({daily:'daily-fresh',artist:'artist',djdle:'djdle',orderdle:'orderdle'}[item.game])+'-candidate.html"]');if(card){card.classList.add(item.won?'completed':'failed');const badge=document.createElement('span');badge.className=item.won?'completedBadge':'failedBadge';badge.textContent=item.won?'✓ Completed today':'✕ Failed today';card.querySelector('.play').before(badge)}}
+ for(const item of historyRows.filter(row=>row.puzzle_date===today)){const card=document.querySelector('a[href="/'+item.game+'"]')||document.querySelector('a[href="/'+({daily:'daily-fresh',artist:'artist',djdle:'djdle',orderdle:'orderdle'}[item.game])+'-candidate.html"]');if(card){card.classList.add(item.won?'completed':'failed');card.dataset.result=Number(item.score)>0?(Number(item.score)>=700?'good':Number(item.score)>=400?'medium':'weak'):'failed';const badge=document.createElement('span');badge.className=item.won?'completedBadge':'failedBadge';badge.textContent=item.won?'✓ Completed today':'✕ Failed today';card.querySelector('.play').before(badge)}}
  rows.replaceChildren();for(const item of historyRows){const row=document.createElement('p');row.textContent=item.puzzle_date+' · '+item.game+' · '+item.score+' points';rows.append(row)}if(!historyRows.length)rows.textContent='No verified results yet.';
  }catch{get('daily-score').textContent='—';get('combined-score').textContent='—';rows.textContent='Verified results unavailable.'}
 })();
