@@ -2,7 +2,6 @@
 (async()=>{
   const status=document.getElementById('daily-top-status');
   const list=document.getElementById('daily-top-list');
-  document.getElementById('daily-top-date').textContent=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Stockholm',day:'numeric',month:'short'}).format(new Date());
   const config=window.HardleAccountConfig;
   try{
     const response=await fetch(config.url+'/rest/v1/rpc/hardle_leaderboard',{method:'POST',headers:{apikey:config.key,'Content-Type':'application/json'},body:JSON.stringify({period:'daily'}),signal:AbortSignal.timeout(10000)});
