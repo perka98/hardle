@@ -1,4 +1,5 @@
 'use strict';
+const {isDeepStrictEqual}=require('node:util');
 const crypto=require('node:crypto'),security=require('../server/security');
 const {database,transaction}=require('../server/database'),{ensure}=require('../server/provision'),{submit}=require('../server/submissions');
 module.exports=async(req,res)=>{
@@ -20,7 +21,7 @@ module.exports=async(req,res)=>{
  const guess=puzzle.rows[0]?.secret_solution?.answer;if(typeof guess!=='string')throw Error('Invalid test puzzle');
  const input={player,date,game:'djdle',guess,requestId:crypto.randomUUID()};
  stage='concurrent_replay';const responses=await Promise.all([submit(input),submit(input)]);
- if(JSON.stringify(responses[0])!==JSON.stringify(responses[1]))throw Error('Replay mismatch');
+ if(!isDeepStrictEqual(responses[0],responses[1])){const error=Error('Replay mismatch');error.code='REPLAY_MISMATCH';throw error}
  stage='completed_rejection';const duplicate=await Promise.allSettled([submit({...input,requestId:crypto.randomUUID()}),submit({...input,requestId:crypto.randomUUID()})]);
  if(duplicate.some(x=>x.status!=='rejected'||x.reason.message!=='Game completed'))throw Error('Completed round accepted another guess');
  stage='verify_counts';await transaction(async client=>{
