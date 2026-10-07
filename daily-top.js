@@ -43,6 +43,15 @@
     status.textContent=top.length?'':'No scores yet today.';status.hidden=top.length>0;
   }catch{status.hidden=false;status.textContent='Today’s leaderboard is not available yet.'}
   try{
+    const winner=document.getElementById('last-month-winner');
+    const response=await fetch(config.url+'/rest/v1/rpc/hardle_leaderboard',{method:'POST',headers:{apikey:config.key,'Content-Type':'application/json'},body:JSON.stringify({period:'previous_month'}),signal:AbortSignal.timeout(10000)});
+    if(!response.ok)throw Error();
+    const rows=await response.json();const top=Array.isArray(rows)?rows.filter(row=>row?.username&&row?.user_id&&Number.isFinite(Number(row.score))).sort((a,b)=>Number(b.score)-Number(a.score)).slice(0,1):[];
+    if(top.length){
+      const row=top[0];winner.innerHTML='<div class="lmLabel">Last Month’s Winner</div><div class="lmRow"><img class="lmAvatar" src="'+avatarSrc(row.avatar)+'" alt=""><span class="lmName">'+esc(row.username)+'</span><b class="lmScore">'+Number(row.score).toLocaleString('en-US')+'</b></div>';winner.hidden=false;
+    }
+  }catch{}
+  try{
     const monthlyStatus=document.getElementById('monthly-top-status'),monthlyList=document.getElementById('monthly-top-list');
     const response=await fetch(config.url+'/rest/v1/rpc/hardle_leaderboard',{method:'POST',headers:{apikey:config.key,'Content-Type':'application/json'},body:JSON.stringify({period:'monthly'}),signal:AbortSignal.timeout(10000)});
     if(!response.ok)throw Error();const rows=await response.json();if(!Array.isArray(rows))throw Error();
