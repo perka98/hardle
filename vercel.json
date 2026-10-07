@@ -12,6 +12,10 @@
   ],
   "rewrites": [
     {
+      "source": "/checks/:path*",
+      "destination": "/api/private-resource"
+    },
+    {
       "source": "/server/:path*",
       "destination": "/api/private-resource"
     },
