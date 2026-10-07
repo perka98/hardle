@@ -19,6 +19,21 @@ async function getAvatarModerationModel(){
   avatarModerationPromise=(async()=>{
     if(!window.tf||!window.nsfwjs)throw Error('Image moderation is unavailable. Please try again.');
     try{window.tf.enableProdMode()}catch{}
+    const modelBase=['https:','//cdn.jsdelivr.net','/npm/nsfwjs@4.4.0/dist/models/mobilenet_v2/'].join('');
+    if(!window.__hardleNsfwModelScripts){
+      window.__hardleNsfwModelScripts=new Promise((resolve,reject)=>{
+        const files=['model.min.js','group1-shard1of2.min.js','group1-shard2of2.min.js'];
+        let left=files.length;
+        files.forEach(file=>{
+          const script=document.createElement('script');
+          script.src=modelBase+file;
+          script.onload=()=>{if(--left===0)resolve()};
+          script.onerror=()=>reject(Error('Could not load the image moderation model.'));
+          document.head.appendChild(script);
+        });
+      });
+    }
+    await window.__hardleNsfwModelScripts;
     const model=await window.nsfwjs.load('MobileNetV2');
     avatarModerationModel=model;
     return model;
