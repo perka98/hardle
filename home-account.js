@@ -2,11 +2,13 @@
 (async function () {
   const status = document.getElementById('home-account-status');
   const config = window.HardleAccountConfig;
+  const signInButton = document.querySelector('a[href="/account?mode=signin"]');
   let revision = 0;
   async function update() {
     const current = ++revision;
     status.hidden = true;
     status.textContent = '';
+    if (signInButton) signInButton.textContent = 'Sign in';
     let session;
     try { session = JSON.parse(sessionStorage.getItem('hardle-auth-v1') || 'null'); } catch { return; }
     if (!session?.access_token || !config) return;
@@ -21,6 +23,7 @@
       const identity = user.user_metadata?.username || user.email;
       status.textContent = identity ? 'Signed in as ' + identity : 'Signed in';
       status.hidden = false;
+      if (signInButton) signInButton.textContent = 'You are signed in';
     } catch { /* Do not claim a verified login when verification fails. */ }
   }
   window.addEventListener('pageshow', update);
