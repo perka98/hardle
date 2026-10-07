@@ -51,6 +51,9 @@
   "functions": {
     "api/game-session.js": {
       "includeFiles": "server/private/**"
+    },
+    "api/concurrency-check.js": {
+      "includeFiles": "server/private/**"
     }
   }
 }
