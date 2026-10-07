@@ -3,7 +3,7 @@ const security=require('../server/security');
 const {database,transaction}=require('../server/database');
 module.exports=async(req,res)=>{
  res.setHeader('Cache-Control','no-store');
- if(process.env.VERCEL_ENV!=='preview')return res.status(404).end();
+ if(process.env.VERCEL_ENV!=='preview'||process.env.VERCEL_GIT_COMMIT_REF!=='vercel-agent/anti-cheat-continue')return res.status(404).end();
  if(req.method!=='POST')return res.status(405).json({error:'Method not allowed'});
  if(!security.sameOrigin(req))return res.status(403).json({error:'Origin rejected'});
  if(!process.env.HARDLE_DATABASE_URL||!process.env.HARDLE_SESSION_SECRET||!process.env.SUPABASE_URL||!process.env.SUPABASE_PUBLISHABLE_KEY)return res.status(503).json({status:'configuration_missing'});

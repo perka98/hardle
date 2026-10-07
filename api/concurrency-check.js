@@ -4,7 +4,7 @@ const crypto=require('node:crypto'),security=require('../server/security');
 const {database,transaction}=require('../server/database'),{ensure}=require('../server/provision'),{submit}=require('../server/submissions');
 module.exports=async(req,res)=>{
  res.setHeader('Cache-Control','no-store');
- if(process.env.VERCEL_ENV!=='preview')return res.status(404).end();
+ if(process.env.VERCEL_ENV!=='preview'||process.env.VERCEL_GIT_COMMIT_REF!=='vercel-agent/anti-cheat-continue')return res.status(404).end();
  if(req.method!=='POST')return res.status(405).json({error:'Method not allowed'});
  if(!security.sameOrigin(req))return res.status(403).json({error:'Origin rejected'});
  let player,db,stage='connect';

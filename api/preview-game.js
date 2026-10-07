@@ -2,7 +2,7 @@
 const crypto=require('node:crypto'),security=require('../server/security'),auth=require('../server/auth'),limits=require('../server/rate-limit');
 const {transaction}=require('../server/database'),{build}=require('../server/puzzles'),{evaluate}=require('../server/rules'),songFeedback=require('../server/song-feedback');
 module.exports=async(req,res)=>{
- res.setHeader('Cache-Control','no-store');if(process.env.VERCEL_ENV!=='preview')return res.status(404).end();if(req.method!=='POST'||!security.sameOrigin(req))return res.status(403).json({error:'Request rejected'});
+ res.setHeader('Cache-Control','no-store');if(process.env.VERCEL_ENV!=='preview'||process.env.VERCEL_GIT_COMMIT_REF!=='vercel-agent/anti-cheat-continue')return res.status(404).end();if(req.method!=='POST'||!security.sameOrigin(req))return res.status(403).json({error:'Request rejected'});
  const started=Date.now();let authMs=0,limitMs=0,dbStarted=0;
  try{
  const data=security.body(req);if(!['daily','artist','djdle','orderdle'].includes(data.game)||!['start','guess'].includes(data.action)||Object.keys(data).some(k=>!['game','action','roundId','guess','requestId'].includes(k)))return res.status(400).json({error:'Invalid request'});
