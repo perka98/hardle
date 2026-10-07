@@ -22,7 +22,7 @@ begin
  select s.id into sid from hardle_private.sessions s where s.player_id=p_player and s.puzzle_date=d and s.game=p_game;
  return query select s.id,p.public_payload,
  coalesce((select jsonb_agg(jsonb_build_object('guess',g.guess,'feedback',g.feedback,'attempt',g.attempt) order by g.attempt) from hardle_private.guesses g where g.session_id=s.id),'[]'::jsonb),s.completed,
- (select jsonb_build_object('score',r.score,'won',r.won,'attempts',r.attempts) from hardle_private.results r where r.session_id=s.id)
+ (select jsonb_build_object('score',r.score,'won',r.won,'attempts',r.attempts,'answer',p.secret_solution->'reveal') from hardle_private.results r where r.session_id=s.id)
  from hardle_private.sessions s join hardle_private.puzzles p on p.puzzle_date=s.puzzle_date and p.game=s.game where s.id=sid;
 end; $$;
 -- Only service backend may execute. Puzzle solutions still require trusted validator access.

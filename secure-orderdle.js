@@ -13,7 +13,8 @@ function render(){
 }
 function showResult(data){
  completed=!!data.completed;
- if(completed){result.textContent=(data.won?'Correct!':'Round completed.')+' Score: '+data.score;status.textContent='Your result is saved by the server.'}
+
+ if(completed){result.textContent=(data.won?'Correct!':'Round completed.')+' Score: '+data.score+(Array.isArray(data.answer)?' · Correct order: '+data.answer.map(person=>person.name+' ('+person.birthDate+')').join(' → '):'');status.textContent='Your result is saved by the server.'}
  render();
 }
 async function start(){
