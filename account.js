@@ -19,8 +19,8 @@ async function getAvatarModerationModel(){
   avatarModerationPromise=(async()=>{
     if(!window.tf||!window.nsfwjs)throw Error('Image moderation is unavailable. Please try again.');
     try{window.tf.enableProdMode()}catch{}
-    const modelUrl='https://cdn.jsdelivr.net/npm/nsfwjs@4.4.0/dist/models/mobilenet_v2/';
-    const model=await window.nsfwjs.load(modelUrl);
+    await window.tf.ready();
+    const model=await window.nsfwjs.load();
     avatarModerationModel=model;
     return model;
   })().catch(error=>{avatarModerationPromise=null;throw error});
