@@ -14,7 +14,13 @@ $('close-result').onclick=()=>{$('result-modal').hidden=true};$('share').onclick
 document.addEventListener('keydown',e=>{if($('result-modal').hidden)return;if(e.key==='Escape')$('result-modal').hidden=true;if(e.key==='Tab'){const first=$('share'),last=$('close-result');if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}});
 async function load(){
  revealing=true;
- try{const state=await secure.start();if(!Number.isInteger(state.public_payload?.length)||state.public_payload.length<1||state.public_payload.length>100||!Array.isArray(state.guesses))throw Error('Invalid server puzzle');target.length=state.public_payload.length;guesses=state.guesses.map(g=>g.guess.canonical);feedbackRows=state.guesses.map(g=>g.feedback.feedback);serverResult=state.completed?{...state.result,completed:true}:null;targetName=serverResult?.answer?.name||'';revealing=false;$('length').textContent=`Today's DJ name has ${target.length} letters.`;$('guess').maxLength=target.length;render();if(ended)showResult()}
+ $('length').textContent='Loading today’s DJdle…';
+ $('message').textContent='Connecting to the game server…';
+ $('guess').disabled=true;
+ $('board').replaceChildren();
+ for(let i=0;i<7;i++){const row=document.createElement('div');row.className='row';row.style.setProperty('--letters',5);for(let j=0;j<5;j++){const cell=document.createElement('span');cell.className='cell';cell.setAttribute('aria-hidden','true');row.append(cell)}$('board').append(row)}
+ document.querySelectorAll('.keys button').forEach(b=>b.disabled=true);
+ try{const state=await secure.start();if(!Number.isInteger(state.public_payload?.length)||state.public_payload.length<1||state.public_payload.length>100||!Array.isArray(state.guesses))throw Error('Invalid server puzzle');target.length=state.public_payload.length;guesses=state.guesses.map(g=>g.guess.canonical);feedbackRows=state.guesses.map(g=>g.feedback.feedback);serverResult=state.completed?{...state.result,completed:true}:null;targetName=serverResult?.answer?.name||'';revealing=false;$('message').textContent='';$('length').textContent=`Today's DJ name has ${target.length} letters.`;$('guess').maxLength=target.length;render();if(ended)showResult()}
  catch(error){$('message').textContent=error.message;$('guess').disabled=true;document.querySelectorAll('.keys button').forEach(b=>b.disabled=true)}
 }
 async function submit(){
