@@ -18,6 +18,7 @@ function createSubmit(runTransaction){return async function submit({player,userI
   if(game==='daily'){const guessed=secret.catalog.find(x=>x.id===evaluated.canonical),answer=secret.catalog.find(x=>x.id===secret.answer);if(!guessed||!answer)throw Error('Puzzle data invalid');evaluated.feedback=songFeedback.feedback(guessed,answer)}
   const response={feedback:evaluated.feedback,won:evaluated.won,attempts:evaluated.attempts,completed:evaluated.completed,score:evaluated.score};
   if(game==='daily'){const item=secret.catalog.find(x=>x.id===evaluated.canonical);response.guessed={title:item.title,artist:item.artist,country:item.country,genre:item.genre,year:item.year}}
+  if(game==='artist')response.guessed={name:secret.names?.[evaluated.canonical]||'Previous artist guess'};
   if(game==='artist'&&!evaluated.completed)response.clues=secret.clues.slice(0,evaluated.attempts+1);
   if(evaluated.completed)response.answer=secret.reveal;
   await client.query('insert into hardle_private.guesses(session_id,attempt,request_id,guess,feedback) values($1,$2,$3,$4,$5)',[s.id,evaluated.attempts,requestId,{canonical:evaluated.canonical},response]);
