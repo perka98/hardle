@@ -1,0 +1,6 @@
+'use strict';
+const $=id=>document.getElementById(id),config=window.HardleAccountConfig;
+async function request(path,body,token){const res=await fetch(config.url+path,{method:body?'POST':'GET',headers:{apikey:config.key,'Content-Type':'application/json',...(token?{Authorization:'Bearer '+token}:{})},...(body?{body:JSON.stringify(body)}:{})});const data=await res.json();if(!res.ok)throw new Error(data.msg||data.error_description||data.message||'Request failed');return data}
+async function loadLeaders(){$('leaders').replaceChildren();$('leaderboard-status').textContent='Loading…';try{const rows=await request('/rest/v1/rpc/hardle_leaderboard',{period:$('period').value});if(!Array.isArray(rows))throw Error('Leaderboard unavailable');for(const [i,row] of rows.entries()){const tr=document.createElement('tr');for(const value of [i+1,row.username,row.score]){const td=document.createElement('td');td.textContent=value;tr.append(td)}$('leaders').append(tr)}$('leaderboard-status').textContent=rows.length?'':'No verified scores yet.'}catch{$('leaderboard-status').textContent='Leaderboard setup pending. Competitive results are not submitted yet.'}}
+$('period').onchange=loadLeaders;
+loadLeaders();
