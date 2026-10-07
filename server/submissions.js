@@ -1,6 +1,7 @@
 'use strict';
 const {transaction}=require('./database');
-const {evaluate}=require('./rules');
+const {evaluate,normalize}=require('./rules');
+const {isDeepStrictEqual}=require('node:util');
 const songFeedback=require('./song-feedback');
 // Requires reviewed database grants/RLS or a private server transaction function.
 // Never called by current browser games. Authenticated identities must be verified upstream.
@@ -9,7 +10,7 @@ function createSubmit(runTransaction){return async function submit({player,userI
   await client.query("select set_config('hardle.player_id',$1,true)",[player]);
   const session=await client.query('select * from hardle_private.sessions where player_id=$1 and puzzle_date=$2 and game=$3 for update',[player,date,game]);
   const s=session.rows[0];if(!s)throw Error('Session required');
-  const replay=await client.query('select feedback from hardle_private.guesses where session_id=$1 and request_id=$2',[s.id,requestId]);if(replay.rows.length)return replay.rows[0].feedback;
+  const replay=await client.query('select guess,feedback from hardle_private.guesses where session_id=$1 and request_id=$2',[s.id,requestId]);if(replay.rows.length){const canonical=game==='djdle'?normalize(guess):game==='orderdle'?guess:String(guess);if(!isDeepStrictEqual(replay.rows[0].guess?.canonical,canonical))throw Error('Request ID reused with a different guess');return replay.rows[0].feedback;}
   if(s.completed)throw Error('Game completed');
   const p=await client.query('select secret_solution from hardle_private.puzzles where puzzle_date=$1 and game=$2',[date,game]);const secret=p.rows[0]?.secret_solution;if(!secret)throw Error('Puzzle unavailable');
   const history=await client.query('select guess,feedback from hardle_private.guesses where session_id=$1 order by attempt',[s.id]);
