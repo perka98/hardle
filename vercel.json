@@ -42,6 +42,10 @@
     {
       "source": "/account",
       "destination": "/account.html"
+    },
+    {
+      "source": "/leaderboard",
+      "destination": "/leaderboard.html"
     }
   ],
   "functions": {
