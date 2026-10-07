@@ -37,7 +37,7 @@
       if (!response.ok) return;
       const user = await response.json();
       if (current !== revision || !user.id) return;
-      if (profileAvatar) { const avatar = user.user_metadata?.avatar || 'avatar-01.svg'; profileAvatar.src = /^avatar-0[1-8]\.svg$/.test(avatar) ? '/data/avatars/' + avatar : avatar.startsWith('custom/') ? config.url + '/storage/v1/object/public/hardle-avatars/' + avatar : '/data/avatars/avatar-01.svg'; }
+      if (profileAvatar) { const avatar = user.user_metadata?.avatar || 'avatar-01.svg'; profileAvatar.src = /^avatar-0[1-8]\.svg$/.test(avatar) ? '/data/avatars/' + avatar : avatar.startsWith('custom/') ? config.url + '/storage/v1/object/public/hardle-avatars/' + avatar.replace(/^custom\//, '') : '/data/avatars/avatar-01.svg'; }
       if (signInButton) signInButton.textContent = 'You are signed in';
       signOutButton.hidden = false;
     } catch { /* Do not claim a verified login when verification fails. */ }
