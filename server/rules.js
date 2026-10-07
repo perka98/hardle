@@ -1,0 +1,9 @@
+'use strict';
+const normalize=value=>String(value).toUpperCase().normalize('NFD').replace(/[^A-Z]/g,'');
+const pointScale=[1000,850,700,550,400,250,100];
+function wordMarks(word,answer){const marks=Array(word.length).fill('gray'),remaining={};for(let i=0;i<answer.length;i++){if(word[i]===answer[i])marks[i]='green';else remaining[answer[i]]=(remaining[answer[i]]||0)+1}for(let i=0;i<word.length;i++)if(marks[i]!=='green'&&remaining[word[i]]>0){marks[i]='yellow';remaining[word[i]]--}return marks}
+function evaluate({game,solution,guess,previous,accepted}){if(!Array.isArray(previous))throw Error('Server history required');const max=game==='djdle'?7:game==='orderdle'?1:6;if(previous.length>=max||previous.some(x=>x.won))throw Error('Game completed');if(!['daily','artist','djdle','orderdle'].includes(game))throw Error('Invalid game');let feedback,won,correct=0,canonical;
+if(game==='orderdle'){if(!Array.isArray(solution)||solution.length!==5||!Array.isArray(guess)||guess.length!==5||new Set(guess).size!==5||!guess.every(x=>solution.includes(x)))throw Error('Invalid order');canonical=guess;feedback=guess.map((id,i)=>id===solution[i]);correct=feedback.filter(Boolean).length;won=correct===5}
+else{canonical=game==='djdle'?normalize(guess):String(guess);if(!accepted.has(canonical))throw Error('Unrecognized guess');if(previous.some(x=>x.canonical===canonical))throw Error('Duplicate guess');if(game==='djdle'){if(canonical.length!==solution.length)throw Error('Incorrect word length');feedback=wordMarks(canonical,solution)}won=canonical===solution;if(game!=='djdle')feedback={correct:won}}
+const attempts=previous.length+1,completed=won||attempts===max;return {canonical,feedback,won,attempts,completed,score:completed?(game==='orderdle'?correct*200:won?pointScale[attempts-1]:0):null}}
+module.exports={normalize,wordMarks,evaluate};

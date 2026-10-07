@@ -1,0 +1,4 @@
+'use strict';
+const security=require('./security');
+async function player(req,res){const authorization=req.headers.authorization;if(!authorization)return {player:security.identity(req,res),userId:null};if(!/^Bearer [A-Za-z0-9._-]+$/.test(authorization)||authorization.length>8192)throw Error('Invalid authentication');const url=process.env.SUPABASE_URL,key=process.env.SUPABASE_PUBLISHABLE_KEY;if(!url||!key)throw Error('Authentication unavailable');const response=await fetch(url+'/auth/v1/user',{headers:{apikey:key,Authorization:authorization},signal:AbortSignal.timeout(5000)});if(!response.ok)throw Error('Invalid authentication');const user=await response.json();if(!/^[0-9a-f-]{36}$/.test(user.id||''))throw Error('Invalid authentication');return {player:'user:'+user.id,userId:user.id}}
+module.exports={player};

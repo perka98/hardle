@@ -1,0 +1,14 @@
+'use strict';
+const crypto=require('node:crypto');
+function secret(){const value=process.env.HARDLE_SESSION_SECRET;if(!value||value.length<32)throw Error('Session signing is not configured');return value}
+function sign(value){return crypto.createHmac('sha256',secret()).update(value).digest('base64url')}
+function equal(a,b){const x=Buffer.from(a),y=Buffer.from(b);return x.length===y.length&&crypto.timingSafeEqual(x,y)}
+function mint(now=Date.now()){const payload=Buffer.from(JSON.stringify({id:crypto.randomUUID(),expires:now+30*86400000})).toString('base64url');return payload+'.'+sign(payload)}
+function verify(token,now=Date.now()){try{if(typeof token!=='string'||token.length>1024)return null;const parts=token.split('.');if(parts.length!==2||!equal(parts[1],sign(parts[0])))return null;const data=JSON.parse(Buffer.from(parts[0],'base64url').toString());if(!/^[0-9a-f-]{36}$/.test(data.id)||!Number.isFinite(data.expires)||data.expires<=now)return null;return data}catch{return null}}
+function cookies(req){const value=req.headers.cookie||'';return Object.fromEntries(value.split(';').map(s=>{const i=s.indexOf('=');return i<0?null:[s.slice(0,i).trim(),s.slice(i+1)]}).filter(Boolean))}
+function identity(req,res){const existing=verify(cookies(req).__Host_hardle_guest);if(existing)return 'guest:'+existing.id;const token=mint();res.setHeader('Set-Cookie','__Host_hardle_guest='+token+'; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=2592000');return 'guest:'+verify(token).id}
+function sameOrigin(req){const origin=req.headers.origin;if(!origin)return false;try{const parsed=new URL(origin),host=req.headers.host;return parsed.protocol==='https:'&&parsed.host===host}catch{return false}}
+function body(req){const data=req.body;if(!data||typeof data!=='object'||Array.isArray(data))throw Error('Invalid request body');if(Buffer.byteLength(JSON.stringify(data))>4096)throw Error('Request too large');return data}
+function parseGuess(data){const allowed=new Set(['game','guess','requestId']);if(Object.keys(data).some(key=>!allowed.has(key)))throw Error('Unexpected request field');if(!['daily','artist','djdle','orderdle'].includes(data.game))throw Error('Invalid game');if(!/^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(data.requestId||''))throw Error('Invalid request ID');if(data.game==='orderdle'){if(!Array.isArray(data.guess)||data.guess.length!==5||new Set(data.guess).size!==5||!data.guess.every(x=>typeof x==='string'&&x.length<=80))throw Error('Invalid order')}else if(typeof data.guess!=='string'||data.guess.length<1||data.guess.length>200)throw Error('Invalid guess');return data}
+function date(now=new Date()){const p=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Stockholm',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(now);return ['year','month','day'].map(t=>p.find(x=>x.type===t).value).join('-')}
+module.exports={mint,verify,identity,sameOrigin,body,parseGuess,date};
