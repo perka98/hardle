@@ -1,0 +1,7610 @@
+[
+  {
+    "id": "song-0",
+    "title": "Dragonborn",
+    "artist": "Headhunterz",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2012
+  },
+  {
+    "id": "song-1",
+    "title": "Transcendence",
+    "artist": "Headhunterz & JDX",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2020
+  },
+  {
+    "id": "song-2",
+    "title": "Destiny",
+    "artist": "Headhunterz",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2018
+  },
+  {
+    "id": "song-3",
+    "title": "Colors",
+    "artist": "Headhunterz feat. Tatu",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2013
+  },
+  {
+    "id": "song-4",
+    "title": "Lose My Mind",
+    "artist": "Brennan Heart & Wildstylez",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2012
+  },
+  {
+    "id": "song-5",
+    "title": "Till U Believe It",
+    "artist": "Brennan Heart",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2011
+  },
+  {
+    "id": "song-6",
+    "title": "F.I.F.O.",
+    "artist": "Brennan Heart",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2013
+  },
+  {
+    "id": "song-7",
+    "title": "Darkest Hour (The Clock)",
+    "artist": "D-Block & S-te-Fan & Sub Zero Project",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2019
+  },
+  {
+    "id": "song-8",
+    "title": "The Contagion",
+    "artist": "Sub Zero Project feat. Christina Novelli",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2019
+  },
+  {
+    "id": "song-9",
+    "title": "Trip To Mars (Astronauts)",
+    "artist": "Sub Zero Project",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2021
+  },
+  {
+    "id": "song-10",
+    "title": "Faye",
+    "artist": "Coone & David Spekter",
+    "country": "BE",
+    "genre": "Hardstyle",
+    "year": 2020
+  },
+  {
+    "id": "song-11",
+    "title": "Scrap Attack",
+    "artist": "Headhunterz",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2009
+  },
+  {
+    "id": "song-12",
+    "title": "Primal Energy",
+    "artist": "D-Block & S-te-Fan",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2020
+  },
+  {
+    "id": "song-13",
+    "title": "Ride With Uz",
+    "artist": "D-Block & S-te-Fan",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2008
+  },
+  {
+    "id": "song-14",
+    "title": "World Of Dreams",
+    "artist": "Da Tweekaz",
+    "country": "NO",
+    "genre": "Hardstyle",
+    "year": 2016
+  },
+  {
+    "id": "song-15",
+    "title": "Jägermeister",
+    "artist": "Da Tweekaz",
+    "country": "NO",
+    "genre": "Hardstyle",
+    "year": 2012
+  },
+  {
+    "id": "song-16",
+    "title": "Tweeka",
+    "artist": "Da Tweekaz",
+    "country": "NO",
+    "genre": "Hardstyle",
+    "year": 2014
+  },
+  {
+    "id": "song-17",
+    "title": "The Project",
+    "artist": "Ran-D",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2017
+  },
+  {
+    "id": "song-18",
+    "title": "Living For The Moment",
+    "artist": "Ran-D",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2009
+  },
+  {
+    "id": "song-19",
+    "title": "Zombie",
+    "artist": "Ran-D",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2017
+  },
+  {
+    "id": "song-20",
+    "title": "Sloop John B",
+    "artist": "Sound Rush",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2020
+  },
+  {
+    "id": "song-21",
+    "title": "Brothers",
+    "artist": "Sound Rush",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2019
+  },
+  {
+    "id": "song-22",
+    "title": "Take It All",
+    "artist": "Sound Rush",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2021
+  },
+  {
+    "id": "song-23",
+    "title": "Overdrive",
+    "artist": "Warface",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2017
+  },
+  {
+    "id": "song-24",
+    "title": "Live For This",
+    "artist": "Warface",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2018
+  },
+  {
+    "id": "song-25",
+    "title": "The End",
+    "artist": "Act of Rage",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2020
+  },
+  {
+    "id": "song-26",
+    "title": "Conquer",
+    "artist": "Act of Rage",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2019
+  },
+  {
+    "id": "song-27",
+    "title": "Let The Games Begin",
+    "artist": "Act of Rage",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2021
+  },
+  {
+    "id": "song-28",
+    "title": "Darkest Moment",
+    "artist": "Rejecta",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2018
+  },
+  {
+    "id": "song-29",
+    "title": "Followed",
+    "artist": "Rejecta",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2019
+  },
+  {
+    "id": "song-30",
+    "title": "Still Here",
+    "artist": "Rejecta",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2020
+  },
+  {
+    "id": "song-31",
+    "title": "The Temple",
+    "artist": "Phuture Noize",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2019
+  },
+  {
+    "id": "song-32",
+    "title": "Fire",
+    "artist": "Phuture Noize",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2016
+  },
+  {
+    "id": "song-33",
+    "title": "Infinity",
+    "artist": "B-Front & Hard Driver",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2021
+  },
+  {
+    "id": "song-34",
+    "title": "Magic",
+    "artist": "B-Front & Frontliner",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2010
+  },
+  {
+    "id": "song-35",
+    "title": "Beyond Reality",
+    "artist": "B-Front",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2017
+  },
+  {
+    "id": "song-36",
+    "title": "My Life",
+    "artist": "Zatox",
+    "country": "IT",
+    "genre": "Hardstyle",
+    "year": 2012
+  },
+  {
+    "id": "song-37",
+    "title": "Wildest",
+    "artist": "Zatox",
+    "country": "IT",
+    "genre": "Hardstyle",
+    "year": 2016
+  },
+  {
+    "id": "song-38",
+    "title": "Drop It",
+    "artist": "Rooler",
+    "country": "IT",
+    "genre": "Rawstyle",
+    "year": 2020
+  },
+  {
+    "id": "song-39",
+    "title": "YES!",
+    "artist": "Rooler",
+    "country": "IT",
+    "genre": "Rawstyle",
+    "year": 2021
+  },
+  {
+    "id": "song-40",
+    "title": "Domination",
+    "artist": "Rooler",
+    "country": "IT",
+    "genre": "Rawstyle",
+    "year": 2018
+  },
+  {
+    "id": "song-41",
+    "title": "GO STUPID",
+    "artist": "Sickmode",
+    "country": "IT",
+    "genre": "Rawstyle",
+    "year": 2022
+  },
+  {
+    "id": "song-42",
+    "title": "Rumble In The Jungle",
+    "artist": "Sickmode",
+    "country": "IT",
+    "genre": "Rawstyle",
+    "year": 2020
+  },
+  {
+    "id": "song-43",
+    "title": "The Death Of Us",
+    "artist": "Rebelion",
+    "country": "SC",
+    "genre": "Rawstyle",
+    "year": 2020
+  },
+  {
+    "id": "song-44",
+    "title": "City Lights",
+    "artist": "Rebelion",
+    "country": "SC",
+    "genre": "Rawstyle",
+    "year": 2019
+  },
+  {
+    "id": "song-45",
+    "title": "Bass Ex Machina",
+    "artist": "Rebelion",
+    "country": "SC",
+    "genre": "Rawstyle",
+    "year": 2021
+  },
+  {
+    "id": "song-46",
+    "title": "Activation",
+    "artist": "Aversion",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2022
+  },
+  {
+    "id": "song-47",
+    "title": "Outlaw",
+    "artist": "Aversion",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2021
+  },
+  {
+    "id": "song-48",
+    "title": "Sinners",
+    "artist": "Aversion",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2023
+  },
+  {
+    "id": "song-49",
+    "title": "Freak",
+    "artist": "Mutilator",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2022
+  },
+  {
+    "id": "song-50",
+    "title": "Onslaught",
+    "artist": "Mutilator",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2021
+  },
+  {
+    "id": "song-51",
+    "title": "Psycho",
+    "artist": "Mutilator",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2023
+  },
+  {
+    "id": "song-52",
+    "title": "The Sound Of The Future",
+    "artist": "Dr. Peacock",
+    "country": "FR",
+    "genre": "Frenchcore",
+    "year": 2017
+  },
+  {
+    "id": "song-53",
+    "title": "Trip To Valhalla",
+    "artist": "Dr. Peacock",
+    "country": "FR",
+    "genre": "Frenchcore",
+    "year": 2018
+  },
+  {
+    "id": "song-54",
+    "title": "Frenchcore Family",
+    "artist": "Dr. Peacock",
+    "country": "FR",
+    "genre": "Frenchcore",
+    "year": 2019
+  },
+  {
+    "id": "song-55",
+    "title": "Ode To Hardcore",
+    "artist": "Partyraiser",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2020
+  },
+  {
+    "id": "song-56",
+    "title": "Anger",
+    "artist": "Partyraiser",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2021
+  },
+  {
+    "id": "song-57",
+    "title": "Cocaine",
+    "artist": "N-Vitral",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2019
+  },
+  {
+    "id": "song-58",
+    "title": "Crispy",
+    "artist": "N-Vitral",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2020
+  },
+  {
+    "id": "song-59",
+    "title": "The Ultimate",
+    "artist": "N-Vitral",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2021
+  },
+  {
+    "id": "song-60",
+    "title": "Raise Your Fist",
+    "artist": "Angerfist",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2006
+  },
+  {
+    "id": "song-61",
+    "title": "Pennywise",
+    "artist": "Angerfist",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2014
+  },
+  {
+    "id": "song-62",
+    "title": "Incoming",
+    "artist": "Angerfist",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2018
+  },
+  {
+    "id": "song-63",
+    "title": "Never Alone",
+    "artist": "Miss K8",
+    "country": "UA",
+    "genre": "Hardcore",
+    "year": 2017
+  },
+  {
+    "id": "song-64",
+    "title": "Legacy",
+    "artist": "Miss K8",
+    "country": "UA",
+    "genre": "Hardcore",
+    "year": 2019
+  },
+  {
+    "id": "song-65",
+    "title": "Out Of The Frame",
+    "artist": "Miss K8",
+    "country": "UA",
+    "genre": "Hardcore",
+    "year": 2020
+  },
+  {
+    "id": "song-66",
+    "title": "Black",
+    "artist": "Tha Playah",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2008
+  },
+  {
+    "id": "song-67",
+    "title": "Why So Serious",
+    "artist": "Tha Playah",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2016
+  },
+  {
+    "id": "song-68",
+    "title": "Kundalini",
+    "artist": "Headhunterz & Skytech",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2016
+  },
+  {
+    "id": "song-69",
+    "title": "Home",
+    "artist": "Headhunterz",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2019
+  },
+  {
+    "id": "song-70",
+    "title": "Takin' It Back",
+    "artist": "Headhunterz",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2017
+  },
+  {
+    "id": "song-71",
+    "title": "Orange Heart",
+    "artist": "Headhunterz feat. Sian Evans",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2019
+  },
+  {
+    "id": "song-72",
+    "title": "No One Can Stop Us Now",
+    "artist": "Headhunterz",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2020
+  },
+  {
+    "id": "song-73",
+    "title": "End Of My Existence",
+    "artist": "Headhunterz",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2022
+  },
+  {
+    "id": "song-74",
+    "title": "The Power Of Music",
+    "artist": "Headhunterz",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2010
+  },
+  {
+    "id": "song-75",
+    "title": "Hard With Style",
+    "artist": "Headhunterz",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2010
+  },
+  {
+    "id": "song-76",
+    "title": "The Story Unfolds",
+    "artist": "Headhunterz",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2022
+  },
+  {
+    "id": "song-77",
+    "title": "Harder State Of Mind",
+    "artist": "D-Block & S-te-Fan & DJ Isaac",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2020
+  },
+  {
+    "id": "song-78",
+    "title": "Promised Land",
+    "artist": "D-Block & S-te-Fan",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2022
+  },
+  {
+    "id": "song-79",
+    "title": "Bla Bla",
+    "artist": "D-Block & S-te-Fan",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-80",
+    "title": "2 Silhouettes",
+    "artist": "D-Block & S-te-Fan",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2012
+  },
+  {
+    "id": "song-81",
+    "title": "Music Made Addict",
+    "artist": "D-Block & S-te-Fan",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2009
+  },
+  {
+    "id": "song-82",
+    "title": "Harder Generation",
+    "artist": "D-Block & S-te-Fan",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2020
+  },
+  {
+    "id": "song-83",
+    "title": "Live Forever",
+    "artist": "Headhunterz",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2024
+  },
+  {
+    "id": "song-84",
+    "title": "Before I Wake",
+    "artist": "Headhunterz & Vertile",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2022
+  },
+  {
+    "id": "song-85",
+    "title": "Dragonborn Part 3 (Oceans Apart)",
+    "artist": "Headhunterz feat. Sian Evans",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2020
+  },
+  {
+    "id": "song-86",
+    "title": "The Flame Inside",
+    "artist": "Headhunterz",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2023
+  },
+  {
+    "id": "song-87",
+    "title": "Rock Civilization",
+    "artist": "Headhunterz",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2007
+  },
+  {
+    "id": "song-88",
+    "title": "Psychedelic",
+    "artist": "Headhunterz",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2011
+  },
+  {
+    "id": "song-89",
+    "title": "Oxygen",
+    "artist": "Headhunterz",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2019
+  },
+  {
+    "id": "song-90",
+    "title": "From Within",
+    "artist": "Headhunterz",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2011
+  },
+  {
+    "id": "song-91",
+    "title": "The Power Of The Mind",
+    "artist": "Headhunterz",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2007
+  },
+  {
+    "id": "song-92",
+    "title": "Our Church",
+    "artist": "Headhunterz & Sub Zero Project",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2021
+  },
+  {
+    "id": "song-93",
+    "title": "World Of Madness",
+    "artist": "Headhunterz & Wildstylez & Noisecontrollers",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2012
+  },
+  {
+    "id": "song-94",
+    "title": "Tonight",
+    "artist": "Headhunterz & Noisecontrollers & Wildstylez",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2010
+  },
+  {
+    "id": "song-95",
+    "title": "Live The Moment",
+    "artist": "JDX",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2007
+  },
+  {
+    "id": "song-96",
+    "title": "FTS",
+    "artist": "Showtek",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2007
+  },
+  {
+    "id": "song-97",
+    "title": "Timeless",
+    "artist": "Wildstylez",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2012
+  },
+  {
+    "id": "song-98",
+    "title": "The Human Soul",
+    "artist": "D-Block & S-te-Fan & Wildstylez",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2009
+  },
+  {
+    "id": "song-99",
+    "title": "Twilight Zone",
+    "artist": "D-Block & S-te-Fan",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2018
+  },
+  {
+    "id": "song-100",
+    "title": "Sound Of Thunder",
+    "artist": "D-Block & S-te-Fan feat. Villain",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2009
+  },
+  {
+    "id": "song-101",
+    "title": "Brace Yourself",
+    "artist": "D-Block & S-te-Fan",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2019
+  },
+  {
+    "id": "song-102",
+    "title": "Fearless",
+    "artist": "D-Block & S-te-Fan",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2021
+  },
+  {
+    "id": "song-103",
+    "title": "Believe",
+    "artist": "D-Block & S-te-Fan",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2021
+  },
+  {
+    "id": "song-104",
+    "title": "Enter Your Mind",
+    "artist": "D-Block & S-te-Fan",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2021
+  },
+  {
+    "id": "song-105",
+    "title": "HALO",
+    "artist": "Sub Zero Project",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2021
+  },
+  {
+    "id": "song-106",
+    "title": "The Project",
+    "artist": "Sub Zero Project",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2018
+  },
+  {
+    "id": "song-107",
+    "title": "Sinners Paradise",
+    "artist": "Sub Zero Project & Rebelion",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2021
+  },
+  {
+    "id": "song-108",
+    "title": "A New Beginning",
+    "artist": "Sub Zero Project",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2021
+  },
+  {
+    "id": "song-109",
+    "title": "Path Of The Warrior",
+    "artist": "Sub Zero Project",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2023
+  },
+  {
+    "id": "song-110",
+    "title": "Refuse To Speak",
+    "artist": "Sub Zero Project feat. Bryant Powell",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2024
+  },
+  {
+    "id": "song-111",
+    "title": "Maze Of Memories",
+    "artist": "Sub Zero Project",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2024
+  },
+  {
+    "id": "song-112",
+    "title": "It Will Be OK",
+    "artist": "Sub Zero Project & Dual Damage",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-113",
+    "title": "Shivers",
+    "artist": "D-Block & S-te-Fan & Ran-D",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-114",
+    "title": "No Guts No Glory",
+    "artist": "Ran-D",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2015
+  },
+  {
+    "id": "song-115",
+    "title": "Hurricane",
+    "artist": "Ran-D",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2018
+  },
+  {
+    "id": "song-116",
+    "title": "Under Attack",
+    "artist": "Ran-D & Adaro",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2013
+  },
+  {
+    "id": "song-117",
+    "title": "Battleborn",
+    "artist": "Ran-D & Frequencerz & Adaro",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2016
+  },
+  {
+    "id": "song-118",
+    "title": "We Are The Storm",
+    "artist": "Ran-D & Sound Rush feat. LePrince",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2021
+  },
+  {
+    "id": "song-119",
+    "title": "Army Of Fire",
+    "artist": "Sound Rush",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2016
+  },
+  {
+    "id": "song-120",
+    "title": "Rhythm Of The Night",
+    "artist": "Sound Rush",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2018
+  },
+  {
+    "id": "song-121",
+    "title": "Transform",
+    "artist": "Sound Rush & Sogma feat. Robin Vane",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2022
+  },
+  {
+    "id": "song-122",
+    "title": "Stay With Me",
+    "artist": "Sound Rush & Sogma feat. Ekaterina Shelehova",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-123",
+    "title": "Adrenaline Overload",
+    "artist": "Sound Rush & The Purge & Adjuzt",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2023
+  },
+  {
+    "id": "song-124",
+    "title": "Polestar",
+    "artist": "Phuture Noize & B-Front",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2024
+  },
+  {
+    "id": "song-125",
+    "title": "The Paradox",
+    "artist": "B-Front & Phuture Noize",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2017
+  },
+  {
+    "id": "song-126",
+    "title": "My Beautiful Fantasy",
+    "artist": "B-Front & Phuture Noize",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2020
+  },
+  {
+    "id": "song-127",
+    "title": "Mysterias",
+    "artist": "B-Front",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2017
+  },
+  {
+    "id": "song-128",
+    "title": "Starlight",
+    "artist": "Frequencerz & Phuture Noize",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2019
+  },
+  {
+    "id": "song-129",
+    "title": "Black Mirror Society",
+    "artist": "Phuture Noize",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2017
+  },
+  {
+    "id": "song-130",
+    "title": "An Idea Never Dies",
+    "artist": "Phuture Noize",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2022
+  },
+  {
+    "id": "song-131",
+    "title": "Until You're Gone",
+    "artist": "Phuture Noize",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-132",
+    "title": "Stop The Bleeding",
+    "artist": "Phuture Noize",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-133",
+    "title": "Accelerate",
+    "artist": "Code Black & Atmozfears",
+    "country": "AU",
+    "genre": "Hardstyle",
+    "year": 2014
+  },
+  {
+    "id": "song-134",
+    "title": "Seven",
+    "artist": "E-Force",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2014
+  },
+  {
+    "id": "song-135",
+    "title": "Bring It On",
+    "artist": "Rebelion & Sub Sonik",
+    "country": "SC",
+    "genre": "Rawstyle",
+    "year": 2019
+  },
+  {
+    "id": "song-136",
+    "title": "Ghost Of Us",
+    "artist": "Rebelion",
+    "country": "SC",
+    "genre": "Rawstyle",
+    "year": 2021
+  },
+  {
+    "id": "song-137",
+    "title": "Aliens On Acid",
+    "artist": "Rebelion",
+    "country": "SC",
+    "genre": "Rawstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-138",
+    "title": "Beyond The Horizon",
+    "artist": "Rebelion",
+    "country": "SC",
+    "genre": "Rawstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-139",
+    "title": "We Own The Night",
+    "artist": "Rebelion feat. Micah Martin",
+    "country": "SC",
+    "genre": "Rawstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-140",
+    "title": "Numb",
+    "artist": "Rebelion & Vertile",
+    "country": "SC",
+    "genre": "Rawstyle",
+    "year": 2023
+  },
+  {
+    "id": "song-141",
+    "title": "Switchblades",
+    "artist": "Rebelion & Warface",
+    "country": "SC",
+    "genre": "Rawstyle",
+    "year": 2021
+  },
+  {
+    "id": "song-142",
+    "title": "Wanna Stay",
+    "artist": "D-Sturb",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2021
+  },
+  {
+    "id": "song-143",
+    "title": "The Edge (Of The End)",
+    "artist": "D-Sturb feat. Xception",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-144",
+    "title": "Come Alive",
+    "artist": "D-Sturb & D-Block & S-te-Fan",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2023
+  },
+  {
+    "id": "song-145",
+    "title": "Midnight Paradise",
+    "artist": "Warface & D-Sturb",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2021
+  },
+  {
+    "id": "song-146",
+    "title": "Obey No More",
+    "artist": "Sub Zero Project & Warface",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2021
+  },
+  {
+    "id": "song-147",
+    "title": "D13MENSION",
+    "artist": "Warface",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-148",
+    "title": "TOO COLD",
+    "artist": "Sickmode & Rooler",
+    "country": "IT",
+    "genre": "Rawstyle",
+    "year": 2021
+  },
+  {
+    "id": "song-149",
+    "title": "SAVE ME",
+    "artist": "Sickmode & Rooler & Krowdexx",
+    "country": "IT",
+    "genre": "Rawstyle",
+    "year": 2024
+  },
+  {
+    "id": "song-150",
+    "title": "FCK DAT!",
+    "artist": "Rooler & Kronos",
+    "country": "IT",
+    "genre": "Rawstyle",
+    "year": 2023
+  },
+  {
+    "id": "song-151",
+    "title": "Burning Down",
+    "artist": "Dual Damage",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2024
+  },
+  {
+    "id": "song-152",
+    "title": "Inferno",
+    "artist": "Vertile & Dual Damage",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-153",
+    "title": "No Sleep",
+    "artist": "Vertile",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2023
+  },
+  {
+    "id": "song-154",
+    "title": "Change This Place",
+    "artist": "Vertile",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2021
+  },
+  {
+    "id": "song-155",
+    "title": "Embrace The Dark",
+    "artist": "Ghost Stories",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2024
+  },
+  {
+    "id": "song-156",
+    "title": "Ready Or Not",
+    "artist": "Ghost Stories",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-157",
+    "title": "Solar",
+    "artist": "Noisecontrollers & Bass Modulators",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2015
+  },
+  {
+    "id": "song-158",
+    "title": "So High",
+    "artist": "Noisecontrollers",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2010
+  },
+  {
+    "id": "song-159",
+    "title": "Down Down",
+    "artist": "Noisecontrollers",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2011
+  },
+  {
+    "id": "song-160",
+    "title": "Attack Again",
+    "artist": "Noisecontrollers",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2011
+  },
+  {
+    "id": "song-161",
+    "title": "CTRL.ALT.DELETE",
+    "artist": "Noisecontrollers",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2014
+  },
+  {
+    "id": "song-162",
+    "title": "Symbols",
+    "artist": "Frontliner",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2011
+  },
+  {
+    "id": "song-163",
+    "title": "Spacer",
+    "artist": "Frontliner",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2010
+  },
+  {
+    "id": "song-164",
+    "title": "Halos",
+    "artist": "Frontliner",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2011
+  },
+  {
+    "id": "song-165",
+    "title": "Pandora",
+    "artist": "Code Black",
+    "country": "AU",
+    "genre": "Hardstyle",
+    "year": 2013
+  },
+  {
+    "id": "song-166",
+    "title": "Lost In Paradise",
+    "artist": "Max Enforcer",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2010
+  },
+  {
+    "id": "song-167",
+    "title": "Ti Sento",
+    "artist": "Technoboy",
+    "country": "IT",
+    "genre": "Hardstyle",
+    "year": 2009
+  },
+  {
+    "id": "song-168",
+    "title": "Next Dimensional World",
+    "artist": "Technoboy",
+    "country": "IT",
+    "genre": "Hardstyle",
+    "year": 2008
+  },
+  {
+    "id": "song-169",
+    "title": "Natural",
+    "artist": "Davide Sonar",
+    "country": "IT",
+    "genre": "Hardstyle",
+    "year": 2008
+  },
+  {
+    "id": "song-170",
+    "title": "The Prophecy",
+    "artist": "Deepack",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2003
+  },
+  {
+    "id": "song-171",
+    "title": "Melancholia",
+    "artist": "Wasted Penguinz",
+    "country": "SE",
+    "genre": "Hardstyle",
+    "year": 2011
+  },
+  {
+    "id": "song-172",
+    "title": "Stay Alive",
+    "artist": "Wasted Penguinz",
+    "country": "SE",
+    "genre": "Hardstyle",
+    "year": 2012
+  },
+  {
+    "id": "song-173",
+    "title": "Pounding Senses",
+    "artist": "Southstylers",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2006
+  },
+  {
+    "id": "song-174",
+    "title": "Black",
+    "artist": "Showtek",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2007
+  },
+  {
+    "id": "song-175",
+    "title": "Like Thiz",
+    "artist": "Josh & Wesz",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2008
+  },
+  {
+    "id": "song-176",
+    "title": "Strike",
+    "artist": "Crypsis",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2010
+  },
+  {
+    "id": "song-177",
+    "title": "Break Down Low",
+    "artist": "Crypsis",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2012
+  },
+  {
+    "id": "song-178",
+    "title": "Rest In Hell",
+    "artist": "Digital Punk",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2013
+  },
+  {
+    "id": "song-179",
+    "title": "Menace",
+    "artist": "Warface & Frequencerz",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2016
+  },
+  {
+    "id": "song-180",
+    "title": "Imagine",
+    "artist": "Bass Modulators",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2012
+  },
+  {
+    "id": "song-181",
+    "title": "The Haunter Of The Dark",
+    "artist": "Adaro",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2011
+  },
+  {
+    "id": "song-182",
+    "title": "No Angel",
+    "artist": "D-Block & S-te-Fan",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-183",
+    "title": "New Day To Remember",
+    "artist": "D-Block & S-te-Fan feat. Conrad Sewell",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-184",
+    "title": "Berlin",
+    "artist": "D-Block & S-te-Fan & DJ Isaac",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-185",
+    "title": "Change To Follow",
+    "artist": "D-Block & S-te-Fan & Sub Zero Project",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-186",
+    "title": "Capital Of Crazy",
+    "artist": "Sub Zero Project & Rebelion feat. Micah Martin",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-187",
+    "title": "Never Surrender",
+    "artist": "Sub Zero Project feat. Nathalie Blue",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-188",
+    "title": "HARDSTYLE IS BACK",
+    "artist": "Krowdexx & TOZA",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-189",
+    "title": "My History",
+    "artist": "B-Front & Galactixx feat. MC Synergy",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-190",
+    "title": "Eyes Open",
+    "artist": "Vertile",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2022
+  },
+  {
+    "id": "song-191",
+    "title": "Lost It All",
+    "artist": "Vertile",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2022
+  },
+  {
+    "id": "song-192",
+    "title": "Together",
+    "artist": "Vertile",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2023
+  },
+  {
+    "id": "song-193",
+    "title": "Ain't Nobody",
+    "artist": "Vertile",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2024
+  },
+  {
+    "id": "song-194",
+    "title": "Golden Hour",
+    "artist": "Vertile",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2024
+  },
+  {
+    "id": "song-195",
+    "title": "Ready For Lift Off",
+    "artist": "Vertile & Rebelion",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2023
+  },
+  {
+    "id": "song-196",
+    "title": "Simulation",
+    "artist": "Vertile & Act of Rage",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2022
+  },
+  {
+    "id": "song-197",
+    "title": "Still Happy",
+    "artist": "Vertile & D-Block & S-te-Fan",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2024
+  },
+  {
+    "id": "song-198",
+    "title": "Stinky Noise",
+    "artist": "Gezellige Uptempo & Partyraiser",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-199",
+    "title": "Beauty And A Beat",
+    "artist": "Gezellige Uptempo",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-200",
+    "title": "Feel This Moment",
+    "artist": "Dimitri K & Gezellige Uptempo",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-201",
+    "title": "FA TI CO but it's 2026",
+    "artist": "Lekkerfaces & Mind Compressor",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-202",
+    "title": "Cobra 6",
+    "artist": "Partyraiser & Gezellige Uptempo & Skits Vicious",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-203",
+    "title": "Jumptempo",
+    "artist": "Gezellige Uptempo & Pat B",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-204",
+    "title": "Uptempo Airlines",
+    "artist": "Gezellige Uptempo & Pinotello",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2025
+  },
+  {
+    "id": "song-205",
+    "title": "Bouncezaag",
+    "artist": "Opgekonkerd & Invaderz & Gezellige Uptempo",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-206",
+    "title": "Alle Remmen Los",
+    "artist": "Satirized & Gezellige Uptempo",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2025
+  },
+  {
+    "id": "song-207",
+    "title": "Vamos A La Playa",
+    "artist": "Gezellige Uptempo",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2025
+  },
+  {
+    "id": "song-208",
+    "title": "Wakker Worden!",
+    "artist": "Unlocked & Gezellige Uptempo",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2025
+  },
+  {
+    "id": "song-209",
+    "title": "Hoppa",
+    "artist": "Irradiate & Gezellige Uptempo",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2025
+  },
+  {
+    "id": "song-210",
+    "title": "Cozy",
+    "artist": "Gezellige Uptempo & HET POMPSTATION",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-211",
+    "title": "Gasolina",
+    "artist": "Gezellige Uptempo & Sanctuary",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2024
+  },
+  {
+    "id": "song-212",
+    "title": "Fijn Kickje",
+    "artist": "Gezellige Uptempo",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2023
+  },
+  {
+    "id": "song-213",
+    "title": "Jungle",
+    "artist": "Gezellige Uptempo",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2024
+  },
+  {
+    "id": "song-214",
+    "title": "Meet Her At The Poop Parade",
+    "artist": "Gezellige Uptempo",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-215",
+    "title": "I AM EXCITED",
+    "artist": "Lil Texas",
+    "country": "US",
+    "genre": "Uptempo",
+    "year": 2018
+  },
+  {
+    "id": "song-216",
+    "title": "DIE YOUNG",
+    "artist": "Lil Texas",
+    "country": "US",
+    "genre": "Uptempo",
+    "year": 2022
+  },
+  {
+    "id": "song-217",
+    "title": "STARSHIPS",
+    "artist": "Lil Texas",
+    "country": "US",
+    "genre": "Uptempo",
+    "year": 2023
+  },
+  {
+    "id": "song-218",
+    "title": "RIP CITY",
+    "artist": "Lil Texas",
+    "country": "US",
+    "genre": "Uptempo",
+    "year": 2024
+  },
+  {
+    "id": "song-219",
+    "title": "140",
+    "artist": "Lil Texas",
+    "country": "US",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-220",
+    "title": "EASY T",
+    "artist": "Lil Texas",
+    "country": "US",
+    "genre": "Uptempo",
+    "year": 2025
+  },
+  {
+    "id": "song-221",
+    "title": "GABBER SHIP",
+    "artist": "Lil Texas & Never Surrender & Rave & Plunder",
+    "country": "US",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-222",
+    "title": "I LIKE IT SLOW",
+    "artist": "Lil Texas & Fraw",
+    "country": "US",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-223",
+    "title": "CHICKEN DANCE",
+    "artist": "GPF & Lil Texas",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2025
+  },
+  {
+    "id": "song-224",
+    "title": "MISS MY CHOPPA V2",
+    "artist": "Lil Texas",
+    "country": "US",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-225",
+    "title": "Hyper World",
+    "artist": "Lekkerfaces",
+    "country": "IT",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-226",
+    "title": "TSUNAMI (Hyper Outro)",
+    "artist": "Lekkerfaces",
+    "country": "IT",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-227",
+    "title": "Rock That Party",
+    "artist": "Lekkerfaces",
+    "country": "IT",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-228",
+    "title": "CodeBreaker",
+    "artist": "Lekkerfaces",
+    "country": "IT",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-229",
+    "title": "Down On The Floor",
+    "artist": "Lekkerfaces & Mind Compressor",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-230",
+    "title": "G.A.B.B.E.R. L.E.K.K.E.R. Remix",
+    "artist": "Dither & Lekkerfaces",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-231",
+    "title": "The New Operation",
+    "artist": "Unproven & Satirized & Spitnoise",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2025
+  },
+  {
+    "id": "song-232",
+    "title": "Dynamite",
+    "artist": "Barber & Satirized & Unproven & Tharken & Manifest Destiny & Samynator & Soulblast",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2025
+  },
+  {
+    "id": "song-233",
+    "title": "Detonation",
+    "artist": "Satirized & Barber & Unproven & Manifest Destiny & Soulblast & Tharken & Deviation & Samynator",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-234",
+    "title": "Jumpstyle",
+    "artist": "Pinotello & Satirized",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-235",
+    "title": "K-Hole",
+    "artist": "Satirized",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2024
+  },
+  {
+    "id": "song-236",
+    "title": "6 AM",
+    "artist": "Satirized & Rosbeek",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2024
+  },
+  {
+    "id": "song-237",
+    "title": "Ride Of No Return",
+    "artist": "Satirized & GPF",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2025
+  },
+  {
+    "id": "song-238",
+    "title": "No Limit",
+    "artist": "Missy",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-239",
+    "title": "Mission Missy",
+    "artist": "Missy",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-240",
+    "title": "The Awakening",
+    "artist": "N-Vitral & BOMBSQUAD & Nolz",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2026
+  },
+  {
+    "id": "song-241",
+    "title": "Don't Stop",
+    "artist": "Missy & Kili",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-242",
+    "title": "HEADSHOT",
+    "artist": "Kili & Damaxy",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-243",
+    "title": "In The Jungle",
+    "artist": "Spitnoise & Barber",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2023
+  },
+  {
+    "id": "song-244",
+    "title": "Ready For War",
+    "artist": "Spitnoise",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-245",
+    "title": "The Light",
+    "artist": "Spitnoise & E-Life",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2024
+  },
+  {
+    "id": "song-246",
+    "title": "Straight To The Brain",
+    "artist": "The Dope Doctor & Lekkerfaces",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2024
+  },
+  {
+    "id": "song-247",
+    "title": "Overdrive",
+    "artist": "The Dope Doctor",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2024
+  },
+  {
+    "id": "song-248",
+    "title": "Around The World",
+    "artist": "The Dope Doctor",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-249",
+    "title": "New Drug",
+    "artist": "Dr Donk & Noiseflow",
+    "country": "DE",
+    "genre": "Uptempo",
+    "year": 2024
+  },
+  {
+    "id": "song-250",
+    "title": "Cyka Blyat (Moskau)",
+    "artist": "Noiseflow & Major Conspiracy",
+    "country": "DE",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-251",
+    "title": "Noise Tempo",
+    "artist": "Noiseflow & Lil Texas",
+    "country": "DE",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-252",
+    "title": "Hit Tha Club",
+    "artist": "LunaKorpz",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2023
+  },
+  {
+    "id": "song-253",
+    "title": "Summer SZN",
+    "artist": "LunaKorpz",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2024
+  },
+  {
+    "id": "song-254",
+    "title": "Voices",
+    "artist": "LunaKorpz",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2025
+  },
+  {
+    "id": "song-255",
+    "title": "WASTED",
+    "artist": "LunaKorpz",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-256",
+    "title": "Ghost Of The Underworld",
+    "artist": "LunaKorpz & Omnya",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2024
+  },
+  {
+    "id": "song-257",
+    "title": "Bullet In Your Chest",
+    "artist": "Pinotello & NRKi",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2024
+  },
+  {
+    "id": "song-258",
+    "title": "Brand New",
+    "artist": "Pinotello",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2024
+  },
+  {
+    "id": "song-259",
+    "title": "Sick F*ck",
+    "artist": "Pinotello & Jimmy Gomez",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2023
+  },
+  {
+    "id": "song-260",
+    "title": "Niet Zo Mauwen",
+    "artist": "Pinotello & EZG",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-261",
+    "title": "Bingo!",
+    "artist": "Akimbo & T.M.O.",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-262",
+    "title": "I.C.E",
+    "artist": "Akimbo & Aalst",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2024
+  },
+  {
+    "id": "song-263",
+    "title": "Game Of Hate",
+    "artist": "N-Vitral & Barber",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2024
+  },
+  {
+    "id": "song-264",
+    "title": "St8ment",
+    "artist": "Miss K8",
+    "country": "UA",
+    "genre": "Hardcore",
+    "year": 2017
+  },
+  {
+    "id": "song-265",
+    "title": "Resolute Power",
+    "artist": "Miss K8 feat. Nolz",
+    "country": "UA",
+    "genre": "Hardcore",
+    "year": 2017
+  },
+  {
+    "id": "song-266",
+    "title": "Temper",
+    "artist": "Miss K8",
+    "country": "UA",
+    "genre": "Hardcore",
+    "year": 2017
+  },
+  {
+    "id": "song-267",
+    "title": "Midnight Rain",
+    "artist": "Miss K8",
+    "country": "UA",
+    "genre": "Hardcore",
+    "year": 2025
+  },
+  {
+    "id": "song-268",
+    "title": "Step Up",
+    "artist": "Miss K8 & DRS",
+    "country": "UA",
+    "genre": "Hardcore",
+    "year": 2024
+  },
+  {
+    "id": "song-269",
+    "title": "Meteor",
+    "artist": "Miss K8 & Tha Watcher",
+    "country": "UA",
+    "genre": "Hardcore",
+    "year": 2024
+  },
+  {
+    "id": "song-270",
+    "title": "Brutal 4.0",
+    "artist": "Radical Redemption",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2015
+  },
+  {
+    "id": "song-271",
+    "title": "The Darkest Moment",
+    "artist": "Radical Redemption",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2018
+  },
+  {
+    "id": "song-272",
+    "title": "Hard Bass Tribute",
+    "artist": "Radical Redemption",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2015
+  },
+  {
+    "id": "song-273",
+    "title": "Death Metal",
+    "artist": "Radical Redemption & Frequencerz",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2015
+  },
+  {
+    "id": "song-274",
+    "title": "The One Man Army",
+    "artist": "Radical Redemption feat. MC Nolz",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2015
+  },
+  {
+    "id": "song-275",
+    "title": "Scream",
+    "artist": "Radical Redemption & Miss K8 feat. MC Nolz",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2015
+  },
+  {
+    "id": "song-276",
+    "title": "Release The Fear",
+    "artist": "Radical Redemption & E-Force",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2015
+  },
+  {
+    "id": "song-277",
+    "title": "The World Is Yours",
+    "artist": "Project One",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2008
+  },
+  {
+    "id": "song-278",
+    "title": "The Upside Down",
+    "artist": "Project One & Headhunterz & Wildstylez",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-279",
+    "title": "Disruption",
+    "artist": "D-Charged",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-280",
+    "title": "Fanfare",
+    "artist": "D-Charged",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2017
+  },
+  {
+    "id": "song-281",
+    "title": "Azure",
+    "artist": "D-Charged",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-282",
+    "title": "Drift",
+    "artist": "D-Charged",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-283",
+    "title": "Magic",
+    "artist": "Wasted Penguinz",
+    "country": "SE",
+    "genre": "Hardstyle",
+    "year": 2016
+  },
+  {
+    "id": "song-284",
+    "title": "Black & White",
+    "artist": "Wasted Penguinz",
+    "country": "SE",
+    "genre": "Hardstyle",
+    "year": 2016
+  },
+  {
+    "id": "song-285",
+    "title": "Clarity",
+    "artist": "Wasted Penguinz",
+    "country": "SE",
+    "genre": "Hardstyle",
+    "year": 2016
+  },
+  {
+    "id": "song-286",
+    "title": "Sacrifice",
+    "artist": "Wasted Penguinz",
+    "country": "SE",
+    "genre": "Hardstyle",
+    "year": 2014
+  },
+  {
+    "id": "song-287",
+    "title": "Anxiety",
+    "artist": "Wasted Penguinz",
+    "country": "SE",
+    "genre": "Hardstyle",
+    "year": 2010
+  },
+  {
+    "id": "song-288",
+    "title": "Alive",
+    "artist": "Wasted Penguinz",
+    "country": "SE",
+    "genre": "Hardstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-289",
+    "title": "Keep Running",
+    "artist": "Wasted Penguinz & Demi Kanon",
+    "country": "SE",
+    "genre": "Hardstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-290",
+    "title": "T.M.M.O.",
+    "artist": "Frontliner & Wasted Penguinz",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2015
+  },
+  {
+    "id": "song-291",
+    "title": "You With Me",
+    "artist": "Radical Redemption & Outbreak",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2015
+  },
+  {
+    "id": "song-292",
+    "title": "Retaliate With Hate",
+    "artist": "Radical Redemption & Digital Punk feat. MC Alee",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2015
+  },
+  {
+    "id": "song-293",
+    "title": "Snakepit",
+    "artist": "Radical Redemption & Dyprax",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2015
+  },
+  {
+    "id": "song-294",
+    "title": "Rhythmic Structure",
+    "artist": "Radical Redemption & Drokz",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2015
+  },
+  {
+    "id": "song-295",
+    "title": "Kckprn",
+    "artist": "Irradiate & Deadly Guns",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-296",
+    "title": "EVERYBODY MOVE",
+    "artist": "EQUAL2 & Semperfusion",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-297",
+    "title": "The Lord",
+    "artist": "Noxiouz",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2023
+  },
+  {
+    "id": "song-298",
+    "title": "Darkness",
+    "artist": "Noxiouz",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2025
+  },
+  {
+    "id": "song-299",
+    "title": "Vegas Baby",
+    "artist": "Partyraiser & Rosbeek",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2025
+  },
+  {
+    "id": "song-300",
+    "title": "De Harde Kern",
+    "artist": "N-Vitral & Major Conspiracy feat. MC Robs",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2024
+  },
+  {
+    "id": "song-301",
+    "title": "Words From The Gang",
+    "artist": "Coone",
+    "country": "BE",
+    "genre": "Hardstyle",
+    "year": 2011
+  },
+  {
+    "id": "song-302",
+    "title": "Universal Language",
+    "artist": "Coone",
+    "country": "BE",
+    "genre": "Hardstyle",
+    "year": 2012
+  },
+  {
+    "id": "song-303",
+    "title": "Into The Madness",
+    "artist": "Coone",
+    "country": "BE",
+    "genre": "Hardstyle",
+    "year": 2012
+  },
+  {
+    "id": "song-304",
+    "title": "Times Gettin' Hard",
+    "artist": "Coone",
+    "country": "BE",
+    "genre": "Hardstyle",
+    "year": 2014
+  },
+  {
+    "id": "song-305",
+    "title": "Traveling",
+    "artist": "Coone",
+    "country": "BE",
+    "genre": "Hardstyle",
+    "year": 2014
+  },
+  {
+    "id": "song-306",
+    "title": "The Challenge",
+    "artist": "Coone",
+    "country": "BE",
+    "genre": "Hardstyle",
+    "year": 2013
+  },
+  {
+    "id": "song-307",
+    "title": "We Are The Future",
+    "artist": "Coone",
+    "country": "BE",
+    "genre": "Hardstyle",
+    "year": 2012
+  },
+  {
+    "id": "song-308",
+    "title": "Komon",
+    "artist": "Da Tweekaz",
+    "country": "NO",
+    "genre": "Hardstyle",
+    "year": 2012
+  },
+  {
+    "id": "song-309",
+    "title": "Tweekay14",
+    "artist": "Da Tweekaz",
+    "country": "NO",
+    "genre": "Hardstyle",
+    "year": 2014
+  },
+  {
+    "id": "song-310",
+    "title": "Hampsterdance",
+    "artist": "Da Tweekaz",
+    "country": "NO",
+    "genre": "Hardstyle",
+    "year": 2014
+  },
+  {
+    "id": "song-311",
+    "title": "Frozen",
+    "artist": "Da Tweekaz",
+    "country": "NO",
+    "genre": "Hardstyle",
+    "year": 2015
+  },
+  {
+    "id": "song-312",
+    "title": "Bad Habit",
+    "artist": "Da Tweekaz",
+    "country": "NO",
+    "genre": "Hardstyle",
+    "year": 2016
+  },
+  {
+    "id": "song-313",
+    "title": "Tequila",
+    "artist": "Da Tweekaz",
+    "country": "NO",
+    "genre": "Hardstyle",
+    "year": 2017
+  },
+  {
+    "id": "song-314",
+    "title": "This Is The Moment",
+    "artist": "Da Tweekaz",
+    "country": "NO",
+    "genre": "Hardstyle",
+    "year": 2018
+  },
+  {
+    "id": "song-315",
+    "title": "Respect",
+    "artist": "Da Tweekaz",
+    "country": "NO",
+    "genre": "Hardstyle",
+    "year": 2019
+  },
+  {
+    "id": "song-316",
+    "title": "Toxic",
+    "artist": "Da Tweekaz",
+    "country": "NO",
+    "genre": "Hardstyle",
+    "year": 2020
+  },
+  {
+    "id": "song-317",
+    "title": "Release",
+    "artist": "Warface",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2014
+  },
+  {
+    "id": "song-318",
+    "title": "FTP",
+    "artist": "Warface",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2015
+  },
+  {
+    "id": "song-319",
+    "title": "The Remedy",
+    "artist": "Warface",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2016
+  },
+  {
+    "id": "song-320",
+    "title": "Sanctuary",
+    "artist": "Warface",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2017
+  },
+  {
+    "id": "song-321",
+    "title": "Art Of War",
+    "artist": "Warface",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2017
+  },
+  {
+    "id": "song-322",
+    "title": "Heavy Artillery",
+    "artist": "Warface",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2018
+  },
+  {
+    "id": "song-323",
+    "title": "Beyond Aggression",
+    "artist": "Warface",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2019
+  },
+  {
+    "id": "song-324",
+    "title": "Face Rocker",
+    "artist": "Warface",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2019
+  },
+  {
+    "id": "song-325",
+    "title": "Get Paid",
+    "artist": "Warface",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2020
+  },
+  {
+    "id": "song-326",
+    "title": "Drown",
+    "artist": "Warface",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2021
+  },
+  {
+    "id": "song-327",
+    "title": "Brain Confusion",
+    "artist": "Act of Rage",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2019
+  },
+  {
+    "id": "song-328",
+    "title": "The Devil",
+    "artist": "Rejecta",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-329",
+    "title": "Follownaise",
+    "artist": "Rejecta",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-330",
+    "title": "The Temple Of Sin",
+    "artist": "Phuture Noize",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2018
+  },
+  {
+    "id": "song-331",
+    "title": "Pursuit Of Thunder",
+    "artist": "Phuture Noize",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2019
+  },
+  {
+    "id": "song-332",
+    "title": "Silver Bullet",
+    "artist": "Phuture Noize",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2020
+  },
+  {
+    "id": "song-333",
+    "title": "Sharks",
+    "artist": "Phuture Noize",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2020
+  },
+  {
+    "id": "song-334",
+    "title": "A New World",
+    "artist": "Phuture Noize",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2021
+  },
+  {
+    "id": "song-335",
+    "title": "Landmines",
+    "artist": "Phuture Noize",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2022
+  },
+  {
+    "id": "song-336",
+    "title": "Inner Creativity",
+    "artist": "B-Front",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2014
+  },
+  {
+    "id": "song-337",
+    "title": "Dark Moon",
+    "artist": "B-Front",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2018
+  },
+  {
+    "id": "song-338",
+    "title": "God Complex",
+    "artist": "B-Front",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2019
+  },
+  {
+    "id": "song-339",
+    "title": "Deepest Wave",
+    "artist": "B-Front",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2019
+  },
+  {
+    "id": "song-340",
+    "title": "The Unknown Galaxy",
+    "artist": "B-Front",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2019
+  },
+  {
+    "id": "song-341",
+    "title": "Rollin'",
+    "artist": "Rooler",
+    "country": "IT",
+    "genre": "Rawstyle",
+    "year": 2017
+  },
+  {
+    "id": "song-342",
+    "title": "Aggressive Act",
+    "artist": "Rooler",
+    "country": "IT",
+    "genre": "Rawstyle",
+    "year": 2019
+  },
+  {
+    "id": "song-343",
+    "title": "Transporter",
+    "artist": "Rooler",
+    "country": "IT",
+    "genre": "Rawstyle",
+    "year": 2019
+  },
+  {
+    "id": "song-344",
+    "title": "Overdoze",
+    "artist": "Rooler",
+    "country": "IT",
+    "genre": "Rawstyle",
+    "year": 2020
+  },
+  {
+    "id": "song-345",
+    "title": "Persistence",
+    "artist": "Rooler",
+    "country": "IT",
+    "genre": "Rawstyle",
+    "year": 2020
+  },
+  {
+    "id": "song-346",
+    "title": "Discotech",
+    "artist": "Rooler",
+    "country": "IT",
+    "genre": "Rawstyle",
+    "year": 2022
+  },
+  {
+    "id": "song-347",
+    "title": "Move 2 Da Beat",
+    "artist": "Rooler",
+    "country": "IT",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-348",
+    "title": "#bass",
+    "artist": "Sickmode",
+    "country": "IT",
+    "genre": "Rawstyle",
+    "year": 2021
+  },
+  {
+    "id": "song-349",
+    "title": "The Extreme",
+    "artist": "Sickmode",
+    "country": "IT",
+    "genre": "Rawstyle",
+    "year": 2022
+  },
+  {
+    "id": "song-350",
+    "title": "Lose Control",
+    "artist": "Sickmode",
+    "country": "IT",
+    "genre": "Rawstyle",
+    "year": 2023
+  },
+  {
+    "id": "song-351",
+    "title": "Make It Pop",
+    "artist": "Sickmode",
+    "country": "IT",
+    "genre": "Rawstyle",
+    "year": 2024
+  },
+  {
+    "id": "song-352",
+    "title": "FCK 2026",
+    "artist": "Sickmode",
+    "country": "IT",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-353",
+    "title": "The Smoke",
+    "artist": "Aversion",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2022
+  },
+  {
+    "id": "song-354",
+    "title": "Give It Up",
+    "artist": "Aversion",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2023
+  },
+  {
+    "id": "song-355",
+    "title": "World On Fire",
+    "artist": "Aversion",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2024
+  },
+  {
+    "id": "song-356",
+    "title": "My Game",
+    "artist": "Aversion",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2024
+  },
+  {
+    "id": "song-357",
+    "title": "The Revolution",
+    "artist": "Aversion",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-358",
+    "title": "FCK EDM",
+    "artist": "Mutilator",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2022
+  },
+  {
+    "id": "song-359",
+    "title": "Psycho Killer",
+    "artist": "Mutilator",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2023
+  },
+  {
+    "id": "song-360",
+    "title": "Death & Destruction",
+    "artist": "Mutilator",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2024
+  },
+  {
+    "id": "song-361",
+    "title": "Break Your Neck",
+    "artist": "Mutilator",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2024
+  },
+  {
+    "id": "song-362",
+    "title": "HALO",
+    "artist": "Mutilator",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-363",
+    "title": "Fear",
+    "artist": "Mutilator",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-364",
+    "title": "Purge",
+    "artist": "Mutilator",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-365",
+    "title": "Trip To India",
+    "artist": "Dr. Peacock",
+    "country": "FR",
+    "genre": "Frenchcore",
+    "year": 2015
+  },
+  {
+    "id": "song-366",
+    "title": "Vive La Frenchcore",
+    "artist": "Dr. Peacock",
+    "country": "FR",
+    "genre": "Frenchcore",
+    "year": 2016
+  },
+  {
+    "id": "song-367",
+    "title": "Dopeman",
+    "artist": "Dr. Peacock",
+    "country": "FR",
+    "genre": "Frenchcore",
+    "year": 2018
+  },
+  {
+    "id": "song-368",
+    "title": "The Secret",
+    "artist": "Dr. Peacock",
+    "country": "FR",
+    "genre": "Frenchcore",
+    "year": 2019
+  },
+  {
+    "id": "song-369",
+    "title": "Italian March",
+    "artist": "Dr. Peacock",
+    "country": "FR",
+    "genre": "Frenchcore",
+    "year": 2018
+  },
+  {
+    "id": "song-370",
+    "title": "The Frenchcore Symphony",
+    "artist": "Dr. Peacock",
+    "country": "FR",
+    "genre": "Frenchcore",
+    "year": 2020
+  },
+  {
+    "id": "song-371",
+    "title": "Trip To Greenland",
+    "artist": "Dr. Peacock",
+    "country": "FR",
+    "genre": "Frenchcore",
+    "year": 2021
+  },
+  {
+    "id": "song-372",
+    "title": "No Mercy",
+    "artist": "Partyraiser",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2020
+  },
+  {
+    "id": "song-373",
+    "title": "The King Is Back",
+    "artist": "Partyraiser",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2021
+  },
+  {
+    "id": "song-374",
+    "title": "Kick It",
+    "artist": "Partyraiser",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2022
+  },
+  {
+    "id": "song-375",
+    "title": "The Brutal",
+    "artist": "Partyraiser",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2022
+  },
+  {
+    "id": "song-376",
+    "title": "Hardcore Motherfucker",
+    "artist": "Partyraiser",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2023
+  },
+  {
+    "id": "song-377",
+    "title": "Cocaine",
+    "artist": "Partyraiser",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2024
+  },
+  {
+    "id": "song-378",
+    "title": "The Darkside",
+    "artist": "Partyraiser",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2025
+  },
+  {
+    "id": "song-379",
+    "title": "Bassface",
+    "artist": "N-Vitral",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2019
+  },
+  {
+    "id": "song-380",
+    "title": "BOMBSQUAD",
+    "artist": "N-Vitral",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2020
+  },
+  {
+    "id": "song-381",
+    "title": "Anger",
+    "artist": "N-Vitral",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2021
+  },
+  {
+    "id": "song-382",
+    "title": "The Satan",
+    "artist": "N-Vitral",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2022
+  },
+  {
+    "id": "song-383",
+    "title": "Cannibal",
+    "artist": "N-Vitral",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2023
+  },
+  {
+    "id": "song-384",
+    "title": "F*ck It Up",
+    "artist": "N-Vitral",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2024
+  },
+  {
+    "id": "song-385",
+    "title": "Solid Stigma",
+    "artist": "Angerfist",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2015
+  },
+  {
+    "id": "song-386",
+    "title": "Street Fighter",
+    "artist": "Angerfist",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2013
+  },
+  {
+    "id": "song-387",
+    "title": "Send Me To Hell",
+    "artist": "Angerfist",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2017
+  },
+  {
+    "id": "song-388",
+    "title": "The Deadfaced Dimension",
+    "artist": "Angerfist",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2011
+  },
+  {
+    "id": "song-389",
+    "title": "And Darkness Was The Night",
+    "artist": "Angerfist",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2010
+  },
+  {
+    "id": "song-390",
+    "title": "The Voice Of Mayhem",
+    "artist": "Angerfist",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2008
+  },
+  {
+    "id": "song-391",
+    "title": "On The Edge",
+    "artist": "Tha Playah",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2010
+  },
+  {
+    "id": "song-392",
+    "title": "Dominator",
+    "artist": "Tha Playah",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2007
+  },
+  {
+    "id": "song-393",
+    "title": "My Misery",
+    "artist": "Tha Playah",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2008
+  },
+  {
+    "id": "song-394",
+    "title": "Fuck The Titties",
+    "artist": "Tha Playah",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2010
+  },
+  {
+    "id": "song-395",
+    "title": "The Greatest Clue",
+    "artist": "Tha Playah",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2012
+  },
+  {
+    "id": "song-396",
+    "title": "Requiem",
+    "artist": "Tha Playah",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2015
+  },
+  {
+    "id": "song-397",
+    "title": "Running On Empty",
+    "artist": "Ophidian",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2011
+  },
+  {
+    "id": "song-398",
+    "title": "End The Earth",
+    "artist": "Ophidian",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2010
+  },
+  {
+    "id": "song-399",
+    "title": "The Middle Children",
+    "artist": "Ophidian",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2006
+  },
+  {
+    "id": "song-400",
+    "title": "Phantom Requiem",
+    "artist": "Ophidian",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2013
+  },
+  {
+    "id": "song-401",
+    "title": "Abandon",
+    "artist": "Ophidian",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2015
+  },
+  {
+    "id": "song-402",
+    "title": "Lost",
+    "artist": "Ophidian",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2018
+  },
+  {
+    "id": "song-403",
+    "title": "Voidwalker",
+    "artist": "Ophidian",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2020
+  },
+  {
+    "id": "song-404",
+    "title": "High Power",
+    "artist": "D-Sturb",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2019
+  },
+  {
+    "id": "song-405",
+    "title": "Ancient",
+    "artist": "D-Sturb",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2020
+  },
+  {
+    "id": "song-406",
+    "title": "Frenzy",
+    "artist": "D-Sturb",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2020
+  },
+  {
+    "id": "song-407",
+    "title": "Worlds Collide",
+    "artist": "D-Sturb",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2021
+  },
+  {
+    "id": "song-408",
+    "title": "Open Up Your Mind",
+    "artist": "D-Sturb",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2022
+  },
+  {
+    "id": "song-409",
+    "title": "Guts To Glory",
+    "artist": "D-Sturb",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2022
+  },
+  {
+    "id": "song-410",
+    "title": "Unmatched",
+    "artist": "D-Sturb",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2023
+  },
+  {
+    "id": "song-411",
+    "title": "Get Wrecked",
+    "artist": "Dual Damage",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2024
+  },
+  {
+    "id": "song-412",
+    "title": "Blades",
+    "artist": "Dual Damage",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2023
+  },
+  {
+    "id": "song-413",
+    "title": "HATE",
+    "artist": "Dual Damage",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2023
+  },
+  {
+    "id": "song-414",
+    "title": "MIND CONTROL",
+    "artist": "Dual Damage",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2024
+  },
+  {
+    "id": "song-415",
+    "title": "The Purge",
+    "artist": "Dual Damage",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2024
+  },
+  {
+    "id": "song-416",
+    "title": "Ecstasy",
+    "artist": "Dual Damage",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2024
+  },
+  {
+    "id": "song-417",
+    "title": "Rockstar",
+    "artist": "Dual Damage",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-418",
+    "title": "Wickedest Bassline",
+    "artist": "Dual Damage",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-419",
+    "title": "Nostalgia",
+    "artist": "Dual Damage",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-420",
+    "title": "Here On My Own",
+    "artist": "Wildstylez",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-421",
+    "title": "Sunrise",
+    "artist": "Wildstylez",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-422",
+    "title": "Lose Your Mind",
+    "artist": "Wildstylez",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2014
+  },
+  {
+    "id": "song-423",
+    "title": "No Time To Waste",
+    "artist": "Wildstylez",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2015
+  },
+  {
+    "id": "song-424",
+    "title": "Children Of Drums",
+    "artist": "Wildstylez",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2018
+  },
+  {
+    "id": "song-425",
+    "title": "Encore",
+    "artist": "Wildstylez",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2019
+  },
+  {
+    "id": "song-426",
+    "title": "Weekend Warriors",
+    "artist": "Frontliner",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2012
+  },
+  {
+    "id": "song-427",
+    "title": "The First Cut",
+    "artist": "Frontliner",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2013
+  },
+  {
+    "id": "song-428",
+    "title": "World Lead",
+    "artist": "Frontliner",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2014
+  },
+  {
+    "id": "song-429",
+    "title": "Tough Guys",
+    "artist": "Frontliner",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2015
+  },
+  {
+    "id": "song-430",
+    "title": "Discorecord",
+    "artist": "Frontliner",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2014
+  },
+  {
+    "id": "song-431",
+    "title": "Dream Dust",
+    "artist": "Frontliner",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2018
+  },
+  {
+    "id": "song-432",
+    "title": "Conflicts",
+    "artist": "E-Force",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-433",
+    "title": "Escape Reality",
+    "artist": "E-Force",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-434",
+    "title": "Pistols",
+    "artist": "E-Force",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-435",
+    "title": "Bassride",
+    "artist": "E-Force",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-436",
+    "title": "The Record",
+    "artist": "E-Force",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-437",
+    "title": "The Forces Of Darkness",
+    "artist": "E-Force",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-438",
+    "title": "Don't Move",
+    "artist": "E-Force",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-439",
+    "title": "The Fallout",
+    "artist": "E-Force",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2024
+  },
+  {
+    "id": "song-440",
+    "title": "Under Attack",
+    "artist": "E-Force",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2013
+  },
+  {
+    "id": "song-441",
+    "title": "Get Loose",
+    "artist": "Noisecontrollers",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2012
+  },
+  {
+    "id": "song-442",
+    "title": "Shreek",
+    "artist": "Noisecontrollers",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2013
+  },
+  {
+    "id": "song-443",
+    "title": "Rocked Up",
+    "artist": "Noisecontrollers",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2010
+  },
+  {
+    "id": "song-444",
+    "title": "Faster 'n Further",
+    "artist": "Noisecontrollers",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2010
+  },
+  {
+    "id": "song-445",
+    "title": "Rage",
+    "artist": "Technoboy",
+    "country": "IT",
+    "genre": "Hardstyle",
+    "year": 2008
+  },
+  {
+    "id": "song-446",
+    "title": "The Prophet",
+    "artist": "Technoboy",
+    "country": "IT",
+    "genre": "Hardstyle",
+    "year": 2009
+  },
+  {
+    "id": "song-447",
+    "title": "Oh My God",
+    "artist": "Technoboy",
+    "country": "IT",
+    "genre": "Hardstyle",
+    "year": 2010
+  },
+  {
+    "id": "song-448",
+    "title": "In The End",
+    "artist": "Technoboy",
+    "country": "IT",
+    "genre": "Hardstyle",
+    "year": 2010
+  },
+  {
+    "id": "song-449",
+    "title": "Catfight",
+    "artist": "Technoboy",
+    "country": "IT",
+    "genre": "Hardstyle",
+    "year": 2011
+  },
+  {
+    "id": "song-450",
+    "title": "War Machine",
+    "artist": "Technoboy",
+    "country": "IT",
+    "genre": "Hardstyle",
+    "year": 2013
+  },
+  {
+    "id": "song-451",
+    "title": "Bass Ex Machina",
+    "artist": "Technoboy",
+    "country": "IT",
+    "genre": "Hardstyle",
+    "year": 2014
+  },
+  {
+    "id": "song-452",
+    "title": "Rebel To The Grave",
+    "artist": "Digital Punk",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2014
+  },
+  {
+    "id": "song-453",
+    "title": "Eternity",
+    "artist": "Digital Punk",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2015
+  },
+  {
+    "id": "song-454",
+    "title": "Die Trying",
+    "artist": "Digital Punk",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2016
+  },
+  {
+    "id": "song-455",
+    "title": "Immortal",
+    "artist": "Digital Punk",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2017
+  },
+  {
+    "id": "song-456",
+    "title": "Don't Stop",
+    "artist": "Digital Punk",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2018
+  },
+  {
+    "id": "song-457",
+    "title": "Stronger",
+    "artist": "Digital Punk",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2019
+  },
+  {
+    "id": "song-458",
+    "title": "Unbreakable",
+    "artist": "Digital Punk",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2020
+  },
+  {
+    "id": "song-459",
+    "title": "Resistance",
+    "artist": "Digital Punk",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2021
+  },
+  {
+    "id": "song-460",
+    "title": "For The Girls",
+    "artist": "Adaro",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2012
+  },
+  {
+    "id": "song-461",
+    "title": "I'm Alive",
+    "artist": "Adaro",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2013
+  },
+  {
+    "id": "song-462",
+    "title": "Murder",
+    "artist": "Adaro",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2014
+  },
+  {
+    "id": "song-463",
+    "title": "The Otherside",
+    "artist": "Adaro",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2015
+  },
+  {
+    "id": "song-464",
+    "title": "No Time To Sleep",
+    "artist": "Adaro",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2016
+  },
+  {
+    "id": "song-465",
+    "title": "The Future",
+    "artist": "Adaro",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2017
+  },
+  {
+    "id": "song-466",
+    "title": "The Sky Is The Limit",
+    "artist": "Adaro",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2018
+  },
+  {
+    "id": "song-467",
+    "title": "The Endless",
+    "artist": "Adaro",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2019
+  },
+  {
+    "id": "song-468",
+    "title": "Radiance",
+    "artist": "Bass Modulators",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2013
+  },
+  {
+    "id": "song-469",
+    "title": "Let Me See Ya",
+    "artist": "Bass Modulators",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2014
+  },
+  {
+    "id": "song-470",
+    "title": "Oxygen",
+    "artist": "Bass Modulators",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2015
+  },
+  {
+    "id": "song-471",
+    "title": "Rockin' Your Body",
+    "artist": "Bass Modulators",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2016
+  },
+  {
+    "id": "song-472",
+    "title": "The Mystery",
+    "artist": "Bass Modulators",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2017
+  },
+  {
+    "id": "song-473",
+    "title": "Feel Inside",
+    "artist": "Bass Modulators",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2018
+  },
+  {
+    "id": "song-474",
+    "title": "Let It Go",
+    "artist": "Bass Modulators",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2019
+  },
+  {
+    "id": "song-475",
+    "title": "Feel Good",
+    "artist": "Bass Modulators",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2020
+  },
+  {
+    "id": "song-476",
+    "title": "Limitless",
+    "artist": "Bass Modulators",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2021
+  },
+  {
+    "id": "song-477",
+    "title": "No Time To Waste",
+    "artist": "Crypsis",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2011
+  },
+  {
+    "id": "song-478",
+    "title": "Jealousy",
+    "artist": "Crypsis",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2012
+  },
+  {
+    "id": "song-479",
+    "title": "Trapped",
+    "artist": "Crypsis",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2013
+  },
+  {
+    "id": "song-480",
+    "title": "Lost In The Mist",
+    "artist": "Crypsis",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2014
+  },
+  {
+    "id": "song-481",
+    "title": "Oldschool Sound",
+    "artist": "Crypsis",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2015
+  },
+  {
+    "id": "song-482",
+    "title": "Statement",
+    "artist": "Crypsis",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2016
+  },
+  {
+    "id": "song-483",
+    "title": "Tuh Tuh",
+    "artist": "Crypsis",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2017
+  },
+  {
+    "id": "song-484",
+    "title": "Fade To Black",
+    "artist": "Max Enforcer",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2011
+  },
+  {
+    "id": "song-485",
+    "title": "Gold",
+    "artist": "Max Enforcer",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2012
+  },
+  {
+    "id": "song-486",
+    "title": "Sound Intense City",
+    "artist": "Max Enforcer",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2013
+  },
+  {
+    "id": "song-487",
+    "title": "Loudness",
+    "artist": "Max Enforcer",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2014
+  },
+  {
+    "id": "song-488",
+    "title": "Rise Up",
+    "artist": "Max Enforcer",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2015
+  },
+  {
+    "id": "song-489",
+    "title": "Creatures",
+    "artist": "Max Enforcer",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2016
+  },
+  {
+    "id": "song-490",
+    "title": "Rockin'",
+    "artist": "Max Enforcer",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2017
+  },
+  {
+    "id": "song-491",
+    "title": "The Underground",
+    "artist": "Max Enforcer",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2018
+  },
+  {
+    "id": "song-492",
+    "title": "Follow Me",
+    "artist": "Max Enforcer",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2019
+  },
+  {
+    "id": "song-493",
+    "title": "Red Planet",
+    "artist": "Code Black",
+    "country": "AU",
+    "genre": "Hardstyle",
+    "year": 2014
+  },
+  {
+    "id": "song-494",
+    "title": "Brighter Day",
+    "artist": "Code Black",
+    "country": "AU",
+    "genre": "Hardstyle",
+    "year": 2015
+  },
+  {
+    "id": "song-495",
+    "title": "Tonight",
+    "artist": "Code Black",
+    "country": "AU",
+    "genre": "Hardstyle",
+    "year": 2016
+  },
+  {
+    "id": "song-496",
+    "title": "Wild Ones",
+    "artist": "Code Black",
+    "country": "AU",
+    "genre": "Hardstyle",
+    "year": 2017
+  },
+  {
+    "id": "song-497",
+    "title": "Journey",
+    "artist": "Code Black",
+    "country": "AU",
+    "genre": "Hardstyle",
+    "year": 2018
+  },
+  {
+    "id": "song-498",
+    "title": "Never Be Alone",
+    "artist": "Code Black",
+    "country": "AU",
+    "genre": "Hardstyle",
+    "year": 2019
+  },
+  {
+    "id": "song-499",
+    "title": "Rising",
+    "artist": "Code Black",
+    "country": "AU",
+    "genre": "Hardstyle",
+    "year": 2020
+  },
+  {
+    "id": "song-500",
+    "title": "Dare To Dream",
+    "artist": "Code Black",
+    "country": "AU",
+    "genre": "Hardstyle",
+    "year": 2021
+  },
+  {
+    "id": "song-501",
+    "title": "Unborn",
+    "artist": "Zatox",
+    "country": "IT",
+    "genre": "Hardstyle",
+    "year": 2013
+  },
+  {
+    "id": "song-502",
+    "title": "The Future",
+    "artist": "Zatox",
+    "country": "IT",
+    "genre": "Hardstyle",
+    "year": 2014
+  },
+  {
+    "id": "song-503",
+    "title": "New World Order",
+    "artist": "Zatox",
+    "country": "IT",
+    "genre": "Hardstyle",
+    "year": 2011
+  },
+  {
+    "id": "song-504",
+    "title": "Raw Style",
+    "artist": "Zatox",
+    "country": "IT",
+    "genre": "Hardstyle",
+    "year": 2012
+  },
+  {
+    "id": "song-505",
+    "title": "Fuck That",
+    "artist": "Zatox",
+    "country": "IT",
+    "genre": "Hardstyle",
+    "year": 2013
+  },
+  {
+    "id": "song-506",
+    "title": "Madness",
+    "artist": "Zatox",
+    "country": "IT",
+    "genre": "Hardstyle",
+    "year": 2014
+  },
+  {
+    "id": "song-507",
+    "title": "The Crew",
+    "artist": "Zatox",
+    "country": "IT",
+    "genre": "Hardstyle",
+    "year": 2015
+  },
+  {
+    "id": "song-508",
+    "title": "Survivor",
+    "artist": "Zatox",
+    "country": "IT",
+    "genre": "Hardstyle",
+    "year": 2017
+  },
+  {
+    "id": "song-509",
+    "title": "The Colour Of The Harder Styles",
+    "artist": "Showtek",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2009
+  },
+  {
+    "id": "song-510",
+    "title": "Seid Ihr Bereit",
+    "artist": "Showtek",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2007
+  },
+  {
+    "id": "song-511",
+    "title": "Partylover",
+    "artist": "Showtek",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2006
+  },
+  {
+    "id": "song-512",
+    "title": "Electronic Stereotype",
+    "artist": "Showtek",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2005
+  },
+  {
+    "id": "song-513",
+    "title": "We Live For The Music",
+    "artist": "Showtek",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2008
+  },
+  {
+    "id": "song-514",
+    "title": "Analogue Players In A Digital World",
+    "artist": "Showtek",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2007
+  },
+  {
+    "id": "song-515",
+    "title": "World Is Mine",
+    "artist": "Showtek",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2009
+  },
+  {
+    "id": "song-516",
+    "title": "Here We Go",
+    "artist": "Showtek",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2008
+  },
+  {
+    "id": "song-517",
+    "title": "Kick Your Ass",
+    "artist": "JDX",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2008
+  },
+  {
+    "id": "song-518",
+    "title": "Hardstyle 2.0",
+    "artist": "JDX",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2009
+  },
+  {
+    "id": "song-519",
+    "title": "Feel The Power",
+    "artist": "JDX",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2010
+  },
+  {
+    "id": "song-520",
+    "title": "The Future",
+    "artist": "JDX",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2011
+  },
+  {
+    "id": "song-521",
+    "title": "Rebirth",
+    "artist": "JDX",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2012
+  },
+  {
+    "id": "song-522",
+    "title": "Kick It",
+    "artist": "JDX",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2013
+  },
+  {
+    "id": "song-523",
+    "title": "Inspiration",
+    "artist": "JDX",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2014
+  },
+  {
+    "id": "song-524",
+    "title": "Believe",
+    "artist": "ANDY SVGE",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2024
+  },
+  {
+    "id": "song-525",
+    "title": "Stomper",
+    "artist": "Deepack",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2004
+  },
+  {
+    "id": "song-526",
+    "title": "The Pain",
+    "artist": "Deepack",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2005
+  },
+  {
+    "id": "song-527",
+    "title": "The New Age",
+    "artist": "Southstylers",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2010
+  },
+  {
+    "id": "song-528",
+    "title": "Strike",
+    "artist": "Southstylers",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2011
+  },
+  {
+    "id": "song-529",
+    "title": "Electric",
+    "artist": "Southstylers",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2012
+  },
+  {
+    "id": "song-530",
+    "title": "Direct Disq",
+    "artist": "Davide Sonar",
+    "country": "IT",
+    "genre": "Hardstyle",
+    "year": 2008
+  },
+  {
+    "id": "song-531",
+    "title": "Believe",
+    "artist": "Davide Sonar",
+    "country": "IT",
+    "genre": "Hardstyle",
+    "year": 2009
+  },
+  {
+    "id": "song-532",
+    "title": "Techno Boheme",
+    "artist": "Davide Sonar",
+    "country": "IT",
+    "genre": "Hardstyle",
+    "year": 2009
+  },
+  {
+    "id": "song-533",
+    "title": "No Survivors",
+    "artist": "Rebelion",
+    "country": "SC",
+    "genre": "Rawstyle",
+    "year": 2017
+  },
+  {
+    "id": "song-534",
+    "title": "Sinners",
+    "artist": "Rebelion",
+    "country": "SC",
+    "genre": "Rawstyle",
+    "year": 2018
+  },
+  {
+    "id": "song-535",
+    "title": "Our World",
+    "artist": "Sub Zero Project",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-536",
+    "title": "Dancing In The Moonlight",
+    "artist": "Vertile",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-537",
+    "title": "Unforgettable",
+    "artist": "Miss K8",
+    "country": "UA",
+    "genre": "Hardcore",
+    "year": 2015
+  },
+  {
+    "id": "song-538",
+    "title": "Blackout",
+    "artist": "Miss K8",
+    "country": "UA",
+    "genre": "Hardcore",
+    "year": 2016
+  },
+  {
+    "id": "song-539",
+    "title": "Take Control",
+    "artist": "Lekkerfaces",
+    "country": "IT",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-540",
+    "title": "Misery",
+    "artist": "Lekkerfaces",
+    "country": "IT",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-541",
+    "title": "Game Over",
+    "artist": "Satirized",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2025
+  },
+  {
+    "id": "song-542",
+    "title": "Noise",
+    "artist": "Satirized",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2025
+  },
+  {
+    "id": "song-543",
+    "title": "HEADSHOT",
+    "artist": "Missy",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-544",
+    "title": "Bad Intentions",
+    "artist": "Missy",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2025
+  },
+  {
+    "id": "song-545",
+    "title": "Make It Happen",
+    "artist": "Missy",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2025
+  },
+  {
+    "id": "song-546",
+    "title": "Pressure",
+    "artist": "Missy",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2024
+  },
+  {
+    "id": "song-547",
+    "title": "Rage",
+    "artist": "Missy",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2024
+  },
+  {
+    "id": "song-548",
+    "title": "Bulletproof",
+    "artist": "Spitnoise",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2024
+  },
+  {
+    "id": "song-549",
+    "title": "Out Of Control",
+    "artist": "Spitnoise",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2025
+  },
+  {
+    "id": "song-550",
+    "title": "Hardcore",
+    "artist": "Spitnoise",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2025
+  },
+  {
+    "id": "song-551",
+    "title": "War",
+    "artist": "Spitnoise",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-552",
+    "title": "No Escape",
+    "artist": "Spitnoise",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-553",
+    "title": "No Sleep",
+    "artist": "The Dope Doctor",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2025
+  },
+  {
+    "id": "song-554",
+    "title": "Kick It",
+    "artist": "The Dope Doctor",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2024
+  },
+  {
+    "id": "song-555",
+    "title": "The Doctor",
+    "artist": "The Dope Doctor",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2025
+  },
+  {
+    "id": "song-556",
+    "title": "Bad Medicine",
+    "artist": "The Dope Doctor",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2025
+  },
+  {
+    "id": "song-557",
+    "title": "Prescription",
+    "artist": "The Dope Doctor",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-558",
+    "title": "No Sleep",
+    "artist": "LunaKorpz",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2025
+  },
+  {
+    "id": "song-559",
+    "title": "Rave",
+    "artist": "LunaKorpz",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2025
+  },
+  {
+    "id": "song-560",
+    "title": "Overdose",
+    "artist": "LunaKorpz",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-561",
+    "title": "Madness",
+    "artist": "LunaKorpz",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-562",
+    "title": "Harder",
+    "artist": "Pinotello",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2025
+  },
+  {
+    "id": "song-563",
+    "title": "No Mercy",
+    "artist": "Pinotello",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-564",
+    "title": "Bam Bam",
+    "artist": "Pinotello",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-565",
+    "title": "See The Sun Again",
+    "artist": "D-Charged",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-566",
+    "title": "Limitless",
+    "artist": "D-Charged",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2024
+  },
+  {
+    "id": "song-567",
+    "title": "The Light",
+    "artist": "D-Charged",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2023
+  },
+  {
+    "id": "song-568",
+    "title": "Rave",
+    "artist": "D-Charged",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2024
+  },
+  {
+    "id": "song-569",
+    "title": "Outbreak",
+    "artist": "D-Charged",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2022
+  },
+  {
+    "id": "song-570",
+    "title": "Art Of Creation",
+    "artist": "Project One",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2008
+  },
+  {
+    "id": "song-571",
+    "title": "Best Of Both Worlds",
+    "artist": "Project One",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2008
+  },
+  {
+    "id": "song-572",
+    "title": "The Story Unfolds",
+    "artist": "Project One",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2008
+  },
+  {
+    "id": "song-573",
+    "title": "Life Beyond Earth",
+    "artist": "Project One",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2008
+  },
+  {
+    "id": "song-574",
+    "title": "Fantasy",
+    "artist": "Project One",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2008
+  },
+  {
+    "id": "song-575",
+    "title": "No Mercy",
+    "artist": "Noxiouz",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2025
+  },
+  {
+    "id": "song-576",
+    "title": "Rage",
+    "artist": "Noxiouz",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2024
+  },
+  {
+    "id": "song-577",
+    "title": "Hate",
+    "artist": "Noxiouz",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2024
+  },
+  {
+    "id": "song-578",
+    "title": "Burn",
+    "artist": "Noxiouz",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2025
+  },
+  {
+    "id": "song-579",
+    "title": "Chaos",
+    "artist": "Noxiouz",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2025
+  },
+  {
+    "id": "song-580",
+    "title": "Destroy",
+    "artist": "Noxiouz",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-581",
+    "title": "Lose Yourself",
+    "artist": "Brennan Heart",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2014
+  },
+  {
+    "id": "song-582",
+    "title": "City Of Intents",
+    "artist": "Brennan Heart",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2024
+  },
+  {
+    "id": "song-583",
+    "title": "Stand Together",
+    "artist": "Sound Rush",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-584",
+    "title": "Primal Energy",
+    "artist": "Ghost Stories",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2020
+  },
+  {
+    "id": "song-585",
+    "title": "Darkest Hour",
+    "artist": "Ghost Stories",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2022
+  },
+  {
+    "id": "song-586",
+    "title": "Be The One",
+    "artist": "Ghost Stories",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2023
+  },
+  {
+    "id": "song-587",
+    "title": "The Last One",
+    "artist": "Ghost Stories",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2024
+  },
+  {
+    "id": "song-588",
+    "title": "The End Of The World",
+    "artist": "Ghost Stories",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2024
+  },
+  {
+    "id": "song-589",
+    "title": "The Awakening",
+    "artist": "Ghost Stories",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-590",
+    "title": "Symphony Of Life",
+    "artist": "Sefa",
+    "country": "NL",
+    "genre": "Frenchcore",
+    "year": 2024
+  },
+  {
+    "id": "song-591",
+    "title": "Nobody Said It Was Easy - Sefa Remix",
+    "artist": "Sefa",
+    "country": "NL",
+    "genre": "Frenchcore",
+    "year": 2022
+  },
+  {
+    "id": "song-592",
+    "title": "Nothing Like The Oldschool",
+    "artist": "Sefa",
+    "country": "NL",
+    "genre": "Frenchcore",
+    "year": 2018
+  },
+  {
+    "id": "song-593",
+    "title": "Infinity",
+    "artist": "Sefa",
+    "country": "NL",
+    "genre": "Frenchcore",
+    "year": 2022
+  },
+  {
+    "id": "song-594",
+    "title": "Get It Crackin - Sefa Remix",
+    "artist": "Sefa",
+    "country": "NL",
+    "genre": "Frenchcore",
+    "year": 2018
+  },
+  {
+    "id": "song-595",
+    "title": "Journey Through Time",
+    "artist": "Sefa",
+    "country": "NL",
+    "genre": "Frenchcore",
+    "year": 2018
+  },
+  {
+    "id": "song-596",
+    "title": "Killing In The Name",
+    "artist": "Sefa",
+    "country": "NL",
+    "genre": "Frenchcore",
+    "year": 2020
+  },
+  {
+    "id": "song-597",
+    "title": "Battlefield",
+    "artist": "Sefa",
+    "country": "NL",
+    "genre": "Frenchcore",
+    "year": 2024
+  },
+  {
+    "id": "song-598",
+    "title": "World of the Dream",
+    "artist": "Sefa",
+    "country": "NL",
+    "genre": "Frenchcore",
+    "year": 2018
+  },
+  {
+    "id": "song-599",
+    "title": "Be Free (This Is Sefa Edit)",
+    "artist": "Sefa",
+    "country": "NL",
+    "genre": "Frenchcore",
+    "year": 2017
+  },
+  {
+    "id": "song-600",
+    "title": "Move With The One",
+    "artist": "Headhunterz, Project One, Wildstylez",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-601",
+    "title": "Her Voice (Headhunterz Remix)",
+    "artist": "Headhunterz",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-602",
+    "title": "Rate Reducer",
+    "artist": "Headhunterz, Project One, Wildstylez",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2008
+  },
+  {
+    "id": "song-603",
+    "title": "Summer Of Hardstyle",
+    "artist": "Headhunterz, The Prophet",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-604",
+    "title": "Adagio For Strings",
+    "artist": "HI-LO, Brennan Heart, Project Zeitgeist",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-605",
+    "title": "Lose My Mind (Sub Zero Project Remix)",
+    "artist": "Brennan Heart, Wildstylez, Sub Zero Project",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-606",
+    "title": "Imaginary",
+    "artist": "Brennan Heart, Jonathan Mendelsohn",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2013
+  },
+  {
+    "id": "song-607",
+    "title": "WAITING 4",
+    "artist": "D-Block & S-te-Fan, Sub Zero Project, 4444 OF A KIND",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-608",
+    "title": "Felt The Ghost",
+    "artist": "D-Block & S-te-Fan, Ghost Stories",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-609",
+    "title": "In My Mind",
+    "artist": "Da Tweekaz, D-Block & S-te-Fan",
+    "country": "NO",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-610",
+    "title": "4 THE SCENE",
+    "artist": "D-Block & S-te-Fan, Sub Zero Project, 4444 OF A KIND",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-611",
+    "title": "The Next Dimension",
+    "artist": "D-Block & S-te-Fan",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-612",
+    "title": "Save The Day",
+    "artist": "D-Block & S-te-Fan, Rebelion",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-613",
+    "title": "Tomorrow Can Wait",
+    "artist": "D-Block & S-te-Fan, Dual Damage",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-614",
+    "title": "Brace For Impact",
+    "artist": "Hardwell, Sub Zero Project, Lil Jon",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-615",
+    "title": "FTS (Sub Zero Project Rework)",
+    "artist": "Showtek, Sub Zero Project",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-616",
+    "title": "Move Your Body",
+    "artist": "Timmy Trumpet, Sub Zero Project, Dimitri Vegas & Like Mike",
+    "country": "AU",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-617",
+    "title": "Never Coming Down",
+    "artist": "Rebelion, The Saints",
+    "country": "SC",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-618",
+    "title": "Won't Let Me Down",
+    "artist": "Sub Zero Project, Teddy Bee",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-619",
+    "title": "Awake Me",
+    "artist": "Vertile, The Saints",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-620",
+    "title": "2008",
+    "artist": "Vertile",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-621",
+    "title": "Where Legends Rise",
+    "artist": "Vertile",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-622",
+    "title": "Fireflies",
+    "artist": "Vertile",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-623",
+    "title": "Lost Without You",
+    "artist": "Headhunterz, Sian Evans, Vertile",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2023
+  },
+  {
+    "id": "song-624",
+    "title": "Somebody That I Used To Know",
+    "artist": "Ran-D, Devin Wild",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-625",
+    "title": "Alone",
+    "artist": "Ran-D",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-626",
+    "title": "Resonate",
+    "artist": "Ran-D",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-627",
+    "title": "Behind Enemy Lines",
+    "artist": "Ran-D, D-Block & S-te-Fan",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-628",
+    "title": "Iris",
+    "artist": "Hardwell, Sound Rush",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-629",
+    "title": "Coco Jamboo",
+    "artist": "Sound Rush, HBz",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-630",
+    "title": "Save My Soul",
+    "artist": "Da Tweekaz, Sound Rush",
+    "country": "NO",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-631",
+    "title": "Everytime We Touch (Sound Rush Remix)",
+    "artist": "Cascada, Sound Rush",
+    "country": "DE",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-632",
+    "title": "Brazil",
+    "artist": "Sound Rush, Harris & Ford, Timmy Trumpet",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-633",
+    "title": "Rise",
+    "artist": "Sound Rush, The Straikerz",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-634",
+    "title": "RUNAWAY",
+    "artist": "Sound Rush, Drean, Rooler",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-635",
+    "title": "Journey Through Sound",
+    "artist": "Sound Rush",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-636",
+    "title": "Beyond Boundaries",
+    "artist": "Hard Driver, Sound Rush",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-637",
+    "title": "2 Be High",
+    "artist": "Warface, Nico Moreno",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-638",
+    "title": "Hellfire",
+    "artist": "Catalyst, Warface, Holy Priest",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-639",
+    "title": "Filthy Rave",
+    "artist": "Warface, Rebelion",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-640",
+    "title": "NOBODY LIKES",
+    "artist": "Catalyst, Warface, Samuel Moriero",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-641",
+    "title": "To The Stars",
+    "artist": "Paul Elstak, Warface",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-642",
+    "title": "Anarchy",
+    "artist": "Warface, Kruelty",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-643",
+    "title": "Up In Flames",
+    "artist": "Warface",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-644",
+    "title": "Kicks Like This",
+    "artist": "Warface",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-645",
+    "title": "Endless Voyage",
+    "artist": "Act of rage",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-646",
+    "title": "Legacy",
+    "artist": "Act of rage, LePrince, KELTEK",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2019
+  },
+  {
+    "id": "song-647",
+    "title": "Magnetism",
+    "artist": "Act of rage, D-Sturb, Nolz",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-648",
+    "title": "Bloodrush",
+    "artist": "Act of rage, Last Word",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-649",
+    "title": "Kamikaze",
+    "artist": "Act of rage",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-650",
+    "title": "Close My Eyes",
+    "artist": "Act of rage, Deluzion",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-651",
+    "title": "Rock It",
+    "artist": "Regain, Unresolved, Rejecta",
+    "country": "PL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-652",
+    "title": "We Are Fire",
+    "artist": "Devin Wild, Rejecta",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-653",
+    "title": "Darkness",
+    "artist": "Rejecta",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-654",
+    "title": "Together",
+    "artist": "Galactixx, Rejecta",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2023
+  },
+  {
+    "id": "song-655",
+    "title": "Kick Train",
+    "artist": "Rejecta, The Dope Doctor",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-656",
+    "title": "Go For Your Stereo",
+    "artist": "Aversion, Rejecta",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-657",
+    "title": "PATIENT ZERO",
+    "artist": "Rejecta",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-658",
+    "title": "Arcadia",
+    "artist": "Phuture Noize, D-Block & S-te-Fan",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-659",
+    "title": "When Sound Meets Sound",
+    "artist": "Phuture Noize, Dual Damage",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-660",
+    "title": "Circles and Squares",
+    "artist": "Phuture Noize",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-661",
+    "title": "The Solution",
+    "artist": "B-Front, Phuture Noize",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2018
+  },
+  {
+    "id": "song-662",
+    "title": "Never Not Done",
+    "artist": "Phuture Noize, Devin Wild",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-663",
+    "title": "LEFT - RIGHT",
+    "artist": "B-Front, DV8, Zany",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-664",
+    "title": "Nothing Ever Feels The Same",
+    "artist": "B-Front, Atmozfears",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-665",
+    "title": "Touch A Star",
+    "artist": "Adaro, B-Front, Dawnfire",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2014
+  },
+  {
+    "id": "song-666",
+    "title": "Beating Heart",
+    "artist": "B-Front, Imperatorz",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-667",
+    "title": "My Own Path",
+    "artist": "B-Front",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-668",
+    "title": "Das Boot",
+    "artist": "B-Front, Noisecontrollers, Atmozfears",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-669",
+    "title": "New Shit",
+    "artist": "Zatox, Holy Priest",
+    "country": "IT",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-670",
+    "title": "FILTH",
+    "artist": "Zatox, Jowi, Jazzy",
+    "country": "IT",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-671",
+    "title": "Nobody Likes",
+    "artist": "Zatox",
+    "country": "IT",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-672",
+    "title": "Dopamin",
+    "artist": "Zatox",
+    "country": "IT",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-673",
+    "title": "Shock The Future",
+    "artist": "Zatox",
+    "country": "IT",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-674",
+    "title": "The Blaster",
+    "artist": "Zatox",
+    "country": "IT",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-675",
+    "title": "Let Me See Ya",
+    "artist": "Zatox",
+    "country": "IT",
+    "genre": "Hardstyle",
+    "year": 2014
+  },
+  {
+    "id": "song-676",
+    "title": "Destroy",
+    "artist": "Zatox",
+    "country": "IT",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-677",
+    "title": "Psycho",
+    "artist": "Zatox, Zyon",
+    "country": "IT",
+    "genre": "Hardstyle",
+    "year": 2023
+  },
+  {
+    "id": "song-678",
+    "title": "DISCOTEK",
+    "artist": "Rooler",
+    "country": "IT",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-679",
+    "title": "SET ME FREE",
+    "artist": "TNT, Rooler",
+    "country": "IT",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-680",
+    "title": "Return Of The Return",
+    "artist": "Coone, Rooler",
+    "country": "BE",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-681",
+    "title": "WELCOME 2 DA RECORDSHOP",
+    "artist": "Rooler",
+    "country": "IT",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-682",
+    "title": "DOWN DOWN",
+    "artist": "Rooler, Sickmode",
+    "country": "IT",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-683",
+    "title": "Trip to Italia",
+    "artist": "Dr. Peacock, Rooler",
+    "country": "FR",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-684",
+    "title": "WHAT THA HELLY",
+    "artist": "Krowdexx, Levenkhan, Sickmode",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-685",
+    "title": "LOSE IT",
+    "artist": "Krowdexx, Sickmode",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-686",
+    "title": "CLUB BANGER",
+    "artist": "Rooler, Sickmode",
+    "country": "IT",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-687",
+    "title": "MAKE ME FEEL",
+    "artist": "Odium, Sickmode",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-688",
+    "title": "TOO HOT",
+    "artist": "Rooler, Sickmode",
+    "country": "IT",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-689",
+    "title": "TOO HAPPY",
+    "artist": "Rooler, Sickmode",
+    "country": "IT",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-690",
+    "title": "GET IT CRACKIN",
+    "artist": "Sickmode",
+    "country": "IT",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-691",
+    "title": "FACE 2 FACE",
+    "artist": "Rebelion, Restricted",
+    "country": "SC",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-692",
+    "title": "Magic",
+    "artist": "Rebelion, The Straikerz",
+    "country": "SC",
+    "genre": "Rawstyle",
+    "year": 2016
+  },
+  {
+    "id": "song-693",
+    "title": "Alive 2Nite",
+    "artist": "D-Sturb, Aversion",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-694",
+    "title": "DUMB FKN MUSIC",
+    "artist": "Aversion",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-695",
+    "title": "DANCE PARTY!!!",
+    "artist": "Aversion, Big K",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-696",
+    "title": "GIMME MY SH#T!",
+    "artist": "D-Sturb, Aversion",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-697",
+    "title": "Birds",
+    "artist": "D-Sturb, Aversion",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-698",
+    "title": "ZAAG IN PARIS",
+    "artist": "Rebelion, Aversion",
+    "country": "SC",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-699",
+    "title": "Elevate",
+    "artist": "Barber, Spitnoise, Aversion",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-700",
+    "title": "GOTTA STAY",
+    "artist": "Adrenalize, Aversion",
+    "country": "DK",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-701",
+    "title": "Race To Glory",
+    "artist": "Teal, Mutilator, MC Focus, Fraw, So Juice",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-702",
+    "title": "DREAMING",
+    "artist": "Mutilator",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-703",
+    "title": "Domination",
+    "artist": "Mutilator",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2018
+  },
+  {
+    "id": "song-704",
+    "title": "BOUNCE",
+    "artist": "Mutilator",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-705",
+    "title": "GET BACK",
+    "artist": "Mutilator, Adjuzt",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-706",
+    "title": "WILD MF",
+    "artist": "Mutilator",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-707",
+    "title": "Psychedelics",
+    "artist": "Mutilator",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-708",
+    "title": "Don't FK With Us",
+    "artist": "Mutilator, Rebelion",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-709",
+    "title": "Going Wild",
+    "artist": "N-Vitral, Mutilator, BOMBSQUAD",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-710",
+    "title": "Ode To The Godfather",
+    "artist": "Partyraiser, Repix",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-711",
+    "title": "GABBA GABBA",
+    "artist": "Partyraiser, Udow",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-712",
+    "title": "Surrender Your Dreamz ! (Partyraiser & Rosbeek Remix)",
+    "artist": "DJ Delirium",
+    "country": "US",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-713",
+    "title": "Push Up (Partyraiser & F. Noize Remix)",
+    "artist": "Creeds",
+    "country": "FR",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-714",
+    "title": "Red Bottom Heels",
+    "artist": "Partyraiser, Unproven",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-715",
+    "title": "Bass Face",
+    "artist": "Partyraiser, Manifest Destiny",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-716",
+    "title": "Ghost Connections",
+    "artist": "Triax, Partyraiser",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-717",
+    "title": "Click Click, Boom Boom",
+    "artist": "Bulletproof, Partyraiser",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-718",
+    "title": "From The West Coast",
+    "artist": "Partyraiser",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-719",
+    "title": "Bass Go Boom",
+    "artist": "N-Vitral, Dither",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2026
+  },
+  {
+    "id": "song-720",
+    "title": "GoCoke",
+    "artist": "Rexanthony",
+    "country": "IT",
+    "genre": "Hardcore",
+    "year": 2026
+  },
+  {
+    "id": "song-721",
+    "title": "Voices In My Head",
+    "artist": "Angerfist, N-Vitral",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2026
+  },
+  {
+    "id": "song-722",
+    "title": "Burn Out",
+    "artist": "N-Vitral, BOMBSQUAD, Lekkerfaces",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2026
+  },
+  {
+    "id": "song-723",
+    "title": "PROPAGANDA",
+    "artist": "N-Vitral",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2026
+  },
+  {
+    "id": "song-724",
+    "title": "Let Them Eat Steel",
+    "artist": "N-Vitral",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2026
+  },
+  {
+    "id": "song-725",
+    "title": "Murder On The Dancefloor",
+    "artist": "N-Vitral, Furyan",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2026
+  },
+  {
+    "id": "song-726",
+    "title": "DON'T SLEEP",
+    "artist": "N-Vitral, Slaughterhouse, Deadly Guns",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2026
+  },
+  {
+    "id": "song-727",
+    "title": "RPG",
+    "artist": "N-Vitral, BOMBSQUAD, Satirized",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2026
+  },
+  {
+    "id": "song-728",
+    "title": "CHUCKY",
+    "artist": "N-Vitral, Slaughterhouse, Deadly Guns",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2026
+  },
+  {
+    "id": "song-729",
+    "title": "World On Fire",
+    "artist": "Angerfist, Reinier Zonneveld",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2024
+  },
+  {
+    "id": "song-730",
+    "title": "Shot To The Brain",
+    "artist": "Angerfist, CARV",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2026
+  },
+  {
+    "id": "song-731",
+    "title": "Destined For Destruction (Angerfist Remix)",
+    "artist": "Angerfist",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2026
+  },
+  {
+    "id": "song-732",
+    "title": "Recession (Angerfist Remix)",
+    "artist": "Angerfist",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2026
+  },
+  {
+    "id": "song-733",
+    "title": "Club Banger",
+    "artist": "Angerfist",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2022
+  },
+  {
+    "id": "song-734",
+    "title": "No Time To Lose",
+    "artist": "Angerfist",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2026
+  },
+  {
+    "id": "song-735",
+    "title": "The Nightmare Man",
+    "artist": "Angerfist",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2026
+  },
+  {
+    "id": "song-736",
+    "title": "Gathering Of Gods",
+    "artist": "Angerfist",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2026
+  },
+  {
+    "id": "song-737",
+    "title": "Like An Earthquake",
+    "artist": "Miss K8",
+    "country": "UA",
+    "genre": "Hardcore",
+    "year": 2026
+  },
+  {
+    "id": "song-738",
+    "title": "Fatal Fortune",
+    "artist": "Miss K8",
+    "country": "UA",
+    "genre": "Hardcore",
+    "year": 2026
+  },
+  {
+    "id": "song-739",
+    "title": "Yes (Miss K8 Remix)",
+    "artist": "Angerfist",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2026
+  },
+  {
+    "id": "song-740",
+    "title": "You Can't Stop Me",
+    "artist": "Miss K8",
+    "country": "UA",
+    "genre": "Hardcore",
+    "year": 2026
+  },
+  {
+    "id": "song-741",
+    "title": "The Last Spartan",
+    "artist": "Miss K8",
+    "country": "UA",
+    "genre": "Hardcore",
+    "year": 2026
+  },
+  {
+    "id": "song-742",
+    "title": "Move As One",
+    "artist": "Nosferatu, Tha Playah",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2026
+  },
+  {
+    "id": "song-743",
+    "title": "Who Needs Gods",
+    "artist": "Nosferatu, Tha Playah",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2026
+  },
+  {
+    "id": "song-744",
+    "title": "The Easy Way",
+    "artist": "Tha Playah, Tommyknocker",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2026
+  },
+  {
+    "id": "song-745",
+    "title": "Still Nr.1",
+    "artist": "Tha Playah, DJ Neophyte",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2026
+  },
+  {
+    "id": "song-746",
+    "title": "The Heartless",
+    "artist": "Tha Playah, Angerfist",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2026
+  },
+  {
+    "id": "song-747",
+    "title": "So Many Sacrifices",
+    "artist": "Ophidian",
+    "country": "NL",
+    "genre": "Hardcore",
+    "year": 2026
+  },
+  {
+    "id": "song-748",
+    "title": "RUNNING 2 U",
+    "artist": "Frontliner, DEEZL",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-749",
+    "title": "No Receta",
+    "artist": "Frontliner",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-750",
+    "title": "Curiosity",
+    "artist": "Frontliner",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-751",
+    "title": "Rebels In The Frontline",
+    "artist": "Outsiders, Frontliner, Diandra Faye",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-752",
+    "title": "Trouble",
+    "artist": "Frontliner, Hardstyle Pianist",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-753",
+    "title": "Never Back Down",
+    "artist": "Wildstylez, Amanda Collis",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-754",
+    "title": "LOVE",
+    "artist": "Wildstylez, Sound Rush",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-755",
+    "title": "Year Of Summer",
+    "artist": "Wildstylez, Niels Geusebroek",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2013
+  },
+  {
+    "id": "song-756",
+    "title": "Created By Legends",
+    "artist": "Wildstylez, Jay Reeve",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-757",
+    "title": "Jaydee",
+    "artist": "Noisecontrollers, Toneshifterz",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2011
+  },
+  {
+    "id": "song-758",
+    "title": "Crump",
+    "artist": "Noisecontrollers",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-759",
+    "title": "Digital Nation",
+    "artist": "Technoboy, Tuneboy, Isaac",
+    "country": "IT",
+    "genre": "Hardstyle",
+    "year": 2012
+  },
+  {
+    "id": "song-760",
+    "title": "Power Hour",
+    "artist": "Technoboy, DJ Isaac, Tuneboy",
+    "country": "IT",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-761",
+    "title": "Boom Boom Boom",
+    "artist": "Technoboy, TNT, Tuneboy",
+    "country": "IT",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-762",
+    "title": "2002",
+    "artist": "Technoboy, TNT, Tuneboy",
+    "country": "IT",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-763",
+    "title": "CTRL",
+    "artist": "Technoboy, DJ Isaac, Tuneboy",
+    "country": "IT",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-764",
+    "title": "Mellow",
+    "artist": "Technoboy, TNT, Showtek, Tuneboy",
+    "country": "IT",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-765",
+    "title": "Crunch",
+    "artist": "Technoboy, TNT, Tuneboy",
+    "country": "IT",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-766",
+    "title": "Rise From The Void",
+    "artist": "E-Force, D-Sturb",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-767",
+    "title": "Bring It On",
+    "artist": "E-Force, Aversion",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-768",
+    "title": "Who I Am",
+    "artist": "Digital Punk, E-Force",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-769",
+    "title": "Do You Fckn Hear Me",
+    "artist": "E-Force, Deluzion",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-770",
+    "title": "Kicks Like This",
+    "artist": "Luna, E-Force",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-771",
+    "title": "Undercover (The Purge & Gezellige Uptempo Remix)",
+    "artist": "EZG",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-772",
+    "title": "Sweet Caroline",
+    "artist": "MC RG, S-KILL, Gezellige Uptempo",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-773",
+    "title": "Que Si Que No (Uptempo Remix)",
+    "artist": "Hans Glock, Gezellige Uptempo, Bernal Bounce",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-774",
+    "title": "Der Bassmaschine",
+    "artist": "Unlocked, Gezellige Uptempo",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-775",
+    "title": "Bassline Slut",
+    "artist": "Lil Texas, Vieze Asbak, Natte Visstick",
+    "country": "US",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-776",
+    "title": "Like A Boss",
+    "artist": "Lil Texas, Holy Priest",
+    "country": "US",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-777",
+    "title": "RECKLESS",
+    "artist": "Lil Texas, TOZA",
+    "country": "US",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-778",
+    "title": "Meet Her At The Love Parade",
+    "artist": "Lil Texas, Vieze Asbak",
+    "country": "US",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-779",
+    "title": "Last Resort",
+    "artist": "DJ Gollum, Lil Texas, NoiseFlow",
+    "country": "DE",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-780",
+    "title": "Highs In My Dreams",
+    "artist": "Lil Texas, Irradiate",
+    "country": "US",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-781",
+    "title": "Machinery",
+    "artist": "Lekkerfaces, Dual Damage",
+    "country": "IT",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-782",
+    "title": "[666]",
+    "artist": "Kruelty, Lekkerfaces",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-783",
+    "title": "Psycho Mode",
+    "artist": "The Dark Horror, Lekkerfaces",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-784",
+    "title": "Thunder",
+    "artist": "Satirized, MC Flo, Lekkerfaces",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-785",
+    "title": "U Will Be Mine (Lekkerfaces Remix)",
+    "artist": "Radium, Hysta",
+    "country": "FR",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-786",
+    "title": "Shake It",
+    "artist": "Noxiouz, Lekkerfaces",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-787",
+    "title": "LekkerPino",
+    "artist": "Lekkerfaces, Pinotello",
+    "country": "IT",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-788",
+    "title": "Incoming (Noxiouz & Satirized Remix)",
+    "artist": "The Straikerz, Adjuzt",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-789",
+    "title": "Legacy",
+    "artist": "The Saints, Mc Livid, Noxiouz, Satirized",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2019
+  },
+  {
+    "id": "song-790",
+    "title": "Dimension",
+    "artist": "Dimitri K, Diandra Faye, Satirized",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-791",
+    "title": "Fight 2.0 (Noxiouz Remix)",
+    "artist": "Satirized",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-792",
+    "title": "Nothing To Lose",
+    "artist": "Unresolved, The Purge, Noxiouz, Satirized",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-793",
+    "title": "Turbo",
+    "artist": "New Kids, Paul Elstak",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-794",
+    "title": "Give It To Me",
+    "artist": "Spitnoise, Noxiouz",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-795",
+    "title": "The Ultimate Neophyte Tribute (Spitnoise & Noxiouz Remix)",
+    "artist": "Repix",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-796",
+    "title": "Flatline",
+    "artist": "Act of rage, Spitnoise, Nolz",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-797",
+    "title": "Fuck The System (Spitnoise Remix)",
+    "artist": "Unexist, Satronica",
+    "country": "IT",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-798",
+    "title": "Keep It On (2025 Refix)",
+    "artist": "Spitnoise, Tharken",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-799",
+    "title": "Pump It Louder",
+    "artist": "Spitnoise",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-800",
+    "title": "Pass Out",
+    "artist": "The Dope Doctor, Kili",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-801",
+    "title": "Best U Ever Had",
+    "artist": "The Dope Doctor, Irradiate",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-802",
+    "title": "Hurricane",
+    "artist": "Soulblast, The Dope Doctor",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2018
+  },
+  {
+    "id": "song-803",
+    "title": "Pornstar",
+    "artist": "The Dope Doctor",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-804",
+    "title": "Napalm (Original Mix)",
+    "artist": "The Dope Doctor",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-805",
+    "title": "1,2,3",
+    "artist": "The Dope Doctor",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-806",
+    "title": "Raver",
+    "artist": "The Dope Doctor",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-807",
+    "title": "SHUT THE F#CK UP!",
+    "artist": "LunaKorpz",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-808",
+    "title": "KICKS IN YA BRAIN",
+    "artist": "LunaKorpz",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-809",
+    "title": "GET RICH",
+    "artist": "LunaKorpz, Dual Damage",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-810",
+    "title": "HIGHER",
+    "artist": "LunaKorpz",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-811",
+    "title": "WELCOME TO THE JUNGLE",
+    "artist": "LunaKorpz",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-812",
+    "title": "LUNASIDE",
+    "artist": "LunaKorpz",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-813",
+    "title": "LUNATIC",
+    "artist": "LunaKorpz",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-814",
+    "title": "CHEMISTRY",
+    "artist": "LunaKorpz",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-815",
+    "title": "FIYAH!",
+    "artist": "Omnya, LunaKorpz",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-816",
+    "title": "Sunrise",
+    "artist": "D-Charged, The Purge",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-817",
+    "title": "LIKE THIZ",
+    "artist": "D-Charged",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-818",
+    "title": "END OF THE STORY",
+    "artist": "D-Charged, DEEZL",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-819",
+    "title": "RE:WIND",
+    "artist": "D-Charged",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-820",
+    "title": "No Escape",
+    "artist": "D-Charged, Serzo",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-821",
+    "title": "City Lights",
+    "artist": "Wasted Penguinz, D-Charged",
+    "country": "SE",
+    "genre": "Uptempo",
+    "year": 2019
+  },
+  {
+    "id": "song-822",
+    "title": "The Lick",
+    "artist": "D-Charged",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-823",
+    "title": "Have It All",
+    "artist": "D-Charged, Amy Mae Lou",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-824",
+    "title": "Nightmares",
+    "artist": "The Dark Horror, MC Robs, Noxiouz",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-825",
+    "title": "What You Gonna Do",
+    "artist": "Noxiouz",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-826",
+    "title": "The Aftermath",
+    "artist": "Noxiouz",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-827",
+    "title": "Rebels",
+    "artist": "Noxiouz, Satirized",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-828",
+    "title": "The FOMO",
+    "artist": "Complex, Noxiouz, Kili",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-829",
+    "title": "L.P.A.",
+    "artist": "Missy, Akimbo",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-830",
+    "title": "Filthy Bounce",
+    "artist": "Akimbo, Samynator",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-831",
+    "title": "Out Of My Mind",
+    "artist": "Akimbo, Manifest Destiny",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-832",
+    "title": "WaKe uP",
+    "artist": "Akimbo, Adjuzt",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-833",
+    "title": "OSIRIS",
+    "artist": "Akimbo, BMBERJCK",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-834",
+    "title": "Dissapear",
+    "artist": "Akimbo, Aalst",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-835",
+    "title": "Kill Confirmed",
+    "artist": "Akimbo",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-836",
+    "title": "Free",
+    "artist": "MT, Akimbo",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-837",
+    "title": "Capture The Flag",
+    "artist": "Akimbo",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-838",
+    "title": "Oldschool Lovers",
+    "artist": "Adaro, DR Rude",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-839",
+    "title": "Talk To The Hand",
+    "artist": "Adaro",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-840",
+    "title": "Home",
+    "artist": "Adaro, Ran-D",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2019
+  },
+  {
+    "id": "song-841",
+    "title": "The House Is On Fire",
+    "artist": "Adaro, Zany",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-842",
+    "title": "We Rise",
+    "artist": "Adaro, Digital Punk",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-843",
+    "title": "Start The Show",
+    "artist": "Adaro",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-844",
+    "title": "Family",
+    "artist": "Adaro, Level One",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-845",
+    "title": "Original Gangsters (Raw and Mean)",
+    "artist": "Adaro, Unresolved",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-846",
+    "title": "I'm On ACID",
+    "artist": "Bass Modulators, The Rocketman",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-847",
+    "title": "Sacred Flame",
+    "artist": "Bass Modulators",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-848",
+    "title": "Back 2 Euphoria",
+    "artist": "Bass Modulators, Demi Kanon",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-849",
+    "title": "Final Call",
+    "artist": "Bass Modulators, Diandra Faye",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-850",
+    "title": "Another World",
+    "artist": "Bass Modulators, Davino",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-851",
+    "title": "It Must Be",
+    "artist": "Zatox, Max Enforcer",
+    "country": "IT",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-852",
+    "title": "Respect",
+    "artist": "Max Enforcer, Hardstyle Masterz",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2019
+  },
+  {
+    "id": "song-853",
+    "title": "Gold 24K",
+    "artist": "Max Enforcer",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-854",
+    "title": "Be Amazed",
+    "artist": "Max Enforcer, The Beholder",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-855",
+    "title": "On The Go",
+    "artist": "Max Enforcer, Frontliner",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-856",
+    "title": "Gravity",
+    "artist": "Code Black, Audiofreq",
+    "country": "AU",
+    "genre": "Hardstyle",
+    "year": 2016
+  },
+  {
+    "id": "song-857",
+    "title": "Off My Face",
+    "artist": "Toneshifterz, Code Black, Audiofreq, Colin Hennerz, 3BLOKES",
+    "country": "AU",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-858",
+    "title": "Wanting To Get High",
+    "artist": "Hixxy, Code Black",
+    "country": "GB",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-859",
+    "title": "Summer Nights",
+    "artist": "Code Black, Adrenalize",
+    "country": "AU",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-860",
+    "title": "Breathe",
+    "artist": "Code Black",
+    "country": "AU",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-861",
+    "title": "Feel Love",
+    "artist": "Darren Styles, Code Black",
+    "country": "GB",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-862",
+    "title": "Six Days (On The Run)",
+    "artist": "Darren Styles, Code Black",
+    "country": "GB",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-863",
+    "title": "The Trap",
+    "artist": "Alee, Crypsis, INVADE",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-864",
+    "title": "Underground",
+    "artist": "Crypsis, Level One",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-865",
+    "title": "Our Game",
+    "artist": "Crypsis, Alex B",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-866",
+    "title": "Smash Ya Face",
+    "artist": "Crypsis, INVADE",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-867",
+    "title": "I Don't Miss",
+    "artist": "Crypsis, Nightcraft",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-868",
+    "title": "Get Hit",
+    "artist": "Sasha F, Crypsis",
+    "country": "FI",
+    "genre": "Hardstyle",
+    "year": 2010
+  },
+  {
+    "id": "song-869",
+    "title": "Nothing Has Changed",
+    "artist": "Crypsis, Radical Redemption",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-870",
+    "title": "No Mercy",
+    "artist": "Armin van Buuren, Adam Beyer",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-871",
+    "title": "Trip to the Future",
+    "artist": "JDX, Dr. Peacock",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-872",
+    "title": "Live The Moment (feat. Sarah Maria)",
+    "artist": "JDX, Sarah Maria",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-873",
+    "title": "Legends Of The Midnight",
+    "artist": "Digital Punk, ANDY SVGE, RAVEWALKER",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-874",
+    "title": "Be As One",
+    "artist": "Waverider, ANDY SVGE",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-875",
+    "title": "Watching Me",
+    "artist": "ANDY SVGE, RAVEWALKER",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-876",
+    "title": "Gravity (Angerfist Remix)",
+    "artist": "ANDY SVGE",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-877",
+    "title": "Heart Of A Raver",
+    "artist": "Digital Punk, ANDY SVGE, RAVEWALKER",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-878",
+    "title": "Deep'r",
+    "artist": "Max Enforcer, Heavynn, ANDY SVGE",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-879",
+    "title": "Border Of Reality",
+    "artist": "Digital Punk, ANDY SVGE",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-880",
+    "title": "Slam & Jam",
+    "artist": "Deepack",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-881",
+    "title": "Feel The Storm",
+    "artist": "Deepack, DJ Lady Tess",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-882",
+    "title": "Kickuhh!!",
+    "artist": "Luna, Deepack, Hans Glock, Lindyvlinder",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-883",
+    "title": "Hearts On Fire",
+    "artist": "Deepack",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-884",
+    "title": "Do My Thing",
+    "artist": "Deepack",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-885",
+    "title": "We Own The Night",
+    "artist": "Deepack",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-886",
+    "title": "Insta",
+    "artist": "Deepack",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-887",
+    "title": "My Heart",
+    "artist": "Wasted Penguinz, Jesse Jax",
+    "country": "SE",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-888",
+    "title": "When The World Ends",
+    "artist": "Wasted Penguinz, Jay Reeve",
+    "country": "SE",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-889",
+    "title": "Wild Love",
+    "artist": "Wasted Penguinz",
+    "country": "SE",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-890",
+    "title": "Parachute",
+    "artist": "Wasted Penguinz, Jay Reeve",
+    "country": "SE",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-891",
+    "title": "Evergreen",
+    "artist": "Wasted Penguinz",
+    "country": "SE",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-892",
+    "title": "Mad World",
+    "artist": "ZIGGY X, Wasted Penguinz",
+    "country": "DE",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-893",
+    "title": "Summer Of 69",
+    "artist": "Da Tweekaz, Topmodelz",
+    "country": "NO",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-894",
+    "title": "Dancefloor Therapy",
+    "artist": "Da Tweekaz, The Straikerz",
+    "country": "NO",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-895",
+    "title": "Night Of Fire",
+    "artist": "Da Tweekaz, Komb",
+    "country": "NO",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-896",
+    "title": "Dancing On The Bar",
+    "artist": "Da Tweekaz",
+    "country": "NO",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-897",
+    "title": "Bleeding Heart",
+    "artist": "Da Tweekaz",
+    "country": "NO",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-898",
+    "title": "Sun Goes Down",
+    "artist": "Da Tweekaz, Italobrothers",
+    "country": "NO",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-899",
+    "title": "Million Tears",
+    "artist": "Groove Coverage, Da Tweekaz",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-900",
+    "title": "GO HARD",
+    "artist": "D-Sturb, Holy Priest",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-901",
+    "title": "What's A Girl To Do (D-Sturb Remix)",
+    "artist": "Luvstruck",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-902",
+    "title": "Sacred Oath",
+    "artist": "E-Life, D-Sturb",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-903",
+    "title": "Right Here",
+    "artist": "D-Sturb, DEEZL",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-904",
+    "title": "Voices",
+    "artist": "Da Tweekaz, D-Sturb",
+    "country": "NO",
+    "genre": "Rawstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-905",
+    "title": "Good Old Days",
+    "artist": "D-Sturb",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-906",
+    "title": "Japan",
+    "artist": "D-Sturb, MERYLL",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-907",
+    "title": "Higher Lately",
+    "artist": "D-Sturb, Nathalie Blue",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-908",
+    "title": "Get Wrecked 2024 Tool",
+    "artist": "Dual Damage",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-909",
+    "title": "VENGEANCE",
+    "artist": "Kruelty, Dual Damage",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-910",
+    "title": "Rave Mode",
+    "artist": "Dual Damage",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-911",
+    "title": "CALL ME",
+    "artist": "So Juice, Dual Damage",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-912",
+    "title": "Angel & Demon",
+    "artist": "The Dark Horror, Dual Damage",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-913",
+    "title": "Angels & Demons",
+    "artist": "D-Block & S-te-Fan, Ghost Stories",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2017
+  },
+  {
+    "id": "song-914",
+    "title": "Fallen Souls",
+    "artist": "D-Block & S-te-Fan, Ghost Stories",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2013
+  },
+  {
+    "id": "song-915",
+    "title": "Devil's Night",
+    "artist": "D-Block & S-te-Fan, Ghost Stories",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2021
+  },
+  {
+    "id": "song-916",
+    "title": "Inside My Head",
+    "artist": "D-Block & S-te-Fan, Ghost Stories",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2023
+  },
+  {
+    "id": "song-917",
+    "title": "Lake Of Fire",
+    "artist": "D-Block & S-te-Fan, Ghost Stories",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-918",
+    "title": "The Enemy (You Cannot See)",
+    "artist": "D-Block & S-te-Fan, Ghost Stories",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-919",
+    "title": "Open Your Mind",
+    "artist": "D-Block & S-te-Fan, Ghost Stories",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-920",
+    "title": "Bass Powah",
+    "artist": "Krowdexx, Holy Priest",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-921",
+    "title": "Freestyler",
+    "artist": "Krowdexx, Holy Priest",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-922",
+    "title": "Shake The Shimmy",
+    "artist": "Krowdexx, elMefti",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-923",
+    "title": "FEELIN' HIGH",
+    "artist": "Mish, Krowdexx",
+    "country": "AU",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-924",
+    "title": "Time To Shine",
+    "artist": "Mish, Krowdexx",
+    "country": "AU",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-925",
+    "title": "ICONS",
+    "artist": "Krowdexx",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-926",
+    "title": "No Rest For The Wicked (Krowdexx Remix)",
+    "artist": "Hard Driver",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-927",
+    "title": "WILD OUT",
+    "artist": "Krowdexx",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-928",
+    "title": "The Final Verdict",
+    "artist": "MC Robs, Kili",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-929",
+    "title": "Moshpit",
+    "artist": "Revealer, Kili",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-930",
+    "title": "Our Rebirth",
+    "artist": "Kili",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-931",
+    "title": "Max Ammo",
+    "artist": "Roosterz, Kili",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-932",
+    "title": "MADE IN THE DARK",
+    "artist": "Kili",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-933",
+    "title": "MISSION SNAKEPIT",
+    "artist": "Kili",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-934",
+    "title": "All Summer",
+    "artist": "MT, Kili",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-935",
+    "title": "Movin On",
+    "artist": "Radical Redemption, D-Block & S-te-Fan",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-936",
+    "title": "Suck My",
+    "artist": "Radical Redemption, Kruelty",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-937",
+    "title": "Brutal 12.0",
+    "artist": "Radical Redemption",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-938",
+    "title": "Data Corrupted",
+    "artist": "Radical Redemption, Kruelty",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-939",
+    "title": "Kingdom",
+    "artist": "Radical Redemption, Maddix",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-940",
+    "title": "Get Up",
+    "artist": "Radical Redemption, Diøn",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-941",
+    "title": "Renegade Master",
+    "artist": "Radical Redemption",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-942",
+    "title": "Kick Op Je Bek, Part. 2",
+    "artist": "Digital Punk, Radical Redemption",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-943",
+    "title": "Unleash The Radical",
+    "artist": "Radical Redemption",
+    "country": "NL",
+    "genre": "Rawstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-944",
+    "title": "Dragonborn Part 2",
+    "artist": "Headhunterz",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2020
+  },
+  {
+    "id": "song-945",
+    "title": "Weapons of Love",
+    "artist": "Da Tweekaz & Atmozfears ft. POPR3B3L",
+    "country": "NO",
+    "genre": "Hardstyle",
+    "year": 2014
+  },
+  {
+    "id": "song-946",
+    "title": "Home",
+    "artist": "Ran-D & Adaro",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  },
+  {
+    "id": "song-947",
+    "title": "Self Aware",
+    "artist": "Gezellige Uptempo & Lil Texas",
+    "country": "NL",
+    "genre": "Uptempo",
+    "year": 2026
+  },
+  {
+    "id": "song-948",
+    "title": "Boten Anna",
+    "artist": "Da Tweekaz x Basshunter",
+    "country": "NO",
+    "genre": "Hardstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-949",
+    "title": "We Like To Party",
+    "artist": "Vengaboys (Da Tweekaz)",
+    "country": "NO",
+    "genre": "Hardstyle",
+    "year": 2025
+  },
+  {
+    "id": "song-950",
+    "title": "Heart Of A Dragon",
+    "artist": "Ran-D & Brennan Heart ft. Floor Jansen",
+    "country": "NL",
+    "genre": "Hardstyle",
+    "year": 2026
+  }
+]
