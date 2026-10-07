@@ -8,6 +8,15 @@ body{background:#000}body:before{display:none}
 </style></head><body><a href="/" aria-label="Back to game menu" style="display:inline-block;margin:16px 18px 0;color:#fff;text-decoration:none;font-family:Arial,sans-serif;font-weight:700">← Game menu</a><main class="page"><header><div class="logo">HARD<span>LE</span></div><div class="tag">Guess the hardstyle track of the day</div></header><section class="card hero"><div class="panel"><div class="eyebrow" id="dailyLabel">Daily Hardle #001</div><h1>Can you recognize the track?</h1><p class="desc">Search for a track and submit your guess.</p><div class="audioControls"><button id="playBtn" class="fakePlay" type="button">▶ Play 3 sec</button><label class="fakeVolume"><span>🔊</span><input id="volumeControl" type="range" min="1" max="100" value="1" autocomplete="off" aria-label="Volume"></label><button id="skipBtn" class="skipBtn" type="button">Skip +3 sec</button></div><div class="clipInfo"><strong id="clipLength">3 sec</strong> unlocked <span>•</span><div class="clipSteps"><span class="clipStep active">3s</span><span class="clipStep">6s</span><span class="clipStep">10s</span><span class="clipStep">15s</span><span class="clipStep">20s</span><span class="clipStep">30s</span></div></div><div id="youtubePlayer" style="position:absolute;width:1px;height:1px;left:-9999px;top:-9999px;pointer-events:none"></div><iframe id="soundcloudPlayer" title="SoundCloud player" allow="autoplay" scrolling="no" frameborder="no" style="position:absolute;width:1px;height:1px;left:-9999px;top:-9999px;border:0;opacity:0;pointer-events:none"></iframe><div class="guessBox"><input id="guessInput" class="guessInput" autocomplete="off" placeholder="Search for a track or artist..."><button id="guessSubmit" class="guessSubmit">Guess</button><div id="results" class="results"></div></div><div id="guessCount" class="guessCount">0/6 guesses</div><div class="guessHeader"><div>Track</div><div>Artist</div><div>Country</div><div>Genre</div><div>Year</div></div><div id="guessList" class="guessList"></div></div></section><section class="belowCard"><div id="yesterday" class="gameResult"></div><div id="todayResults" class="gameResult"></div></section><section class="stats"><div class="stat"><b>0</b><span>Played</span></div><div class="stat"><b>0</b><span>Current Streak</span></div><div class="stat"><b>0</b><span>Best Streak</span></div><div class="stat"><b>0</b><span>Total Score</span></div></section><div id="streakBanner" class="streakBanner"><b>🔥 0 DAY STREAK</b><span>Keep it going</span></div><footer>HARDLE • A daily hardstyle guessing game</footer><div id="correctModal" class="correctModal" aria-hidden="true"><div class="correctBox" role="dialog" aria-modal="true" aria-labelledby="correctTitle"><div class="correctTop"><div class="correctIcon">🎉</div><h2 id="correctTitle" class="correctTitle">CORRECT!</h2><div class="correctSub">You nailed today’s track.</div></div><div class="correctBody"><div class="correctCoverWrap"><img id="correctCover" class="correctCover" alt=""></div><div id="correctTrack" class="correctTrack"></div><div id="correctArtist" class="correctArtist"></div><div class="correctMeta"><div class="correctMetaItem"><b id="correctGuesses"></b><span>Guesses</span></div><div class="correctMetaItem"><b id="correctScore"></b><span>Score</span></div><div class="correctMetaItem"><b id="correctGenre"></b><span>Genre</span></div></div><div class="correctMeta"><div class="correctMetaItem"><b id="correctYear"></b><span>Year</span></div></div><a id="spotifyBtn" class="spotifyBtn" href="#" target="_blank" rel="noopener noreferrer">Listen on Spotify</a><div class="shareResult"><code id="shareText"></code><button id="shareBtn">Share result</button><button id="copyBtn">Copy result</button></div><a href="/djdle" class="correctClose" style="display:block;text-decoration:none">Next game: DJdle <span class="nextGameArrow" aria-hidden="true">→</span></a><button id="correctClose" class="correctClose">Close</button><div class="correctCountdown">Next track in <span id="countdown">00:00:00</span></div></div></div></div></main><script src="/scoring.js"></script><script>const SUPABASE_URL='https://nehgghljfeoerhyewssd.supabase.co',SUPABASE_KEY='sb_publishable_tL4uJAFTPoWbkNKmZPyVkw_qqGhl-RG';const guessInput=document.getElementById('guessInput'),guessSubmit=document.getElementById('guessSubmit'),results=document.getElementById('results'),guessList=document.getElementById('guessList');const guessCount=document.getElementById("guessCount"),correctScore=document.getElementById("correctScore");const playBtn=document.getElementById("playBtn");
 const volumeControl=document.getElementById("volumeControl");
 volumeControl.value="1";
+const usesDeviceVolume=/iPhone|iPad|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+function applyPlayerVolume(player){
+  if(!usesDeviceVolume)player.setVolume(Number(volumeControl.value));
+}
+if(usesDeviceVolume){
+  const control=volumeControl.closest('label');
+  if(control){const note=document.createElement('span');note.textContent='Use iPhone volume buttons';note.style.cssText='font-size:12px;color:#aaa';control.replaceWith(note)}
+}
+
 const soundcloudPlayer=document.getElementById("soundcloudPlayer");
 let soundcloudWidget=null,soundcloudReady=false,soundcloudLoading=null,soundcloudPlaying=false,soundcloudUrlActive="",youtubePlayer=null,youtubeReady=false,youtubeLoading=null,youtubePlaying=false,youtubeIdActive="",clipTimer=null;
 
@@ -259,10 +268,10 @@ async function initYouTube(id){
     await new Promise((resolve,reject)=>{
     const timeout=setTimeout(()=>reject(new Error("YouTube player timeout")),15000);
     youtubePlayer=new YT.Player("youtubePlayer",{height:"1",width:"1",videoId:id,playerVars:{autoplay:0,controls:0,playsinline:1,rel:0},events:{
-      onReady:e=>{youtubeReady=true;e.target.mute();e.target.setVolume(Number(volumeControl.value));clearTimeout(timeout);resolve()},
+      onReady:e=>{youtubeReady=true;e.target.mute();applyPlayerVolume(e.target);clearTimeout(timeout);resolve()},
       onError:e=>{clearTimeout(timeout);reject(new Error("YouTube player error: "+e.data))},
       onStateChange:e=>{
-        if(e.data===YT.PlayerState.PLAYING){youtubePlaying=true;playBtn.textContent="❚❚ Pause";e.target.setVolume(Number(volumeControl.value));e.target.unMute();beginClipTimer()}
+        if(e.data===YT.PlayerState.PLAYING){youtubePlaying=true;playBtn.textContent="❚❚ Pause";applyPlayerVolume(e.target);e.target.unMute();beginClipTimer()}
         if(e.data===YT.PlayerState.PAUSED||e.data===YT.PlayerState.ENDED){youtubePlaying=false;playBtn.textContent="▶ Play"}
       }
     }});
@@ -282,10 +291,10 @@ async function initSoundCloud(url){
     soundcloudWidget.bind(SC.Widget.Events.ERROR,()=>{if(!done){done=true;reject(new Error("SoundCloud player error"))}});
     setTimeout(()=>{if(!done){done=true;reject(new Error("SoundCloud player timeout"))}},10000);
   });
-  soundcloudWidget.bind(SC.Widget.Events.PLAY,()=>{soundcloudPlaying=true;playBtn.textContent="❚❚ Pause";soundcloudWidget.setVolume(Number(volumeControl.value));beginClipTimer();});
+  soundcloudWidget.bind(SC.Widget.Events.PLAY,()=>{soundcloudPlaying=true;playBtn.textContent="❚❚ Pause";applyPlayerVolume(soundcloudWidget);beginClipTimer();});
   soundcloudWidget.bind(SC.Widget.Events.PAUSE,()=>{soundcloudPlaying=false;playBtn.textContent="▶ Play"});
   soundcloudWidget.bind(SC.Widget.Events.FINISH,()=>{soundcloudPlaying=false;playBtn.textContent="▶ Play"});
-  soundcloudWidget.setVolume(Number(volumeControl.value));
+  applyPlayerVolume(soundcloudWidget);
   soundcloudUrlActive=url;
   soundcloudReady=true;
 }
@@ -345,7 +354,7 @@ async function prepareAudio(){
   }finally{audioPreparing=false;playBtn.disabled=false}
 }
 function playSoundCloudAtVolume(){
-  soundcloudWidget.setVolume(Number(volumeControl.value));
+  applyPlayerVolume(soundcloudWidget);
   clipPending=true;
   soundcloudWidget.seekTo(getClipStart()*1000);
   soundcloudWidget.play();
@@ -359,7 +368,7 @@ playBtn.onclick=()=>{
     clipPending=false;
     playSoundCloudAtVolume();
   }else if(source.youtube){
-    youtubePlayer.setVolume(Number(volumeControl.value));
+    applyPlayerVolume(youtubePlayer);
     youtubePlayer.unMute();
     youtubePlayer.seekTo(getClipStart(),true);
     youtubePlayer.playVideo();
@@ -368,8 +377,8 @@ playBtn.onclick=()=>{
 
 document.getElementById("skipBtn").style.display="none";
 volumeControl.oninput=()=>{
-  if(soundcloudWidget&&soundcloudReady)soundcloudWidget.setVolume(Number(volumeControl.value));
-  if(youtubePlayer&&youtubeReady&&youtubePlayer.setVolume)youtubePlayer.setVolume(Number(volumeControl.value));
+  if(soundcloudWidget&&soundcloudReady)applyPlayerVolume(soundcloudWidget);
+  if(youtubePlayer&&youtubeReady&&youtubePlayer.setVolume)applyPlayerVolume(youtubePlayer);
 };
 function swedishDate(now=new Date()){
   const parts=new Intl.DateTimeFormat("en-CA",{timeZone:"Europe/Stockholm",year:"numeric",month:"2-digit",day:"2-digit"}).formatToParts(now);
