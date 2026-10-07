@@ -23,7 +23,7 @@
     requestAnimationFrame(()=>{
       const r=leader.getBoundingClientRect(),w=panel.offsetWidth,h=panel.offsetHeight;
       const x=Math.max(8,Math.min(window.innerWidth-w-8,r.left+r.width/2-w/2));
-      const y=r.top-h-14>=8?r.top-h-14:Math.min(window.innerHeight-h-8,Math.max(8,r.top+20));
+      const y=Math.max(8,r.top-h-14);
       panel.style.left=x+'px';panel.style.top=y+'px';panel.style.right='auto';panel.style.bottom='auto';
     });
   }
