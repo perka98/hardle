@@ -283,12 +283,19 @@ async function initYouTube(id){
 async function initSoundCloud(url){
   await loadSoundCloudApi();
   soundcloudPlayer.src="https://w.soundcloud.com/player/?url="+encodeURIComponent(url)+"&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false";
+  if(soundcloudWidget&&soundcloudWidget.unbind){for(const event of Object.values(SC.Widget.Events))soundcloudWidget.unbind(event)}
   soundcloudWidget=SC.Widget(soundcloudPlayer);
   await new Promise((resolve,reject)=>{
     let done=false;
     const finish=()=>{if(!done){done=true;resolve()}};
     soundcloudWidget.bind(SC.Widget.Events.READY,finish);
-    soundcloudWidget.bind(SC.Widget.Events.ERROR,()=>{if(!done){done=true;reject(new Error("SoundCloud player error"))}});
+    soundcloudWidget.bind(SC.Widget.Events.ERROR,()=>{
+      audioPrepared=false;soundcloudReady=false;soundcloudPlaying=false;clipPending=false;
+      if(clipTimer){clearTimeout(clipTimer);clipTimer=null}
+      playBtn.disabled=false;playBtn.textContent='Retry audio';
+      guessCount.textContent='SoundCloud could not load the audio stream. Press Retry audio.';
+      if(!done){done=true;reject(new Error('SoundCloud audio stream unavailable'))}
+    });
     setTimeout(()=>{if(!done){done=true;reject(new Error("SoundCloud player timeout"))}},10000);
   });
   soundcloudWidget.bind(SC.Widget.Events.PLAY,()=>{
