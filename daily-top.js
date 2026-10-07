@@ -42,4 +42,18 @@
     }
     status.textContent=top.length?'':'No scores yet today.';status.hidden=top.length>0;
   }catch{status.hidden=false;status.textContent='Today’s leaderboard is not available yet.'}
+  try{
+    const monthlyStatus=document.getElementById('monthly-top-status'),monthlyList=document.getElementById('monthly-top-list');
+    const response=await fetch(config.url+'/rest/v1/rpc/hardle_leaderboard',{method:'POST',headers:{apikey:config.key,'Content-Type':'application/json'},body:JSON.stringify({period:'monthly'}),signal:AbortSignal.timeout(10000)});
+    if(!response.ok)throw Error();const rows=await response.json();if(!Array.isArray(rows))throw Error();
+    const top=rows.filter(row=>typeof row.username==='string'&&row.user_id&&Number.isFinite(Number(row.score))).sort((a,b)=>Number(b.score)-Number(a.score)).slice(0,10);
+    for(const row of top){
+      const item=document.createElement('li'),line=document.createElement('span'),name=document.createElement('span'),avatar=document.createElement('img'),nameText=document.createElement('span'),score=document.createElement('b');
+      name.className='leaderName';name.style.cursor='pointer';name.title='View profile';name.setAttribute('role','button');name.tabIndex=0;
+      name.addEventListener('click',()=>openProfile(row));name.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')openProfile(row)});
+      avatar.className='leaderAvatar';avatar.src=avatarSrc(row.avatar);avatar.alt='';avatar.loading='lazy';
+      nameText.className='leaderNameText';nameText.textContent=row.username;name.append(avatar,nameText);score.textContent=Number(row.score).toLocaleString('en-US');line.append(name,score);item.append(line);monthlyList.append(item)
+    }
+    monthlyStatus.textContent=top.length?'':'No scores yet this month.';monthlyStatus.hidden=top.length>0;
+  }catch{const el=document.getElementById('monthly-top-status');if(el){el.hidden=false;el.textContent='Monthly leaderboard is not available yet.'}}
 })();
