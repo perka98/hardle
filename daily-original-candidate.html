@@ -350,6 +350,7 @@ async function prepareAudio(){
     updateClipUI();
   }catch(e){
     console.error(e);
+    guessCount.textContent="Audio startup failed: "+e.message;
     playBtn.textContent="Retry audio";
   }finally{audioPreparing=false;playBtn.disabled=false}
 }
