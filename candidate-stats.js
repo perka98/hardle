@@ -4,8 +4,8 @@
  let session;try{session=JSON.parse(localStorage.getItem('hardle-auth-v1')||'null')}catch{}
  const history=get('score-history'),rows=get('history-rows');
  get('score-history-open').onclick=()=>history.showModal();get('score-history-close').onclick=()=>history.close();
- get('legacy-score').textContent='';get('daily-score-tier').textContent='Verified results';
- if(!session?.access_token){get('daily-score').textContent='—';get('combined-score').textContent='—';rows.textContent='Sign in to view verified results.';return}
+ get('legacy-score').textContent='';get('daily-score-tier').textContent='';
+ if(!session?.access_token){get('daily-score').textContent='0';get('combined-score').textContent='0';get('daily-score-tier').textContent='';rows.textContent='Sign in to view verified results.';return}
  async function request(name){const response=await fetch(config.url+'/rest/v1/rpc/'+name,{method:'POST',headers:{apikey:config.key,Authorization:'Bearer '+session.access_token,'Content-Type':'application/json'},body:'{}',signal:AbortSignal.timeout(10000)});if(!response.ok)throw Error();return response.json()}
  try{
  const [stats,historyRows]=await Promise.all([request('hardle_my_stats'),request('hardle_my_history')]);
