@@ -1,5 +1,5 @@
 'use strict';
-let statsRevision=0;let avatarModerationModel=null;let avatarModerationPromise=null;let avatarModerationState='idle';
+let statsRevision=0;
 const $=id=>document.getElementById(id),config=window.HardleAccountConfig;let session=null;
 try{session=JSON.parse(localStorage.getItem('hardle-auth-v1')||sessionStorage.getItem('hardle-auth-v1')||'null')}catch{}
 if(session?.access_token){localStorage.setItem('hardle-auth-v1',JSON.stringify(session));sessionStorage.removeItem('hardle-auth-v1')}
@@ -13,58 +13,7 @@ function render(){loadVerifiedStats();loadVerifiedHistory();const signed=!!sessi
 
 function avatarSrc(value){if(/^avatar-0[1-8]\.svg$/.test(value||''))return '/data/avatars/'+value;if(/^custom\//.test(value||''))return config.url+'/storage/v1/object/public/hardle-avatars/'+value.replace(/^custom\//,'');return '/data/avatars/avatar-01.svg'}
 function setAvatarPreview(value){const src=avatarSrc(value);$('account-avatar').src=src;$('custom-avatar-preview').src=src}
-async function getAvatarModerationModel(){
-  if(avatarModerationModel)return avatarModerationModel;
-  if(avatarModerationPromise)return avatarModerationPromise;
-  avatarModerationPromise=(async()=>{
-    if(!window.tf||!window.nsfwjs)throw Error('Image moderation is unavailable. Please try again.');
-    try{window.tf.enableProdMode()}catch{}
-    await window.tf.ready();
-    const model=await window.nsfwjs.load('MobileNetV2');
-    avatarModerationModel=model;
-    return model;
-  })().catch(error=>{avatarModerationPromise=null;throw error});
-  return avatarModerationPromise;
-}
-async function moderateAvatar(file){
-  avatarModerationState='checking';
-  const reader=new FileReader();
-  const dataUrl=await new Promise((resolve,reject)=>{reader.onload=()=>resolve(reader.result);reader.onerror=()=>reject(Error('Could not read image'));reader.readAsDataURL(file)});
-  const img=new Image();
-  img.decoding='async';
-  await new Promise((resolve,reject)=>{img.onload=resolve;img.onerror=()=>reject(Error('Could not read image'));img.src=dataUrl});
-  const maxSide=512;
-  const scale=Math.min(1,maxSide/Math.max(img.naturalWidth||img.width,img.naturalHeight||img.height));
-  const canvas=document.createElement('canvas');
-  canvas.width=Math.max(1,Math.round((img.naturalWidth||img.width)*scale));
-  canvas.height=Math.max(1,Math.round((img.naturalHeight||img.height)*scale));
-  const ctx=canvas.getContext('2d',{willReadFrequently:true});
-  if(!ctx)throw Error('Could not process image');
-  ctx.drawImage(img,0,0,canvas.width,canvas.height);
-  const model=await getAvatarModerationModel();
-  const predictions=await model.classify(canvas,5);
-  const scores=Object.fromEntries(predictions.map(p=>[p.className,p.probability]));
-  const blocked=Math.max(scores.Porn||0,scores.Hentai||0,scores.Sexy||0)>=0.55;
-  avatarModerationState=blocked?'blocked':'approved';
-  if(blocked)throw Error('This image was rejected because it appears to contain inappropriate content.');
-  return predictions;
-}
-$('custom-avatar').addEventListener('change',async()=>{
-  const file=$('custom-avatar').files?.[0];if(!file)return;
-  if(file.size>5242880){$('message').textContent='Image must be 5 MB or smaller.';$('custom-avatar').value='';return}
-  if(!file.type.startsWith('image/')){$('message').textContent='Please choose an image file.';return}
-  $('message').textContent='Checking image…';
-  try{
-    await moderateAvatar(file);
-    const reader=new FileReader();reader.onload=()=>{$('custom-avatar-preview').src=reader.result};reader.readAsDataURL(file);
-    $('message').textContent='✓ Image looks suitable.';
-  }catch(error){
-    avatarModerationState='idle';
-    $('custom-avatar-preview').src=avatarSrc(session?.user?.user_metadata?.avatar||'avatar-01.svg');
-    $('message').textContent=error.message||'Could not check this image. Please try again.';
-  }
-});
-async function authenticate(register){if(!$('auth-form').reportValidity())return;const username=$('username').value.trim();if(register&&!/^[A-Za-z0-9_]{3,24}$/.test(username)){$('message').textContent='Username must be 3–24 letters, numbers or underscores.';return}$('message').textContent='Please wait…';try{const data=await request(register?'/auth/v1/signup':'/auth/v1/token?grant_type=password',{email:$('email').value.trim(),password:$('password').value,...(register?{data:{username}}:{})});$('password').value='';if(data.access_token){session=data;localStorage.setItem('hardle-auth-v1',JSON.stringify(session));sessionStorage.removeItem('hardle-auth-v1');const profileName=session.user?.user_metadata?.username;if(profileName){try{await request('/rest/v1/rpc/hardle_register_profile',{p_username:profileName},session.access_token)}catch{ $('message').textContent='Signed in. Leaderboard profile could not be registered; check your username.';render();return}}$('message').textContent='Signed in.'}else $('message').textContent='Check your email to confirm your account, then sign in.';render()}catch(error){$('message').textContent=error.message}}
+$('custom-avatar').addEventListener('change',()=>{const file=$('custom-avatar').files?.[0];if(!file)return;if(file.size>5242880){$('message').textContent='Image must be 5 MB or smaller.';$('custom-avatar').value='';return}if(!file.type.startsWith('image/')){$('message').textContent='Please choose an image file.';$('custom-avatar').value='';return}const reader=new FileReader();reader.onload=()=>{$('custom-avatar-preview').src=reader.result};reader.readAsDataURL(file);$('message').textContent='Image selected.'});async function authenticate(register){if(!$('auth-form').reportValidity())return;const username=$('username').value.trim();if(register&&!/^[A-Za-z0-9_]{3,24}$/.test(username)){$('message').textContent='Username must be 3–24 letters, numbers or underscores.';return}$('message').textContent='Please wait…';try{const data=await request(register?'/auth/v1/signup':'/auth/v1/token?grant_type=password',{email:$('email').value.trim(),password:$('password').value,...(register?{data:{username}}:{})});$('password').value='';if(data.access_token){session=data;localStorage.setItem('hardle-auth-v1',JSON.stringify(session));sessionStorage.removeItem('hardle-auth-v1');const profileName=session.user?.user_metadata?.username;if(profileName){try{await request('/rest/v1/rpc/hardle_register_profile',{p_username:profileName},session.access_token)}catch{ $('message').textContent='Signed in. Leaderboard profile could not be registered; check your username.';render();return}}$('message').textContent='Signed in.'}else $('message').textContent='Check your email to confirm your account, then sign in.';render()}catch(error){$('message').textContent=error.message}}
 $('auth-form').onsubmit=e=>{e.preventDefault();authenticate(false)};$('register').onclick=()=>authenticate(true);
 $('sign-out').onclick=async()=>{try{if(session?.access_token)await request('/auth/v1/logout',{},session.access_token)}catch{}session=null;sessionStorage.removeItem('hardle-auth-v1');localStorage.removeItem('hardle-auth-v1');render();$('message').textContent='Signed out.'};
 (async()=>{if(session?.access_token){try{session.user=await request('/auth/v1/user',null,session.access_token)}catch{session=null;sessionStorage.removeItem('hardle-auth-v1');localStorage.removeItem('hardle-auth-v1')}}render()})();
@@ -91,7 +40,7 @@ async function loadVerifiedHistory(){
  }catch{output.textContent='Verified history is not available yet.'}
 }
 
-$('profile-form').onsubmit=async e=>{e.preventDefault();if(!session?.access_token)return;$('message').textContent='Saving profile…';let avatar=document.querySelector('input[name="profile-avatar"]:checked')?.value||session.user.user_metadata?.avatar||'avatar-01.svg';const customFile=$('custom-avatar').files?.[0];if(customFile){if(avatarModerationState!=='approved'){try{await moderateAvatar(customFile)}catch(error){$('message').textContent=error.message;return}}const ext=customFile.type==='image/jpeg'?'jpg':customFile.type.split('/')[1];avatar='custom/'+session.user.id+'/avatar.'+ext;try{const up=await fetch(config.url+'/storage/v1/object/hardle-avatars/'+session.user.id+'/avatar.'+ext,{method:'POST',headers:{apikey:config.key,Authorization:'Bearer '+session.access_token,'Content-Type':customFile.type,'x-upsert':'true'},body:customFile});if(!up.ok)throw Error('Could not upload avatar');}catch(error){$('message').textContent=error.message;return}}const data={full_name:$('profile-name').value.trim(),country:$('profile-country').value,favorite_dj:$('profile-dj').value.trim(),favorite_track:$('profile-track').value.trim(),bio:$('profile-bio').value.trim(),avatar,public_name:$('public-name').checked,public_country:$('public-country').checked,public_favorite_dj:$('public-favorite-dj').checked,public_favorite_track:$('public-favorite-track').checked,public_bio:$('public-bio').checked};try{const res=await fetch(config.url+'/auth/v1/user',{method:'PUT',headers:{apikey:config.key,'Authorization':'Bearer '+session.access_token,'Content-Type':'application/json'},body:JSON.stringify({data})});const body=await res.json();if(!res.ok)throw new Error(body?.msg||body?.message||'Could not save profile');session.user=body;
+$('profile-form').onsubmit=async e=>{e.preventDefault();if(!session?.access_token)return;$('message').textContent='Saving profile…';let avatar=document.querySelector('input[name="profile-avatar"]:checked')?.value||session.user.user_metadata?.avatar||'avatar-01.svg';const customFile=$('custom-avatar').files?.[0];if(customFile){const ext=customFile.type==='image/jpeg'?'jpg':customFile.type.split('/')[1];avatar='custom/'+session.user.id+'/avatar.'+ext;try{const up=await fetch(config.url+'/storage/v1/object/hardle-avatars/'+session.user.id+'/avatar.'+ext,{method:'POST',headers:{apikey:config.key,Authorization:'Bearer '+session.access_token,'Content-Type':customFile.type,'x-upsert':'true'},body:customFile});if(!up.ok)throw Error('Could not upload avatar');}catch(error){$('message').textContent=error.message;return}}const data={full_name:$('profile-name').value.trim(),country:$('profile-country').value,favorite_dj:$('profile-dj').value.trim(),favorite_track:$('profile-track').value.trim(),bio:$('profile-bio').value.trim(),avatar,public_name:$('public-name').checked,public_country:$('public-country').checked,public_favorite_dj:$('public-favorite-dj').checked,public_favorite_track:$('public-favorite-track').checked,public_bio:$('public-bio').checked};try{const res=await fetch(config.url+'/auth/v1/user',{method:'PUT',headers:{apikey:config.key,'Authorization':'Bearer '+session.access_token,'Content-Type':'application/json'},body:JSON.stringify({data})});const body=await res.json();if(!res.ok)throw new Error(body?.msg||body?.message||'Could not save profile');session.user=body;
  await request('/rest/v1/rpc/hardle_set_avatar',{p_avatar:avatar},session.access_token);
  await request('/rest/v1/rpc/hardle_set_profile',{p_full_name:data.full_name,p_country:data.country,p_favorite_dj:data.favorite_dj,p_favorite_track:data.favorite_track,p_bio:data.bio,p_public_name:data.public_name,p_public_country:data.public_country,p_public_favorite_dj:data.public_favorite_dj,p_public_favorite_track:data.public_favorite_track,p_public_bio:data.public_bio},session.access_token);
  localStorage.setItem('hardle-auth-v1',JSON.stringify(session));$('message').textContent='';$('profile-saved').hidden=false;setTimeout(()=>$('profile-saved').hidden=true,2500);render()}catch(error){$('message').textContent=error.message}};
