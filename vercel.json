@@ -58,5 +58,8 @@
     "api/preview-game.js": {
       "includeFiles": "server/private/**"
     }
-  }
+  },
+  "regions": [
+    "arn1"
+  ]
 }
