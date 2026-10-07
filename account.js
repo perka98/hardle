@@ -32,8 +32,16 @@ async function moderateAvatar(file){
   const img=new Image();
   img.decoding='async';
   await new Promise((resolve,reject)=>{img.onload=resolve;img.onerror=()=>reject(Error('Could not read image'));img.src=dataUrl});
+  const maxSide=512;
+  const scale=Math.min(1,maxSide/Math.max(img.naturalWidth||img.width,img.naturalHeight||img.height));
+  const canvas=document.createElement('canvas');
+  canvas.width=Math.max(1,Math.round((img.naturalWidth||img.width)*scale));
+  canvas.height=Math.max(1,Math.round((img.naturalHeight||img.height)*scale));
+  const ctx=canvas.getContext('2d',{willReadFrequently:true});
+  if(!ctx)throw Error('Could not process image');
+  ctx.drawImage(img,0,0,canvas.width,canvas.height);
   const model=await getAvatarModerationModel();
-  const predictions=await model.classify(img,5);
+  const predictions=await model.classify(canvas,5);
   const scores=Object.fromEntries(predictions.map(p=>[p.className,p.probability]));
   const blocked=Math.max(scores.Porn||0,scores.Hentai||0,scores.Sexy||0)>=0.55;
   avatarModerationState=blocked?'blocked':'approved';
