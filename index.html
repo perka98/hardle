@@ -60,5 +60,28 @@ body>main{width:min(760px,100%)}
  document.addEventListener('keydown',e=>{if(e.key==='Escape')setOpen(false);});
  document.addEventListener('click',e=>{if(!pop.hidden&&!pop.contains(e.target)&&e.target!==btn){}});
 })();
+</script><script>
+(function(){
+ const root=document.getElementById('home')||document;
+ function openWinnerProfile(e){
+   const link=e.target.closest('.winnerProfileLink'); if(!link)return;
+   e.preventDefault();
+   const id=link.dataset.userId; if(!id)return;
+   const row=link.closest('.lmRow')||link.parentElement;
+   const modal=document.getElementById('profile-message-modal');
+   const name=link.dataset.username||link.querySelector('.lmName')?.textContent||'Profile';
+   const avatar=link.querySelector('.lmAvatar')?.src;
+   if(!modal)return;
+   const n=document.getElementById('pm-name'), a=document.getElementById('pm-avatar'), p=document.getElementById('pm-profile');
+   if(n)n.textContent=name;
+   if(a&&avatar)a.src=avatar;
+   if(p)p.innerHTML='<div style="color:#aaa;font-size:13px">Winner profile</div>';
+   modal.hidden=false; modal.style.display='flex';
+   modal.dataset.userId=id;
+ }
+ document.addEventListener('click',openWinnerProfile);
+ const close=document.getElementById('pm-close');
+ if(close)close.addEventListener('click',()=>{const m=document.getElementById('profile-message-modal');m.hidden=true;m.style.display='none'});
+})();
 </script><script src="/daily-top.js"></script><script src="/candidate-stats.js"></script></body></html>
 <!-- Rebuild cleaned candidate after resume -->
