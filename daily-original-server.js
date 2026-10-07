@@ -51,9 +51,13 @@ playBtn.onclick=()=>{
 
 const watchedPlay=playBtn.onclick;
 playBtn.onclick=()=>{
- watchedPlay();
+ guessCount.textContent='Audio check: Play pressed';
+ try{watchedPlay()}catch(error){guessCount.textContent='Audio check: '+error.message;return}
  setTimeout(()=>{
-  if(soundcloudWidget&&soundcloudReady){soundcloudWidget.getPosition(position=>soundcloudWidget.getVolume(volume=>{guessCount.textContent='Audio check: SoundCloud · position '+Math.round(Number(position)/1000)+'s · volume '+Math.round(Number(volume))+'% · '+(soundcloudPlaying?'playing':'not playing')}))}
-  else if(youtubePlayer&&youtubeReady){guessCount.textContent='Audio check: YouTube · position '+Math.round(youtubePlayer.getCurrentTime())+'s · volume '+youtubePlayer.getVolume()+'% · '+(youtubePlayer.isMuted()?'muted':'unmuted')+' · state '+youtubePlayer.getPlayerState()}
+  if(soundcloudWidget&&soundcloudReady){
+   guessCount.textContent='Audio check: SoundCloud ready, waiting for player response';
+   soundcloudWidget.getPosition(position=>soundcloudWidget.getVolume(volume=>{guessCount.textContent='Audio check: SoundCloud · position '+Math.round(Number(position)/1000)+'s · volume '+Math.round(Number(volume))+'% · '+(soundcloudPlaying?'playing':'not playing')}));
+  }else if(youtubePlayer&&youtubeReady){guessCount.textContent='Audio check: YouTube · position '+Math.round(youtubePlayer.getCurrentTime())+'s · volume '+youtubePlayer.getVolume()+'% · '+(youtubePlayer.isMuted()?'muted':'unmuted')+' · state '+youtubePlayer.getPlayerState()}
+  else guessCount.textContent='Audio check: player not ready';
  },1800);
 };
