@@ -5,7 +5,7 @@ const html=fs.readFileSync('daily-fresh-candidate.html','utf8');
  const dom=new JSDOM(html,{url:'https://preview.example',runScripts:'dangerously',beforeParse(w){
  w.fetch=async()=>({ok:false,json:async()=>[]});
  w.HardleScore={total:()=>0};
- w.SC={Widget:Object.assign(()=>({bind(name,fn){handlers[name]=fn;if(name==='ready')queueMicrotask(fn)},setVolume(){},getDuration(fn){fn(240000)},seekTo(){},play(){plays++;handlers.play()},pause(){pauses++;handlers.pause()}}),{Events:{READY:'ready',PLAY:'play',PAUSE:'pause',ERROR:'error',FINISH:'finish'}})};
+ w.SC={Widget:Object.assign(()=>({bind(name,fn){handlers[name]=fn;if(name==='ready')queueMicrotask(fn)},setVolume(){},getDuration(fn){fn(240000)},seekTo(){},play(){plays++;handlers.play();handlers.progress?.({currentPosition:35000})},pause(){pauses++;handlers.pause()}}),{Events:{READY:'ready',PLAY:'play',PAUSE:'pause',ERROR:'error',FINISH:'finish',PLAY_PROGRESS:'progress'}})};
  w.HardleSecureGame=class{constructor(){this.pending=null}async start(){return {public_payload:{audio:{soundcloud:'https://soundcloud.com/test/track'},clipStart:35},guesses:[],completed:false}}async guess(id){guesses++;return {attempts:1,completed:false,won:false,feedback:{title:'noMatch'},guessed:{title:'Dragonborn',artist:'Headhunterz',country:'NL',genre:'Hardstyle',year:2012}}}};
  }});
  await new Promise(r=>setTimeout(r,50));const d=dom.window.document;

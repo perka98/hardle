@@ -291,7 +291,15 @@ async function initSoundCloud(url){
     soundcloudWidget.bind(SC.Widget.Events.ERROR,()=>{if(!done){done=true;reject(new Error("SoundCloud player error"))}});
     setTimeout(()=>{if(!done){done=true;reject(new Error("SoundCloud player timeout"))}},10000);
   });
-  soundcloudWidget.bind(SC.Widget.Events.PLAY,()=>{guessCount.textContent="Audio: SoundCloud playback started";soundcloudPlaying=true;playBtn.textContent="❚❚ Pause";applyPlayerVolume(soundcloudWidget);beginClipTimer();});
+  soundcloudWidget.bind(SC.Widget.Events.PLAY,()=>{
+    soundcloudPlaying=true;playBtn.textContent="❚❚ Pause";applyPlayerVolume(soundcloudWidget);
+    if(soundcloudSeekPending){soundcloudSeekPending=false;soundcloudWidget.seekTo(getClipStart()*1000)}
+  });
+  soundcloudWidget.bind(SC.Widget.Events.PLAY_PROGRESS,event=>{
+    if(clipPending&&soundcloudPlaying&&Number(event.currentPosition)>=getClipStart()*1000){
+      guessCount.textContent=guesses+'/6 guesses';beginClipTimer();
+    }
+  });
   soundcloudWidget.bind(SC.Widget.Events.PAUSE,()=>{soundcloudPlaying=false;playBtn.textContent="▶ Play"});
   soundcloudWidget.bind(SC.Widget.Events.FINISH,()=>{soundcloudPlaying=false;playBtn.textContent="▶ Play"});
   applyPlayerVolume(soundcloudWidget);
@@ -354,10 +362,11 @@ async function prepareAudio(){
     playBtn.textContent="Retry audio";
   }finally{audioPreparing=false;playBtn.disabled=false}
 }
+let soundcloudSeekPending=false;
 function playSoundCloudAtVolume(){
   applyPlayerVolume(soundcloudWidget);
   clipPending=true;
-  soundcloudWidget.seekTo(getClipStart()*1000);
+  soundcloudSeekPending=true;
   soundcloudWidget.play();
 }
 playBtn.onclick=()=>{
