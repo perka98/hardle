@@ -18,6 +18,14 @@ function createSubmit(runTransaction){return async function submit({player,userI
   const evaluated=evaluate({game,solution:secret.answer,guess,previous,accepted:new Set(secret.accepted||[])});
   if(game==='daily'){const guessed=secret.catalog.find(x=>x.id===evaluated.canonical),answer=secret.catalog.find(x=>x.id===secret.answer);if(!guessed||!answer)throw Error('Puzzle data invalid');evaluated.feedback=songFeedback.feedback(guessed,answer)}
   const response={feedback:evaluated.feedback,won:evaluated.won,attempts:evaluated.attempts,completed:evaluated.completed,score:evaluated.score};
+  // Daily and Guess the Artist use a small server-side time modifier to break score ties.
+  // The modifier can only reduce a score, is capped at 100 points, and never affects losses.
+  if(evaluated.completed&&evaluated.won&&(game==='daily'||game==='artist')){
+   const elapsedMs=Math.max(0,Date.now()-new Date(s.started_at).getTime());
+   const elapsedSec=Math.floor(elapsedMs/1000);
+   const timePenalty=Math.min(100,Math.max(0,elapsedSec-10));
+   response.score=Math.max(0,Math.round(evaluated.score*(1-timePenalty/1000)));
+  }
   if(game==='daily'){const item=secret.catalog.find(x=>x.id===evaluated.canonical);response.guessed={title:item.title,artist:item.artist,country:item.country,genre:item.genre,year:item.year}}
   if(game==='artist')response.guessed={name:secret.names?.[evaluated.canonical]||'Previous artist guess'};
   if(game==='artist'&&!evaluated.completed)response.clues=secret.clues.slice(0,evaluated.attempts+1);
