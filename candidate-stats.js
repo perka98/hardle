@@ -5,7 +5,49 @@
  const history=get('score-history'),rows=get('history-rows');
  get('score-history-open').onclick=()=>history.showModal();get('score-history-close').onclick=()=>history.close();
  get('legacy-score').textContent='';get('daily-score-tier').textContent='';
- if(!session?.access_token){get('daily-score').textContent='0';get('combined-score').textContent='0';get('daily-score-tier').textContent='';rows.textContent='Sign in to view verified results.';try{const key=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Stockholm'}).format(new Date());const local=JSON.parse(localStorage.getItem('hardle-menu-result-'+key)||'{}');const games={daily:'/daily',djdle:'/djdle',artist:'/artist',orderdle:'/orderdle'};for(const [game,result] of Object.entries(local)){const card=document.querySelector('a[href="'+games[game]+'"]');if(!card||!result)continue;card.classList.add(result.won?'completed':'failed');card.dataset.result=result.won?(Number(result.score)>=700?'good':'medium'):'failed';card.querySelectorAll('.completedBadge,.failedBadge').forEach(el=>el.remove());const badge=document.createElement('span');badge.className=result.won?'completedBadge':'failedBadge';badge.textContent=result.won?'✓ Completed today':'✕ Failed today';const play=card.querySelector('.play');if(play)play.before(badge)}}catch{}return}
+ if(!session?.access_token){
+  try{
+   const key=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Stockholm'}).format(new Date());
+   const local=JSON.parse(localStorage.getItem('hardle-menu-result-'+key)||'{}');
+   const games={daily:'/daily',djdle:'/djdle',artist:'/artist',orderdle:'/orderdle'};
+   let dailyScore=0;
+   for(const [game,result] of Object.entries(local)){
+    if(!games[game]||!result)continue;
+    const points=Number(result.score);
+    if(Number.isFinite(points))dailyScore+=Math.max(0,Math.min(1000,points));
+    const card=document.querySelector('a[href="'+games[game]+'"]');
+    if(!card)continue;
+    card.classList.add(result.won?'completed':'failed');
+    card.dataset.result=result.won?(Number(result.score)>=700?'good':'medium'):'failed';
+    card.querySelectorAll('.completedBadge,.failedBadge').forEach(el=>el.remove());
+    const badge=document.createElement('span');
+    badge.className=result.won?'completedBadge':'failedBadge';
+    badge.textContent=result.won?'✓ Completed today':'✕ Failed today';
+    const play=card.querySelector('.play');
+    if(play)play.before(badge);
+   }
+   get('daily-score').textContent=dailyScore.toLocaleString('en-US');
+   get('combined-score').textContent='0';
+   const tier=dailyScore>=3500?['green','🟢 Hardcore']:dailyScore>=3000?['yellow','🟡 Great']:dailyScore>=2000?['orange','🟠 Solid']:dailyScore>0?['red','🔴 Keep playing']:['neutral','Not played yet'];
+   get('daily-score-card').dataset.tier=tier[0];
+   get('daily-score-tier').textContent=tier[1];
+   const grid=get('combined-stats');
+   grid.replaceChildren();
+   const played=Object.keys(local).filter(game=>games[game]&&local[game]).length;
+   const wins=Object.values(local).filter(r=>r&&r.won).length;
+   for(const [label,value] of [['Games Played',played],['Wins',wins],['Daily Score',dailyScore]]){
+    const cell=document.createElement('div'),b=document.createElement('b'),span=document.createElement('span');
+    b.textContent=value;span.textContent=label;cell.append(b,span);grid.append(cell);
+   }
+   rows.textContent=dailyScore>0?'Guest score — stored only on this device for today.':'Play today’s games to build your Daily Score.';
+  }catch{
+   get('daily-score').textContent='0';
+   get('combined-score').textContent='0';
+   get('daily-score-tier').textContent='';
+   rows.textContent='Play today’s games to build your Daily Score.';
+  }
+  return;
+ }
  async function request(name){const response=await fetch(config.url+'/rest/v1/rpc/'+name,{method:'POST',headers:{apikey:config.key,Authorization:'Bearer '+session.access_token,'Content-Type':'application/json'},body:'{}',signal:AbortSignal.timeout(10000)});if(!response.ok)throw Error();return response.json()}
  try{
  const [stats,historyRows]=await Promise.all([request('hardle_my_stats'),request('hardle_my_history')]);
