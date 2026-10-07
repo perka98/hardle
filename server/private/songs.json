@@ -5,7 +5,11 @@
     "artist": "Headhunterz",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2012
+    "year": 2012,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/officialozgurmete/headhunterz-dragonborn",
+      "youtube": "VaiHTvifGt0"
+    }
   },
   {
     "id": "song-1",
@@ -13,7 +17,11 @@
     "artist": "Headhunterz & JDX",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2020
+    "year": 2020,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/q-dancemusic/headhunterz-jdx-transcendence",
+      "youtube": ""
+    }
   },
   {
     "id": "song-2",
@@ -21,7 +29,11 @@
     "artist": "Headhunterz",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2018
+    "year": 2018,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/headhunterz/destiny-cinematic-edit-1",
+      "youtube": "dv2NtTtwVVY"
+    }
   },
   {
     "id": "song-3",
@@ -29,7 +41,11 @@
     "artist": "Headhunterz feat. Tatu",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2013
+    "year": 2013,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/headhunterz/colors-radio-edit",
+      "youtube": ""
+    }
   },
   {
     "id": "song-4",
@@ -37,7 +53,11 @@
     "artist": "Brennan Heart & Wildstylez",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2012
+    "year": 2012,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/brennanheart/brennan-heart-wildstylez-lose",
+      "youtube": ""
+    }
   },
   {
     "id": "song-5",
@@ -53,7 +73,11 @@
     "artist": "Brennan Heart",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2013
+    "year": 2013,
+    "audio": {
+      "soundcloud": "",
+      "youtube": "T3SQZOW-iZk"
+    }
   },
   {
     "id": "song-7",
@@ -61,7 +85,11 @@
     "artist": "D-Block & S-te-Fan & Sub Zero Project",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2019
+    "year": 2019,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/subzeroproject/d-block-s-te-fan-sub-zero-project-darkest-hour-the-clock",
+      "youtube": "bs5aLFn7GTo"
+    }
   },
   {
     "id": "song-8",
@@ -69,7 +97,11 @@
     "artist": "Sub Zero Project feat. Christina Novelli",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2019
+    "year": 2019,
+    "audio": {
+      "soundcloud": "",
+      "youtube": "raSLCyWPpds"
+    }
   },
   {
     "id": "song-9",
@@ -85,7 +117,11 @@
     "artist": "Coone & David Spekter",
     "country": "BE",
     "genre": "Hardstyle",
-    "year": 2020
+    "year": 2020,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/coone/coone-faye-ft-david-spekter-radio-edit",
+      "youtube": ""
+    }
   },
   {
     "id": "song-11",
@@ -93,7 +129,11 @@
     "artist": "Headhunterz",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2009
+    "year": 2009,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/headhunterz/scrap-attack-defqon-1-anthem-1",
+      "youtube": ""
+    }
   },
   {
     "id": "song-12",
@@ -101,7 +141,11 @@
     "artist": "D-Block & S-te-Fan",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2020
+    "year": 2020,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/dbstf/primal-energy",
+      "youtube": "bfp0z4ndkIQ"
+    }
   },
   {
     "id": "song-13",
@@ -109,7 +153,11 @@
     "artist": "D-Block & S-te-Fan",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2008
+    "year": 2008,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/dbstf/ride-with-uz",
+      "youtube": "_NVIxw97lVg"
+    }
   },
   {
     "id": "song-14",
@@ -125,7 +173,11 @@
     "artist": "Da Tweekaz",
     "country": "NO",
     "genre": "Hardstyle",
-    "year": 2012
+    "year": 2012,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/datweekaz/jaegermeister",
+      "youtube": "AGDolE35XHA"
+    }
   },
   {
     "id": "song-16",
@@ -133,7 +185,11 @@
     "artist": "Da Tweekaz",
     "country": "NO",
     "genre": "Hardstyle",
-    "year": 2014
+    "year": 2014,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/datweekaz/tweeka",
+      "youtube": ""
+    }
   },
   {
     "id": "song-17",
@@ -141,7 +197,11 @@
     "artist": "Ran-D",
     "country": "NL",
     "genre": "Rawstyle",
-    "year": 2017
+    "year": 2017,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/subzeroproject/the-project",
+      "youtube": ""
+    }
   },
   {
     "id": "song-18",
@@ -149,7 +209,11 @@
     "artist": "Ran-D",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2009
+    "year": 2009,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/djrandofficial/ran-d-living-for-the-moment",
+      "youtube": "TWYcSBHfPTQ"
+    }
   },
   {
     "id": "song-19",
@@ -157,7 +221,11 @@
     "artist": "Ran-D",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2017
+    "year": 2017,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/djrandofficial/ran-d-zombie-out-soon",
+      "youtube": "8ga_tSyiRvQ"
+    }
   },
   {
     "id": "song-20",
@@ -165,7 +233,11 @@
     "artist": "Sound Rush",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2020
+    "year": 2020,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/soundrush/sloop-john-b",
+      "youtube": ""
+    }
   },
   {
     "id": "song-21",
@@ -173,7 +245,11 @@
     "artist": "Sound Rush",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2019
+    "year": 2019,
+    "audio": {
+      "soundcloud": "",
+      "youtube": "xT4ycAZecpA"
+    }
   },
   {
     "id": "song-22",
@@ -181,7 +257,11 @@
     "artist": "Sound Rush",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2021
+    "year": 2021,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/artofcreationofficial/sound-rush-take-it-all-preview",
+      "youtube": ""
+    }
   },
   {
     "id": "song-23",
@@ -189,7 +269,11 @@
     "artist": "Warface",
     "country": "NL",
     "genre": "Rawstyle",
-    "year": 2017
+    "year": 2017,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/warfaceofficial/warface-overdrive",
+      "youtube": ""
+    }
   },
   {
     "id": "song-24",
@@ -197,7 +281,11 @@
     "artist": "Warface",
     "country": "NL",
     "genre": "Rawstyle",
-    "year": 2018
+    "year": 2018,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/warfaceofficial/warface-live-for-this",
+      "youtube": ""
+    }
   },
   {
     "id": "song-25",
@@ -205,7 +293,11 @@
     "artist": "Act of Rage",
     "country": "NL",
     "genre": "Rawstyle",
-    "year": 2020
+    "year": 2020,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/actofrage/act-of-rage-the-end",
+      "youtube": ""
+    }
   },
   {
     "id": "song-26",
@@ -213,7 +305,11 @@
     "artist": "Act of Rage",
     "country": "NL",
     "genre": "Rawstyle",
-    "year": 2019
+    "year": 2019,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/actofrage/act-of-rage-conquer",
+      "youtube": ""
+    }
   },
   {
     "id": "song-27",
@@ -221,7 +317,11 @@
     "artist": "Act of Rage",
     "country": "NL",
     "genre": "Rawstyle",
-    "year": 2021
+    "year": 2021,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/xtraraw/act-of-rage-d-sturb-let-the-games-begin",
+      "youtube": ""
+    }
   },
   {
     "id": "song-28",
@@ -229,7 +329,11 @@
     "artist": "Rejecta",
     "country": "NL",
     "genre": "Rawstyle",
-    "year": 2018
+    "year": 2018,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/rejectaofficial/rejecta-darkest-moment",
+      "youtube": ""
+    }
   },
   {
     "id": "song-29",
@@ -237,7 +341,11 @@
     "artist": "Rejecta",
     "country": "NL",
     "genre": "Rawstyle",
-    "year": 2019
+    "year": 2019,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/rejectaofficial/rejecta-followed-official-preview",
+      "youtube": ""
+    }
   },
   {
     "id": "song-30",
@@ -245,7 +353,11 @@
     "artist": "Rejecta",
     "country": "NL",
     "genre": "Rawstyle",
-    "year": 2020
+    "year": 2020,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/rejectaofficial/rejecta-still-here",
+      "youtube": ""
+    }
   },
   {
     "id": "song-31",
@@ -253,7 +365,11 @@
     "artist": "Phuture Noize",
     "country": "NL",
     "genre": "Rawstyle",
-    "year": 2019
+    "year": 2019,
+    "audio": {
+      "soundcloud": "",
+      "youtube": "z9CdSxjeWro"
+    }
   },
   {
     "id": "song-32",
@@ -261,7 +377,11 @@
     "artist": "Phuture Noize",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2016
+    "year": 2016,
+    "audio": {
+      "soundcloud": "",
+      "youtube": "DzpzHmh9egk"
+    }
   },
   {
     "id": "song-33",
@@ -269,7 +389,11 @@
     "artist": "B-Front & Hard Driver",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2021
+    "year": 2021,
+    "audio": {
+      "soundcloud": "",
+      "youtube": "YRZtZu5VfBI"
+    }
   },
   {
     "id": "song-34",
@@ -277,7 +401,11 @@
     "artist": "B-Front & Frontliner",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2010
+    "year": 2010,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/djbfront/magic-frontliner",
+      "youtube": ""
+    }
   },
   {
     "id": "song-35",
@@ -285,7 +413,11 @@
     "artist": "B-Front",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2017
+    "year": 2017,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/djbfront/b-front-beyond-reality",
+      "youtube": ""
+    }
   },
   {
     "id": "song-36",
@@ -293,7 +425,11 @@
     "artist": "Zatox",
     "country": "IT",
     "genre": "Hardstyle",
-    "year": 2012
+    "year": 2012,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/djzatox/zatox-my-life",
+      "youtube": ""
+    }
   },
   {
     "id": "song-37",
@@ -301,7 +437,11 @@
     "artist": "Zatox",
     "country": "IT",
     "genre": "Hardstyle",
-    "year": 2016
+    "year": 2016,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/djzatox/wild-motherfuckers-wildest",
+      "youtube": ""
+    }
   },
   {
     "id": "song-38",
@@ -309,7 +449,11 @@
     "artist": "Rooler",
     "country": "IT",
     "genre": "Rawstyle",
-    "year": 2020
+    "year": 2020,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/roolerofficial/rooler-drop-it",
+      "youtube": ""
+    }
   },
   {
     "id": "song-39",
@@ -317,7 +461,11 @@
     "artist": "Rooler",
     "country": "IT",
     "genre": "Rawstyle",
-    "year": 2021
+    "year": 2021,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/roolerofficial/rooler-yes-gbd240",
+      "youtube": ""
+    }
   },
   {
     "id": "song-40",
@@ -325,7 +473,11 @@
     "artist": "Rooler",
     "country": "IT",
     "genre": "Rawstyle",
-    "year": 2018
+    "year": 2018,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/aggressiverecords/rooler-domination",
+      "youtube": "KB2Mn0n699g"
+    }
   },
   {
     "id": "song-41",
@@ -333,7 +485,11 @@
     "artist": "Sickmode",
     "country": "IT",
     "genre": "Rawstyle",
-    "year": 2022
+    "year": 2022,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/aggressiverecords/gostupid",
+      "youtube": ""
+    }
   },
   {
     "id": "song-42",
@@ -349,7 +505,11 @@
     "artist": "Rebelion",
     "country": "SC",
     "genre": "Rawstyle",
-    "year": 2020
+    "year": 2020,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/rebelion/rebelion-the-death-of-us",
+      "youtube": ""
+    }
   },
   {
     "id": "song-44",
@@ -357,7 +517,11 @@
     "artist": "Rebelion",
     "country": "SC",
     "genre": "Rawstyle",
-    "year": 2019
+    "year": 2019,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/rebelion-music/city-lights",
+      "youtube": ""
+    }
   },
   {
     "id": "song-45",
@@ -365,7 +529,11 @@
     "artist": "Rebelion",
     "country": "SC",
     "genre": "Rawstyle",
-    "year": 2021
+    "year": 2021,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/rebelion-music/bass-ex-machina",
+      "youtube": ""
+    }
   },
   {
     "id": "song-46",
@@ -373,7 +541,11 @@
     "artist": "Aversion",
     "country": "NL",
     "genre": "Rawstyle",
-    "year": 2022
+    "year": 2022,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/aversionnl/activation",
+      "youtube": ""
+    }
   },
   {
     "id": "song-47",
@@ -381,7 +553,11 @@
     "artist": "Aversion",
     "country": "NL",
     "genre": "Rawstyle",
-    "year": 2021
+    "year": 2021,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/aversionnl/outlaw",
+      "youtube": ""
+    }
   },
   {
     "id": "song-48",
@@ -389,7 +565,11 @@
     "artist": "Aversion",
     "country": "NL",
     "genre": "Rawstyle",
-    "year": 2023
+    "year": 2023,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/aversionnl/sinners",
+      "youtube": ""
+    }
   },
   {
     "id": "song-49",
@@ -397,7 +577,11 @@
     "artist": "Mutilator",
     "country": "NL",
     "genre": "Rawstyle",
-    "year": 2022
+    "year": 2022,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/mutilatorofficial/freak",
+      "youtube": ""
+    }
   },
   {
     "id": "song-50",
@@ -405,7 +589,11 @@
     "artist": "Mutilator",
     "country": "NL",
     "genre": "Rawstyle",
-    "year": 2021
+    "year": 2021,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/gearboxdigital/mutilator-onslaught-gbd292",
+      "youtube": ""
+    }
   },
   {
     "id": "song-51",
@@ -413,7 +601,11 @@
     "artist": "Mutilator",
     "country": "NL",
     "genre": "Rawstyle",
-    "year": 2023
+    "year": 2023,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/mutilatorofficial/psycho",
+      "youtube": ""
+    }
   },
   {
     "id": "song-52",
@@ -421,7 +613,11 @@
     "artist": "Dr. Peacock",
     "country": "FR",
     "genre": "Frenchcore",
-    "year": 2017
+    "year": 2017,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/drpeacock/dr-peacock-the-sound-of-the-future",
+      "youtube": ""
+    }
   },
   {
     "id": "song-53",
@@ -429,7 +625,11 @@
     "artist": "Dr. Peacock",
     "country": "FR",
     "genre": "Frenchcore",
-    "year": 2018
+    "year": 2018,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/drpeacock/trip-to-valhalla",
+      "youtube": ""
+    }
   },
   {
     "id": "song-54",
@@ -437,7 +637,11 @@
     "artist": "Dr. Peacock",
     "country": "FR",
     "genre": "Frenchcore",
-    "year": 2019
+    "year": 2019,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/drpeacock/frenchcore-family",
+      "youtube": ""
+    }
   },
   {
     "id": "song-55",
@@ -445,7 +649,11 @@
     "artist": "Partyraiser",
     "country": "NL",
     "genre": "Uptempo",
-    "year": 2020
+    "year": 2020,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/partyraiser/ode-to-hardcore",
+      "youtube": ""
+    }
   },
   {
     "id": "song-56",
@@ -453,7 +661,11 @@
     "artist": "Partyraiser",
     "country": "NL",
     "genre": "Uptempo",
-    "year": 2021
+    "year": 2021,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/partyraiser/anger",
+      "youtube": ""
+    }
   },
   {
     "id": "song-57",
@@ -461,7 +673,11 @@
     "artist": "N-Vitral",
     "country": "NL",
     "genre": "Hardcore",
-    "year": 2019
+    "year": 2019,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/nvitral/n-vitral-cocaine",
+      "youtube": ""
+    }
   },
   {
     "id": "song-58",
@@ -469,7 +685,11 @@
     "artist": "N-Vitral",
     "country": "NL",
     "genre": "Hardcore",
-    "year": 2020
+    "year": 2020,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/nvitral/n-vitral-crispy-bassdrum",
+      "youtube": ""
+    }
   },
   {
     "id": "song-59",
@@ -477,7 +697,11 @@
     "artist": "N-Vitral",
     "country": "NL",
     "genre": "Hardcore",
-    "year": 2021
+    "year": 2021,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/nvitral/n-vitral-the-ultimate",
+      "youtube": ""
+    }
   },
   {
     "id": "song-60",
@@ -485,7 +709,11 @@
     "artist": "Angerfist",
     "country": "NL",
     "genre": "Hardcore",
-    "year": 2006
+    "year": 2006,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/angerfistmusic/raise-your-fist",
+      "youtube": ""
+    }
   },
   {
     "id": "song-61",
@@ -493,7 +721,11 @@
     "artist": "Angerfist",
     "country": "NL",
     "genre": "Hardcore",
-    "year": 2014
+    "year": 2014,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/angerfistmusic/pennywise",
+      "youtube": ""
+    }
   },
   {
     "id": "song-62",
@@ -501,7 +733,11 @@
     "artist": "Angerfist",
     "country": "NL",
     "genre": "Hardcore",
-    "year": 2018
+    "year": 2018,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/angerfistmusic/angerfist-incoming-master",
+      "youtube": ""
+    }
   },
   {
     "id": "song-63",
@@ -509,7 +745,11 @@
     "artist": "Miss K8",
     "country": "UA",
     "genre": "Hardcore",
-    "year": 2017
+    "year": 2017,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/missk8/never-alone",
+      "youtube": ""
+    }
   },
   {
     "id": "song-64",
@@ -517,7 +757,11 @@
     "artist": "Miss K8",
     "country": "UA",
     "genre": "Hardcore",
-    "year": 2019
+    "year": 2019,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/missk8/legacy",
+      "youtube": ""
+    }
   },
   {
     "id": "song-65",
@@ -525,7 +769,11 @@
     "artist": "Miss K8",
     "country": "UA",
     "genre": "Hardcore",
-    "year": 2020
+    "year": 2020,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/missk8/out-of-the-frame",
+      "youtube": ""
+    }
   },
   {
     "id": "song-66",
@@ -541,7 +789,11 @@
     "artist": "Tha Playah",
     "country": "NL",
     "genre": "Hardcore",
-    "year": 2016
+    "year": 2016,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/thaplayah/why-so-serious",
+      "youtube": ""
+    }
   },
   {
     "id": "song-68",
@@ -549,7 +801,11 @@
     "artist": "Headhunterz & Skytech",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2016
+    "year": 2016,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/spinninrecords/headhunterz-skytech-kundalini-available-may-9",
+      "youtube": ""
+    }
   },
   {
     "id": "song-69",
@@ -557,7 +813,11 @@
     "artist": "Headhunterz",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2019
+    "year": 2019,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/headhunterz/home",
+      "youtube": "YwYoLHSRS7w"
+    }
   },
   {
     "id": "song-70",
@@ -565,7 +825,11 @@
     "artist": "Headhunterz",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2017
+    "year": 2017,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/headhunterz/takin-it-back",
+      "youtube": "t-601tSRnfE"
+    }
   },
   {
     "id": "song-71",
@@ -573,7 +837,11 @@
     "artist": "Headhunterz feat. Sian Evans",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2019
+    "year": 2019,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/headhunterz/orange-heart-feat-sian-evans",
+      "youtube": ""
+    }
   },
   {
     "id": "song-72",
@@ -581,7 +849,11 @@
     "artist": "Headhunterz",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2020
+    "year": 2020,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/headhunterz/no-one-can-stop-us-now-1",
+      "youtube": ""
+    }
   },
   {
     "id": "song-73",
@@ -589,7 +861,11 @@
     "artist": "Headhunterz",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2022
+    "year": 2022,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/headhunterz/end-of-my-existence",
+      "youtube": ""
+    }
   },
   {
     "id": "song-74",
@@ -629,7 +905,11 @@
     "artist": "D-Block & S-te-Fan",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2022
+    "year": 2022,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/dbstf/promisedland",
+      "youtube": ""
+    }
   },
   {
     "id": "song-79",
@@ -637,7 +917,11 @@
     "artist": "D-Block & S-te-Fan",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2025
+    "year": 2025,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/scantraxx/d-block-s-te-fan-bla-bla",
+      "youtube": ""
+    }
   },
   {
     "id": "song-80",
@@ -669,7 +953,11 @@
     "artist": "Headhunterz",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2024
+    "year": 2024,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/headhunterz/live-forever",
+      "youtube": ""
+    }
   },
   {
     "id": "song-84",
@@ -677,7 +965,11 @@
     "artist": "Headhunterz & Vertile",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2022
+    "year": 2022,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/headhunterz/before-i-wake",
+      "youtube": "qQDJvyMn4KQ"
+    }
   },
   {
     "id": "song-85",
@@ -685,7 +977,11 @@
     "artist": "Headhunterz feat. Sian Evans",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2020
+    "year": 2020,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/headhunterz/dragonborn-part-3-oceans-apart",
+      "youtube": ""
+    }
   },
   {
     "id": "song-86",
@@ -693,7 +989,11 @@
     "artist": "Headhunterz",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2023
+    "year": 2023,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/headhunterz/the-flame-inside",
+      "youtube": "a3JulJ72z_A"
+    }
   },
   {
     "id": "song-87",
@@ -701,7 +1001,11 @@
     "artist": "Headhunterz",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2007
+    "year": 2007,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/headhunterz/rock-civilization",
+      "youtube": ""
+    }
   },
   {
     "id": "song-88",
@@ -709,7 +1013,11 @@
     "artist": "Headhunterz",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2011
+    "year": 2011,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/headhunterz/psychedelic",
+      "youtube": ""
+    }
   },
   {
     "id": "song-89",
@@ -717,7 +1025,11 @@
     "artist": "Headhunterz",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2019
+    "year": 2019,
+    "audio": {
+      "soundcloud": "",
+      "youtube": "uvcqfXfRqvQ"
+    }
   },
   {
     "id": "song-90",
@@ -733,7 +1045,11 @@
     "artist": "Headhunterz",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2007
+    "year": 2007,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/headhunterz/the-power-of-the-mind-qlimax",
+      "youtube": ""
+    }
   },
   {
     "id": "song-92",
@@ -741,7 +1057,11 @@
     "artist": "Headhunterz & Sub Zero Project",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2021
+    "year": 2021,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/headhunterz/our-church",
+      "youtube": ""
+    }
   },
   {
     "id": "song-93",
@@ -749,7 +1069,11 @@
     "artist": "Headhunterz & Wildstylez & Noisecontrollers",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2012
+    "year": 2012,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/headhunterz/world-of-madness-defqon-1",
+      "youtube": ""
+    }
   },
   {
     "id": "song-94",
@@ -765,7 +1089,11 @@
     "artist": "JDX",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2007
+    "year": 2007,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/jdx-music/jdx-live-the-moment-feat-sarah-maria",
+      "youtube": ""
+    }
   },
   {
     "id": "song-96",
@@ -781,7 +1109,11 @@
     "artist": "Wildstylez",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2012
+    "year": 2012,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/wildstylez/timeless-radio-edit",
+      "youtube": ""
+    }
   },
   {
     "id": "song-98",
@@ -853,7 +1185,11 @@
     "artist": "Sub Zero Project",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2018
+    "year": 2018,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/subzeroproject/the-project",
+      "youtube": ""
+    }
   },
   {
     "id": "song-107",
@@ -877,7 +1213,11 @@
     "artist": "Sub Zero Project",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2023
+    "year": 2023,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/subzeroproject/path-of-the-warrior-defqon-1",
+      "youtube": ""
+    }
   },
   {
     "id": "song-110",
@@ -885,7 +1225,11 @@
     "artist": "Sub Zero Project feat. Bryant Powell",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2024
+    "year": 2024,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/subzeroproject/refuse-to-speak",
+      "youtube": ""
+    }
   },
   {
     "id": "song-111",
@@ -901,7 +1245,11 @@
     "artist": "Sub Zero Project & Dual Damage",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2025
+    "year": 2025,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/dualdamage-raw/it-will-be-ok",
+      "youtube": ""
+    }
   },
   {
     "id": "song-113",
@@ -909,7 +1257,11 @@
     "artist": "D-Block & S-te-Fan & Ran-D",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2025
+    "year": 2025,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/q-dancemusic/d-block-s-te-fan-x-ran-d-shivers",
+      "youtube": ""
+    }
   },
   {
     "id": "song-114",
@@ -925,7 +1277,11 @@
     "artist": "Ran-D",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2018
+    "year": 2018,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/hardstyle-request/ran-d-hurricane-hq",
+      "youtube": ""
+    }
   },
   {
     "id": "song-116",
@@ -941,7 +1297,11 @@
     "artist": "Ran-D & Frequencerz & Adaro",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2016
+    "year": 2016,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/djadaro/ran-d-x-frequencerz-x-adaro-battleborn",
+      "youtube": ""
+    }
   },
   {
     "id": "song-118",
@@ -973,7 +1333,11 @@
     "artist": "Sound Rush & Sogma feat. Robin Vane",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2022
+    "year": 2022,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/officialsoundrush/transform",
+      "youtube": ""
+    }
   },
   {
     "id": "song-122",
@@ -981,7 +1345,11 @@
     "artist": "Sound Rush & Sogma feat. Ekaterina Shelehova",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2025
+    "year": 2025,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/officialsoundrush/stay-with-me-feat-ekaterina-shelehova",
+      "youtube": ""
+    }
   },
   {
     "id": "song-123",
@@ -989,7 +1357,11 @@
     "artist": "Sound Rush & The Purge & Adjuzt",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2023
+    "year": 2023,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/soundrush-scmusic/adrenaline-overload",
+      "youtube": ""
+    }
   },
   {
     "id": "song-124",
@@ -997,7 +1369,11 @@
     "artist": "Phuture Noize & B-Front",
     "country": "NL",
     "genre": "Rawstyle",
-    "year": 2024
+    "year": 2024,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/phuture-noize/polestar",
+      "youtube": ""
+    }
   },
   {
     "id": "song-125",
@@ -1005,7 +1381,11 @@
     "artist": "B-Front & Phuture Noize",
     "country": "NL",
     "genre": "Rawstyle",
-    "year": 2017
+    "year": 2017,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/phuture-noize/the-paradox-w-b-front",
+      "youtube": ""
+    }
   },
   {
     "id": "song-126",
@@ -1013,7 +1393,11 @@
     "artist": "B-Front & Phuture Noize",
     "country": "NL",
     "genre": "Rawstyle",
-    "year": 2020
+    "year": 2020,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/roughstatemusic/phuture-noize-b-front-my-beautiful-fantasy-out-now",
+      "youtube": ""
+    }
   },
   {
     "id": "song-127",
@@ -1021,7 +1405,11 @@
     "artist": "B-Front",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2017
+    "year": 2017,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/djbfront/mysterias-original-edit",
+      "youtube": ""
+    }
   },
   {
     "id": "song-128",
@@ -1029,7 +1417,11 @@
     "artist": "Frequencerz & Phuture Noize",
     "country": "NL",
     "genre": "Rawstyle",
-    "year": 2019
+    "year": 2019,
+    "audio": {
+      "soundcloud": "",
+      "youtube": "6F9szyKy8fE"
+    }
   },
   {
     "id": "song-129",
@@ -1037,7 +1429,11 @@
     "artist": "Phuture Noize",
     "country": "NL",
     "genre": "Rawstyle",
-    "year": 2017
+    "year": 2017,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/phuture-noize/black-mirror-society",
+      "youtube": ""
+    }
   },
   {
     "id": "song-130",
@@ -1053,7 +1449,11 @@
     "artist": "Phuture Noize",
     "country": "NL",
     "genre": "Rawstyle",
-    "year": 2025
+    "year": 2025,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/phuture-noize/until-youre-gone",
+      "youtube": ""
+    }
   },
   {
     "id": "song-132",
@@ -1061,7 +1461,11 @@
     "artist": "Phuture Noize",
     "country": "NL",
     "genre": "Rawstyle",
-    "year": 2025
+    "year": 2025,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/phuture-noize/stop-the-bleeding",
+      "youtube": ""
+    }
   },
   {
     "id": "song-133",
@@ -1077,7 +1481,11 @@
     "artist": "E-Force",
     "country": "NL",
     "genre": "Rawstyle",
-    "year": 2014
+    "year": 2014,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/eforcenl/e-force-seven",
+      "youtube": ""
+    }
   },
   {
     "id": "song-135",
@@ -1101,7 +1509,11 @@
     "artist": "Rebelion",
     "country": "SC",
     "genre": "Rawstyle",
-    "year": 2025
+    "year": 2025,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/rebelion-music/aliens-on-acid",
+      "youtube": ""
+    }
   },
   {
     "id": "song-138",
@@ -1109,7 +1521,11 @@
     "artist": "Rebelion",
     "country": "SC",
     "genre": "Rawstyle",
-    "year": 2025
+    "year": 2025,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/rebelion-music/beyond-the-horizon",
+      "youtube": ""
+    }
   },
   {
     "id": "song-139",
@@ -1117,7 +1533,11 @@
     "artist": "Rebelion feat. Micah Martin",
     "country": "SC",
     "genre": "Rawstyle",
-    "year": 2025
+    "year": 2025,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/dirtyworkzofficial/rebelion-ft-micah-martin-we-own-the-night-acid-reign",
+      "youtube": ""
+    }
   },
   {
     "id": "song-140",
@@ -1125,7 +1545,11 @@
     "artist": "Rebelion & Vertile",
     "country": "SC",
     "genre": "Rawstyle",
-    "year": 2023
+    "year": 2023,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/dirtyworkzofficial/rebelion-vertile-numb-acid-reign",
+      "youtube": ""
+    }
   },
   {
     "id": "song-141",
@@ -1149,7 +1573,11 @@
     "artist": "D-Sturb feat. Xception",
     "country": "NL",
     "genre": "Rawstyle",
-    "year": 2025
+    "year": 2025,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/officialdsturb/the-edge-of-the-end",
+      "youtube": ""
+    }
   },
   {
     "id": "song-144",
@@ -1157,7 +1585,11 @@
     "artist": "D-Sturb & D-Block & S-te-Fan",
     "country": "NL",
     "genre": "Rawstyle",
-    "year": 2023
+    "year": 2023,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/officialdsturb/come-alive",
+      "youtube": ""
+    }
   },
   {
     "id": "song-145",
@@ -1165,7 +1597,11 @@
     "artist": "Warface & D-Sturb",
     "country": "NL",
     "genre": "Rawstyle",
-    "year": 2021
+    "year": 2021,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/officialdsturb/warface-d-sturb-midnight-paradise-radio-edit",
+      "youtube": ""
+    }
   },
   {
     "id": "song-146",
@@ -1189,7 +1625,11 @@
     "artist": "Sickmode & Rooler",
     "country": "IT",
     "genre": "Rawstyle",
-    "year": 2021
+    "year": 2021,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/aggressiverecords/toocold",
+      "youtube": ""
+    }
   },
   {
     "id": "song-149",
@@ -1197,7 +1637,11 @@
     "artist": "Sickmode & Rooler & Krowdexx",
     "country": "IT",
     "genre": "Rawstyle",
-    "year": 2024
+    "year": 2024,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/aggressiverecords/saveme",
+      "youtube": ""
+    }
   },
   {
     "id": "song-150",
@@ -1213,7 +1657,11 @@
     "artist": "Dual Damage",
     "country": "NL",
     "genre": "Rawstyle",
-    "year": 2024
+    "year": 2024,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/dualdamage-raw/burning-down",
+      "youtube": ""
+    }
   },
   {
     "id": "song-152",
@@ -1221,7 +1669,11 @@
     "artist": "Vertile & Dual Damage",
     "country": "NL",
     "genre": "Rawstyle",
-    "year": 2025
+    "year": 2025,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/dualdamage-raw/vertile-inferno",
+      "youtube": ""
+    }
   },
   {
     "id": "song-153",
@@ -1229,7 +1681,11 @@
     "artist": "Vertile",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2023
+    "year": 2023,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/vertile-music/no-sleep-extended-mix",
+      "youtube": ""
+    }
   },
   {
     "id": "song-154",
@@ -1245,7 +1701,11 @@
     "artist": "Ghost Stories",
     "country": "NL",
     "genre": "Rawstyle",
-    "year": 2024
+    "year": 2024,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/q-dancemusic/ghost-stories-embrace-the-dark",
+      "youtube": ""
+    }
   },
   {
     "id": "song-156",
@@ -1253,7 +1713,11 @@
     "artist": "Ghost Stories",
     "country": "NL",
     "genre": "Rawstyle",
-    "year": 2025
+    "year": 2025,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/scantraxx/readyornot",
+      "youtube": ""
+    }
   },
   {
     "id": "song-157",
@@ -1261,7 +1725,11 @@
     "artist": "Noisecontrollers & Bass Modulators",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2015
+    "year": 2015,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/noisecontrollers/solar",
+      "youtube": ""
+    }
   },
   {
     "id": "song-158",
@@ -1277,7 +1745,11 @@
     "artist": "Noisecontrollers",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2011
+    "year": 2011,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/noisecontrollers/down-down",
+      "youtube": ""
+    }
   },
   {
     "id": "song-160",
@@ -1285,7 +1757,11 @@
     "artist": "Noisecontrollers",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2011
+    "year": 2011,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/noisecontrollers/attack-again-original-mix",
+      "youtube": ""
+    }
   },
   {
     "id": "song-161",
@@ -1301,7 +1777,11 @@
     "artist": "Frontliner",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2011
+    "year": 2011,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/frontliner/symbols",
+      "youtube": ""
+    }
   },
   {
     "id": "song-163",
@@ -1333,7 +1813,11 @@
     "artist": "Max Enforcer",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2010
+    "year": 2010,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/losectrlmusic/lost-in-paradise-preview-lose",
+      "youtube": ""
+    }
   },
   {
     "id": "song-167",
@@ -1349,7 +1833,11 @@
     "artist": "Technoboy",
     "country": "IT",
     "genre": "Hardstyle",
-    "year": 2008
+    "year": 2008,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/djtechnoboy/next-dimensional-world",
+      "youtube": ""
+    }
   },
   {
     "id": "song-169",
@@ -1357,7 +1845,11 @@
     "artist": "Davide Sonar",
     "country": "IT",
     "genre": "Hardstyle",
-    "year": 2008
+    "year": 2008,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/davide-sonar/natural",
+      "youtube": ""
+    }
   },
   {
     "id": "song-170",
@@ -1373,7 +1865,11 @@
     "artist": "Wasted Penguinz",
     "country": "SE",
     "genre": "Hardstyle",
-    "year": 2011
+    "year": 2011,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/wasted-penguinz/wasted-penguinz-melancholia",
+      "youtube": ""
+    }
   },
   {
     "id": "song-172",
@@ -1429,7 +1925,11 @@
     "artist": "Digital Punk",
     "country": "NL",
     "genre": "Rawstyle",
-    "year": 2013
+    "year": 2013,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/djdigitalpunk/digital-punk-rest-in-hell-radical-redemption-remix",
+      "youtube": ""
+    }
   },
   {
     "id": "song-179",
@@ -1461,7 +1961,11 @@
     "artist": "D-Block & S-te-Fan",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2025
+    "year": 2025,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/scantraxx/d-block-s-te-fan-no-angel",
+      "youtube": ""
+    }
   },
   {
     "id": "song-183",
@@ -1469,7 +1973,11 @@
     "artist": "D-Block & S-te-Fan feat. Conrad Sewell",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2025
+    "year": 2025,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/q-dancemusic/d-block-s-te-fan-ft-conrad-sewell-new-day-to-remember",
+      "youtube": ""
+    }
   },
   {
     "id": "song-184",
@@ -1477,7 +1985,11 @@
     "artist": "D-Block & S-te-Fan & DJ Isaac",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2025
+    "year": 2025,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/q-dancemusic/d-block-s-te-fan-x-dj-isaac-berlin-defqon1-records",
+      "youtube": ""
+    }
   },
   {
     "id": "song-185",
@@ -1485,7 +1997,11 @@
     "artist": "D-Block & S-te-Fan & Sub Zero Project",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2025
+    "year": 2025,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/scantraxx/sub-zero-project-d-block-s-te-fan-change-to-follow",
+      "youtube": ""
+    }
   },
   {
     "id": "song-186",
@@ -1493,7 +2009,11 @@
     "artist": "Sub Zero Project & Rebelion feat. Micah Martin",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2025
+    "year": 2025,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/subzeroproject/capital-of-crazy-official",
+      "youtube": ""
+    }
   },
   {
     "id": "song-187",
@@ -1557,7 +2077,11 @@
     "artist": "Vertile",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2024
+    "year": 2024,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/vertile-music/golden-hour",
+      "youtube": ""
+    }
   },
   {
     "id": "song-195",
@@ -2037,7 +2561,11 @@
     "artist": "LunaKorpz",
     "country": "NL",
     "genre": "Uptempo",
-    "year": 2025
+    "year": 2025,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/datweekaz/voices",
+      "youtube": ""
+    }
   },
   {
     "id": "song-255",
@@ -2413,7 +2941,11 @@
     "artist": "Coone",
     "country": "BE",
     "genre": "Hardstyle",
-    "year": 2011
+    "year": 2011,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/coone/words-from-the-gang-2014-rem",
+      "youtube": ""
+    }
   },
   {
     "id": "song-302",
@@ -2437,7 +2969,11 @@
     "artist": "Coone",
     "country": "BE",
     "genre": "Hardstyle",
-    "year": 2014
+    "year": 2014,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/coone/coone-ft-k19-times-gettin-hard",
+      "youtube": ""
+    }
   },
   {
     "id": "song-305",
@@ -4429,7 +4965,11 @@
     "artist": "The Dope Doctor",
     "country": "NL",
     "genre": "Uptempo",
-    "year": 2025
+    "year": 2025,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/vertile-music/no-sleep-extended-mix",
+      "youtube": ""
+    }
   },
   {
     "id": "song-554",
@@ -4469,7 +5009,11 @@
     "artist": "LunaKorpz",
     "country": "NL",
     "genre": "Uptempo",
-    "year": 2025
+    "year": 2025,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/vertile-music/no-sleep-extended-mix",
+      "youtube": ""
+    }
   },
   {
     "id": "song-559",
@@ -4853,7 +5397,11 @@
     "artist": "Brennan Heart, Jonathan Mendelsohn",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2013
+    "year": 2013,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/brennanheart/imaginary-ft-jonathanmendelsohn",
+      "youtube": "h9I-9Sj4sKs"
+    }
   },
   {
     "id": "song-607",
@@ -4989,7 +5537,11 @@
     "artist": "Headhunterz, Sian Evans, Vertile",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2023
+    "year": 2023,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/q-dancemusic/headhunterz-vertile-ft-sian-evans-lost-without-you-defqon1-2023-closing-theme",
+      "youtube": ""
+    }
   },
   {
     "id": "song-624",
@@ -5045,7 +5597,11 @@
     "artist": "Da Tweekaz, Sound Rush",
     "country": "NO",
     "genre": "Hardstyle",
-    "year": 2026
+    "year": 2026,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/datweekaz/save-my-soul",
+      "youtube": ""
+    }
   },
   {
     "id": "song-631",
@@ -5429,7 +5985,11 @@
     "artist": "Rooler",
     "country": "IT",
     "genre": "Rawstyle",
-    "year": 2026
+    "year": 2026,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/aggressiverecords/2-rooler-discotek-radio-edit",
+      "youtube": ""
+    }
   },
   {
     "id": "song-679",
@@ -5437,7 +5997,11 @@
     "artist": "TNT, Rooler",
     "country": "IT",
     "genre": "Rawstyle",
-    "year": 2026
+    "year": 2026,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/dirtyworkzofficial/tnt-rooler-set-me-free",
+      "youtube": ""
+    }
   },
   {
     "id": "song-680",
@@ -5445,7 +6009,11 @@
     "artist": "Coone, Rooler",
     "country": "BE",
     "genre": "Rawstyle",
-    "year": 2026
+    "year": 2026,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/dirtyworkzofficial/coone-rooler-return-of-the-return",
+      "youtube": ""
+    }
   },
   {
     "id": "song-681",
@@ -5453,7 +6021,11 @@
     "artist": "Rooler",
     "country": "IT",
     "genre": "Rawstyle",
-    "year": 2026
+    "year": 2026,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/aggressiverecords/welcome-2-da-recordshop",
+      "youtube": ""
+    }
   },
   {
     "id": "song-682",
@@ -5477,7 +6049,11 @@
     "artist": "Krowdexx, Levenkhan, Sickmode",
     "country": "NL",
     "genre": "Rawstyle",
-    "year": 2026
+    "year": 2026,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/aggressiverecords/what-tha-helly-someone-call",
+      "youtube": ""
+    }
   },
   {
     "id": "song-685",
@@ -5493,7 +6069,11 @@
     "artist": "Rooler, Sickmode",
     "country": "IT",
     "genre": "Rawstyle",
-    "year": 2026
+    "year": 2026,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/aggressiverecords/sickmode-rooler-club-banger",
+      "youtube": ""
+    }
   },
   {
     "id": "song-687",
@@ -5509,7 +6089,11 @@
     "artist": "Rooler, Sickmode",
     "country": "IT",
     "genre": "Rawstyle",
-    "year": 2026
+    "year": 2026,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/aggressiverecords/toohot",
+      "youtube": ""
+    }
   },
   {
     "id": "song-689",
@@ -5533,7 +6117,11 @@
     "artist": "Rebelion, Restricted",
     "country": "SC",
     "genre": "Rawstyle",
-    "year": 2026
+    "year": 2026,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/itsrestricted/rebelion-restricted-face-2-face",
+      "youtube": ""
+    }
   },
   {
     "id": "song-692",
@@ -5549,7 +6137,11 @@
     "artist": "D-Sturb, Aversion",
     "country": "NL",
     "genre": "Rawstyle",
-    "year": 2026
+    "year": 2026,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/q-dancemusic/d-sturb-aversion-alive-2nite",
+      "youtube": ""
+    }
   },
   {
     "id": "song-694",
@@ -6421,7 +7013,11 @@
     "artist": "Soulblast, The Dope Doctor",
     "country": "NL",
     "genre": "Uptempo",
-    "year": 2018
+    "year": 2018,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/hardstyle-request/ran-d-hurricane-hq",
+      "youtube": ""
+    }
   },
   {
     "id": "song-803",
@@ -7085,7 +7681,11 @@
     "artist": "Deepack",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2025
+    "year": 2025,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/dirtyworkzofficial/rebelion-ft-micah-martin-we-own-the-night-acid-reign",
+      "youtube": ""
+    }
   },
   {
     "id": "song-886",
@@ -7181,7 +7781,11 @@
     "artist": "Da Tweekaz",
     "country": "NO",
     "genre": "Hardstyle",
-    "year": 2026
+    "year": 2026,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/datweekaz/bleeding-heart",
+      "youtube": ""
+    }
   },
   {
     "id": "song-898",
@@ -7237,7 +7841,11 @@
     "artist": "Da Tweekaz, D-Sturb",
     "country": "NO",
     "genre": "Rawstyle",
-    "year": 2025
+    "year": 2025,
+    "audio": {
+      "soundcloud": "https://soundcloud.com/datweekaz/voices",
+      "youtube": ""
+    }
   },
   {
     "id": "song-905",
@@ -7557,7 +8165,11 @@
     "artist": "Headhunterz",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2020
+    "year": 2020,
+    "audio": {
+      "soundcloud": "",
+      "youtube": "8IYy61kMXds"
+    }
   },
   {
     "id": "song-945",
@@ -7565,7 +8177,11 @@
     "artist": "Da Tweekaz & Atmozfears ft. POPR3B3L",
     "country": "NO",
     "genre": "Hardstyle",
-    "year": 2014
+    "year": 2014,
+    "audio": {
+      "soundcloud": "",
+      "youtube": "lGvhDLsJ7V4"
+    }
   },
   {
     "id": "song-946",
@@ -7573,7 +8189,11 @@
     "artist": "Ran-D & Adaro",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2026
+    "year": 2026,
+    "audio": {
+      "soundcloud": "",
+      "youtube": "D3RSfIZChVM"
+    }
   },
   {
     "id": "song-947",
@@ -7581,7 +8201,11 @@
     "artist": "Gezellige Uptempo & Lil Texas",
     "country": "NL",
     "genre": "Uptempo",
-    "year": 2026
+    "year": 2026,
+    "audio": {
+      "soundcloud": "",
+      "youtube": "q-WEETpz464"
+    }
   },
   {
     "id": "song-948",
@@ -7589,7 +8213,11 @@
     "artist": "Da Tweekaz x Basshunter",
     "country": "NO",
     "genre": "Hardstyle",
-    "year": 2025
+    "year": 2025,
+    "audio": {
+      "soundcloud": "",
+      "youtube": "4x92iKSwp84"
+    }
   },
   {
     "id": "song-949",
@@ -7597,7 +8225,11 @@
     "artist": "Vengaboys (Da Tweekaz)",
     "country": "NO",
     "genre": "Hardstyle",
-    "year": 2025
+    "year": 2025,
+    "audio": {
+      "soundcloud": "",
+      "youtube": "P5Djcm-Ufmk"
+    }
   },
   {
     "id": "song-950",
@@ -7605,6 +8237,10 @@
     "artist": "Ran-D & Brennan Heart ft. Floor Jansen",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2026
+    "year": 2026,
+    "audio": {
+      "soundcloud": "",
+      "youtube": "9vqkVfvhl1k"
+    }
   }
 ]

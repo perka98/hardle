@@ -16,3 +16,17 @@ assert.equal(build({...common,game:'djdle',pool:[{normalized:'AAAA',name:'A'},{n
 assert.equal(build({...common,game:'daily',pool:[{id:'a',audio:{}},{id:'b',audio:{}}],previousAnswers:['a']}).solution.answer,'b');
 assert.throws(()=>build({...common,game:'orderdle',pool:people,previousAnswers:people.map(p=>p.id)}),/No non-repeating/);
 console.log('All-game previous-answer exclusions and 100 consecutive Orderdle rounds passed');
+const catalog=require('../server/private/songs.json');
+assert.equal(new Set(catalog.map(s=>s.id)).size,catalog.length);
+for(const song of catalog.filter(s=>s.audio)){
+ assert(song.audio.soundcloud||song.audio.youtube);
+ if(song.audio.soundcloud)assert.match(song.audio.soundcloud,/^https:\/\/soundcloud\.com\//);
+ if(song.audio.youtube)assert.match(song.audio.youtube,/^[A-Za-z0-9_-]{11}$/);
+}
+for(let day=0;day<50;day++){
+ const date=new Date(Date.UTC(2026,9,7+day)).toISOString().slice(0,10);
+ const puzzle=build({...common,date,game:'daily',pool:catalog});
+ assert(catalog.find(s=>s.id===puzzle.solution.answer).audio);
+ assert.deepEqual(Object.keys(puzzle.publicPayload).sort(),['audio','maxAttempts']);
+}
+console.log('Daily catalog IDs, existing audio format, and 50 playable server puzzles checked');

@@ -5,7 +5,7 @@ function build({game,date,pool,secret,words=[],previousAnswers=[]}){
  const excluded=new Set(previousAnswers);
  const eligible=pool.filter(item=>!excluded.has(game==='djdle'?item.normalized:item.id));
  if(!eligible.length)throw Error('No non-repeating puzzle available');
- const chosen=pick(eligible,date,game,secret);
+ const chosen=pick(game==='daily'?eligible.filter(x=>x.audio||x.anonymousAudio):eligible,date,game,secret);
  if(game==='artist')return {publicPayload:{maxAttempts:6,clues:[chosen.clues[0]]},solution:{answer:chosen.id,accepted:pool.map(x=>x.id),reveal:{name:chosen.name},clues:chosen.clues}};
  if(game==='djdle')return {publicPayload:{maxAttempts:7,length:chosen.normalized.length},solution:{answer:chosen.normalized,accepted:[...new Set([...words,...pool.map(x=>x.normalized)])],reveal:{name:chosen.name}}};
  if(game==='daily'&&!chosen.audio&&!chosen.anonymousAudio)throw Error('Playable audio required');
