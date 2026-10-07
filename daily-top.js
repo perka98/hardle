@@ -50,7 +50,7 @@
     if(top.length){const row=top[0];const link=document.createElement('a');link.className='winnerProfileLink';link.href='#';link.dataset.userId=row.user_id;link.dataset.username=row.username;link.setAttribute('aria-label','View '+row.username+' profile');link.innerHTML='<span class="lmAvatarWrap"><img class="lmAvatar" src="'+avatarSrc(row.avatar)+'" alt=""><span class="crown" aria-hidden="true">👑</span></span><span class="lmName">'+esc(row.username)+'</span><b class="lmScore">'+Number(row.score).toLocaleString('en-US')+'</b>';link.addEventListener('click',e=>{e.preventDefault();openProfile(row)});winner.replaceChildren(link);}else winner.innerHTML='<span class="lmName" style="color:#777">No winner yet</span>';
   }catch{const winner=document.getElementById('yesterday-winner-content');if(winner)winner.innerHTML='<span class="lmName" style="color:#777">No winner yet</span>'}
   try{
-    const winner=document.querySelector('.topBoardRight .winnerCard');
+    const winner=document.getElementById('last-month-winner-card');
     const response=await fetch(config.url+'/rest/v1/rpc/hardle_leaderboard',{method:'POST',headers:{apikey:config.key,'Content-Type':'application/json'},body:JSON.stringify({period:'previous_month'}),signal:AbortSignal.timeout(10000)});
     if(!response.ok)throw Error();
     const rows=await response.json();const top=Array.isArray(rows)?rows.filter(row=>row?.username&&row?.user_id&&Number.isFinite(Number(row.score))).sort((a,b)=>Number(b.score)-Number(a.score)).slice(0,1):[];
