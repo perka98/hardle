@@ -75,7 +75,20 @@ load('previous_month',document.getElementById('last-month-winner-card'),'Last Mo
 </script><script src="/candidate-stats.js"></script></body></html>
 <!-- Rebuild cleaned candidate after resume -->
 
-<style id="blue-play-buttons-only">/* Blue play buttons only — based on production menu. */
+<style id="blue-play-buttons-only">/* Blue play buttons + status-only card outlines. */
 .games .game .play{background:#263b5a;border:1px solid #3e587d;color:#f5f7fb}
 .games .game .play:hover{background:#304b70;border-color:#6b8bb7;box-shadow:0 0 12px #4c6f9a22}
+.games .game:not(.failed):not(.completed):not([data-result="good"]):not([data-result="medium"]):not([data-result="weak"]):hover{border-color:#ffffff35}
+.games .game.completed,
+.games .game[data-result="good"],
+.games .game[data-result="medium"],
+.games .game[data-result="weak"]{border-color:#38d27a}
+.games .game.completed:hover,
+.games .game[data-result="good"]:hover,
+.games .game[data-result="medium"]:hover,
+.games .game[data-result="weak"]:hover{border-color:#53e48a}
+.games .game.failed,
+.games .game[data-result="failed"]{border-color:#e21b23}
+.games .game.failed:hover,
+.games .game[data-result="failed"]:hover{border-color:#ff5961}
 </style>
