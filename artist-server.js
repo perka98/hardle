@@ -9,7 +9,8 @@ function render(){const artist={name:serverResult?.answer?.name||'',clues:server
 
 function hideResults(){$('artist-results').hidden=true;$('guess').setAttribute('aria-expanded','false')}
 async function searchArtists(){selected=null;const revision=++searchRevision,box=$('artist-results');box.replaceChildren();const q=$('guess').value.trim();if(!q||finished||busy){hideResults();return}try{const data=await secure.request('/api/secure-search',{game:'artist',query:q});if(revision!==searchRevision)return;data.items.filter(artist=>!attempts.some(previous=>previous.id===artist.id)).forEach(artist=>{const button=document.createElement('button');button.type='button';button.className='result';button.textContent=artist.name;button.onclick=()=>{selected=artist;$('guess').value=artist.name;hideResults();$('guess').focus()};box.append(button)});box.hidden=!box.children.length;$('guess').setAttribute('aria-expanded',String(!!box.children.length))}catch(error){$('message').textContent=error.message}}
-$('guess').addEventListener('input',searchArtists);
+let artistSearchTimer;
+$('guess').addEventListener('input',()=>{selected=null;searchRevision++;clearTimeout(artistSearchTimer);hideResults();artistSearchTimer=setTimeout(searchArtists,250)});
 $('guess').addEventListener('keydown',event=>{if(event.key==='Escape')hideResults();if(event.key==='ArrowDown'&&!$('artist-results').hidden){event.preventDefault();$('artist-results').firstElementChild?.focus()}});
 $('artist-results').addEventListener('keydown',event=>{if(event.key==='Escape'){hideResults();$('guess').focus()}if(event.key==='ArrowDown'||event.key==='ArrowUp'){event.preventDefault();const sibling=event.key==='ArrowDown'?event.target.nextElementSibling:event.target.previousElementSibling;if(sibling)sibling.focus();else $('guess').focus()}});
 document.addEventListener('click',event=>{if(!event.target.closest('.guessBox'))hideResults()});
