@@ -23,7 +23,9 @@ body{background:#000}body:before{display:none}
 /* Reserve the completed/failed badge row for every game card. */
 .games .game:not(.completed):not(.failed) .play::before{content:none}
 .games .game:not(.completed):not(.failed)::after{content:"";display:block;order:1;height:30px;flex-shrink:0}
-.games .game .play{order:2}
+.games .game .play{order:2;margin-top:0}
+.games .game .completedBadge,.games .game .failedBadge,.games .game:not(.completed):not(.failed)::after{margin-top:auto}
+.games .game .completedBadge,.games .game .failedBadge{padding-top:8px;min-height:22px}
 .games .game .completedBadge,.games .game .failedBadge{order:1;line-height:14px;min-height:14px}
 </style>
 </head>
