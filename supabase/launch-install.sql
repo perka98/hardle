@@ -24,7 +24,7 @@ begin
  select s.id into sid from hardle_private.sessions s where s.player_id=p_player and s.puzzle_date=d and s.game=p_game;
  return query select s.id,p.public_payload,
  coalesce((select jsonb_agg(jsonb_build_object('guess',g.guess,'feedback',g.feedback,'attempt',g.attempt) order by g.attempt) from hardle_private.guesses g where g.session_id=s.id),'[]'::jsonb),s.completed,
- (select jsonb_build_object('score',r.score,'won',r.won,'attempts',r.attempts) from hardle_private.results r where r.session_id=s.id)
+ (select jsonb_build_object('score',r.score,'won',r.won,'attempts',r.attempts,'answer',p.secret_solution->'reveal') from hardle_private.results r where r.session_id=s.id)
  from hardle_private.sessions s join hardle_private.puzzles p on p.puzzle_date=s.puzzle_date and p.game=s.game where s.id=sid;
 end; $$;
 -- Only service backend may execute. Puzzle solutions still require trusted validator access.
@@ -46,21 +46,29 @@ grant select,insert on hardle_private.results to hardle_validator;
 grant insert on hardle_private.review_flags to hardle_validator;
 grant usage on sequence hardle_private.review_flags_id_seq to hardle_validator;
 -- SQL trusted code sets transaction-local player identity. Browser roles have no grants.
+drop policy if exists validator_puzzle_read on hardle_private.puzzles;
 create policy validator_puzzle_read on hardle_private.puzzles for select to hardle_validator
  using (puzzle_date=(now() at time zone 'Europe/Stockholm')::date);
+drop policy if exists validator_session_read on hardle_private.sessions;
 create policy validator_session_read on hardle_private.sessions for select to hardle_validator
  using (player_id=current_setting('hardle.player_id',true));
+drop policy if exists validator_session_update on hardle_private.sessions;
 create policy validator_session_update on hardle_private.sessions for update to hardle_validator
  using (player_id=current_setting('hardle.player_id',true))
  with check (player_id=current_setting('hardle.player_id',true));
+drop policy if exists validator_guess_read on hardle_private.guesses;
 create policy validator_guess_read on hardle_private.guesses for select to hardle_validator
  using (exists(select 1 from hardle_private.sessions s where s.id=session_id and s.player_id=current_setting('hardle.player_id',true)));
+drop policy if exists validator_guess_insert on hardle_private.guesses;
 create policy validator_guess_insert on hardle_private.guesses for insert to hardle_validator
  with check (exists(select 1 from hardle_private.sessions s where s.id=session_id and s.player_id=current_setting('hardle.player_id',true)));
+drop policy if exists validator_result_read on hardle_private.results;
 create policy validator_result_read on hardle_private.results for select to hardle_validator
  using (player_id=current_setting('hardle.player_id',true));
+drop policy if exists validator_result_insert on hardle_private.results;
 create policy validator_result_insert on hardle_private.results for insert to hardle_validator
  with check (player_id=current_setting('hardle.player_id',true) and exists(select 1 from hardle_private.sessions s where s.id=session_id and s.player_id=current_setting('hardle.player_id',true) and s.completed));
+drop policy if exists validator_review_insert on hardle_private.review_flags;
 create policy validator_review_insert on hardle_private.review_flags for insert to hardle_validator
  with check (exists(select 1 from hardle_private.sessions s where s.id=session_id and s.player_id=current_setting('hardle.player_id',true)));
 commit;

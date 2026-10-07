@@ -1,56 +1,53 @@
 {
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0"
-        }
-      ]
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/server/:path*",
-      "destination": "/api/private-resource"
-    },
-    {
-      "source": "/supabase/:path*",
-      "destination": "/api/private-resource"
-    },
-    {
-      "source": "/tests/:path*",
-      "destination": "/api/private-resource"
-    },
-    {
-      "source": "/artist",
-      "destination": "/artist.html"
-    },
-    {
-      "source": "/daily",
-      "destination": "/daily.html"
-    },
-    {
-      "source": "/djdle",
-      "destination": "/djdle.html"
-    },
-    {
-      "source": "/orderdle",
-      "destination": "/orderdle.html"
-    },
-    {
-      "source": "/account",
-      "destination": "/account.html"
-    },
-    {
-      "source": "/leaderboard",
-      "destination": "/leaderboard.html"
-    }
-  ],
   "functions": {
     "api/game-session.js": {
       "includeFiles": "server/private/**"
+    },
+    "api/preview-game.js": {
+      "includeFiles": "server/private/**"
     }
-  }
+  },
+  "regions": [
+    "arn1"
+  ],
+  "routes": [
+    {
+      "src": "^/(server|supabase|tests|checks)(/.*)?$",
+      "dest": "/api/private-resource"
+    },
+    {
+      "src": "/.*",
+      "headers": {
+        "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0"
+      },
+      "continue": true
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "^/artist$",
+      "dest": "/artist.html"
+    },
+    {
+      "src": "^/daily$",
+      "dest": "/daily.html"
+    },
+    {
+      "src": "^/djdle$",
+      "dest": "/djdle.html"
+    },
+    {
+      "src": "^/orderdle$",
+      "dest": "/orderdle.html"
+    },
+    {
+      "src": "^/account$",
+      "dest": "/account.html"
+    },
+    {
+      "src": "^/leaderboard$",
+      "dest": "/leaderboard.html"
+    }
+  ]
 }

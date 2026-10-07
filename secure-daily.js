@@ -1,0 +1,18 @@
+'use strict';
+const game=new window.HardleSecureGame('daily'),get=id=>document.getElementById(id);
+let busy=false,completed=false,ready=false;
+function controls(){get('query').disabled=busy||completed||!ready||!!game.pending;get('search-button').disabled=get('query').disabled;get('choices').querySelectorAll('button').forEach(b=>b.disabled=get('query').disabled);get('retry-guess').hidden=!game.pending||completed;get('retry-guess').disabled=busy}
+function clues(items){if(!Array.isArray(items)||items.some(x=>typeof x!=='string'))throw Error('Invalid server clues');get('clues').replaceChildren();for(const clue of items){const item=document.createElement('li');item.textContent=clue;get('clues').append(item)}}
+function apply(data){if(data.feedback){const item=document.createElement('li');item.textContent=Object.entries(data.feedback).map(([key,value])=>key+': '+value).join(' · ');get('clues').append(item)}completed=!!data.completed;if(completed){get('result').textContent=(data.won?'Correct!':'Round completed.')+' Score: '+data.score+(data.answer?.title?' · '+data.answer.title+' — '+data.answer.artist:'');get('status').textContent='Your result is saved by the server.';get('choices').replaceChildren()}}
+async function start(){busy=true;controls();get('retry-start').hidden=true;try{const state=await game.start();mountAudio(state.public_payload?.audio);if(!Array.isArray(state.guesses))throw Error('Invalid server history');ready=true;completed=!!state.completed;for(const previous of state.guesses)apply(previous.feedback);if(completed)apply({...state.result,completed:true});else get('status').textContent='Search for a track. Six server-validated attempts.'}catch(error){ready=false;get('status').textContent=error.message;get('retry-start').hidden=false}finally{busy=false;controls()}}
+async function guess(id){if(busy||completed)return;busy=true;controls();try{const data=await game.guess(id);apply(data);if(!completed)get('status').textContent='Attempt '+data.attempts+' recorded.';get('choices').replaceChildren()}catch(error){get('status').textContent=error.message}finally{busy=false;controls()}}
+get('search').onsubmit=async event=>{event.preventDefault();if(busy||completed||game.pending||!ready)return;busy=true;controls();get('choices').replaceChildren();try{const data=await game.request('/api/secure-search',{game:'daily',query:get('query').value.trim()});if(!Array.isArray(data.items))throw Error('Invalid search results');for(const item of data.items){if(typeof item.id!=='string'||typeof item.title!=='string'||typeof item.artist!=='string')throw Error('Invalid search item');const button=document.createElement('button');button.textContent=item.title+' — '+item.artist;button.onclick=()=>guess(item.id);get('choices').append(button)}get('status').textContent=data.items.length?'Choose a track to submit your guess.':'No tracks found.'}catch(error){get('status').textContent=error.message}finally{busy=false;controls()}};
+get('retry-guess').onclick=()=>guess(game.pending?.guess);get('retry-start').onclick=start;start();
+
+function mountAudio(audio){
+ const frame=document.createElement('iframe');frame.title='Daily audio player';frame.allow='autoplay';frame.style.cssText='width:100%;height:166px;border:0';
+ if(audio?.soundcloud&&/^https:\/\/soundcloud\.com\//.test(audio.soundcloud))frame.src='https://w.soundcloud.com/player/?url='+encodeURIComponent(audio.soundcloud)+'&auto_play=false';
+ else if(audio?.youtube&&/^[A-Za-z0-9_-]{11}$/.test(audio.youtube))frame.src='https://www.youtube.com/embed/'+audio.youtube+'?playsinline=1&autoplay=0';
+ else throw Error('Playable server audio required');
+ get('audio').replaceChildren(frame);
+}

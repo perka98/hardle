@@ -1,6 +1,7 @@
 'use strict';
 const {transaction}=require('./database');
-const {evaluate}=require('./rules');
+const {evaluate,normalize}=require('./rules');
+const {isDeepStrictEqual}=require('node:util');
 const songFeedback=require('./song-feedback');
 // Requires reviewed database grants/RLS or a private server transaction function.
 // Never called by current browser games. Authenticated identities must be verified upstream.
@@ -9,7 +10,7 @@ function createSubmit(runTransaction){return async function submit({player,userI
   await client.query("select set_config('hardle.player_id',$1,true)",[player]);
   const session=await client.query('select * from hardle_private.sessions where player_id=$1 and puzzle_date=$2 and game=$3 for update',[player,date,game]);
   const s=session.rows[0];if(!s)throw Error('Session required');
-  const replay=await client.query('select feedback from hardle_private.guesses where session_id=$1 and request_id=$2',[s.id,requestId]);if(replay.rows.length)return replay.rows[0].feedback;
+  const replay=await client.query('select guess,feedback from hardle_private.guesses where session_id=$1 and request_id=$2',[s.id,requestId]);if(replay.rows.length){const canonical=game==='djdle'?normalize(guess):game==='orderdle'?guess:String(guess);if(!isDeepStrictEqual(replay.rows[0].guess?.canonical,canonical))throw Error('Request ID reused with a different guess');return replay.rows[0].feedback;}
   if(s.completed)throw Error('Game completed');
   const p=await client.query('select secret_solution from hardle_private.puzzles where puzzle_date=$1 and game=$2',[date,game]);const secret=p.rows[0]?.secret_solution;if(!secret)throw Error('Puzzle unavailable');
   const history=await client.query('select guess,feedback from hardle_private.guesses where session_id=$1 order by attempt',[s.id]);
@@ -17,6 +18,16 @@ function createSubmit(runTransaction){return async function submit({player,userI
   const evaluated=evaluate({game,solution:secret.answer,guess,previous,accepted:new Set(secret.accepted||[])});
   if(game==='daily'){const guessed=secret.catalog.find(x=>x.id===evaluated.canonical),answer=secret.catalog.find(x=>x.id===secret.answer);if(!guessed||!answer)throw Error('Puzzle data invalid');evaluated.feedback=songFeedback.feedback(guessed,answer)}
   const response={feedback:evaluated.feedback,won:evaluated.won,attempts:evaluated.attempts,completed:evaluated.completed,score:evaluated.score};
+  // Daily and Guess the Artist use a small server-side time modifier to break score ties.
+  // The modifier can only reduce a score, is capped at 100 points, and never affects losses.
+  if(evaluated.completed&&evaluated.won&&(game==='daily'||game==='artist')){
+   const elapsedMs=Math.max(0,Date.now()-new Date(s.started_at).getTime());
+   const elapsedSec=Math.floor(elapsedMs/1000);
+   const timePenalty=Math.min(100,Math.max(0,elapsedSec-10));
+   response.score=Math.max(0,Math.round(evaluated.score*(1-timePenalty/1000)));
+  }
+  if(game==='daily'){const item=secret.catalog.find(x=>x.id===evaluated.canonical);response.guessed={title:item.title,artist:item.artist,country:item.country,genre:item.genre,year:item.year}}
+  if(game==='artist')response.guessed={name:secret.names?.[evaluated.canonical]||'Previous artist guess'};
   if(game==='artist'&&!evaluated.completed)response.clues=secret.clues.slice(0,evaluated.attempts+1);
   if(evaluated.completed)response.answer=secret.reveal;
   await client.query('insert into hardle_private.guesses(session_id,attempt,request_id,guess,feedback) values($1,$2,$3,$4,$5)',[s.id,evaluated.attempts,requestId,{canonical:evaluated.canonical},response]);
