@@ -43,7 +43,7 @@ async function moderateAvatar(file){
 $('custom-avatar').addEventListener('change',async()=>{
   const file=$('custom-avatar').files?.[0];if(!file)return;
   if(file.size>5242880){$('message').textContent='Image must be 5 MB or smaller.';$('custom-avatar').value='';return}
-  if(!file.type.startsWith('image/')){$('message').textContent='Please choose an image file.';$('custom-avatar').value='';return}
+  if(!file.type.startsWith('image/')){$('message').textContent='Please choose an image file.';return}
   $('message').textContent='Checking image…';
   try{
     await moderateAvatar(file);
