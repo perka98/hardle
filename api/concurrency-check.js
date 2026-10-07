@@ -30,7 +30,7 @@ module.exports=async(req,res)=>{
  if(counts.rows[0]?.guesses!==1||counts.rows[0]?.results!==1)throw Error('Duplicate award detected');
  });
  stage='cleanup';await db.query('select hardle_private.cleanup_concurrency_test($1)',[player]);player=null;
- return res.json({status:'concurrency_verified',message:'Concurrent replay: one guess and one result. Completed round rejects new requests. Test player removed.'});
+ return res.json({status:'concurrency_verified',message:'Concurrent replay: one guess and one result. Completed round rejects new requests. Immutable guest test result retained for audit; no account leaderboard score awarded.'});
  }catch(error){console.error('Preview concurrency test failed',{code:error.code||'TEST_FAILED',stage});return res.status(503).json({status:'concurrency_test_failed'})}
  finally{if(player&&db)try{await db.query('select hardle_private.cleanup_concurrency_test($1)',[player])}catch{console.error('Preview test cleanup failed',{code:'TEST_CLEANUP_FAILED'})}}
 };

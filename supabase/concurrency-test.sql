@@ -16,8 +16,9 @@ declare sid uuid;
 begin
  if p_player is null or p_player !~ '^guest:concurrency-test-[0-9a-f-]{36}$' then raise exception 'Invalid test player'; end if;
  for sid in select id from hardle_private.sessions where player_id=p_player loop
+ -- Completed test results are immutable: retain their session and guesses.
+ if exists(select 1 from hardle_private.results where session_id=sid) then continue; end if;
  delete from hardle_private.review_flags where session_id=sid;
- delete from hardle_private.results where session_id=sid;
  delete from hardle_private.guesses where session_id=sid;
  delete from hardle_private.sessions where id=sid;
  end loop;
