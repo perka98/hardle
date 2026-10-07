@@ -1,6 +1,6 @@
 'use strict';
 const security=require('../server/security');
-const {database}=require('../server/database');
+const {database,transaction}=require('../server/database');
 module.exports=async(req,res)=>{
  res.setHeader('Cache-Control','no-store');
  if(process.env.VERCEL_ENV!=='preview')return res.status(404).end();
@@ -16,6 +16,12 @@ module.exports=async(req,res)=>{
  // Persistent global limit: no secret values or internal SQL errors are returned.
  const limited=await db.query('select hardle_private.take_rate_limit($1,$2) as allowed',['preview-backend-check',10]);
  if(!limited.rows[0]?.allowed){res.setHeader('Retry-After','60');return res.status(429).json({status:'please_wait'})}
- return res.json({status:'database_connected',secureGameplayEnabled:false,message:'Database connection and session functions checked. Game migration is still incomplete.'});
+ const isolation=await transaction(async client=>{
+ await client.query("select set_config('hardle.player_id',$1,true)",['guest:preview-isolation-check']);
+ const rows=await client.query("select count(*)::integer as visible from hardle_private.sessions where player_id<>$1",['guest:preview-isolation-check']);
+ return rows.rows[0]?.visible===0;
+ });
+ if(!isolation)return res.status(503).json({status:'isolation_check_failed'});
+ return res.json({status:'database_connected',secureGameplayEnabled:false,message:'Database connection and functions checked; no other-player sessions visible to test identity. This does not prove isolation if no other sessions exist. Game migration is still incomplete.'});
  }catch(error){console.error('Backend readiness check failed',{code:error.code||'CONNECTION_FAILURE'});return res.status(503).json({status:'database_check_failed',message:'Check the preview server logs for a sanitized error code.'})}
 };
