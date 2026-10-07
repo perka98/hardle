@@ -3,9 +3,11 @@ const crypto=require('node:crypto'),security=require('../server/security'),auth=
 const {transaction}=require('../server/database'),{build}=require('../server/puzzles'),{evaluate}=require('../server/rules'),songFeedback=require('../server/song-feedback');
 module.exports=async(req,res)=>{
  res.setHeader('Cache-Control','no-store');if(process.env.VERCEL_ENV!=='preview')return res.status(404).end();if(req.method!=='POST'||!security.sameOrigin(req))return res.status(403).json({error:'Request rejected'});
+ const started=Date.now();let authMs=0,limitMs=0,dbStarted=0;
  try{
  const data=security.body(req);if(!['daily','artist','djdle','orderdle'].includes(data.game)||!['start','guess'].includes(data.action)||Object.keys(data).some(k=>!['game','action','roundId','guess','requestId'].includes(k)))return res.status(400).json({error:'Invalid request'});
- const identity=await auth.player(req,res);if(!await limits.allow(req,identity.player,'preview-round'))return res.status(429).json({error:'Please wait'});
+ const identity=await auth.player(req,res);authMs=Date.now()-started;const limitStarted=Date.now();if(!await limits.allow(req,identity.player,'preview-round'))return res.status(429).json({error:'Please wait'});
+ limitMs=Date.now()-limitStarted;dbStarted=Date.now();
  const result=await transaction(async db=>{
  await db.query("select set_config('hardle.player_id',$1,true)",[identity.player]);
  if(data.action==='start'){
@@ -30,6 +32,6 @@ module.exports=async(req,res)=>{
  if(evaluated.completed)output.answer=secret.reveal;
  round.guesses.push({requestId:data.requestId,input:data.guess,guess:{canonical:evaluated.canonical},feedback:output});
  await db.query('update hardle_private.preview_rounds set guesses=$2,completed=$3 where id=$1',[round.id,JSON.stringify(round.guesses),evaluated.completed]);return output;
- });return res.json(result);
+ });console.info('Preview round timing',{game:data.game,action:data.action,authMs,limitMs,transactionMs:Date.now()-dbStarted,totalMs:Date.now()-started});return res.json(result);
  }catch(error){console.error('Preview round failed',{code:error.code||'TEST_ROUND_FAILED'});return res.status(409).json({error:'Test round unavailable or invalid guess'})}
 };
