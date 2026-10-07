@@ -48,3 +48,12 @@ playBtn.onclick=()=>{
  clearTimeout(playbackWatchdog);originalPlayHandler();
  if(clipPending)playbackWatchdog=setTimeout(()=>{if(clipPending&&!soundcloudPlaying&&!youtubePlaying){clipPending=false;guessCount.textContent='Audio did not start. The provider may have blocked or failed playback.';updateClipUI()}},5000);
 };
+
+const watchedPlay=playBtn.onclick;
+playBtn.onclick=()=>{
+ watchedPlay();
+ setTimeout(()=>{
+  if(soundcloudWidget&&soundcloudReady){soundcloudWidget.getPosition(position=>soundcloudWidget.getVolume(volume=>{guessCount.textContent='Audio check: SoundCloud · position '+Math.round(Number(position)/1000)+'s · volume '+Math.round(Number(volume))+'% · '+(soundcloudPlaying?'playing':'not playing')}))}
+  else if(youtubePlayer&&youtubeReady){guessCount.textContent='Audio check: YouTube · position '+Math.round(youtubePlayer.getCurrentTime())+'s · volume '+youtubePlayer.getVolume()+'% · '+(youtubePlayer.isMuted()?'muted':'unmuted')+' · state '+youtubePlayer.getPlayerState()}
+ },1800);
+};
