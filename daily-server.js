@@ -39,12 +39,12 @@ async function initYouTube(id){
   try{await youtubeLoading}catch(error){youtubeLoading=null;throw error}
   if(!youtubePlayer||youtubeIdActive!==id){
     youtubeReady=false;youtubePlaying=false;
-    if(youtubePlayer?.destroy)youtubePlayer.destroy();
+    if(youtubePlayer?.destroy){youtubePlayer.destroy();if(!document.getElementById('youtubePlayer')){const mount=document.createElement('div');mount.id='youtubePlayer';mount.style.cssText='position:absolute;width:1px;height:1px;left:-9999px;top:-9999px';document.body.append(mount)}}
     await new Promise((resolve,reject)=>{
     const timeout=setTimeout(()=>reject(new Error("YouTube player timeout")),15000);
     youtubePlayer=new YT.Player("youtubePlayer",{height:"1",width:"1",videoId:id,playerVars:{autoplay:0,controls:0,playsinline:1,rel:0},events:{
       onReady:e=>{youtubeReady=true;e.target.mute();applyPlayerVolume(e.target);clearTimeout(timeout);resolve()},
-      onError:e=>{clearTimeout(timeout);reject(new Error("YouTube player error: "+e.data))},
+      onError:e=>{clearTimeout(timeout);audioPrepared=false;clipPending=false;youtubePlaying=false;playBtn.disabled=false;playBtn.textContent="Retry audio";get("guessCount").textContent="YouTube playback failed ("+e.data+"). Retry audio.";reject(new Error("YouTube player error: "+e.data))},
       onStateChange:e=>{
         if(e.data===YT.PlayerState.PLAYING){youtubePlaying=true;playBtn.textContent="❚❚ Pause";applyPlayerVolume(e.target);e.target.unMute();beginClipTimer()}
         if(e.data===YT.PlayerState.PAUSED||e.data===YT.PlayerState.ENDED){youtubePlaying=false;playBtn.textContent="▶ Play"}
@@ -64,7 +64,7 @@ async function initSoundCloud(url){
     let done=false;
     const finish=()=>{if(!done){done=true;resolve()}};
     soundcloudWidget.bind(SC.Widget.Events.READY,finish);
-    soundcloudWidget.bind(SC.Widget.Events.ERROR,()=>{if(!done){done=true;reject(new Error("SoundCloud player error"))}});
+    soundcloudWidget.bind(SC.Widget.Events.ERROR,()=>{audioPrepared=false;clipPending=false;soundcloudPlaying=false;playBtn.disabled=false;playBtn.textContent="Retry audio";get("guessCount").textContent="SoundCloud playback failed. Retry audio.";if(!done){done=true;reject(new Error("SoundCloud player error"))}});
     setTimeout(()=>{if(!done){done=true;reject(new Error("SoundCloud player timeout"))}},10000);
   });
   soundcloudWidget.bind(SC.Widget.Events.PLAY,()=>{soundcloudPlaying=true;playBtn.textContent="❚❚ Pause";applyPlayerVolume(soundcloudWidget);beginClipTimer();});
