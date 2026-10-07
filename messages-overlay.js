@@ -6,6 +6,7 @@
   let session=null;try{session=JSON.parse(localStorage.getItem('hardle-auth-v1')||sessionStorage.getItem('hardle-auth-v1')||'null')}catch{}
   if(!session?.access_token){button.hidden=true;return}
   button.hidden=false;
+  hide();
   const esc=x=>String(x??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
   const avatar=x=>'/data/avatars/'+(/^avatar-0[1-8]\\.svg$/.test(x||'')?x:'avatar-01.svg');
   const call=async(path,body)=>{const r=await fetch(c.url+path,{method:'POST',headers:{apikey:c.key,Authorization:'Bearer '+session.access_token,'Content-Type':'application/json'},body:JSON.stringify(body||{})});if(!r.ok)throw Error();return r.json()};
