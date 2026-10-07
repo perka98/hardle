@@ -17,11 +17,11 @@
     const panel=document.getElementById('messages-overlay-panel');
     if(!panel)return;
     const saved=localStorage.getItem('hardle-messages-position');
-    if(saved){try{const p=JSON.parse(saved);panel.style.left=Math.max(8,Math.min(window.innerWidth-panel.offsetWidth-8,p.left))+'px';panel.style.top=Math.max(92,Math.min(window.innerHeight-panel.offsetHeight-8,p.top))+'px';panel.style.right='auto';panel.style.bottom='auto';return}catch{}}
+    if(saved){try{const p=JSON.parse(saved);if(Number.isFinite(p.left)&&Number.isFinite(p.top)&&p.top>=120){panel.style.left=Math.max(8,Math.min(window.innerWidth-panel.offsetWidth-8,p.left))+'px';panel.style.top=Math.max(120,Math.min(window.innerHeight-panel.offsetHeight-8,p.top))+'px';panel.style.right='auto';panel.style.bottom='auto';return;}localStorage.removeItem('hardle-messages-position')}catch{localStorage.removeItem('hardle-messages-position')}}
     requestAnimationFrame(()=>{
       const w=panel.offsetWidth;
       panel.style.left=Math.max(8,(window.innerWidth-w)/2)+'px';
-      panel.style.top='92px';
+      panel.style.top='120px';
       panel.style.right='auto';panel.style.bottom='auto';
     });
   close.onclick=hide;modal.addEventListener('click',e=>{if(e.target===modal)hide()});button.addEventListener('click',e=>{e.preventDefault();show()});
@@ -34,8 +34,6 @@
 (() => {
   const panel = document.getElementById('messages-overlay-panel');
   if (!panel) return;
-  const saved = localStorage.getItem('hardle-messages-position');
-  if (saved) { try { const p=JSON.parse(saved); panel.style.left=p.left+'px'; panel.style.top=p.top+'px'; panel.style.right='auto'; panel.style.bottom='auto'; } catch(e) {} }
   let dragging=false, ox=0, oy=0;
   panel.addEventListener('pointerdown', e => {
     if (e.target.closest('button, a, input, textarea, select')) return;
@@ -44,8 +42,8 @@
   });
   panel.addEventListener('pointermove', e => {
     if (!dragging) return;
-    const x=Math.max(0,Math.min(window.innerWidth-panel.offsetWidth,e.clientX-ox));
-    const y=Math.max(0,Math.min(window.innerHeight-panel.offsetHeight,e.clientY-oy));
+    const x=Math.max(8,Math.min(window.innerWidth-panel.offsetWidth-8,e.clientX-ox));
+    const y=Math.max(120,Math.min(window.innerHeight-panel.offsetHeight-8,e.clientY-oy));
     panel.style.left=x+'px'; panel.style.top=y+'px'; panel.style.right='auto'; panel.style.bottom='auto';
   });
   panel.addEventListener('pointerup', () => { if(dragging){dragging=false; const r=panel.getBoundingClientRect(); localStorage.setItem('hardle-messages-position',JSON.stringify({left:r.left,top:r.top}));} });
