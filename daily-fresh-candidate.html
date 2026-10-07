@@ -500,7 +500,7 @@ async function submitOriginalServerGuess(){
  if(authoritativeBusy||gameOver)return;
  const index=Number(guessInput.dataset.song),selected=songs[index];
  if(!authoritativeDaily.pending&&!selected)return;
- authoritativeBusy=true;guessSubmit.disabled=true;guessCount.textContent="Checking guess…";stopClip();
+ authoritativeBusy=true;guessSubmit.disabled=true;stopClip();
  try{
  let id=authoritativeDaily.pending?.guess;
  if(!id){id=serverSongIds[selected[0]+'\x00'+selected[1]];if(!id)throw Error('Track not found on game server')}
