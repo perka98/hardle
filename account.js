@@ -50,7 +50,9 @@ $('custom-avatar').addEventListener('change',async()=>{
     const reader=new FileReader();reader.onload=()=>{$('custom-avatar-preview').src=reader.result};reader.readAsDataURL(file);
     $('message').textContent='✓ Image looks suitable.';
   }catch(error){
-    avatarModerationState='blocked';$('custom-avatar').value='';$('custom-avatar-preview').src=avatarSrc(session?.user?.user_metadata?.avatar||'avatar-01.svg');$('message').textContent=error.message;
+    avatarModerationState='idle';
+    $('custom-avatar-preview').src=avatarSrc(session?.user?.user_metadata?.avatar||'avatar-01.svg');
+    $('message').textContent=error.message||'Could not check this image. Please try again.';
   }
 });
 async function authenticate(register){if(!$('auth-form').reportValidity())return;const username=$('username').value.trim();if(register&&!/^[A-Za-z0-9_]{3,24}$/.test(username)){$('message').textContent='Username must be 3–24 letters, numbers or underscores.';return}$('message').textContent='Please wait…';try{const data=await request(register?'/auth/v1/signup':'/auth/v1/token?grant_type=password',{email:$('email').value.trim(),password:$('password').value,...(register?{data:{username}}:{})});$('password').value='';if(data.access_token){session=data;localStorage.setItem('hardle-auth-v1',JSON.stringify(session));sessionStorage.removeItem('hardle-auth-v1');const profileName=session.user?.user_metadata?.username;if(profileName){try{await request('/rest/v1/rpc/hardle_register_profile',{p_username:profileName},session.access_token)}catch{ $('message').textContent='Signed in. Leaderboard profile could not be registered; check your username.';render();return}}$('message').textContent='Signed in.'}else $('message').textContent='Check your email to confirm your account, then sign in.';render()}catch(error){$('message').textContent=error.message}}
