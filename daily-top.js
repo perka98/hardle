@@ -55,7 +55,7 @@
     if(!response.ok)throw Error();
     const rows=await response.json();const top=Array.isArray(rows)?rows.filter(row=>row?.username&&row?.user_id&&Number.isFinite(Number(row.score))).sort((a,b)=>Number(b.score)-Number(a.score)).slice(0,1):[];
     if(top.length){
-      const row=top[0];winner.innerHTML='<div class="lmLabel">Last Month’s Winner</div><div class="lmRow"><img class="lmAvatar" src="'+avatarSrc(row.avatar)+'" alt=""><span class="lmName">'+esc(row.username)+'</span><b class="lmScore">'+Number(row.score).toLocaleString('en-US')+'</b></div>';winner.hidden=false;
+      const row=top[0];winner.innerHTML='<div class="lmLabel">Last Month’s Winner</div><div class="lmRow"><span class="lmAvatarWrap"><img class="lmAvatar" src="'+avatarSrc(row.avatar)+'" alt=""><span class="crown" aria-hidden="true">👑</span></span><span class="lmName">'+esc(row.username)+'</span><b class="lmScore">'+Number(row.score).toLocaleString('en-US')+'</b></div>';winner.hidden=false;
     }
   }catch{}
   try{
