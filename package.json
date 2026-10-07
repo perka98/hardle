@@ -7,8 +7,8 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "node tests/security.test.js && node tests/rules.test.js && node tests/submissions.test.js && node tests/puzzles.test.js && node tests/client.test.js && node tests/api.test.js && node tests/song-feedback.test.js && node tests/provision.test.js && node tests/client-concurrency.test.js && node tests/search.test.js && node tests/auth.test.js && node tests/client-mutation.test.js && node tests/game-limits.test.js && node tests/regular-games.test.js && node tests/client-account.test.js && node tests/preview-isolation.test.js && node tests/client-refresh.test.js",
-    "test:integration": "node checks/orderdle-dom.cjs && node checks/djdle-dom.cjs && node checks/artist-dom.cjs && node checks/daily-dom.cjs && node checks/daily-player.cjs && node checks/daily-youtube.cjs",
+    "test": "node tests/security.test.js && node tests/rules.test.js && node tests/submissions.test.js && node tests/puzzles.test.js && node tests/client.test.js && node tests/api.test.js && node tests/song-feedback.test.js && node tests/provision.test.js && node tests/client-concurrency.test.js && node tests/search.test.js && node tests/auth.test.js && node tests/client-mutation.test.js && node tests/game-limits.test.js && node tests/regular-games.test.js && node tests/client-account.test.js && node tests/preview-isolation.test.js && node tests/client-refresh.test.js && node tests/private-routing.test.js",
+    "test:integration": "node checks/orderdle-dom.cjs && node checks/djdle-dom.cjs && node checks/artist-dom.cjs && node checks/daily-dom.cjs && node checks/daily-player.cjs && node checks/daily-youtube.cjs && node checks/daily-fresh.cjs && node checks/candidate-menu.cjs",
     "check": "npm test && npm run test:integration"
   },
   "repository": {
