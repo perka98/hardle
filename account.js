@@ -16,9 +16,25 @@ function setAvatarPreview(value){const src=avatarSrc(value);const a=$('account-a
 async function resizeAvatar(file){const bitmap=await createImageBitmap(file);const size=256;const canvas=document.createElement('canvas');canvas.width=size;canvas.height=size;const ctx=canvas.getContext('2d');const scale=Math.max(size/bitmap.width,size/bitmap.height);const w=bitmap.width*scale,h=bitmap.height*scale;ctx.drawImage(bitmap,(size-w)/2,(size-h)/2,w,h);bitmap.close();const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/jpeg',0.9));if(!blob)throw Error('Could not process image');return new File([blob],'avatar.jpg',{type:'image/jpeg'})}
 $('custom-avatar').addEventListener('change',async()=>{const file=$('custom-avatar').files?.[0];$('avatar-error').textContent='';if(!file)return;if(file.size>5242880){$('avatar-error').textContent='Image must be 5 MB or smaller.';$('custom-avatar').value='';return}if(!file.type.startsWith('image/')){$('avatar-error').textContent='Please choose an image file.';$('custom-avatar').value='';return}try{const processed=await resizeAvatar(file);const reader=new FileReader();reader.onload=()=>{$('custom-avatar-preview').src=reader.result};reader.readAsDataURL(processed);$('message').textContent='Image selected and resized.'}catch(error){$('avatar-error').textContent=error.message;$('custom-avatar').value=''}});async function authenticate(register){if(!$('auth-form').reportValidity())return;const username=$('username').value.trim();if(register&&!/^[A-Za-z0-9_]{3,24}$/.test(username)){$('message').textContent='Username must be 3–24 letters, numbers or underscores.';return}$('message').textContent='Please wait…';try{const data=await request(register?'/auth/v1/signup':'/auth/v1/token?grant_type=password',{email:$('email').value.trim(),password:$('password').value,...(register?{data:{username},redirect_to:'https://hardle.app/account?mode=signin'}:{})});$('password').value='';if(data.access_token){session=data;localStorage.setItem('hardle-auth-v1',JSON.stringify(session));sessionStorage.removeItem('hardle-auth-v1');const profileName=session.user?.user_metadata?.username;if(profileName){try{await request('/rest/v1/rpc/hardle_register_profile',{p_username:profileName},session.access_token)}catch{ $('message').textContent='Signed in. Leaderboard profile could not be registered; check your username.';render();return}}$('message').textContent='Signed in.';window.location.href='/'}else { $('message').textContent='Check your email to confirm your account, then sign in.'; $('resend-verification').hidden=false; render() }}catch(error){$('message').textContent=error.message}}
 function setAuthMode(register){const form=$('auth-form');$('resend-verification').hidden=true;$('username-field').hidden=!register;form.dataset.mode=register?'register':'signin';form.querySelector('.authPrimary').textContent=register?'Create account':'Sign in';$('register').textContent=register?'Sign in':'Create account';$('message').textContent=''}
+let usernameCheckTimer=null;
+async function checkUsernameAvailability(){
+ const input=$('username'), message=$('username-availability');
+ if(!input||$('auth-form').dataset.mode!=='register')return true;
+ const username=input.value.trim();
+ if(!username){if(message)message.textContent='';return true}
+ if(!/^[A-Za-z0-9_]{3,24}$/.test(username)){if(message)message.textContent='';return true}
+ try{
+  const available=await request('/rest/v1/rpc/hardle_username_available',{p_username:username});
+  if(message)message.textContent=available?'':'Username already taken';
+  input.setCustomValidity(available?'':'Username already taken');
+  return !!available;
+ }catch{return true}
+}
 $('auth-form').onsubmit=e=>{e.preventDefault();authenticate($('auth-form').dataset.mode==='register')};$('auth-form').insertAdjacentHTML('beforeend','<button id="resend-verification" class="authSecondary" type="button" hidden>Resend verification email</button>');
 $('resend-verification').onclick=async()=>{const email=$('email').value.trim();if(!email){$('message').textContent='Enter your email first.';return}$('resend-verification').disabled=true;$('message').textContent='Sending verification email…';try{await request('/auth/v1/resend',{type:'signup',email});$('message').textContent='Verification email sent. Check your inbox.'}catch(error){$('message').textContent=error.message}finally{$('resend-verification').disabled=false}};
 
+$('username').addEventListener('blur',checkUsernameAvailability);
+$('username').addEventListener('input',()=>{$('username').setCustomValidity('');const m=$('username-availability');if(m)m.textContent='';});
 $('register').onclick=()=>setAuthMode($('auth-form').dataset.mode!=='register');
 setAuthMode(new URLSearchParams(window.location.search).get('mode')==='register');
 $('sign-out').onclick=async()=>{try{if(session?.access_token)await request('/auth/v1/logout',{},session.access_token)}catch{}session=null;sessionStorage.removeItem('hardle-auth-v1');localStorage.removeItem('hardle-auth-v1');if(session?.user?.id)localStorage.removeItem('hardle-profile-v1-'+session.user.id);render();$('message').textContent='Signed out.'};
