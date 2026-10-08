@@ -427,7 +427,7 @@ let DAILY_INDEX;const MAX_GUESSES=6;let target,guesses=0,gameOver=false,won=fals
   if(!response.ok)return;
   const data=await response.json();
   if(data.spotify_url&&spotifyBtn){currentSpotifyUrl=data.spotify_url;spotifyBtn.href=data.spotify_url;spotifyBtn.target='_blank';}
-  if(data.thumbnail_url){correctCover.src=data.thumbnail_url;correctCover.alt=title+' — '+artist;correctCover.onload=()=>{correctCover.hidden=false;correctCover.parentElement.hidden=false};correctCover.onerror=()=>{correctCover.hidden=true;correctCover.parentElement.hidden=true};}
+  if(data.thumbnail_url){correctCover.alt=title+' — '+artist;correctCover.onload=()=>{correctCover.hidden=false;correctCover.parentElement.hidden=false};correctCover.onerror=()=>{correctCover.hidden=true;correctCover.parentElement.hidden=true};correctCover.src=data.thumbnail_url;}
  }catch(e){console.warn('Daily result artwork failed',e)}
 }
 

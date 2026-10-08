@@ -44,7 +44,7 @@ module.exports = async function handler(req, res) {
               if (fallbackImage) return res.status(200).json({ thumbnail_url: fallbackImage, spotify_url: spotifyUrl });
             }
           } catch {}
-          continue;
+          return res.status(200).json({ thumbnail_url: null, spotify_url: spotifyUrl });
         }
       }
     }
@@ -87,6 +87,7 @@ module.exports = async function handler(req, res) {
     }
     const spotifySearchUrl='https://open.spotify.com/search/'+encodeURIComponent(title+' '+artist);
     return res.status(200).json({ thumbnail_url: null, spotify_url: spotifySearchUrl });
+  } catch (error) {
     console.error('Spotify artwork search failed:', error.message);
     return res.status(502).json({ error: 'Spotify search unavailable' });
   }
