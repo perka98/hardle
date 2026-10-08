@@ -80,7 +80,7 @@ module.exports = async function handler(req, res) {
             && (!wantedArtists.length || wantedArtists.some(w => a === w || a.includes(w) || w.includes(a)));
         }) || items.find(item => titleVariants.some(v => norm(v) === norm(item.trackName || '')));
         const image = String(match?.artworkUrl100 || '').replace(/100x100/g, '600x600');
-        if (image && /^https:\\/\\//.test(image)) return res.status(200).json({ thumbnail_url: image });
+        if (image && String(image).startsWith('https://')) return res.status(200).json({ thumbnail_url: image });
       }
     } catch (itunesError) {
       console.warn('iTunes artwork fallback failed:', itunesError.message);
