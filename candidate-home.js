@@ -69,7 +69,10 @@
       const user = await response.json();
       if (current !== revision || !user.id) return;
       let avatarUrl = '/data/avatars/avatar-01.svg';
-      const avatar = user.user_metadata?.avatar || 'avatar-01.svg';
+      let savedProfile = {};
+      try { savedProfile = JSON.parse(localStorage.getItem('hardle-profile-v1-' + user.id) || '{}'); } catch {}
+      const profile = { ...(user.user_metadata || {}), ...savedProfile };
+      const avatar = profile.avatar || 'avatar-01.svg';
       if (/^avatar-0[1-8]\.svg$/.test(avatar)) avatarUrl = '/data/avatars/' + avatar;
       else if (avatar.startsWith('custom/')) avatarUrl = config.url + '/storage/v1/object/public/hardle-avatars/' + avatar.replace(/^custom\//, '');
       await revealAccountBar(avatarUrl);
