@@ -38,7 +38,7 @@ async function checkUsernameAvailability(){
  }catch{return true}
 }
 $('auth-form').onsubmit=e=>{e.preventDefault();authenticate($('auth-form').dataset.mode==='register')};$('auth-form').insertAdjacentHTML('beforeend','<button id="resend-verification" class="authSecondary" type="button" hidden>Resend verification email</button>');
-$('resend-verification').onclick=async()=>{const email=$('email').value.trim();if(!email){$('message').textContent='Enter your email first.';return}$('resend-verification').disabled=true;$('message').textContent='Sending verification email…';try{await request('/auth/v1/resend',{type:'signup',email});$('message').textContent='Verification email sent. Check your inbox.'}catch(error){$('message').textContent=error.message}finally{$('resend-verification').disabled=false}};
+$('resend-verification').onclick=async()=>{const email=$('email').value.trim();if(!email){$('message').textContent='Enter your email first.';return}$('resend-verification').disabled=true;$('message').textContent='Sending verification email…';try{await request('/auth/v1/resend',{type:'signup',email,redirect_to:'https://hardle.app/account?mode=signin'});$('message').textContent='Verification email sent. Check your inbox.'}catch(error){$('message').textContent=error.message}finally{$('resend-verification').disabled=false}};
 
 $('username').addEventListener('blur',checkUsernameAvailability);
 $('username').addEventListener('input',()=>{$('username').setCustomValidity('');const m=$('username-availability');if(m)m.textContent='';});
