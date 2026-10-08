@@ -78,6 +78,39 @@
       revealAccountBar();
     } catch { revealAccountBar(); }
   }
-  // Resolve auth once per page load. Avoid re-running on pageshow/focus, which can cause visible flicker.
+  async function consumeAuthRedirect() {
+    const hash = window.location.hash.replace(/^#/, '');
+    if (!hash || !config) return false;
+    const params = new URLSearchParams(hash);
+    const accessToken = params.get('access_token');
+    const refreshToken = params.get('refresh_token');
+    if (!accessToken || !refreshToken) return false;
+    try {
+      const response = await fetch(config.url + '/auth/v1/user', {
+        headers: { apikey: config.key, Authorization: 'Bearer ' + accessToken },
+        signal: AbortSignal.timeout(10000)
+      });
+      if (!response.ok) return false;
+      const user = await response.json();
+      if (!user?.id) return false;
+      const nextSession = {
+        access_token: accessToken,
+        refresh_token: refreshToken,
+        token_type: params.get('token_type') || 'bearer',
+        expires_in: Number(params.get('expires_in')) || 3600,
+        expires_at: Number(params.get('expires_at')) || Math.floor(Date.now() / 1000) + (Number(params.get('expires_in')) || 3600),
+        user
+      };
+      localStorage.setItem('hardle-auth-v1', JSON.stringify(nextSession));
+      sessionStorage.removeItem('hardle-auth-v1');
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+      return true;
+    } catch {
+      return false;
+    }
+  }
+  // Supabase confirmation links can return the verified session in the URL hash.
+  // Capture it before rendering the menu so email verification also signs the user in.
+  await consumeAuthRedirect();
   await update();
 })();
