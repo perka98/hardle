@@ -17,10 +17,16 @@ function createSubmit(runTransaction){return async function submit({player,userI
   const previous=history.rows.map(r=>({canonical:r.guess.canonical,won:r.feedback.won}));
   const evaluated=evaluate({game,solution:secret.answer,guess,previous,accepted:new Set(secret.accepted||[])});
   if(game==='daily'){const guessed=secret.catalog.find(x=>x.id===evaluated.canonical),answer=secret.catalog.find(x=>x.id===secret.answer);if(!guessed||!answer)throw Error('Puzzle data invalid');evaluated.feedback=songFeedback.feedback(guessed,answer)}
+  if(game==='daily'&&!s.play_started_at)throw Error('Play the track first');
   const response={feedback:evaluated.feedback,won:evaluated.won,attempts:evaluated.attempts,completed:evaluated.completed,score:evaluated.score};
-  // Daily and Guess the Artist use a small server-side time modifier to break score ties.
-  // The modifier can only reduce a score, is capped at 100 points, and never affects losses.
-  if(evaluated.completed&&evaluated.won&&(game==='daily'||game==='artist')){
+  // Daily keeps the existing attempt score, then applies a time multiplier.
+  // Up to 5 seconds is full credit; after that, each second removes 1%.
+  if(evaluated.completed&&evaluated.won&&game==='daily'){
+   const elapsedSec=Math.max(0,(Date.now()-new Date(s.play_started_at).getTime())/1000);
+   const timeMultiplier=Math.max(0,1-Math.max(0,elapsedSec-5)*0.01);
+   response.score=Math.max(0,Math.round(evaluated.score*timeMultiplier));
+  }
+  if(evaluated.completed&&evaluated.won&&game==='artist'){
    const elapsedMs=Math.max(0,Date.now()-new Date(s.started_at).getTime());
    const elapsedSec=Math.floor(elapsedMs/1000);
    const timePenalty=Math.min(100,Math.max(0,elapsedSec-10));
@@ -32,7 +38,7 @@ function createSubmit(runTransaction){return async function submit({player,userI
   if(evaluated.completed)response.answer=secret.reveal;
   await client.query('insert into hardle_private.guesses(session_id,attempt,request_id,guess,feedback) values($1,$2,$3,$4,$5)',[s.id,evaluated.attempts,requestId,{canonical:evaluated.canonical},response]);
   await client.query('update hardle_private.sessions set attempts=$2,completed=$3 where id=$1',[s.id,evaluated.attempts,evaluated.completed]);
-  if(evaluated.completed){await client.query('insert into hardle_private.results(session_id,player_id,user_id,puzzle_date,game,score,won,attempts) values($1,$2,$3,$4,$5,$6,$7,$8)',[s.id,player,userId,date,game,evaluated.score,evaluated.won,evaluated.attempts]);if(Date.now()-new Date(s.started_at).getTime()<1000)await client.query('insert into hardle_private.review_flags(session_id,category,detail) values($1,$2,$3)',[s.id,'fast_completion',{elapsedMs:Date.now()-new Date(s.started_at).getTime()}])}
+  if(evaluated.completed){await client.query('insert into hardle_private.results(session_id,player_id,user_id,puzzle_date,game,score,won,attempts) values($1,$2,$3,$4,$5,$6,$7,$8)',[s.id,player,userId,date,game,response.score,evaluated.won,evaluated.attempts]);if(Date.now()-new Date(s.started_at).getTime()<1000)await client.query('insert into hardle_private.review_flags(session_id,category,detail) values($1,$2,$3)',[s.id,'fast_completion',{elapsedMs:Date.now()-new Date(s.started_at).getTime()}])}
   return response;
  });
 };}
