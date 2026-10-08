@@ -25,6 +25,7 @@ function createSubmit(runTransaction){return async function submit({player,userI
    const elapsedSec=Math.max(0,(Date.now()-new Date(s.play_started_at).getTime())/1000);
    const timeMultiplier=Math.max(0,1-Math.max(0,elapsedSec-5)*0.01);
    response.score=Math.max(0,Math.round(evaluated.score*timeMultiplier));
+   response.timeSec=Math.round(elapsedSec*10)/10;
   }
   if(evaluated.completed&&evaluated.won&&game==='artist'){
    const elapsedMs=Math.max(0,Date.now()-new Date(s.started_at).getTime());
