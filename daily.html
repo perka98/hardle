@@ -484,7 +484,7 @@ async function submitOriginalServerGuess(){
  if(!id){id=serverSongIds[selected[0]+'\x00'+selected[1]];if(!id)throw Error('Track not found on game server')}
  const data=await authoritativeDaily.guess(id);appendServerGuess(data);guesses=data.attempts;
  if(selected)guessedTracks.add(trackIdentity(selected));guessInput.value='';delete guessInput.dataset.song;results.replaceChildren();guessCount.textContent=guesses+'/6 guesses';updateClipUI();
- if(data.completed){gameOver=true;won=data.won;stopSolveTimer();guessInput.disabled=true;if(data.answer){target=[data.answer.title,data.answer.artist,data.answer.country,data.answer.genre,data.answer.year];correctScore.textContent=data.score;revealCoverArt();getServerResult(data)}}
+ if(data.completed){gameOver=true;won=data.won;stopSolveTimer();guessInput.disabled=true;if(data.answer){target=[data.answer.title,data.answer.artist,data.answer.country,data.answer.genre,data.answer.year];correctScore.textContent=data.score;getServerResult(data)}}
  }catch(error){guessCount.textContent=error.message}
  finally{authoritativeBusy=false;guessSubmit.disabled=gameOver}
 }
