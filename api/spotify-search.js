@@ -20,7 +20,7 @@ module.exports = async function handler(req, res) {
           const item = raw.track || raw;
           const actualArtists = (item.artists || []).flatMap(a => artists(a.name || a));
           const actualTitle = norm(item.name || item.title);
-          return titleVariants.some(t => norm(t) === actualTitle) && wantedArtists.every(a => actualArtists.includes(a));
+          return titleVariants.some(t => norm(t) === actualTitle) && (wantedArtists.length===0 || wantedArtists.some(a => actualArtists.includes(a)));
         });
         if (!match) continue;
         const item = match.track || match;
