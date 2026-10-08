@@ -54,7 +54,7 @@
     let session;
     try { session = JSON.parse(localStorage.getItem('hardle-auth-v1') || 'null'); } catch { return; }
     if (!session?.access_token || !config) {
-      revealAccountBar('/data/avatars/avatar-01.svg')
+      revealAccountBar()
       return;
     }
     try {
