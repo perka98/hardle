@@ -45,7 +45,7 @@ $('username').addEventListener('input',()=>{$('username').setCustomValidity('');
 $('register').onclick=()=>setAuthMode($('auth-form').dataset.mode!=='register');
 setAuthMode(new URLSearchParams(window.location.search).get('mode')==='register');
 $('sign-out').onclick=async()=>{try{if(session?.access_token)await request('/auth/v1/logout',{},session.access_token)}catch{}session=null;sessionStorage.removeItem('hardle-auth-v1');localStorage.removeItem('hardle-auth-v1');if(session?.user?.id)localStorage.removeItem('hardle-profile-v1-'+session.user.id);render();$('message').textContent='Signed out.'};
-(async()=>{if(session?.access_token){try{session.user=await request('/auth/v1/user',null,session.access_token)}catch{session=null;sessionStorage.removeItem('hardle-auth-v1');localStorage.removeItem('hardle-auth-v1')}}render()})();
+(async()=>{if(session?.access_token){try{session.user=await request('/auth/v1/user',null,session.access_token)}catch{session=null;sessionStorage.removeItem('hardle-auth-v1');localStorage.removeItem('hardle-auth-v1')}}render();document.body.classList.remove('authPending')})();
 
 async function loadVerifiedStats(){
  const revision=++statsRevision;
