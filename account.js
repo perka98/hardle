@@ -25,8 +25,8 @@ async function checkUsernameAvailability(){
  if(!/^[A-Za-z0-9_]{3,24}$/.test(username)){if(message)message.textContent='';return true}
  try{
   const available=await request('/rest/v1/rpc/hardle_username_available',{p_username:username});
-  if(message)message.textContent=available?'':'Username already taken';
-  input.setCustomValidity(available?'':'Username already taken');
+  if(message)message.textContent=available?'':'Username already taken or not allowed';
+  input.setCustomValidity(available?'':'Username already taken or not allowed');
   return !!available;
  }catch{return true}
 }
