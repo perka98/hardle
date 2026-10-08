@@ -504,6 +504,10 @@ async function submitOriginalServerGuess(){
  if(!authoritativeDaily.pending&&!selected)return;
  authoritativeBusy=true;guessSubmit.disabled=true;stopClip();
  try{
+  if(!gameOver&&!solveStartedAt){
+   const startedAt=await authoritativeDaily.play();
+   if(startedAt)startSolveTimer(startedAt);
+  }
  let id=authoritativeDaily.pending?.guess;
  if(!id){id=serverSongIds[selected[0]+'\x00'+selected[1]];if(!id)throw Error('Track not found on game server')}
  const data=await authoritativeDaily.guess(id);appendServerGuess(data);guesses=data.attempts;
