@@ -20,7 +20,7 @@ module.exports = async function handler(req, res) {
           const item = raw.track || raw;
           const actualArtists = (item.artists || []).flatMap(a => artists(a.name || a));
           const actualTitle = norm(item.name || item.title);
-          return titleVariants.some(t => norm(t) === actualTitle) && (wantedArtists.length===0 || wantedArtists.some(a => actualArtists.includes(a)));
+          const actualBase=norm(String(item.name || item.title || '').replace(/\s*\([^)]*\)/g,'').trim());\n          const titleMatch=titleVariants.some(t => norm(t) === actualTitle || norm(t) === actualBase);\n          const artistMatch=wantedArtists.length===0 || wantedArtists.some(a => actualArtists.includes(a));\n          return titleMatch && artistMatch;
         });
         if (!match) continue;
         const item = match.track || match;
