@@ -78,7 +78,6 @@
       revealAccountBar();
     } catch { revealAccountBar(); }
   }
-  window.addEventListener('pageshow', update);
-  window.addEventListener('focus', update);
+  // Resolve auth once per page load. Avoid re-running on pageshow/focus, which can cause visible flicker.
   await update();
 })();
