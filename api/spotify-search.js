@@ -85,7 +85,7 @@ module.exports = async function handler(req, res) {
     } catch (itunesError) {
       console.warn('iTunes artwork fallback failed:', itunesError.message);
     }
-    return res.status(404).json({ error: 'No matching artwork' });
+    const spotifySearchUrl='https://open.spotify.com/search/'+encodeURIComponent(title+' '+artist);\n    return res.status(200).json({ thumbnail_url: null, spotify_url: spotifySearchUrl });
   } catch (error) {
     console.error('Spotify artwork search failed:', error.message);
     return res.status(502).json({ error: 'Spotify search unavailable' });
