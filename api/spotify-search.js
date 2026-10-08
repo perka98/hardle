@@ -44,7 +44,7 @@ module.exports = async function handler(req, res) {
               if (fallbackImage) return res.status(200).json({ thumbnail_url: fallbackImage, spotify_url: spotifyUrl });
             }
           } catch {}
-          return res.status(200).json({ thumbnail_url: null, spotify_url: spotifyUrl });
+          continue;
         }
       }
     }
