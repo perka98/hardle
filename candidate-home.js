@@ -7,6 +7,7 @@
   const profileLink = document.getElementById('home-profile-link');
   const accountBar = document.getElementById('home-account-bar');
   const registerButton = document.getElementById('home-register');
+  function revealAccountBar() { if (accountBar) { accountBar.classList.remove('authChecking'); accountBar.style.visibility = 'visible'; } }
   let signOutButton = null;
   function ensureSignOutButton() {
     if (signOutButton) return signOutButton;
@@ -43,7 +44,7 @@
     let session;
     try { session = JSON.parse(localStorage.getItem('hardle-auth-v1') || 'null'); } catch { return; }
     if (!session?.access_token || !config) {
-      if (accountBar) { accountBar.classList.remove('authChecking'); accountBar.style.visibility='visible'; }
+      revealAccountBar()
       return;
     }
     try {
@@ -52,7 +53,7 @@
         signal: AbortSignal.timeout(10000)
       });
       if (!response.ok) {
-        if (accountBar) accountBar.classList.remove('authChecking');
+        revealAccountBar()
         return;
       }
       const user = await response.json();
@@ -61,7 +62,7 @@
       if (signInButton) { signInButton.textContent = 'You are signed in'; signInButton.removeAttribute('href'); signInButton.setAttribute('aria-disabled','true'); signInButton.style.pointerEvents = 'none'; } if (registerButton) registerButton.hidden = true;
       ensureSignOutButton();
       if (accountBar) accountBar.classList.remove('authChecking');
-    } catch { /* Do not claim a verified login when verification fails. */ }
+    } catch { revealAccountBar(); }
   }
   window.addEventListener('pageshow', update);
   window.addEventListener('focus', update);
