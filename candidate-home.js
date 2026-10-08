@@ -61,7 +61,7 @@
       if (profileAvatar) { const avatar = user.user_metadata?.avatar || 'avatar-01.svg'; profileAvatar.src = /^avatar-0[1-8]\.svg$/.test(avatar) ? '/data/avatars/' + avatar : avatar.startsWith('custom/') ? config.url + '/storage/v1/object/public/hardle-avatars/' + avatar.replace(/^custom\//, '') : '/data/avatars/avatar-01.svg'; }
       if (signInButton) { signInButton.textContent = 'You are signed in'; signInButton.removeAttribute('href'); signInButton.setAttribute('aria-disabled','true'); signInButton.style.pointerEvents = 'none'; } if (registerButton) registerButton.hidden = true;
       ensureSignOutButton();
-      if (accountBar) accountBar.classList.remove('authChecking');
+      revealAccountBar();
     } catch { revealAccountBar(); }
   }
   window.addEventListener('pageshow', update);
