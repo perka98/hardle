@@ -18,6 +18,11 @@ module.exports=async(req,res)=>{
  }
  if(data.game==='daily'){
  const catalog=require('../server/private/songs.json');
+ if(session.rows[0]?.completed&&session.rows[0]?.result){
+  const timing=await db.query("select feedback->>'timeSec' as time_sec from hardle_private.guesses where session_id=$1 and feedback->>'won'='true' and feedback->>'timeSec' is not null order by attempt desc limit 1",[session.rows[0].id]);
+  const timeSec=Number(timing.rows[0]?.time_sec);
+  if(Number.isFinite(timeSec))session.rows[0].result={...session.rows[0].result,timeSec};
+ }
  const names=new Map(catalog.map(item=>[item.id,item]));
  for(const previous of session.rows[0]?.guesses||[]){const item=names.get(previous.guess?.canonical);if(item)previous.feedback={...previous.feedback,guessed:{title:item.title,artist:item.artist,country:item.country,genre:item.genre,year:item.year}}}
  const result=session.rows[0]?.result;
