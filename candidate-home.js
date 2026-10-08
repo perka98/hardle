@@ -35,7 +35,7 @@
     if (signOutButton) { signOutButton.remove(); signOutButton = null; }
     if (profileAvatar) profileAvatar.src = '/data/avatars/avatar-01.svg';
     status.textContent = '';
-    if (signInButton) signInButton.textContent = 'Sign in';
+    if (signInButton) { signInButton.textContent = 'Sign in'; signInButton.href = '/account?mode=signin'; signInButton.style.pointerEvents = ''; signInButton.removeAttribute('aria-disabled'); }
     let session;
     try { session = JSON.parse(localStorage.getItem('hardle-auth-v1') || 'null'); } catch { return; }
     if (!session?.access_token || !config) return;
@@ -48,7 +48,7 @@
       const user = await response.json();
       if (current !== revision || !user.id) return;
       if (profileAvatar) { const avatar = user.user_metadata?.avatar || 'avatar-01.svg'; profileAvatar.src = /^avatar-0[1-8]\.svg$/.test(avatar) ? '/data/avatars/' + avatar : avatar.startsWith('custom/') ? config.url + '/storage/v1/object/public/hardle-avatars/' + avatar.replace(/^custom\//, '') : '/data/avatars/avatar-01.svg'; }
-      if (signInButton) signInButton.textContent = 'You are signed in';
+      if (signInButton) { signInButton.textContent = 'You are signed in'; signInButton.removeAttribute('href'); signInButton.setAttribute('aria-disabled','true'); signInButton.style.pointerEvents = 'none'; }
       ensureSignOutButton();
     } catch { /* Do not claim a verified login when verification fails. */ }
   }
