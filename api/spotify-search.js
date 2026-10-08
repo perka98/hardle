@@ -34,7 +34,7 @@ module.exports = async function handler(req, res) {
       }
     }
     }
-    return res.status(404).json({ error: 'No matching Spotify artwork' });
+    // Fallback: Deezer's public search API often has cover art even when the Spotify search proxy fails.\n    try {\n      const deezerQuery = encodeURIComponent(title + ' ' + artist);\n      const response = await fetch('https://api.deezer.com/search?q=' + deezerQuery + '&limit=25', { signal: AbortSignal.timeout(6000) });\n      if (response.ok) {\n        const data = await response.json();\n        const items = Array.isArray(data.data) ? data.data : [];\n        const match = items.find(item => {\n          const t = norm(item.title);\n          const a = norm(item.artist?.name || '');\n          return titleVariants.some(v => norm(v) === t) && (!wantedArtists.length || wantedArtists.some(w => a === w || a.includes(w) || w.includes(a)));\n        }) || items.find(item => titleVariants.some(v => norm(v) === norm(item.title)));\n        const image = match?.album?.cover_xl || match?.album?.cover_big || match?.album?.cover_medium;\n        if (image && /^https:\\/\\//.test(image)) return res.status(200).json({ thumbnail_url: image });\n      }\n    } catch (fallbackError) {\n      console.warn('Deezer artwork fallback failed:', fallbackError.message);\n    }\n    return res.status(404).json({ error: 'No matching Spotify artwork' });
   } catch (error) {
     console.error('Spotify artwork search failed:', error.message);
     return res.status(502).json({ error: 'Spotify search unavailable' });
