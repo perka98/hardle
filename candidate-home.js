@@ -2,7 +2,7 @@
 (async function () {
   const status = document.getElementById('home-account-status');
   const config = window.HardleAccountConfig;
-  const signInButton = document.querySelector('a[href="/account?mode=signin"]');
+  const signInButton = document.getElementById('home-signin');
   const profileAvatar = document.getElementById('home-profile-avatar');
   let signOutButton = null;
   function ensureSignOutButton() {
