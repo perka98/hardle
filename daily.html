@@ -522,7 +522,7 @@ async function submitOriginalServerGuess(){
  }catch(error){guessCount.textContent=error.message}
  finally{authoritativeBusy=false;guessSubmit.disabled=gameOver}
 }
-function getServerResult(data){if(data.completed&&data.won){if(Number.isFinite(Number(data.timeSec))){solveFinishedSec=Number(data.timeSec);renderSolveTime(solveFinishedSec)}else if(!solveFinishedSec&&solveStartedAt)stopSolveTimer()}verifiedRoundScore=data.score;try{const k='hardle-menu-result-'+new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Stockholm'}).format(new Date());localStorage.setItem(k,JSON.stringify({...JSON.parse(localStorage.getItem(k)||'{}'),daily:{won:!!data.won,score:Number(data.score)||0}}))}catch{}showCorrectPopup();correctScore.textContent=data.score;loadDailyAccountStats()}
+async function getServerResult(data){if(data.completed&&data.won){if(Number.isFinite(Number(data.timeSec))){solveFinishedSec=Number(data.timeSec);renderSolveTime(solveFinishedSec)}else if(!solveFinishedSec&&solveStartedAt)stopSolveTimer()}verifiedRoundScore=data.score;await revealCoverArt();try{const k='hardle-menu-result-'+new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Stockholm'}).format(new Date());localStorage.setItem(k,JSON.stringify({...JSON.parse(localStorage.getItem(k)||'{}'),daily:{won:!!data.won,score:Number(data.score)||0}}))}catch{}showCorrectPopup();correctScore.textContent=data.score;loadDailyAccountStats()}
 calculateScore=function(){return verifiedRoundScore??0};
 recordResult=async function(){};
 async function loadDailyAccountStats(){
