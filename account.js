@@ -18,7 +18,7 @@ $('custom-avatar').addEventListener('change',async()=>{const file=$('custom-avat
 function setAuthMode(register){const form=$('auth-form');$('username-field').hidden=!register;form.dataset.mode=register?'register':'signin';form.querySelector('.authPrimary').textContent=register?'Create account':'Sign in';$('register').textContent=register?'Sign in':'Create account';$('message').textContent=''}
 $('auth-form').onsubmit=e=>{e.preventDefault();authenticate($('auth-form').dataset.mode==='register')};
 $('register').onclick=()=>setAuthMode($('auth-form').dataset.mode!=='register');
-setAuthMode(false);
+setAuthMode(new URLSearchParams(window.location.search).get('mode')==='register');
 $('sign-out').onclick=async()=>{try{if(session?.access_token)await request('/auth/v1/logout',{},session.access_token)}catch{}session=null;sessionStorage.removeItem('hardle-auth-v1');localStorage.removeItem('hardle-auth-v1');if(session?.user?.id)localStorage.removeItem('hardle-profile-v1-'+session.user.id);render();$('message').textContent='Signed out.'};
 (async()=>{if(session?.access_token){try{session.user=await request('/auth/v1/user',null,session.access_token)}catch{session=null;sessionStorage.removeItem('hardle-auth-v1');localStorage.removeItem('hardle-auth-v1')}}render()})();
 
