@@ -27,14 +27,14 @@ module.exports = async function handler(req, res) {
         });
         if (!match) continue;
         const item = match.track || match;
-        const spotifyUrl = item.external_urls?.spotify || (item.id ? 'https://open.spotify.com/' + type + '/' + item.id : '');
+        const spotifyUrl = type === 'track' ? (item.external_urls?.spotify || (item.id ? 'https://open.spotify.com/track/' + item.id : '')) : '';
         let image = (type === 'track' ? item.album?.images : item.images)?.[0]?.url;
         if (!image && spotifyUrl) {
           const oe = await fetch('https://open.spotify.com/oembed?url=' + encodeURIComponent(spotifyUrl), { signal: AbortSignal.timeout(6000) });
           if (oe.ok) image = (await oe.json()).thumbnail_url;
         }
-        if (spotifyUrl && image) return res.status(200).json({ thumbnail_url: image, spotify_url: spotifyUrl });
-        if (spotifyUrl) {
+        if (image) return res.status(200).json({ thumbnail_url: image, ...(spotifyUrl ? { spotify_url: spotifyUrl } : {}) });
+        if (type === 'track' && spotifyUrl) {
           try {
             const deezer = await fetch('https://api.deezer.com/search?q=' + encodeURIComponent(title + ' ' + artist) + '&limit=25', { signal: AbortSignal.timeout(6000) });
             if (deezer.ok) {
