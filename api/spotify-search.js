@@ -30,7 +30,19 @@ module.exports = async function handler(req, res) {
           const oe = await fetch('https://open.spotify.com/oembed?url=' + encodeURIComponent(spotifyUrl), { signal: AbortSignal.timeout(6000) });
           if (oe.ok) image = (await oe.json()).thumbnail_url;
         }
-        if (spotifyUrl) return res.status(200).json({ thumbnail_url: image || null, spotify_url: spotifyUrl });
+        if (spotifyUrl && image) return res.status(200).json({ thumbnail_url: image, spotify_url: spotifyUrl });
+        if (spotifyUrl) {
+          try {
+            const deezer = await fetch('https://api.deezer.com/search?q=' + encodeURIComponent(title + ' ' + artist) + '&limit=25', { signal: AbortSignal.timeout(6000) });
+            if (deezer.ok) {
+              const dd = await deezer.json();
+              const di = (dd.data || []).find(x => titleVariants.some(v => norm(v) === norm(x.title)) && (!wantedArtists.length || wantedArtists.some(a => norm(x.artist?.name) === a)));
+              const fallbackImage = di?.album?.cover_xl || di?.album?.cover_big || di?.album?.cover_medium;
+              if (fallbackImage) return res.status(200).json({ thumbnail_url: fallbackImage, spotify_url: spotifyUrl });
+            }
+          } catch {}
+          return res.status(200).json({ thumbnail_url: null, spotify_url: spotifyUrl });
+        }
       }
     }
     }
