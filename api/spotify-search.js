@@ -67,7 +67,7 @@ module.exports = async function handler(req, res) {
     } catch (fallbackError) {
       console.warn('Deezer artwork fallback failed:', fallbackError.message);
     }
-    return res.status(404).json({ error: 'No matching Spotify artwork' });
+    // Final artwork fallback: iTunes Search API is public and usually has reliable cover art.\n    try {\n      const itunes = await fetch('https://itunes.apple.com/search?term=' + encodeURIComponent(title + ' ' + artist) + '&entity=song&limit=25', { signal: AbortSignal.timeout(6000) });\n      if (itunes.ok) {\n        const data = await itunes.json();\n        const items = Array.isArray(data.results) ? data.results : [];\n        const match = items.find(item => {\n          const t = norm(item.trackName || '');\n          const a = norm(item.artistName || '');\n          return titleVariants.some(v => norm(v) === t || norm(v) === norm(String(item.trackName || '').replace(/\\s*\\([^)]*\\)/g, '').trim()))\n            && (!wantedArtists.length || wantedArtists.some(w => a === w || a.includes(w) || w.includes(a)));\n        }) || items.find(item => titleVariants.some(v => norm(v) === norm(item.trackName || '')));\n        const image = String(match?.artworkUrl100 || '').replace(/100x100/g, '600x600');\n        if (image && /^https:\\/\\//.test(image)) return res.status(200).json({ thumbnail_url: image });\n      }\n    } catch (itunesError) {\n      console.warn('iTunes artwork fallback failed:', itunesError.message);\n    }\n    return res.status(404).json({ error: 'No matching artwork' });
   } catch (error) {
     console.error('Spotify artwork search failed:', error.message);
     return res.status(502).json({ error: 'Spotify search unavailable' });
