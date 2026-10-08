@@ -4,8 +4,16 @@
   const config = window.HardleAccountConfig;
   const signInButton = document.querySelector('a[href="/account?mode=signin"]');
   const profileAvatar = document.getElementById('home-profile-avatar');
-  const signOutButton = document.getElementById('home-sign-out');
-  signOutButton.onclick = async () => {
+  let signOutButton = null;
+  function ensureSignOutButton() {
+    if (signOutButton) return signOutButton;
+    signOutButton = document.createElement('button');
+    signOutButton.id = 'home-sign-out';
+    signOutButton.type = 'button';
+    signOutButton.className = 'accountBtn';
+    signOutButton.textContent = 'Sign out';
+    document.querySelector('.accountAuth')?.appendChild(signOutButton);
+    signOutButton.onclick = async () => {
     signOutButton.disabled = true;
     try {
       const session = JSON.parse(localStorage.getItem('hardle-auth-v1') || 'null');
@@ -17,12 +25,14 @@
     try { localStorage.removeItem('hardle-auth-v1');sessionStorage.removeItem('hardle-auth-v1'); } catch {}
     signOutButton.disabled = false;
     await update();
-  };
+    };
+    return signOutButton;
+  }
   let revision = 0;
   async function update() {
     const current = ++revision;
     status.hidden = true;
-    signOutButton.hidden = true;
+    if (signOutButton) { signOutButton.remove(); signOutButton = null; }
     if (profileAvatar) profileAvatar.src = '/data/avatars/avatar-01.svg';
     status.textContent = '';
     if (signInButton) signInButton.textContent = 'Sign in';
@@ -39,7 +49,7 @@
       if (current !== revision || !user.id) return;
       if (profileAvatar) { const avatar = user.user_metadata?.avatar || 'avatar-01.svg'; profileAvatar.src = /^avatar-0[1-8]\.svg$/.test(avatar) ? '/data/avatars/' + avatar : avatar.startsWith('custom/') ? config.url + '/storage/v1/object/public/hardle-avatars/' + avatar.replace(/^custom\//, '') : '/data/avatars/avatar-01.svg'; }
       if (signInButton) signInButton.textContent = 'You are signed in';
-      signOutButton.hidden = false;
+      ensureSignOutButton();
     } catch { /* Do not claim a verified login when verification fails. */ }
   }
   window.addEventListener('pageshow', update);
