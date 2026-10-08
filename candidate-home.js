@@ -7,7 +7,7 @@
   const profileLink = document.getElementById('home-profile-link');
   const accountBar = document.getElementById('home-account-bar');
   const registerButton = document.getElementById('home-register');
-  async function revealAccountBar(avatarUrl) {
+  async async function revealAccountBar(avatarUrl) {
   if (profileAvatar && avatarUrl) {
     await new Promise(resolve => {
       const img = new Image();
