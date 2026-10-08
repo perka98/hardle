@@ -49,7 +49,6 @@
     status.hidden = true;
     if (accountBar) accountBar.classList.add('authChecking');
     if (signOutButton) { signOutButton.remove(); signOutButton = null; }
-    if (profileAvatar) profileAvatar.src = '/data/avatars/avatar-01.svg';
     status.textContent = '';
     if (signInButton) { signInButton.textContent = 'Sign in'; signInButton.href = '/account?mode=signin'; signInButton.style.pointerEvents = ''; signInButton.removeAttribute('aria-disabled'); } if (registerButton) registerButton.hidden = false;
     let session;
