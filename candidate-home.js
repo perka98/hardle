@@ -43,7 +43,7 @@
     let session;
     try { session = JSON.parse(localStorage.getItem('hardle-auth-v1') || 'null'); } catch { return; }
     if (!session?.access_token || !config) {
-      if (accountBar) accountBar.classList.remove('authChecking');
+      if (accountBar) { accountBar.classList.remove('authChecking'); accountBar.style.visibility='visible'; }
       return;
     }
     try {
