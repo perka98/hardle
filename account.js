@@ -22,7 +22,7 @@ async function checkUsernameAvailability(){
  if(!input||$('auth-form').dataset.mode!=='register')return true;
  const username=input.value.trim();
  if(!username){if(message)message.textContent='';return true}
- if(!/^[A-Za-z0-9_]{3,24}$/.test(username)){if(message)message.textContent='';return true}
+ if(!/^[A-Za-z0-9_]{3,24}$/.test(username)){if(message)message.textContent='Username can only contain letters, numbers, and underscores';input.setCustomValidity('Invalid username');return false}
  try{
   const available=await request('/rest/v1/rpc/hardle_username_available',{p_username:username});
   if(message)message.textContent=available?'':'Username already taken or not allowed';
