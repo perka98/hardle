@@ -7,7 +7,7 @@
   const profileLink = document.getElementById('home-profile-link');
   const accountBar = document.getElementById('home-account-bar');
   const registerButton = document.getElementById('home-register');
-  function revealAccountBar() { if (accountBar) { accountBar.classList.remove('authChecking'); accountBar.style.visibility = 'visible'; } }
+  function revealAccountBar() { if (accountBar) { accountBar.classList.remove('authChecking'); accountBar.style.visibility = 'visible'; } if (profileAvatar) profileAvatar.style.visibility = 'visible'; }
   let signOutButton = null;
   function ensureSignOutButton() {
     if (signOutButton) return signOutButton;
