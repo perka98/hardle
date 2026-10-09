@@ -10,19 +10,12 @@
   async function revealAccountBar(avatarUrl = '/data/avatars/avatar-01.svg') {
   const fallbackAvatar = '/data/avatars/avatar-01.svg';
   if (profileAvatar) {
-    let resolvedAvatar = avatarUrl || fallbackAvatar;
-    const loaded = await new Promise(resolve => {
-      const img = new Image();
-      img.onload = () => resolve(true);
-      img.onerror = () => resolve(false);
-      img.src = resolvedAvatar;
-    });
-    if (!loaded) resolvedAvatar = fallbackAvatar;
-    profileAvatar.src = resolvedAvatar;
+    const resolvedAvatar = avatarUrl || fallbackAvatar;
     profileAvatar.onerror = () => {
       profileAvatar.onerror = null;
       profileAvatar.src = fallbackAvatar;
     };
+    profileAvatar.src = resolvedAvatar + (resolvedAvatar.includes('?') ? '&' : '?') + 'v=' + Date.now();
   }
   if (accountBar) { accountBar.classList.remove('authChecking'); accountBar.style.visibility = 'visible'; }
   if (profileAvatar) profileAvatar.style.visibility = 'visible';
