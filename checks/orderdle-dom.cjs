@@ -5,6 +5,8 @@ const result={completed:true,won:false,score:600,feedback:[true,true,true,false,
 async function run(resumed){
  const dom=new JSDOM(html,{url:'https://preview.example',runScripts:'outside-only'}),w=dom.window;let calls=0;
  w.HardleSecureGame=class{constructor(){this.pending=null}async start(){return {public_payload:{items},guesses:resumed?[{guess:{canonical:items.map(p=>p.id)},feedback:result}]:[],completed:resumed,result:resumed?result:null}}async guess(value){calls++;assert.equal(value.length,5);return result}};
+ // outside-only does not load the scoring script referenced by the page.
+ w.eval(fs.readFileSync('scoring.js','utf8'));
  w.eval(code);await new Promise(r=>setTimeout(r,10));
  assert.equal(w.document.querySelectorAll('#tracks .track').length,5);
  if(!resumed){assert.equal(w.document.getElementById('submit').disabled,false);await w.document.getElementById('submit').onclick();assert.equal(calls,1)}

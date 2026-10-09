@@ -4,6 +4,8 @@ const {JSDOM}=require('jsdom'),fs=require('fs'),assert=require('node:assert/stri
  w.fetch=async()=>({ok:false});
  const guessed={title:'Example Track',artist:'Example DJ',country:'NL',genre:'Hardstyle',year:2020};
  w.HardleSecureGame=class{constructor(){this.pending=null}async start(){return {public_payload:{audio:{youtube:'abcdefghijk'},clipStart:35},guesses:[{guess:{canonical:'song-1'},feedback:{guessed,feedback:{title:'noMatch',artist:'close',country:'match',genre:'match',year:'close'}}}],completed:false}}async request(){return {items:[{id:'song-1',title:'Already guessed',artist:'DJ'},{id:'song-2',title:'New Track',artist:'DJ'}]}}async guess(){return {attempts:2,completed:true,won:true,score:850,guessed,feedback:{title:'match'},answer:{title:'Example Track',artist:'Example DJ'}}}};
+ // outside-only does not load the scoring script referenced by the page.
+ w.eval(fs.readFileSync('scoring.js','utf8'));
  w.eval(fs.readFileSync('daily-server.js','utf8').replace('await prepareAudio();','{audioPrepared=true;playBtn.disabled=false}'));
  await new Promise(r=>setTimeout(r,10));
  assert.equal(w.document.getElementById('guessInput').disabled,false);

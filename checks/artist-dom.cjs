@@ -4,6 +4,8 @@ async function run(resumed){
  const result={completed:true,won:true,score:1000,answer:{name:'Sefa',clues:['Age: 26','Label: Test','Active since: 2014','Country: Netherlands','Genre: Frenchcore']}};
  w.fetch=async()=>({ok:true,json:async()=>null});
  w.HardleSecureGame=class{constructor(){this.pending=null}async start(){return {public_payload:{clues:['Age: 26']},guesses:resumed?[{guess:{canonical:'artist-1'},feedback:result}]:[],completed:resumed,result:resumed?result:null}}async request(){return {items:[{id:'artist-1',name:'Sefa'}]}}async guess(id){calls++;assert.equal(id,'artist-1');return result}};
+ // outside-only does not load the scoring script referenced by the page.
+ w.eval(fs.readFileSync('scoring.js','utf8'));
  w.eval(fs.readFileSync('artist-server.js','utf8'));await new Promise(r=>setTimeout(r,10));
  assert.equal(w.document.querySelectorAll('#clues li').length,1);
  if(!resumed){w.document.getElementById('guess').value='Sefa';await w.searchArtists();const button=w.document.querySelector('#artist-results button');assert(button);button.click();w.document.getElementById('guess-form').dispatchEvent(new w.Event('submit',{cancelable:true}));await new Promise(r=>setTimeout(r,10));assert.equal(calls,1)}
