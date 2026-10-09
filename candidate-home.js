@@ -20,6 +20,16 @@
   if (accountBar) { accountBar.classList.remove('authChecking'); accountBar.style.visibility = 'visible'; }
   if (profileAvatar) profileAvatar.style.visibility = 'visible';
 }
+  function profileAvatarUrl(user) {
+    let savedProfile = {};
+    try { savedProfile = JSON.parse(localStorage.getItem('hardle-profile-v1-' + user.id) || '{}'); } catch {}
+    const avatar = ({ ...(user.user_metadata || {}), ...savedProfile }).avatar;
+    if (/^avatar-0[1-8]\.svg$/.test(avatar || '')) return '/data/avatars/' + avatar;
+    if (/^custom\//.test(avatar || '')) {
+      return config.url + '/storage/v1/object/public/hardle-avatars/' + avatar.replace(/^custom\//, '');
+    }
+    return '/data/avatars/avatar-01.svg';
+  }
   let signOutButton = null;
   function ensureSignOutButton() {
     if (signOutButton) return signOutButton;
@@ -32,7 +42,7 @@
     signOutButton.onclick = async () => {
     signOutButton.disabled = true;
     try {
-      const session = JSON.parse(localStorage.getItem('hardle-auth-v1') || 'null');
+      const session = JSON.parse(localStorage.getItem('hardle-auth-v1') || sessionStorage.getItem('hardle-auth-v1') || 'null');
       if (session?.access_token) await fetch(config.url + '/auth/v1/logout', {
         method: 'POST', headers: { apikey: config.key, Authorization: 'Bearer ' + session.access_token },
         signal: AbortSignal.timeout(10000)
@@ -53,38 +63,28 @@
     status.textContent = '';
     if (signInButton) { signInButton.textContent = 'Sign in'; signInButton.href = '/account?mode=signin'; signInButton.style.pointerEvents = ''; signInButton.removeAttribute('aria-disabled'); } if (registerButton) registerButton.hidden = false;
     let session;
-    try { session = JSON.parse(localStorage.getItem('hardle-auth-v1') || 'null'); } catch { return; }
+    try { session = JSON.parse(localStorage.getItem('hardle-auth-v1') || sessionStorage.getItem('hardle-auth-v1') || 'null'); } catch { return; }
     if (!session?.access_token || !config) {
       revealAccountBar('/data/avatars/avatar-0' + (1 + Math.floor(Math.random() * 8)) + '.svg')
       return;
     }
+    const cachedAvatarUrl = session.user?.id ? profileAvatarUrl(session.user) : '/data/avatars/avatar-01.svg';
+    await revealAccountBar(cachedAvatarUrl);
     try {
       const response = await fetch(config.url + '/auth/v1/user', {
         headers: { apikey: config.key, Authorization: 'Bearer ' + session.access_token },
         signal: AbortSignal.timeout(10000)
       });
       if (!response.ok) {
-        revealAccountBar()
+        revealAccountBar(cachedAvatarUrl)
         return;
       }
       const user = await response.json();
       if (current !== revision || !user.id) return;
-      let avatarUrl = '/data/avatars/avatar-01.svg';
-      let savedProfile = {};
-      try { savedProfile = JSON.parse(localStorage.getItem('hardle-profile-v1-' + user.id) || '{}'); } catch {}
-      const profile = { ...(user.user_metadata || {}), ...savedProfile };
-      const avatar = profile.avatar || 'avatar-01.svg';
-      if (/^avatar-0[1-8]\.svg$/.test(avatar)) {
-        avatarUrl = '/data/avatars/' + avatar;
-      } else {
-        // Match Settings: custom avatars are stored at <user-id>/avatar.<extension>.
-        const extension = String(avatar).match(/\.(jpg|jpeg|png|webp|gif)$/i)?.[1] || 'jpg';
-        avatarUrl = config.url + '/storage/v1/object/public/hardle-avatars/' + encodeURIComponent(user.id) + '/avatar.' + extension;
-      }
-      await revealAccountBar(avatarUrl);
+      await revealAccountBar(profileAvatarUrl(user));
       if (signInButton) { signInButton.textContent = 'You are signed in'; signInButton.removeAttribute('href'); signInButton.setAttribute('aria-disabled','true'); signInButton.style.pointerEvents = 'none'; } if (registerButton) registerButton.hidden = true;
       ensureSignOutButton();
-    } catch { revealAccountBar(); }
+    } catch { if (current === revision) revealAccountBar(cachedAvatarUrl); }
   }
   async function consumeAuthRedirect() {
     const hash = window.location.hash.replace(/^#/, '');
