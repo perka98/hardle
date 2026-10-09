@@ -54,7 +54,7 @@ let scoreRevision=0;
 async function refreshResultScore(){
  const revision=++scoreRevision;
  const verified=window.loadVerifiedGameStats?.('orderdle','stats','distribution');
- const total=Promise.resolve({value:window.HardleScore.dailyTotal(today)});
+ const total=window.HardleScore.verifiedDailyTotal(today).then(value=>({value}),()=>({value:'—'}));
  await verified;
  const result=await total;
  if(revision!==scoreRevision)return;
