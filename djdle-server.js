@@ -11,27 +11,24 @@ function renderYellowLetters(){
  wrap.hidden=yellowLetters.length===0;
 }
 function rebuildYellowLetters(){
- const greenPositions=new Set(),maxPositive={},maxYellow={};
+ const greenPositions=new Set(),maxPositive={};
  for(let i=0;i<guesses.length;i++){
-  const word=guesses[i],marks=feedbackRows[i]||[],positive={},yellow={};
+  const word=guesses[i],marks=feedbackRows[i]||[],positive={};
   for(let j=0;j<word.length;j++){
    const letter=word[j],mark=marks[j];
    if(mark==='green')greenPositions.add(j+':'+letter);
    if(mark==='green'||mark==='yellow')positive[letter]=(positive[letter]||0)+1;
-   if(mark==='yellow')yellow[letter]=(yellow[letter]||0)+1;
   }
-  // Evidence from a guess is a per-letter count, never added across guesses.
+  // A guess only proves the number of occurrences marked green/yellow in that guess.
   for(const letter of Object.keys(positive))maxPositive[letter]=Math.max(maxPositive[letter]||0,positive[letter]);
-  for(const letter of Object.keys(yellow))maxYellow[letter]=Math.max(maxYellow[letter]||0,yellow[letter]);
  }
  const greenCounts={};
  for(const key of greenPositions){const letter=key.split(':').slice(1).join(':');greenCounts[letter]=(greenCounts[letter]||0)+1}
  yellowLetters=[];
- const letters=new Set([...Object.keys(maxPositive),...Object.keys(maxYellow),...Object.keys(greenCounts)]);
+ const letters=new Set([...Object.keys(maxPositive),...Object.keys(greenCounts)]);
  for(const letter of letters){
-  // Total confirmed multiplicity is the strongest single-guess evidence, or green count plus
-  // yellow evidence for additional occurrences. Apply identically to every letter.
-  const known=Math.max(maxPositive[letter]||0,(greenCounts[letter]||0)+(maxYellow[letter]||0));
+  // Remove confirmed green occurrences from the strongest count ever seen for this letter.
+  const known=Math.max(maxPositive[letter]||0,greenCounts[letter]||0);
   for(let n=0;n<Math.max(0,known-(greenCounts[letter]||0));n++)yellowLetters.push(letter);
  }
 }
