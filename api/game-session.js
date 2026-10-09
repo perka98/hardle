@@ -16,6 +16,10 @@ module.exports=async(req,res)=>{
  const names=new Map(require('../server/private/artists.json').map(item=>[item.id,item.name]));
  for(const previous of session.rows[0].guesses){const name=names.get(previous.guess?.canonical);if(name)previous.feedback={...previous.feedback,guessed:{name}}}
  }
+ if(data.game==='djdle'&&session.rows[0]){
+ const puzzle=await db.query('select secret_solution from hardle_private.puzzles where puzzle_date=$1 and game=$2',[security.date(),'djdle']);
+ session.rows[0].yellowLetters=require('../server/djdle-yellow').remainingLetters(puzzle.rows[0].secret_solution.answer,session.rows[0].guesses||[]);
+ }
  if(data.game==='daily'){
  const catalog=require('../server/private/songs.json');
  if(session.rows[0]?.completed&&session.rows[0]?.result){

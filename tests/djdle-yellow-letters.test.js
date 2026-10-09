@@ -6,7 +6,7 @@ const {wordMarks}=require('../server/rules');
 const source=fs.readFileSync(require.resolve('../djdle-server.js'),'utf8');
 const implementation=source.slice(source.indexOf('function rebuildYellowLetters(){'),source.indexOf('\nfunction render('));
 function summary(answer,guesses){
- const context={guesses,feedbackRows:guesses.map(word=>wordMarks(word,answer)),yellowLetters:[]};
+ const context={guesses,feedbackRows:guesses.map(word=>wordMarks(word,answer)),yellowLetters:[],serverYellowLetters:null};
  vm.createContext(context);vm.runInContext(implementation+'\nrebuildYellowLetters();',context);
  return Array.from(context.yellowLetters).sort();
 }
@@ -42,3 +42,16 @@ for(const letter of 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'){
  passed++;
 }
 console.log(passed+' cases passed (including all A–Z).');
+
+const {remainingLetters}=require('../server/djdle-yellow');
+function serverSummary(words,answer='DEVIATION'){
+ return remainingLetters(answer,words.map(word=>({guess:{canonical:word},feedback:{feedback:wordMarks(word,answer)}}))).sort();
+}
+assert.deepEqual(serverSummary(['BEAUTIFUL','DISASTERS','COASTLINE']),['A','I','N','O']);
+assert.deepEqual(serverSummary(['BEAUTIFUL','DISASTERS','COASTLINE','XXXIXXXXX']),['A','N','O']);
+assert.deepEqual(serverSummary(['XXXXXXXXX']),[]);
+assert.deepEqual(serverSummary(['IIIIIIIII']),[]);
+assert.deepEqual(serverSummary(['AXXXXXXXX','XAXXXXXXX']),['A']);
+const context={serverYellowLetters:['A','I','N','O'],yellowLetters:[]};vm.createContext(context);vm.runInContext(implementation+'\nrebuildYellowLetters();',context);
+assert.deepEqual(Array.from(context.yellowLetters),['A','I','N','O']);
+console.log('6 server-derived summary / client integration cases passed, including screenshot history.');
