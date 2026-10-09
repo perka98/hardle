@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/perka98/hardle#readme",
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "pg": "^8.23.1"
   },
   "private": true,
