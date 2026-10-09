@@ -6,19 +6,21 @@ const secure=new window.HardleSecureGame('djdle');
 $('info-toggle').addEventListener('click',()=>{const info=$('djdle-info');info.hidden=!info.hidden;$('info-toggle').setAttribute('aria-expanded',String(!info.hidden))});
 function score(word){return feedbackRows[guesses.indexOf(word)]||[]}
 function renderYellowLetters(){
- const status=new Map();
+ const maxByLetter=new Map();
  for(let i=0;i<guesses.length;i++){
-  const word=guesses[i],marks=feedbackRows[i]||[];
+  const word=guesses[i],marks=feedbackRows[i]||[],counts=new Map();
   for(let j=0;j<word.length;j++){
-   const letter=word[j],mark=marks[j];
-   if(mark==='green')status.set(letter,'green');
-   else if(mark==='yellow'&&status.get(letter)!=='green')status.set(letter,'yellow');
+   if(marks[j]==='yellow')counts.set(word[j],(counts.get(word[j])||0)+1);
   }
+  for(const [letter,count] of counts)maxByLetter.set(letter,Math.max(maxByLetter.get(letter)||0,count));
  }
- const found=new Set([...status].filter(([,mark])=>mark==='yellow').map(([letter])=>letter));
+ const found=[];
+ for(const [letter,count] of maxByLetter)for(let i=0;i<count;i++)found.push(letter);
  const wrap=$('yellow-letters'),oldOrder=[...wrap.children].map(tile=>tile.textContent);
- const letters=oldOrder.filter(letter=>found.has(letter));
- const added=[...found].filter(letter=>!letters.includes(letter));
+ const remaining=new Map();for(const letter of found)remaining.set(letter,(remaining.get(letter)||0)+1);
+ const letters=[];
+ for(const letter of oldOrder){const count=remaining.get(letter)||0;if(count>0){letters.push(letter);remaining.set(letter,count-1)}}
+ const added=[];for(const [letter,count] of remaining)for(let i=0;i<count;i++)added.push(letter);
  for(let i=added.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[added[i],added[j]]=[added[j],added[i]]}
  letters.push(...added);wrap.replaceChildren();
  for(const letter of letters){const tile=document.createElement('span');tile.className='yellow-letter';tile.textContent=letter;wrap.append(tile)}
