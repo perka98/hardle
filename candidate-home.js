@@ -74,8 +74,13 @@
       try { savedProfile = JSON.parse(localStorage.getItem('hardle-profile-v1-' + user.id) || '{}'); } catch {}
       const profile = { ...(user.user_metadata || {}), ...savedProfile };
       const avatar = profile.avatar || 'avatar-01.svg';
-      if (/^avatar-0[1-8]\.svg$/.test(avatar)) avatarUrl = '/data/avatars/' + avatar;
-      else if (avatar.startsWith('custom/')) avatarUrl = config.url + '/storage/v1/object/public/hardle-avatars/' + avatar.replace(/^custom\//, '');
+      if (/^avatar-0[1-8]\.svg$/.test(avatar)) {
+        avatarUrl = '/data/avatars/' + avatar;
+      } else {
+        // Match Settings: custom avatars are stored at <user-id>/avatar.<extension>.
+        const extension = String(avatar).match(/\.(jpg|jpeg|png|webp|gif)$/i)?.[1] || 'jpg';
+        avatarUrl = config.url + '/storage/v1/object/public/hardle-avatars/' + encodeURIComponent(user.id) + '/avatar.' + extension;
+      }
       await revealAccountBar(avatarUrl);
       if (signInButton) { signInButton.textContent = 'You are signed in'; signInButton.removeAttribute('href'); signInButton.setAttribute('aria-disabled','true'); signInButton.style.pointerEvents = 'none'; } if (registerButton) registerButton.hidden = true;
       ensureSignOutButton();
