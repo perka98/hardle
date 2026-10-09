@@ -1,0 +1,49 @@
+# Launch status: BLOCKED — anti-cheat not complete
+
+## Implemented locally and unit-tested
+Signed guest cookies; Auth token verification; strict request bodies; secret-seeded puzzle builder; transactional processor; request idempotency; immutable result inserts; rate-limit code; private schema SQL; minimal search; client network adapter; server score rules; regression tests.
+
+## Required external operations
+- Run launch-install.sql after anti-cheat.sql. SQL is prepared, not PostgreSQL-tested.
+- Supply SUPABASE_URL and SUPABASE_PUBLISHABLE_KEY on Preview for authenticated server validation.
+- Verify HARDLE_DATABASE_URL connects with TLS and restricted role.
+- Verify real concurrent DB requests, RLS isolation, function permissions and unique results.
+
+## Required code work, not complete
+- Existing Daily, DJdle, Artist and Orderdle remain client-owned. The secure adapter is NOT integrated.
+- Daily server catalogue migration and public search not complete.
+- Leaderboard profile provisioning, server-backed results query and account session handling incomplete.
+- No production enablement permitted before complete integration and real browser testing.
+- Static rewrite denial needs verification against deployed routes/build assets.
+- The current gameplay data files and client answer schedules remain public in existing clients.
+
+## Never enable blindly
+HARDLE_SECURE_GAMEPLAY_ENABLED is intentionally unset; API fails closed. Changing it does not migrate the games and does not constitute anti-cheat launch.
+
+## Rollback
+Production remains the prior stable deployment. Existing localStorage data must be preserved. The original checkpoint is 5df873373323b899c2ee1a579ca6ed65e9a22bf0. Do not publish partial security code as completed protection.
+
+Preview rebuild requested after project resume on 2026-10-06. Security remains disabled pending integration.
+
+## October 7 continuation (preview-only development)
+- Private puzzle builder now accepts `previousAnswers` and excludes all previous-day Orderdle IDs or the previous single-game answer. Exhausted pools fail closed.
+- Added all-four-game exclusion tests and 100 consecutive Orderdle rounds; full unit suite passes.
+- This is a builder safeguard, NOT a completed production feature: provisioning must read the previous persisted private puzzle through a restricted function and pass its answer IDs. Do not grant broad table SELECT to the validator role merely to implement this.
+- Client migration and database verification remain required. Current production UI updates must be preserved when integrating; this security branch is based on the earlier paused implementation.
+- Follow-up: provisioning now reads yesterday’s persisted answer IDs via the restricted `previous_answers` function. Install `previous-puzzle.sql` after launch-install.sql. Function grants exclude public/anon/authenticated; no expanded table read policy. Provisioning mock test covers forwarding exclusions and fail-closed malformed responses. SQL remains unexecuted and unverified on real PostgreSQL.
+- Added isolated `/secure-orderdle.html` preview client: server-provided names/IDs only, server score/result/history, no local answer or scoring fallback, explicit unavailable state, retry retains same order and request ID. Existing `/orderdle` remains unchanged. End-to-end requires verified database and preview-only enablement; this page is not a claim of working deployed protection.
+- Added isolated `/secure-djdle.html` server-owned client. No embedded answer/dictionary or local scoring; renders server letter feedback, restores server history, locks completed rounds, preserves retry guess. Browser/end-to-end testing remains outstanding; secure gameplay gate is unchanged.
+- Added isolated `/secure-artist.html` client with server search, server progressive clues/history/results, pending-guess retry and no local answer catalog. Syntax checked and shared tests pass; no real browser/DB validation yet. Existing Artist page remains unchanged.
+- Daily private metadata catalog added from current stable production source (951 distinct title/artist pairs). Server search now returns at most 12 IDs/titles/artists, not country/year/genre, solution or audio. Search tests cover payload minimization, forged fields and disabled gate. Audio mapping and Daily session/client integration remain incomplete. Public legacy catalogs are still present pending final client cutover; no claim of hidden production answers.
+- Daily provisioning now supported: 159 playable mappings extracted using the exact stable-production resolver, preserving existing URLs/IDs and blocked-source rules. Metadata search retains all 951 entries; selection filters playable entries only. Daily catalog tests cover unique IDs, audio format and 50 server puzzles. External audio availability not verified. No URL replacement or anonymous audio introduced; provider identity leakage remains accepted by user. Secure Daily browser player and real backend testing still pending.
+- Added isolated `/secure-daily.html` integration shell: server search/guesses/feedback/score, restored server history, unchanged provider source links. This shell deliberately uses visible provider controls for integration debugging, NOT the final production clip player: progressive clip duration/start timing and existing UI must still be integrated and iPhone-tested before cutover. No claim of feature parity or readiness. All production game pages unchanged.
+- Session resume SQL now includes reveal data only through an existing saved result row, allowing completed clients to redisplay the answer after reload. Orderdle result UI displays server-revealed order/birth dates after completion. SQL execution and end-to-end resume tests still required.
+- Original Daily HTML/CSS is now wired to an initial server-client integration with existing iOS volume workaround and progressive clip lengths. Not feature-parity complete: clip start currently fixed at 20s; cover art, yesterday/global stats, countdown/share and complete modal metadata need integration. Browser/iPhone verification required. Never deploy this partial migration to production. Other original-layout integrations also require regression verification and server aggregate stats.
+- Original-design Orderdle candidate now isolated at `/orderdle-candidate.html`. Removed misleading browser-total stats from candidate modal; uses server round score. Added DOM integration check (`npm install --no-save --package-lock=false jsdom`, then `node checks/orderdle-dom.cjs`): initial render, submission, score, reveal, resume and completion lock pass with mocked API. Real pointer/mobile behavior and live API regression are still unverified. Regular pages unchanged.
+
+## Five-part Daily integration batch
+- Original player event tests include Play/Pause/replay before and after completion (simulated SoundCloud; no real external playback claim).
+- Result modal includes server metadata, artwork lookup and share handlers.
+- Resume enriches prior guess metadata without exposing current answer before completion.
+- Integrated authenticated verified-stat read and Stockholm midnight countdown; modal keyboard close/focus preserved.
+- All shared unit tests and four DOM checks pass; countdown/modal focus checks added. Development-only page is `/daily-integration.html`; working `/daily` and `/daily-candidate.html` remain stable original code. Full global/yesterday statistics, browser/media verification and exact feature parity remain incomplete.
