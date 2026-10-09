@@ -7,14 +7,22 @@
   const profileLink = document.getElementById('home-profile-link');
   const accountBar = document.getElementById('home-account-bar');
   const registerButton = document.getElementById('home-register');
-  async function revealAccountBar(avatarUrl) {
-  if (profileAvatar && avatarUrl) {
-    await new Promise(resolve => {
+  async function revealAccountBar(avatarUrl = '/data/avatars/avatar-01.svg') {
+  const fallbackAvatar = '/data/avatars/avatar-01.svg';
+  if (profileAvatar) {
+    let resolvedAvatar = avatarUrl || fallbackAvatar;
+    const loaded = await new Promise(resolve => {
       const img = new Image();
-      img.onload = () => { profileAvatar.src = avatarUrl; resolve(); };
-      img.onerror = resolve;
-      img.src = avatarUrl;
+      img.onload = () => resolve(true);
+      img.onerror = () => resolve(false);
+      img.src = resolvedAvatar;
     });
+    if (!loaded) resolvedAvatar = fallbackAvatar;
+    profileAvatar.src = resolvedAvatar;
+    profileAvatar.onerror = () => {
+      profileAvatar.onerror = null;
+      profileAvatar.src = fallbackAvatar;
+    };
   }
   if (accountBar) { accountBar.classList.remove('authChecking'); accountBar.style.visibility = 'visible'; }
   if (profileAvatar) profileAvatar.style.visibility = 'visible';
