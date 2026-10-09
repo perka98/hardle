@@ -11,25 +11,30 @@ function renderYellowLetters(){
  wrap.hidden=yellowLetters.length===0;
 }
 function rebuildYellowLetters(){
- const greenPositions=new Set(),maxPositive={};
+ const greenPositions=new Set(),maxPositive={},maxYellow={};
  for(let i=0;i<guesses.length;i++){
-  const word=guesses[i],marks=feedbackRows[i]||[],positive={};
+  const word=guesses[i],marks=feedbackRows[i]||[],positive={},yellow={};
   for(let j=0;j<word.length;j++){
    const letter=word[j],mark=marks[j];
    if(mark==='green')greenPositions.add(j+':'+letter);
    if(mark==='green'||mark==='yellow')positive[letter]=(positive[letter]||0)+1;
+   if(mark==='yellow')yellow[letter]=(yellow[letter]||0)+1;
   }
-  // A guess only proves the number of occurrences marked green/yellow in that guess.
   for(const letter of Object.keys(positive))maxPositive[letter]=Math.max(maxPositive[letter]||0,positive[letter]);
+  for(const letter of Object.keys(yellow))maxYellow[letter]=Math.max(maxYellow[letter]||0,yellow[letter]);
  }
  const greenCounts={};
  for(const key of greenPositions){const letter=key.split(':').slice(1).join(':');greenCounts[letter]=(greenCounts[letter]||0)+1}
  yellowLetters=[];
- const letters=new Set([...Object.keys(maxPositive),...Object.keys(greenCounts)]);
+ const letters=new Set([...Object.keys(maxPositive),...Object.keys(maxYellow),...Object.keys(greenCounts)]);
  for(const letter of letters){
-  // Remove confirmed green occurrences from the strongest count ever seen for this letter.
-  const known=Math.max(maxPositive[letter]||0,greenCounts[letter]||0);
-  for(let n=0;n<Math.max(0,known-(greenCounts[letter]||0));n++)yellowLetters.push(letter);
+  const green=greenCounts[letter]||0;
+  // Keep a previously confirmed duplicate clue while only one occurrence is green.
+  // Once two occurrences of the same letter are green, those greens replace the old clue.
+  const known=green===1
+   ? Math.max(maxPositive[letter]||0,green+(maxYellow[letter]||0))
+   : Math.max(maxPositive[letter]||0,green);
+  for(let n=0;n<Math.max(0,known-green);n++)yellowLetters.push(letter);
  }
 }
 function render(animate=false){ended=!!serverResult?.completed;$('board').replaceChildren();const colors={},rank={gray:1,yellow:2,green:3};for(let i=0;i<7;i++){const row=document.createElement('div');row.className='row';row.style.setProperty('--letters',target.length);const word=guesses[i]||(!ended&&i===guesses.length?$('guess').value:''),marks=guesses[i]?score(word):[];for(let j=0;j<target.length;j++){const cell=document.createElement('span');cell.className='cell '+(marks[j]||'');cell.textContent=word[j]||'';if(animate&&i===guesses.length-1){cell.classList.add('reveal');cell.style.setProperty('--delay',(j*180)+'ms')}if(marks[j]){cell.setAttribute('aria-label',word[j]+' '+marks[j]);if(!colors[word[j]]||rank[marks[j]]>rank[colors[word[j]]])colors[word[j]]=marks[j]}row.append(cell)}$('board').append(row)}if(!animate)document.querySelectorAll('[data-letter]').forEach(button=>button.className=colors[button.dataset.letter]||'');$('guess').disabled=ended||revealing||!!secure.pending;document.querySelectorAll('.keys button').forEach(b=>b.disabled=ended||revealing);if(ended&&!animate)$('message').textContent=!!serverResult?.won?`Correct! Today's DJ is ${targetName}.`:`Today's DJ was ${targetName}. Come back tomorrow.`}
