@@ -76,5 +76,5 @@
    if(play)play.before(badge);
  }
  rows.replaceChildren();for(const item of historyRows){const row=document.createElement('p');row.textContent=item.puzzle_date+' · '+item.game+' · '+item.score+' points';rows.append(row)}if(!historyRows.length)rows.textContent='No verified results yet.';
- }catch{get('daily-score').textContent='—';get('combined-score').textContent='—';rows.textContent='Verified results unavailable.'}
+ }catch{get('daily-score').textContent='0';get('combined-score').textContent='0';get('daily-score-tier').textContent='';get('daily-score-card').dataset.tier='neutral';rows.textContent='Sign in to view your verified total score and history.'}
 })();
