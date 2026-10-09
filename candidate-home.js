@@ -86,7 +86,6 @@
       await revealAccountBar(avatarUrl);
       if (signInButton) { signInButton.textContent = 'You are signed in'; signInButton.removeAttribute('href'); signInButton.setAttribute('aria-disabled','true'); signInButton.style.pointerEvents = 'none'; } if (registerButton) registerButton.hidden = true;
       ensureSignOutButton();
-      revealAccountBar();
     } catch { revealAccountBar(); }
   }
   async function consumeAuthRedirect() {
