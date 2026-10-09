@@ -16,8 +16,13 @@ function renderYellowLetters(){
  }
  const found=[];
  for(const [letter,count] of maxByLetter)for(let i=0;i<count;i++)found.push(letter);
+ // Letters already placed in the current guess are temporarily removed from the helper.
+ const used=new Map();
+ for(const letter of normalize($('guess').value))used.set(letter,(used.get(letter)||0)+1);
+ const available=[];
+ for(const letter of found){const count=used.get(letter)||0;if(count>0)used.set(letter,count-1);else available.push(letter)}
  const wrap=$('yellow-letters'),oldOrder=[...wrap.children].map(tile=>tile.textContent);
- const remaining=new Map();for(const letter of found)remaining.set(letter,(remaining.get(letter)||0)+1);
+ const remaining=new Map();for(const letter of available)remaining.set(letter,(remaining.get(letter)||0)+1);
  const letters=[];
  for(const letter of oldOrder){const count=remaining.get(letter)||0;if(count>0){letters.push(letter);remaining.set(letter,count-1)}}
  const added=[];for(const [letter,count] of remaining)for(let i=0;i<count;i++)added.push(letter);
