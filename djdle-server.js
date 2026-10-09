@@ -11,19 +11,17 @@ function renderYellowLetters(){
  wrap.hidden=yellowLetters.length===0;
 }
 function rebuildYellowLetters(){
- const maxMatched={},greenPositions=new Set();
+ const maxYellow={};
  for(let i=0;i<guesses.length;i++){
   const word=guesses[i],marks=feedbackRows[i]||[],counts={};
   for(let j=0;j<word.length;j++){
-   const letter=word[j],mark=marks[j];
-   if(mark==='yellow'||mark==='green')counts[letter]=(counts[letter]||0)+1;
-   if(mark==='green')greenPositions.add(j+':'+letter);
+   const letter=word[j];
+   if(marks[j]==='yellow')counts[letter]=(counts[letter]||0)+1;
   }
-  for(const letter of Object.keys(counts))maxMatched[letter]=Math.max(maxMatched[letter]||0,counts[letter]);
+  for(const letter of Object.keys(counts))maxYellow[letter]=Math.max(maxYellow[letter]||0,counts[letter]);
  }
- const greenCounts={};for(const key of greenPositions){const letter=key.split(':').slice(1).join(':');greenCounts[letter]=(greenCounts[letter]||0)+1}
  yellowLetters=[];
- for(const letter of Object.keys(maxMatched))for(let n=0;n<Math.max(0,maxMatched[letter]-(greenCounts[letter]||0));n++)yellowLetters.push(letter);
+ for(const letter of Object.keys(maxYellow))for(let n=0;n<maxYellow[letter];n++)yellowLetters.push(letter);
 }
 function render(animate=false){ended=!!serverResult?.completed;$('board').replaceChildren();const colors={},rank={gray:1,yellow:2,green:3};for(let i=0;i<7;i++){const row=document.createElement('div');row.className='row';row.style.setProperty('--letters',target.length);const word=guesses[i]||(!ended&&i===guesses.length?$('guess').value:''),marks=guesses[i]?score(word):[];for(let j=0;j<target.length;j++){const cell=document.createElement('span');cell.className='cell '+(marks[j]||'');cell.textContent=word[j]||'';if(animate&&i===guesses.length-1){cell.classList.add('reveal');cell.style.setProperty('--delay',(j*180)+'ms')}if(marks[j]){cell.setAttribute('aria-label',word[j]+' '+marks[j]);if(!colors[word[j]]||rank[marks[j]]>rank[colors[word[j]]])colors[word[j]]=marks[j]}row.append(cell)}$('board').append(row)}if(!animate)document.querySelectorAll('[data-letter]').forEach(button=>button.className=colors[button.dataset.letter]||'');$('guess').disabled=ended||revealing||!!secure.pending;document.querySelectorAll('.keys button').forEach(b=>b.disabled=ended||revealing);if(ended&&!animate)$('message').textContent=!!serverResult?.won?`Correct! Today's DJ is ${targetName}.`:`Today's DJ was ${targetName}. Come back tomorrow.`}
 const statsKey='hardle-djdle-stats-v1';let stats={played:0,wins:0,streak:0,best:0,distribution:[0,0,0,0,0,0,0],lastWin:null};try{const saved=JSON.parse(localStorage.getItem(statsKey)||'null');if(saved){stats={...stats,...saved};stats.distribution=Array.from({length:7},(_,i)=>Number(saved.distribution?.[i]||0))}}catch{}
