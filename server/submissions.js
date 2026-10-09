@@ -3,6 +3,7 @@ const {transaction}=require('./database');
 const {evaluate,normalize}=require('./rules');
 const {isDeepStrictEqual}=require('node:util');
 const songFeedback=require('./song-feedback');
+const {remainingLetters}=require('./djdle-yellow');
 // Requires reviewed database grants/RLS or a private server transaction function.
 // Never called by current browser games. Authenticated identities must be verified upstream.
 function createSubmit(runTransaction){return async function submit({player,userId=null,date,game,guess,requestId}){
@@ -36,6 +37,7 @@ function createSubmit(runTransaction){return async function submit({player,userI
   if(game==='daily'){const item=secret.catalog.find(x=>x.id===evaluated.canonical);response.guessed={title:item.title,artist:item.artist,country:item.country,genre:item.genre,year:item.year}}
   if(game==='artist')response.guessed={name:secret.names?.[evaluated.canonical]||'Previous artist guess'};
   if(game==='artist'&&!evaluated.completed)response.clues=secret.clues.slice(0,evaluated.attempts+1);
+  if(game==='djdle')response.yellowLetters=remainingLetters(secret.answer,[...history.rows,{guess:{canonical:evaluated.canonical},feedback:response}]);
   if(evaluated.completed)response.answer=secret.reveal;
   await client.query('insert into hardle_private.guesses(session_id,attempt,request_id,guess,feedback) values($1,$2,$3,$4,$5)',[s.id,evaluated.attempts,requestId,{canonical:evaluated.canonical},response]);
   await client.query('update hardle_private.sessions set attempts=$2,completed=$3 where id=$1',[s.id,evaluated.attempts,evaluated.completed]);
