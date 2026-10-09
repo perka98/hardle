@@ -5,7 +5,24 @@ const today=date(new Date());let targetName='',target={length:0},guesses=[],ende
 const secure=new window.HardleSecureGame('djdle');
 $('info-toggle').addEventListener('click',()=>{const info=$('djdle-info');info.hidden=!info.hidden;$('info-toggle').setAttribute('aria-expanded',String(!info.hidden))});
 function score(word){return feedbackRows[guesses.indexOf(word)]||[]}
-function render(animate=false){ended=!!serverResult?.completed;$('board').replaceChildren();const colors={},rank={gray:1,yellow:2,green:3};for(let i=0;i<7;i++){const row=document.createElement('div');row.className='row';row.style.setProperty('--letters',target.length);const word=guesses[i]||(!ended&&i===guesses.length?$('guess').value:''),marks=guesses[i]?score(word):[];for(let j=0;j<target.length;j++){const cell=document.createElement('span');cell.className='cell '+(marks[j]||'');cell.textContent=word[j]||'';if(animate&&i===guesses.length-1){cell.classList.add('reveal');cell.style.setProperty('--delay',(j*180)+'ms')}if(marks[j]){cell.setAttribute('aria-label',word[j]+' '+marks[j]);if(!colors[word[j]]||rank[marks[j]]>rank[colors[word[j]]])colors[word[j]]=marks[j]}row.append(cell)}$('board').append(row)}if(!animate)document.querySelectorAll('[data-letter]').forEach(button=>button.className=colors[button.dataset.letter]||'');$('guess').disabled=ended||revealing||!!secure.pending;document.querySelectorAll('.keys button').forEach(b=>b.disabled=ended||revealing);if(ended&&!animate)$('message').textContent=!!serverResult?.won?`Correct! Today's DJ is ${targetName}.`:`Today's DJ was ${targetName}. Come back tomorrow.`}
+function renderYellowLetters(){
+ const status=new Map();
+ for(let i=0;i<guesses.length;i++){
+  const word=guesses[i],marks=feedbackRows[i]||[];
+  for(let j=0;j<word.length;j++){
+   const letter=word[j],mark=marks[j];
+   if(mark==='green')status.set(letter,'green');
+   else if(mark==='yellow'&&status.get(letter)!=='green'&&status.get(letter)!=='yellow')status.set(letter,'yellow');
+  }
+ }
+ const letters=[...status].filter(([,mark])=>mark==='yellow').map(([letter])=>letter);
+ // Shuffle the display order without implying anything about the answer's positions.
+ for(let i=letters.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[letters[i],letters[j]]=[letters[j],letters[i]]}
+ const wrap=$('yellow-letters');wrap.replaceChildren();
+ for(const letter of letters){const tile=document.createElement('span');tile.className='yellow-letter';tile.textContent=letter;wrap.append(tile)}
+ wrap.hidden=letters.length===0;
+}
+function render(animate=false){ended=!!serverResult?.completed;$('board').replaceChildren();const colors={},rank={gray:1,yellow:2,green:3};for(let i=0;i<7;i++){const row=document.createElement('div');row.className='row';row.style.setProperty('--letters',target.length);const word=guesses[i]||(!ended&&i===guesses.length?$('guess').value:''),marks=guesses[i]?score(word):[];for(let j=0;j<target.length;j++){const cell=document.createElement('span');cell.className='cell '+(marks[j]||'');cell.textContent=word[j]||'';if(animate&&i===guesses.length-1){cell.classList.add('reveal');cell.style.setProperty('--delay',(j*180)+'ms')}if(marks[j]){cell.setAttribute('aria-label',word[j]+' '+marks[j]);if(!colors[word[j]]||rank[marks[j]]>rank[colors[word[j]]])colors[word[j]]=marks[j]}row.append(cell)}$('board').append(row)}if(!animate)document.querySelectorAll('[data-letter]').forEach(button=>button.className=colors[button.dataset.letter]||'');renderYellowLetters();$('guess').disabled=ended||revealing||!!secure.pending;document.querySelectorAll('.keys button').forEach(b=>b.disabled=ended||revealing);if(ended&&!animate)$('message').textContent=!!serverResult?.won?`Correct! Today's DJ is ${targetName}.`:`Today's DJ was ${targetName}. Come back tomorrow.`}
 const statsKey='hardle-djdle-stats-v1';let stats={played:0,wins:0,streak:0,best:0,distribution:[0,0,0,0,0,0,0],lastWin:null};try{const saved=JSON.parse(localStorage.getItem(statsKey)||'null');if(saved){stats={...stats,...saved};stats.distribution=Array.from({length:7},(_,i)=>Number(saved.distribution?.[i]||0))}}catch{}
 function recordResult(){}
 function resultText(){const won=!!serverResult?.won;const attempt=Math.max(1,Math.min(7,guesses.length));const tiles=Array.from({length:7},(_,i)=>won&&i===attempt-1?'🟩':won?'⬜':'⬛').join('');return 'DJdle '+today+' '+guesses.length+'/7\n'+tiles}
