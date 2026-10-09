@@ -20,7 +20,7 @@ function rebuildYellowLetters(){
    if(mark==='green'||mark==='yellow')positive[letter]=(positive[letter]||0)+1;
    if(mark==='yellow')yellow[letter]=(yellow[letter]||0)+1;
   }
-  // Repeated guesses never add counts together; use the maximum multiplicity from any single guess.
+  // Evidence from a guess is a per-letter count, never added across guesses.
   for(const letter of Object.keys(positive))maxPositive[letter]=Math.max(maxPositive[letter]||0,positive[letter]);
   for(const letter of Object.keys(yellow))maxYellow[letter]=Math.max(maxYellow[letter]||0,yellow[letter]);
  }
@@ -29,8 +29,8 @@ function rebuildYellowLetters(){
  yellowLetters=[];
  const letters=new Set([...Object.keys(maxPositive),...Object.keys(maxYellow),...Object.keys(greenCounts)]);
  for(const letter of letters){
-  // Preserve yellow evidence as an extra occurrence after a green of the same letter,
-  // while repeated single-letter guesses do not accumulate and create false duplicates.
+  // Total confirmed multiplicity is the strongest single-guess evidence, or green count plus
+  // yellow evidence for additional occurrences. Apply identically to every letter.
   const known=Math.max(maxPositive[letter]||0,(greenCounts[letter]||0)+(maxYellow[letter]||0));
   for(let n=0;n<Math.max(0,known-(greenCounts[letter]||0));n++)yellowLetters.push(letter);
  }
