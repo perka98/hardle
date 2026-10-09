@@ -12,13 +12,15 @@ function renderYellowLetters(){
   for(let j=0;j<word.length;j++){
    const letter=word[j],mark=marks[j];
    if(mark==='green')status.set(letter,'green');
-   else if(mark==='yellow'&&status.get(letter)!=='green'&&status.get(letter)!=='yellow')status.set(letter,'yellow');
+   else if(mark==='yellow'&&status.get(letter)!=='green')status.set(letter,'yellow');
   }
  }
- const letters=[...status].filter(([,mark])=>mark==='yellow').map(([letter])=>letter);
- // Shuffle the display order without implying anything about the answer's positions.
- for(let i=letters.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[letters[i],letters[j]]=[letters[j],letters[i]]}
- const wrap=$('yellow-letters');wrap.replaceChildren();
+ const found=new Set([...status].filter(([,mark])=>mark==='yellow').map(([letter])=>letter));
+ const wrap=$('yellow-letters'),oldOrder=[...wrap.children].map(tile=>tile.textContent);
+ const letters=oldOrder.filter(letter=>found.has(letter));
+ const added=[...found].filter(letter=>!letters.includes(letter));
+ for(let i=added.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[added[i],added[j]]=[added[j],added[i]]}
+ letters.push(...added);wrap.replaceChildren();
  for(const letter of letters){const tile=document.createElement('span');tile.className='yellow-letter';tile.textContent=letter;wrap.append(tile)}
  wrap.hidden=letters.length===0;
 }
