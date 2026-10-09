@@ -11,26 +11,27 @@ function renderYellowLetters(){
  wrap.hidden=yellowLetters.length===0;
 }
 function rebuildYellowLetters(){
- const greenPositions=new Set(),maxPositive={},hasYellow={};
+ const greenPositions=new Set(),maxPositive={},maxYellow={};
  for(let i=0;i<guesses.length;i++){
-  const word=guesses[i],marks=feedbackRows[i]||[],counts={};
+  const word=guesses[i],marks=feedbackRows[i]||[],positive={},yellow={};
   for(let j=0;j<word.length;j++){
    const letter=word[j],mark=marks[j];
    if(mark==='green')greenPositions.add(j+':'+letter);
-   if(mark==='green'||mark==='yellow')counts[letter]=(counts[letter]||0)+1;
-   if(mark==='yellow')hasYellow[letter]=true;
+   if(mark==='green'||mark==='yellow')positive[letter]=(positive[letter]||0)+1;
+   if(mark==='yellow')yellow[letter]=(yellow[letter]||0)+1;
   }
-  // Repeated guesses don't stack; retain the highest count seen in any one guess.
-  for(const letter of Object.keys(counts))maxPositive[letter]=Math.max(maxPositive[letter]||0,counts[letter]);
+  // Repeated guesses never add counts together; use the maximum multiplicity from any single guess.
+  for(const letter of Object.keys(positive))maxPositive[letter]=Math.max(maxPositive[letter]||0,positive[letter]);
+  for(const letter of Object.keys(yellow))maxYellow[letter]=Math.max(maxYellow[letter]||0,yellow[letter]);
  }
  const greenCounts={};
  for(const key of greenPositions){const letter=key.split(':').slice(1).join(':');greenCounts[letter]=(greenCounts[letter]||0)+1}
  yellowLetters=[];
- const letters=new Set([...Object.keys(maxPositive),...Object.keys(greenCounts),...Object.keys(hasYellow)]);
+ const letters=new Set([...Object.keys(maxPositive),...Object.keys(maxYellow),...Object.keys(greenCounts)]);
  for(const letter of letters){
-  // A single yellow occurrence is preserved alongside one green occurrence (e.g. DEVIATION has two I's),
-  // but two confirmed green positions consume that duplicate clue. Multiple yellows in one guess still count.
-  const known=Math.max(maxPositive[letter]||0,hasYellow[letter]?2:0);
+  // Preserve yellow evidence as an extra occurrence after a green of the same letter,
+  // while repeated single-letter guesses do not accumulate and create false duplicates.
+  const known=Math.max(maxPositive[letter]||0,(greenCounts[letter]||0)+(maxYellow[letter]||0));
   for(let n=0;n<Math.max(0,known-(greenCounts[letter]||0));n++)yellowLetters.push(letter);
  }
 }
