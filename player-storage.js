@@ -1,7 +1,7 @@
 'use strict';
 // Existing game keys remain unchanged; only the active player's snapshot is loaded.
 window.HardlePlayerStorage={
- gameKey(key){return /^hardle-(menu-result-|score-v2-|completed-|failed-|stats-v1$|(?:artist|djdle|orderdle)-stats-v1$|artist-daily-v1-|orderdle-age-v1-)/.test(key)},
+ gameKey(key){return /^hardle-(menu-result-|result-snapshot-|score-v2-|completed-|failed-|stats-v1$|(?:artist|djdle|orderdle)-stats-v1$|artist-daily-v1-|orderdle-age-v1-)/.test(key)},
  owner(session){return session?.user?.id?'user:'+session.user.id:'guest'},
  switchTo(owner){
   const marker='hardle-active-player-v1',prefix='hardle-player-snapshot-v1-';
