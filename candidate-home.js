@@ -46,8 +46,8 @@
       });
     } catch { /* Always clear the local session on explicit sign-out. */ }
     try { localStorage.removeItem('hardle-auth-v1');sessionStorage.removeItem('hardle-auth-v1'); } catch {}
-    signOutButton.disabled = false;
-    await update();
+    window.HardlePlayerStorage.switchTo('guest');
+    window.location.reload();
     };
     return signOutButton;
   }

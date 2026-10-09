@@ -20,10 +20,19 @@ window.HardleScore={
   totalAll(){let total=0;try{for(let i=0;i<localStorage.length;i++){const key=localStorage.key(i);if(key.startsWith('hardle-score-v2-')){const row=JSON.parse(localStorage.getItem(key));if(Number.isFinite(row?.points))total+=row.points}}}catch{}return total}
 };
 
-window.HardleScore.renderDailyTotal=async function(target,date){
+window.HardleScore.resultTotal=async function(game,date){
+ const key='hardle-result-snapshot-'+date+'-'+game;
+ let saved;try{saved=JSON.parse(localStorage.getItem(key)||'null')}catch{}
+ if(Number.isFinite(saved?.score))return saved.score;
+ const score=await this.verifiedDailyTotal(date);
+ // Recheck after the asynchronous read: concurrent renders must use one snapshot.
+ try{saved=JSON.parse(localStorage.getItem(key)||'null');if(Number.isFinite(saved?.score))return saved.score;localStorage.setItem(key,JSON.stringify({score}))}catch{}
+ return score;
+};
+window.HardleScore.renderDailyTotal=async function(target,date,game){
  const root=typeof target==='string'?document.getElementById(target):target;if(!root)return;
  const revision=(root.dailyScoreRevision||0)+1;root.dailyScoreRevision=revision;
- let score;try{score=await this.verifiedDailyTotal(date)}catch{score='—'}
+ let score;try{score=await this.resultTotal(game,date)}catch{score='—'}
  if(root.dailyScoreRevision!==revision)return;
  for(const label of root.querySelectorAll('span'))if(['Score','Total Score'].includes(label.textContent)){const value=label.parentElement.querySelector('b');if(value)value.textContent=score}
 };
