@@ -22,3 +22,12 @@ const {JSDOM}=require('jsdom');
   console.log('PASS verified '+game+' distribution');
  }
 })().catch(error=>{console.error(error);process.exitCode=1});
+// Guard against late, ID-specific styles overriding the shared chart geometry.
+for(const page of ['djdle.html','artist.html']){
+ const html=fs.readFileSync(require.resolve('../'+page),'utf8');
+ assert.ok(html.includes('href="/result-distribution.css"'));
+ const styles=Array.from(html.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g),m=>m[1]).join('\n');
+ assert.ok(!/#distribution\s*>\s*div\s*\{[^}]*background[^}]*!important/.test(styles),'No full-height green column override');
+ assert.ok(!/\.distribution\s*\{[^}]*margin-top:0!important/.test(styles),'No chart spacing override');
+}
+console.log('PASS both pages have no late chart background/spacing overrides');
