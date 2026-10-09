@@ -13,6 +13,8 @@ module.exports=async(req,res)=>{
  if(process.env.HARDLE_SECURE_GAMEPLAY_ENABLED!=='true')return res.status(503).json({error:'Secure gameplay is not enabled yet',code:'VALIDATOR_NOT_READY'});
  const started=Date.now();let authMs=0,limitMs=0,puzzleMs=0;
  try{const identity=await auth.player(req,res),player=identity.player,db=database();authMs=Date.now()-started;const limitStarted=Date.now();if(!await rateLimit.allow(req,player,'session')){res.setHeader('Retry-After','60');return res.status(429).json({error:'Please wait before trying again'})}limitMs=Date.now()-limitStarted;const puzzleStarted=Date.now();await ensure(data.game);puzzleMs=Date.now()-puzzleStarted;const session=await db.query('select * from hardle_private.start_session($1,$2)',[player,data.game]);if(data.game==='artist'&&Array.isArray(session.rows[0]?.guesses)){
+ const puzzle=await db.query('select secret_solution from hardle_private.puzzles where puzzle_date=$1 and game=$2',[security.date(),'artist']);
+ session.rows[0]=require('../server/artist-clue-correction').session(session.rows[0],puzzle.rows[0]?.secret_solution?.answer);
  const names=new Map(require('../server/private/artists.json').map(item=>[item.id,item.name]));
  for(const previous of session.rows[0].guesses){const name=names.get(previous.guess?.canonical);if(name)previous.feedback={...previous.feedback,guessed:{name}}}
  }
