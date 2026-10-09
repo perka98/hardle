@@ -1,0 +1,38 @@
+'use strict';
+window.HardleScore={
+  attempts(won,count){return won?([1000,850,700,550,400,250,100][count-1]||0):0},
+  record(game,date,points){try{const key='hardle-score-v2-'+game+'-'+date;if(localStorage.getItem(key)!==null)return;localStorage.setItem(key,JSON.stringify({points:Math.max(0,Math.min(1000,points))}))}catch{}},
+  total(game){let total=0;try{for(let i=0;i<localStorage.length;i++){const key=localStorage.key(i);if(key.startsWith('hardle-score-v2-'+game+'-')){const row=JSON.parse(localStorage.getItem(key));if(Number.isFinite(row?.points))total+=row.points}}}catch{}return total},
+  dailyTotal(date){try{const results=JSON.parse(localStorage.getItem('hardle-menu-result-'+date)||'{}');return Object.values(results).reduce((total,result)=>{const points=Number(result?.score);return total+(Number.isFinite(points)?Math.max(0,Math.min(1000,points)):0)},0)}catch{return 0}},
+  async verifiedDailyTotal(date){
+    let results={};try{results=JSON.parse(localStorage.getItem('hardle-menu-result-'+date)||'{}')}catch{}
+    let session;try{session=JSON.parse(localStorage.getItem('hardle-auth-v1')||'null')}catch{}
+    const config=window.HardleAccountConfig;
+    if(session?.access_token&&config){
+      const response=await fetch(config.url+'/rest/v1/rpc/hardle_my_history',{method:'POST',headers:{apikey:config.key,Authorization:'Bearer '+session.access_token,'Content-Type':'application/json'},body:'{}',signal:AbortSignal.timeout(10000)});
+      if(!response.ok)throw Error('Daily results unavailable');
+      const history=await response.json();if(!Array.isArray(history))throw Error('Invalid daily results');
+      if(JSON.parse(localStorage.getItem('hardle-auth-v1')||'null')?.access_token!==session.access_token)throw Error('Account changed');
+      for(const row of history){if(row.puzzle_date===date&&typeof row.game==='string'&&Number.isFinite(Number(row.score)))results[row.game]={score:Number(row.score)}}
+    }
+    return Object.values(results).reduce((sum,result)=>{const points=Number(result?.score);return sum+(Number.isFinite(points)?Math.max(0,Math.min(1000,points)):0)},0);
+  },
+  totalAll(){let total=0;try{for(let i=0;i<localStorage.length;i++){const key=localStorage.key(i);if(key.startsWith('hardle-score-v2-')){const row=JSON.parse(localStorage.getItem(key));if(Number.isFinite(row?.points))total+=row.points}}}catch{}return total}
+};
+
+window.HardleScore.resultTotal=async function(game,date){
+ const key='hardle-result-snapshot-'+date+'-'+game;
+ let saved;try{saved=JSON.parse(localStorage.getItem(key)||'null')}catch{}
+ if(Number.isFinite(saved?.score))return saved.score;
+ const score=await this.verifiedDailyTotal(date);
+ // Recheck after the asynchronous read: concurrent renders must use one snapshot.
+ try{saved=JSON.parse(localStorage.getItem(key)||'null');if(Number.isFinite(saved?.score))return saved.score;localStorage.setItem(key,JSON.stringify({score}))}catch{}
+ return score;
+};
+window.HardleScore.renderDailyTotal=async function(target,date,game){
+ const root=typeof target==='string'?document.getElementById(target):target;if(!root)return;
+ const revision=(root.dailyScoreRevision||0)+1;root.dailyScoreRevision=revision;
+ let score;try{score=await this.resultTotal(game,date)}catch{score='—'}
+ if(root.dailyScoreRevision!==revision)return;
+ for(const label of root.querySelectorAll('span'))if(['Score','Total Score'].includes(label.textContent)){const value=label.parentElement.querySelector('b');if(value)value.textContent=score}
+};

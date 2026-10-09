@@ -1,0 +1,23 @@
+'use strict';
+const assert=require('node:assert/strict'),{player}=require('../server/auth');
+process.env.HARDLE_SESSION_SECRET='test-session-secret'.repeat(3);
+process.env.SUPABASE_URL='https://example.supabase.co';
+process.env.SUPABASE_PUBLISHABLE_KEY='test-publishable-key';
+const res={setHeader(){}};
+(async()=>{
+ const guest=await player({headers:{}},res);assert.match(guest.player,/^guest:/);assert.equal(guest.userId,null);
+ let calls=0;
+ global.fetch=async()=>{calls++;return {ok:false}};
+ await assert.rejects(player({headers:{authorization:'Bearer invalid-token'}},res),/Invalid authentication/);
+ assert.equal(calls,1);
+ await assert.rejects(player({headers:{authorization:'Basic invalid'}},res),/Invalid authentication/);
+ assert.equal(calls,1);
+ global.fetch=async()=>({ok:true,json:async()=>({id:'------------------------------------'})});
+ await assert.rejects(player({headers:{authorization:'Bearer test-token'}},res),/Invalid authentication/);
+ const id='b9da233c-bd0a-4fa8-92d3-18a47d728da1';
+ global.fetch=async()=>({ok:true,json:async()=>({id})});
+ assert.deepEqual(await player({headers:{authorization:'Bearer test-token'}},res),{player:'user:'+id,userId:id});
+ global.fetch=async()=>{throw Error('Network unavailable')};
+ await assert.rejects(player({headers:{authorization:'Bearer test-token'}},res),/Network unavailable/);
+ console.log('Verified identity only; invalid auth and outages never fall back to guest');
+})().catch(error=>{console.error(error);process.exitCode=1});

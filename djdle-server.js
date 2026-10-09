@@ -1,0 +1,66 @@
+
+const $=id=>document.getElementById(id);const normalize=s=>s.toUpperCase().normalize('NFD').replace(/[^A-Z]/g,'');
+const date=now=>new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Stockholm',year:'numeric',month:'2-digit',day:'2-digit'}).format(now);
+const today=date(new Date());let targetName='',target={length:0},guesses=[],ended=false,revealing=true,serverResult=null,feedbackRows=[],yellowLetters=[],serverYellowLetters=null;
+const secure=new window.HardleSecureGame('djdle');
+$('info-toggle').addEventListener('click',()=>{const info=$('djdle-info');info.hidden=!info.hidden;$('info-toggle').setAttribute('aria-expanded',String(!info.hidden))});
+function score(word){return feedbackRows[guesses.indexOf(word)]||[]}
+function renderYellowLetters(){
+ const wrap=$('yellow-letters');wrap.replaceChildren();
+ for(const letter of yellowLetters){const tile=document.createElement('span');tile.className='yellow-letter';tile.textContent=letter;wrap.append(tile)}
+ wrap.hidden=yellowLetters.length===0;
+}
+function rebuildYellowLetters(){
+ if(Array.isArray(serverYellowLetters)){yellowLetters=serverYellowLetters.slice();return}
+ const greenPositions=new Set(),maxConfirmed={};
+ for(let i=0;i<guesses.length;i++){
+  const word=guesses[i],marks=feedbackRows[i]||[],confirmed={};
+  for(let j=0;j<word.length;j++){
+   const letter=word[j],mark=marks[j];
+   if(mark==='green')greenPositions.add(j+':'+letter);
+   // Gray (including surplus duplicates) never confirms an occurrence.
+   if(mark==='green'||mark==='yellow')confirmed[letter]=(confirmed[letter]||0)+1;
+  }
+  // Separate guesses are evidence of the same occurrences, not extra copies.
+  for(const letter of Object.keys(confirmed))maxConfirmed[letter]=Math.max(maxConfirmed[letter]||0,confirmed[letter]);
+ }
+ const greenCounts={};
+ for(const key of greenPositions){const letter=key.split(':')[1];greenCounts[letter]=(greenCounts[letter]||0)+1}
+ yellowLetters=[];
+ for(const letter of Object.keys(maxConfirmed)){
+  const remaining=Math.max(0,maxConfirmed[letter]-(greenCounts[letter]||0));
+  for(let n=0;n<remaining;n++)yellowLetters.push(letter);
+ }
+}
+function render(animate=false){ended=!!serverResult?.completed;$('board').replaceChildren();const colors={},rank={gray:1,yellow:2,green:3};for(let i=0;i<7;i++){const row=document.createElement('div');row.className='row';row.style.setProperty('--letters',target.length);const word=guesses[i]||(!ended&&i===guesses.length?$('guess').value:''),marks=guesses[i]?score(word):[];for(let j=0;j<target.length;j++){const cell=document.createElement('span');cell.className='cell '+(marks[j]||'');cell.textContent=word[j]||'';if(animate&&i===guesses.length-1){cell.classList.add('reveal');cell.style.setProperty('--delay',(j*180)+'ms')}if(marks[j]){cell.setAttribute('aria-label',word[j]+' '+marks[j]);if(!colors[word[j]]||rank[marks[j]]>rank[colors[word[j]]])colors[word[j]]=marks[j]}row.append(cell)}$('board').append(row)}if(!animate)document.querySelectorAll('[data-letter]').forEach(button=>button.className=colors[button.dataset.letter]||'');$('guess').disabled=ended||revealing||!!secure.pending;document.querySelectorAll('.keys button').forEach(b=>b.disabled=ended||revealing);if(ended&&!animate)$('message').textContent=!!serverResult?.won?`Correct! Today's DJ is ${targetName}.`:`Today's DJ was ${targetName}. Come back tomorrow.`}
+const statsKey='hardle-djdle-stats-v1';let stats={played:0,wins:0,streak:0,best:0,distribution:[0,0,0,0,0,0,0],lastWin:null};try{const saved=JSON.parse(localStorage.getItem(statsKey)||'null');if(saved){stats={...stats,...saved};stats.distribution=Array.from({length:7},(_,i)=>Number(saved.distribution?.[i]||0))}}catch{}
+function recordResult(){}
+function resultText(){const won=!!serverResult?.won;const attempt=Math.max(1,Math.min(7,guesses.length));const tiles=Array.from({length:7},(_,i)=>won&&i===attempt-1?'🟩':won?'⬜':'⬛').join('');return 'DJdle '+today+' '+guesses.length+'/7\n'+tiles}
+function showResult(){if(window.loadVerifiedGameStats)window.loadVerifiedGameStats('djdle','stats','distribution');const won=!!serverResult?.won;if(!won){try{localStorage.setItem('hardle-failed-djdle-'+today,'1')}catch{}}document.querySelector('.correctBox').classList.toggle('loss',!won);const feedback=!won?['BETTER LUCK TOMORROW!','','red']:guesses.length<=2?['PERFECT!','🎉','green']:guesses.length===3?['AMAZING!','','green']:guesses.length===4?['NICE!','','yellow']:guesses.length<=6?['WELL DONE!','','orange']:['JUST IN TIME!','','orange'];document.querySelector('.correctBox').dataset.feedback=feedback[2];$('result-title').textContent=feedback[0];document.querySelector('.correctIcon').textContent=feedback[1];document.querySelector('.correctSub').textContent=won?'You found today’s DJ in '+guesses.length+'/7 attempts!':'Here is today’s DJ. Try again tomorrow!';try{const k='hardle-menu-result-'+today;localStorage.setItem(k,JSON.stringify({...JSON.parse(localStorage.getItem(k)||'{}'),djdle:{won,score:Number(serverResult?.score)||0,attempts:guesses.length}}))}catch{}if(won){try{localStorage.setItem('hardle-completed-djdle-'+today,'1')}catch{}}$('result-name').textContent=targetName;$('stats').replaceChildren();for(const [label,value] of [['Played',stats.played],['Win %',stats.played?Math.round(stats.wins/stats.played*100):0],['Streak',stats.streak],['Best streak',stats.best],['Score',serverResult?.score||0],['Today',guesses.length+'/7']]){const div=document.createElement('div'),b=document.createElement('b'),span=document.createElement('span');b.textContent=value;span.textContent=label;div.append(b,span);$('stats').append(div)}$('distribution').replaceChildren();const max=Math.max(1,...stats.distribution);stats.distribution.forEach((count,i)=>{const bar=document.createElement('div');bar.dataset.guesses=i+1;bar.innerHTML='<span class="distBar" style="--bar-h:'+Math.max(4,Math.round(count/max*68))+'px"><span class="distCount">'+count+'</span></span><span class="distLabel">'+(i+1)+'</span>';$('distribution').append(bar)});$('result-modal').hidden=false;$('close-result').focus();window.HardleScore.renderDailyTotal('stats',today,'djdle')}
+$('close-result').onclick=()=>{$('result-modal').hidden=true};$('share').onclick=async()=>{try{await navigator.clipboard.writeText(resultText());$('share').textContent='Copied!'}catch{$('share').textContent='Copy failed'}};
+document.addEventListener('keydown',e=>{if($('result-modal').hidden)return;if(e.key==='Escape')$('result-modal').hidden=true;if(e.key==='Tab'){const first=$('share'),last=$('close-result');if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}});
+async function load(){
+ revealing=true;
+ $('length').textContent='Loading today’s DJdle…';
+ $('message').textContent='Connecting to the game server…';
+ $('guess').disabled=true;
+ $('board').replaceChildren();
+ for(let i=0;i<7;i++){const row=document.createElement('div');row.className='row';row.style.setProperty('--letters',5);for(let j=0;j<5;j++){const cell=document.createElement('span');cell.className='cell';cell.setAttribute('aria-hidden','true');row.append(cell)}$('board').append(row)}
+ document.querySelectorAll('.keys button').forEach(b=>b.disabled=true);
+ try{const state=await secure.start();if(!Number.isInteger(state.public_payload?.length)||state.public_payload.length<1||state.public_payload.length>100||!Array.isArray(state.guesses))throw Error('Invalid server puzzle');target.length=state.public_payload.length;guesses=state.guesses.map(g=>g.guess.canonical);feedbackRows=state.guesses.map(g=>g.feedback.feedback);serverResult=state.completed?{...state.result,completed:true}:null;targetName=serverResult?.answer?.name||'';serverYellowLetters=state.yellowLetters;rebuildYellowLetters();revealing=false;$('message').textContent='';$('length').textContent=`Today's DJ name has ${target.length} letters.`;$('guess').maxLength=target.length;render();renderYellowLetters();if(ended)showResult()}
+ catch(error){$('message').textContent=error.message;$('guess').disabled=true;document.querySelectorAll('.keys button').forEach(b=>b.disabled=true)}
+}
+async function submit(){
+ if(date(new Date())!==today){location.reload();return}if(ended||revealing)return;
+ const word=secure.pending?.guess||normalize($('guess').value);
+ if(word.length!==target.length){$('message').textContent=`Enter exactly ${target.length} letters.`;return}
+ revealing=true;$('guess').disabled=true;
+ try{const data=await secure.guess(word);guesses.push(word);feedbackRows.push(data.feedback);serverYellowLetters=data.yellowLetters;rebuildYellowLetters();serverResult=data;targetName=data.answer?.name||'';$('guess').value='';renderYellowLetters();render(true);setTimeout(()=>{revealing=false;render();if(ended)showResult()},(target.length-1)*180+450)}
+ catch(error){revealing=false;render();const message=error.message==='Unrecognized guess'?'Artist not found':error.message;$('message').textContent=message+(secure.pending?' — press Enter to retry this guess.':'')}
+}
+$('guess').addEventListener('input',()=>{$('guess').value=normalize($('guess').value).slice(0,target.length)});$('length').textContent=`Today's DJ name has ${target.length} letters.`;$('guess').maxLength=target.length;
+for(const letters of ['QWERTYUIOP','ASDFGHJKL','ZXCVBNM']){const row=document.createElement('div');row.className='keys';for(const letter of letters){const b=document.createElement('button');b.type='button';b.textContent=letter;b.dataset.letter=letter;b.onclick=()=>{if(!ended&&!revealing&&$('guess').value.length<target.length){$('guess').value+=letter;render()}};row.append(b)}$('keyboard').append(row)}const bottomRow=$('keyboard').lastElementChild;for(const text of ['Enter','⌫']){const b=document.createElement('button');b.type='button';b.textContent=text;b.setAttribute('aria-label',text==='Enter'?'Submit guess':'Delete letter');b.style.flex='1.5';b.style.maxWidth='70px';b.onclick=()=>{if(revealing)return;if(text==='Enter')submit();else{$('guess').value=$('guess').value.slice(0,-1);render()}};if(text==='Enter')bottomRow.prepend(b);else bottomRow.append(b)}
+document.addEventListener('keydown',event=>{if(ended||revealing||event.ctrlKey||event.metaKey||event.altKey||event.target===$('guess')||event.target.isContentEditable)return;if(/^[a-z]$/i.test(event.key)){event.preventDefault();if($('guess').value.length<target.length){$('guess').value+=event.key.toUpperCase();render()}}else if(event.key==='Backspace'){event.preventDefault();$('guess').value=$('guess').value.slice(0,-1);render()}else if(event.key==='Enter'){event.preventDefault();submit()}});
+load();recordResult();if(ended)showResult();countdown();setInterval(countdown,1000);window.addEventListener('focus',countdown);
+
+function countdown(){if(date(new Date())!==today)location.reload()}
