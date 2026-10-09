@@ -13,20 +13,16 @@ function renderYellowLetters(){
 function rebuildYellowLetters(){
  const greenPositions=new Set(),knownTotal={};
  for(let i=0;i<guesses.length;i++){
-  const word=guesses[i],marks=feedbackRows[i]||[],positive={},yellow={},greenBefore={};
-  for(const key of greenPositions){const letter=key.split(':').slice(1).join(':');greenBefore[letter]=(greenBefore[letter]||0)+1}
+  const word=guesses[i],marks=feedbackRows[i]||[],yellow={};
   for(let j=0;j<word.length;j++){
    const letter=word[j],mark=marks[j];
-   if(mark==='yellow'||mark==='green')positive[letter]=(positive[letter]||0)+1;
-   if(mark==='yellow')yellow[letter]=(yellow[letter]||0)+1;
    if(mark==='green')greenPositions.add(j+':'+letter);
+   if(mark==='yellow')yellow[letter]=(yellow[letter]||0)+1;
   }
-  for(const letter of Object.keys(positive)){
-   const inferred=Math.max(positive[letter]||0,(greenBefore[letter]||0)+(yellow[letter]||0));
-   knownTotal[letter]=Math.max(knownTotal[letter]||0,inferred);
-  }
-  for(const letter of Object.keys(yellow)){
-   const inferred=(greenBefore[letter]||0)+yellow[letter];
+  const greenCounts={};
+  for(const key of greenPositions){const letter=key.split(':').slice(1).join(':');greenCounts[letter]=(greenCounts[letter]||0)+1}
+  for(const letter of new Set([...Object.keys(greenCounts),...Object.keys(yellow)])){
+   const inferred=(greenCounts[letter]||0)+(yellow[letter]||0);
    knownTotal[letter]=Math.max(knownTotal[letter]||0,inferred);
   }
  }
