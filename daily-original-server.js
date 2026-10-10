@@ -5,7 +5,7 @@ const serverSongIds={"Dragonborn\u0000Headhunterz": "song-0", "Transcendence\u00
 playBtn.disabled=true;guessInput.disabled=true;guessSubmit.disabled=true;
 getClipStart=function(){return authoritativeClipStart};
 const originalAudioSource=audioSource;
-audioSource=function(song){return authoritativeAudio||originalAudioSource(song)};
+audioSource=function(song){const source=authoritativeAudio||originalAudioSource(song);return source?.soundcloud==='https://soundcloud.com/missk8/legacy'?{youtube:'hcaBoW7Ocjk'}:source};
 function appendServerGuess(data){
  const item=data.guessed;if(!item)return;
  const row=document.createElement('div');row.className='guessRow'+(data.won?' correct':'');
