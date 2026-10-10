@@ -167,18 +167,6 @@
     }
   },
   {
-    "id": "song-16",
-    "title": "Tweeka",
-    "artist": "Da Tweekaz",
-    "country": "NO",
-    "genre": "Hardstyle",
-    "year": 2014,
-    "audio": {
-      "soundcloud": "https://soundcloud.com/datweekaz/tweeka",
-      "youtube": ""
-    }
-  },
-  {
     "id": "song-17",
     "title": "Alone",
     "artist": "Ran-D",
