@@ -113,5 +113,49 @@ body{background:#000}body:before{display:none}
   #keyboard .keys button{height:29px!important;min-height:29px!important;font-size:9px!important}
 }
 </style>
+<style id="djdle-viewport-fit">
+/* Wordle-inspired proportions, adapted to seven rows and variable word length. */
+@media(max-width:600px){
+  body > a:first-of-type{margin:8px 12px 0!important;font-size:13px;line-height:18px}
+  main{max-width:500px;padding:4px 8px calc(8px + env(safe-area-inset-bottom))!important}
+  .panel{height:calc(var(--visible-height,100svh) - 42px - env(safe-area-inset-bottom));min-height:0;display:flex;flex-direction:column;padding:8px 0 0!important;background:#121213;border:0;border-radius:0}
+  .djdleHeading{border-bottom:1px solid #e21b2355;padding-bottom:8px;margin-bottom:4px}
+  #length{text-align:center}
+  #board.board{flex:1;min-height:0;grid-template-rows:repeat(7,minmax(0,1fr));align-items:center;gap:5px!important;margin:4px 0!important;padding:0!important}
+  #board .row{
+    --tile:min(52px,calc((100vw - 32px - (var(--letters) - 1) * 5px) / var(--letters)),var(--board-tile,24px));
+    --tile:min(52px,calc((100vw - 32px - (var(--letters) - 1) * 5px) / var(--letters)),var(--board-tile,24px));
+    grid-template-columns:repeat(var(--letters),var(--tile))!important;justify-content:center;gap:5px!important;max-width:100%!important;
+  }
+  #board .cell{width:var(--tile)!important;height:var(--tile)!important;aspect-ratio:1!important;border:2px solid #3a3a3c;background:#121213;font-size:clamp(10px,calc(var(--tile) * .52),28px)!important}
+  #board .cell.green{background:#267647;border-color:#267647}
+  #board .cell.yellow{background:#9c7e22;border-color:#9c7e22}
+  #board .cell.gray{background:#3a3a3c;border-color:#3a3a3c}
+  #keyboard.keyboard{gap:8px!important;margin:8px 0 0!important;padding:0 0 2px;flex-shrink:0}
+  #keyboard .keys{gap:6px!important}
+  #keyboard .keys:nth-child(2){width:90%!important;margin-inline:auto}
+  #keyboard .keys button{height:58px!important;min-height:58px!important;font-size:15px!important;border-radius:4px!important;background:#484853;text-transform:uppercase}
+  #keyboard .keys button[aria-label="Submit guess"]{font-size:11px!important}
+  #keyboard .keys button.green{background:#267647}
+  #keyboard .keys button.yellow{background:#9c7e22}
+  #keyboard .keys button.gray{background:#3a3a3c}
+}
+</style>
 </head><body class="authFlashGuard"><a href="/" style="display:inline-block;margin:16px 18px 0;text-decoration:none;font-weight:700">← Back to menu</a><main><section class="panel"><div class="djdleHeading"><h1>DJdle</h1><button id="info-toggle" type="button" aria-label="How to play" aria-expanded="false" aria-controls="djdle-info">ⓘ</button></div><p id="djdle-info" hidden>You can guess ordinary English words as well as DJ names to discover letters and their positions. Every guess must have the same number of letters as today’s answer. The answer is always a DJ name.</p><p id="length"></p><div id="board" class="board" aria-label="Your guesses"></div><div id="yellow-summary" class="yellow-summary" aria-label="Yellow letters found"><div class="yellow-summary-label">YELLOW LETTERS FOUND</div><div id="yellow-letters" class="yellow-letters" hidden></div></div><input id="guess" type="hidden" value=""><p id="message" role="status" aria-live="polite"></p><div id="keyboard" class="keyboard" aria-label="Keyboard"></div><p id="countdown" hidden></p></section></main><div id="result-modal" class="correctModal" hidden><section class="correctBox" role="dialog" aria-modal="true" aria-labelledby="result-title"><div class="correctTop"><div class="correctIcon">🎉</div><h2 id="result-title" class="correctTitle">CORRECT!</h2><div class="correctSub">You nailed today’s DJ.</div></div><div class="correctBody"><div id="result-name" class="correctTrack"></div><div id="stats" class="statsGrid"></div><div class="shareResult"><p class="shareResultTitle">Guess distribution</p><div id="distribution" class="distribution"></div><button id="share" type="button">Copy result</button></div><a href="/artist" class="correctClose" style="display:block;text-decoration:none">Next game: Guess the Artist <span class="nextGameArrow" aria-hidden="true">→</span></a><button id="close-result" class="correctClose" type="button">Close</button><div class="guestSignup" id="guestSignup" hidden>Want to keep your streak? <a href="/account?mode=register">Create an account.</a></div></div></section></div><script src="/scoring.js"></script><script src="/account-config.js"></script><script src="/verified-game-stats.js"></script><script src="/secure-game-client.js"></script><script src="/djdle-server.js"></script><script>(function(){const el=document.getElementById('guestSignup');if(!el)return;try{const s=JSON.parse(localStorage.getItem('hardle-auth-v1')||'null');if(!s?.access_token)el.hidden=false}catch{el.hidden=false}})();</script><script>(function(){const el=document.getElementById("guestSignup");if(!el)return;try{const s=JSON.parse(localStorage.getItem("hardle-auth-v1")||"null");const key="hardle-menu-result-"+new Intl.DateTimeFormat("en-CA",{timeZone:"Europe/Stockholm"}).format(new Date());const r=JSON.parse(localStorage.getItem(key)||"{}");const allGames=!!r.daily&&!!r.djdle&&!!r.artist&&!!r.orderdle;if(!s?.access_token&&allGames)el.hidden=false}catch{}})();</script></body></html>
 <script>document.body.classList.remove("authFlashGuard");</script><style id="copy-result-size-unified">.correctBox .shareResult{margin-top:10px!important;padding:9px!important;border:1px solid #ffffff15!important;border-radius:14px!important;background:#0d0d11!important;text-align:left!important}.correctBox .shareResult #share-grid{margin:0 0 7px!important}.correctBox .shareResult #copyBtn,.correctBox .shareResult #share,.correctBox .shareResult #artist-copy{display:block!important;width:100%!important;box-sizing:border-box!important;height:42px!important;min-height:42px!important;margin:0!important;padding:0 14px!important;border-radius:10px!important;background:#25252b!important;border:1px solid #ffffff16!important;color:#fff!important;font-size:14px!important;font-weight:900!important;line-height:42px!important;cursor:pointer!important}.correctBox .shareResult #copyBtn:hover,.correctBox .shareResult #share:hover,.correctBox .shareResult #artist-copy:hover{background:#2f2f37!important;border-color:#ffffff25!important}</style><style id="djdle-distribution-title-center">.correctBox .shareResult .shareResultTitle{text-align:center!important;margin:0 0 7px!important;font-weight:900!important;color:#fff!important}</style>
+<script>
+(function(){
+  const board=document.getElementById('board');
+  function fitViewport(){
+    document.documentElement.style.setProperty('--visible-height', (window.visualViewport?.height || window.innerHeight)+'px');
+    if(window.matchMedia('(max-width:600px)').matches){
+      const available=Math.max(1,(board.clientHeight-30)/7);
+      board.style.setProperty('--board-tile',available+'px');
+    }
+  }
+  new ResizeObserver(fitViewport).observe(board);
+  window.addEventListener('resize',fitViewport);
+  window.visualViewport?.addEventListener('resize',fitViewport);
+  fitViewport();
+})();
+</script>
