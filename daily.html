@@ -466,6 +466,8 @@ playBtn.disabled=true;guessInput.disabled=true;guessSubmit.disabled=true;
 getClipStart=function(){return authoritativeClipStart};
 const originalAudioSource=audioSource;
 audioSource=function(song){const source=authoritativeAudio||originalAudioSource(song);return source?.soundcloud==='https://soundcloud.com/missk8/legacy'?{youtube:'hcaBoW7Ocjk'}:source};
+const resolveDailyAudioSource=audioSource;
+audioSource=function(song){const source=resolveDailyAudioSource(song);const replacements={"https://soundcloud.com/headhunterz/the-flame-inside": "a3JulJ72z_A", "https://soundcloud.com/headhunterz/before-i-wake": "qQDJvyMn4KQ"};return replacements[source?.soundcloud]?{youtube:replacements[source.soundcloud]}:source};
 function appendServerGuess(data){
  const item=data.guessed;if(!item)return;
  const row=document.createElement('div');row.className='guessRow'+(data.won?' correct':'');
