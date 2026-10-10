@@ -229,6 +229,7 @@ const blockedAudioSongs=new Set([["World Of Dreams","Da Tweekaz"],["Black","Tha 
 function soundcloudKey(song){return norm(song[0])}
 const suppliedYouTubeSources=[{"title": "Dragonborn Part 2", "artist": "Headhunterz", "youtube": "8IYy61kMXds"}, {"title": "Weapons of Love", "artist": "Da Tweekaz & Atmozfears ft. POPR3B3L", "youtube": "lGvhDLsJ7V4"}, {"title": "Home", "artist": "Ran-D & Adaro", "youtube": "D3RSfIZChVM"}, {"title": "Self Aware", "artist": "Gezellige Uptempo & Lil Texas", "youtube": "q-WEETpz464"}, {"title": "Boten Anna", "artist": "Da Tweekaz x Basshunter", "youtube": "4x92iKSwp84"}, {"title": "We Like To Party", "artist": "Vengaboys (Da Tweekaz)", "youtube": "P5Djcm-Ufmk"}, {"title": "Heart Of A Dragon", "artist": "Ran-D & Brennan Heart ft. Floor Jansen", "youtube": "9vqkVfvhl1k"}];
 function audioSource(song){
+  if(norm(song[0])===norm("Hurricane")&&norm(song[1])===norm("Soulblast, The Dope Doctor"))return {soundcloud:"",youtube:"VSWpbEZj9wk"};
   const supplied=suppliedYouTubeSources.find(x=>norm(x.title)===norm(song[0])&&norm(x.artist)===norm(song[1]));
   if(supplied)return {soundcloud:"",youtube:supplied.youtube};
   if(blockedAudioSongs.has(norm(song[0])+"|"+norm(song[1])))return {soundcloud:"",youtube:""};
