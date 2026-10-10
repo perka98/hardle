@@ -120,10 +120,11 @@ body{background:#000}body:before{display:none}
   body > a:first-of-type{margin:8px 12px 0!important;font-size:13px;line-height:18px}
   main{padding-bottom:calc(8px + env(safe-area-inset-bottom))!important}
   #board .cell{
-    height:clamp(18px,calc((100vh - 240px - env(safe-area-inset-bottom)) / 7),52px)!important;
-    height:clamp(18px,calc((100svh - 240px - env(safe-area-inset-bottom)) / 7),52px)!important;
+    height:clamp(18px,calc((100vh - 240px - env(safe-area-inset-bottom)) / 7),36px)!important;
+    height:clamp(18px,calc((100svh - 240px - env(safe-area-inset-bottom)) / 7),36px)!important;
     aspect-ratio:auto!important;
   }
+  #board .row{max-width:calc(var(--letters) * 38px - 2px)!important;margin-inline:auto!important}
   #keyboard .keys button{height:36px!important;min-height:36px!important}
 }
 </style>
