@@ -63,3 +63,7 @@ playBtn.onclick=()=>{
   else guessCount.textContent='Audio check: player not ready';
  },1800);
 };
+
+// Prefer YouTube for Headhunterz, including already-provisioned payloads.
+const headhunterzAudioResolver=audioSource;
+audioSource=function(song){const source=headhunterzAudioResolver(song);const preferred={"https://soundcloud.com/officialozgurmete/headhunterz-dragonborn": "VaiHTvifGt0", "https://soundcloud.com/headhunterz/destiny-cinematic-edit-1": "dv2NtTtwVVY", "https://soundcloud.com/headhunterz/home": "YwYoLHSRS7w", "https://soundcloud.com/headhunterz/takin-it-back": "t-601tSRnfE"};if(preferred[source?.soundcloud])return {youtube:preferred[source.soundcloud]};if(/headhunterz/i.test(song?.[1]||" ")&&source?.youtube)return {youtube:source.youtube};return source};
