@@ -123,15 +123,15 @@ body{background:#000}body:before{display:none}
   #length{text-align:center}
   #board.board{gap:5px!important;margin:auto 0!important;padding:8px 0!important}
   #board .row{
-    --tile:min(52px,calc((100vw - 32px - (var(--letters) - 1) * 5px) / var(--letters)),calc((100vh - 330px - env(safe-area-inset-bottom)) / 7));
-    --tile:min(52px,calc((100vw - 32px - (var(--letters) - 1) * 5px) / var(--letters)),calc((100svh - 330px - env(safe-area-inset-bottom)) / 7));
+    --tile:min(52px,calc((100vw - 32px - (var(--letters) - 1) * 5px) / var(--letters)),calc((100vh - 390px - env(safe-area-inset-bottom)) / 7));
+    --tile:min(52px,calc((100vw - 32px - (var(--letters) - 1) * 5px) / var(--letters)),calc((100svh - 390px - env(safe-area-inset-bottom)) / 7));
     grid-template-columns:repeat(var(--letters),var(--tile))!important;justify-content:center;gap:5px!important;max-width:100%!important;
   }
   #board .cell{width:var(--tile)!important;height:var(--tile)!important;aspect-ratio:1!important;border:2px solid #3a3a3c;background:#121213;font-size:clamp(10px,calc(var(--tile) * .52),28px)!important}
   #board .cell.green{background:#538d4e;border-color:#538d4e}
   #board .cell.yellow{background:#b59f3b;border-color:#b59f3b}
   #board .cell.gray{background:#3a3a3c;border-color:#3a3a3c}
-  #keyboard.keyboard{gap:8px!important;margin:8px 0 0!important;padding:0 0 2px}
+  #keyboard.keyboard{gap:8px!important;margin:8px 0 0!important;padding:0 0 2px;flex-shrink:0}
   #keyboard .keys{gap:6px!important}
   #keyboard .keys:nth-child(2){width:90%!important;margin-inline:auto}
   #keyboard .keys button{height:58px!important;min-height:58px!important;font-size:15px!important;border-radius:4px!important;background:#818384;text-transform:uppercase}
