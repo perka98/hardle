@@ -173,7 +173,7 @@
     "artist": "Da Tweekaz",
     "country": "NO",
     "genre": "Hardstyle",
-    "year": 2012,
+    "year": 2018,
     "audio": {
       "soundcloud": "https://soundcloud.com/datweekaz/jaegermeister",
       "youtube": "AGDolE35XHA"
@@ -193,14 +193,13 @@
   },
   {
     "id": "song-17",
-    "title": "The Project",
+    "title": "Alone",
     "artist": "Ran-D",
     "country": "NL",
     "genre": "Rawstyle",
-    "year": 2017,
+    "year": 2025,
     "audio": {
-      "soundcloud": "https://soundcloud.com/subzeroproject/the-project",
-      "youtube": ""
+      "youtube": "1skaDVnzDtc"
     }
   },
   {
@@ -517,10 +516,9 @@
     "artist": "Rebelion",
     "country": "SC",
     "genre": "Rawstyle",
-    "year": 2019,
+    "year": 2022,
     "audio": {
-      "soundcloud": "https://soundcloud.com/rebelion-music/city-lights",
-      "youtube": ""
+      "soundcloud": "https://soundcloud.com/rebelion-music/city-lights"
     }
   },
   {
@@ -541,10 +539,9 @@
     "artist": "Aversion",
     "country": "NL",
     "genre": "Rawstyle",
-    "year": 2022,
+    "year": 2023,
     "audio": {
-      "soundcloud": "https://soundcloud.com/aversionnl/activation",
-      "youtube": ""
+      "soundcloud": "https://soundcloud.com/aversionnl/activation"
     }
   },
   {
@@ -669,14 +666,13 @@
   },
   {
     "id": "song-58",
-    "title": "Crispy",
+    "title": "Crispy Bassdrum",
     "artist": "N-Vitral",
     "country": "NL",
     "genre": "Hardcore",
-    "year": 2020,
+    "year": 2015,
     "audio": {
-      "soundcloud": "https://soundcloud.com/nvitral/n-vitral-crispy-bassdrum",
-      "youtube": ""
+      "soundcloud": "https://soundcloud.com/nvitral/n-vitral-crispy-bassdrum"
     }
   },
   {
@@ -697,10 +693,9 @@
     "artist": "Angerfist",
     "country": "NL",
     "genre": "Hardcore",
-    "year": 2006,
+    "year": 2004,
     "audio": {
-      "soundcloud": "https://soundcloud.com/angerfistmusic/raise-your-fist",
-      "youtube": ""
+      "soundcloud": "https://soundcloud.com/angerfistmusic/raise-your-fist"
     }
   },
   {
@@ -942,8 +937,7 @@
     "genre": "Hardstyle",
     "year": 2024,
     "audio": {
-      "soundcloud": "https://soundcloud.com/headhunterz/live-forever",
-      "youtube": ""
+      "youtube": "SsmMTSwnw3Q"
     }
   },
   {
@@ -954,7 +948,6 @@
     "genre": "Hardstyle",
     "year": 2022,
     "audio": {
-      "soundcloud": "https://soundcloud.com/headhunterz/before-i-wake",
       "youtube": "qQDJvyMn4KQ"
     }
   },
@@ -978,7 +971,6 @@
     "genre": "Hardstyle",
     "year": 2023,
     "audio": {
-      "soundcloud": "https://soundcloud.com/headhunterz/the-flame-inside",
       "youtube": "a3JulJ72z_A"
     }
   },
@@ -1002,8 +994,7 @@
     "genre": "Hardstyle",
     "year": 2011,
     "audio": {
-      "soundcloud": "https://soundcloud.com/headhunterz/psychedelic",
-      "youtube": ""
+      "youtube": "c7az2YQXvZY"
     }
   },
   {
@@ -2920,14 +2911,13 @@
   },
   {
     "id": "song-301",
-    "title": "Words From The Gang",
+    "title": "Words From The Gang Remix",
     "artist": "Coone",
     "country": "BE",
     "genre": "Hardstyle",
-    "year": 2011,
+    "year": 2014,
     "audio": {
-      "soundcloud": "https://soundcloud.com/coone/words-from-the-gang-2014-rem",
-      "youtube": ""
+      "soundcloud": "https://soundcloud.com/coone/words-from-the-gang-2014-rem"
     }
   },
   {
@@ -2952,10 +2942,9 @@
     "artist": "Coone",
     "country": "BE",
     "genre": "Hardstyle",
-    "year": 2014,
+    "year": 2013,
     "audio": {
-      "soundcloud": "https://soundcloud.com/coone/coone-ft-k19-times-gettin-hard",
-      "youtube": ""
+      "soundcloud": "https://soundcloud.com/coone/coone-ft-k19-times-gettin-hard"
     }
   },
   {
@@ -4948,10 +4937,9 @@
     "artist": "The Dope Doctor",
     "country": "NL",
     "genre": "Uptempo",
-    "year": 2025,
+    "year": 2026,
     "audio": {
-      "soundcloud": "https://soundcloud.com/vertile-music/no-sleep-extended-mix",
-      "youtube": ""
+      "youtube": "7pfOc7AVllY"
     }
   },
   {
@@ -5576,10 +5564,9 @@
     "artist": "Da Tweekaz, Sound Rush",
     "country": "NO",
     "genre": "Hardstyle",
-    "year": 2026,
+    "year": 2025,
     "audio": {
-      "soundcloud": "https://soundcloud.com/datweekaz/save-my-soul",
-      "youtube": ""
+      "soundcloud": "https://soundcloud.com/datweekaz/save-my-soul"
     }
   },
   {
@@ -6028,10 +6015,9 @@
     "artist": "Krowdexx, Levenkhan, Sickmode",
     "country": "NL",
     "genre": "Rawstyle",
-    "year": 2026,
+    "year": 2025,
     "audio": {
-      "soundcloud": "https://soundcloud.com/aggressiverecords/what-tha-helly-someone-call",
-      "youtube": ""
+      "soundcloud": "https://soundcloud.com/aggressiverecords/what-tha-helly-someone-call"
     }
   },
   {
@@ -6116,10 +6102,9 @@
     "artist": "D-Sturb, Aversion",
     "country": "NL",
     "genre": "Rawstyle",
-    "year": 2026,
+    "year": 2025,
     "audio": {
-      "soundcloud": "https://soundcloud.com/q-dancemusic/d-sturb-aversion-alive-2nite",
-      "youtube": ""
+      "soundcloud": "https://soundcloud.com/q-dancemusic/d-sturb-aversion-alive-2nite"
     }
   },
   {
@@ -6994,8 +6979,7 @@
     "genre": "Uptempo",
     "year": 2018,
     "audio": {
-      "soundcloud": "https://soundcloud.com/hardstyle-request/ran-d-hurricane-hq",
-      "youtube": ""
+      "youtube": "VSWpbEZj9wk"
     }
   },
   {
@@ -7660,10 +7644,9 @@
     "artist": "Deepack",
     "country": "NL",
     "genre": "Hardstyle",
-    "year": 2025,
+    "year": 2026,
     "audio": {
-      "soundcloud": "https://soundcloud.com/dirtyworkzofficial/rebelion-ft-micah-martin-we-own-the-night-acid-reign",
-      "youtube": ""
+      "youtube": "dvnZuWb0Kqk"
     }
   },
   {
