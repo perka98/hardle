@@ -32,3 +32,5 @@ for(let day=0;day<50;day++){
 console.log('Daily catalog IDs, existing audio format, and 50 playable server puzzles checked');
 
 for(const title of ['Voices','No Sleep'])assert(!catalog.find(song=>song.artist==='LunaKorpz'&&song.title===title).audio,'Namesake audio must not be assigned by title alone');
+
+assert.deepEqual(catalog.find(song=>song.id==='song-122').audio,{soundcloud:'',youtube:'3o9zmq8M9W4'});

@@ -8,7 +8,7 @@ const usesDeviceVolume=/iPhone|iPad|iPod/.test(navigator.userAgent)||(navigator.
 volumeControl.value='1';
 function applyPlayerVolume(player){if(!usesDeviceVolume)player.setVolume(Number(volumeControl.value))}
 if(usesDeviceVolume){const note=document.createElement('span');note.textContent='Use iPhone volume buttons';note.style.cssText='font-size:12px;color:#aaa';volumeControl.closest('label').replaceWith(note)}
-function audioSource(){return target||{}}
+function audioSource(){return target?.soundcloud==='https://soundcloud.com/officialsoundrush/stay-with-me-feat-ekaterina-shelehova'?{youtube:'3o9zmq8M9W4'}:target||{}}
 function loadSoundCloudApi(){
   if(window.SC?.Widget) return Promise.resolve();
   if(soundcloudLoading) return soundcloudLoading;

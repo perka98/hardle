@@ -10,6 +10,7 @@ get('search').onsubmit=async event=>{event.preventDefault();if(busy||completed||
 get('retry-guess').onclick=()=>guess(game.pending?.guess);get('retry-start').onclick=start;start();
 
 function mountAudio(audio){
+ if(audio?.soundcloud==='https://soundcloud.com/officialsoundrush/stay-with-me-feat-ekaterina-shelehova')audio={youtube:'3o9zmq8M9W4'};
  const frame=document.createElement('iframe');frame.title='Daily audio player';frame.allow='autoplay';frame.style.cssText='width:100%;height:166px;border:0';
  if(audio?.soundcloud&&/^https:\/\/soundcloud\.com\//.test(audio.soundcloud))frame.src='https://w.soundcloud.com/player/?url='+encodeURIComponent(audio.soundcloud)+'&auto_play=false';
  else if(audio?.youtube&&/^[A-Za-z0-9_-]{11}$/.test(audio.youtube))frame.src='https://www.youtube.com/embed/'+audio.youtube+'?playsinline=1&autoplay=0';
